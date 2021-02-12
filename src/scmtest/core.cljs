@@ -4,8 +4,8 @@
             [sicmutils.generic :as gn]
             [sicmutils.ratio :as rt]
             [sicmutils.structure :as st]
-            [sicmutils.simplify :as sp] ;;necessary to load simplify multifunction
-            [sicmutils.function :as fu] ;;necessary for ((gn/* 5 (fn[x] x)) 4)
+            [sicmutils.simplify :as sp]
+            [sicmutils.function :as fu]
             [sicmutils.expression :as ex]
             [sicmutils.differential :as dr]
             [sicmutils.numerical.minimize :as mn]
@@ -25,7 +25,3 @@
                                   test-path
                                   0
                                   10))
-
-(println "Lagrangian action")
-(println (la))
-(println "End")
