@@ -3,4 +3,4 @@
   sicmutils/sicmutils {:mvn/version "0.15.0"}}}
 
 ;; run:
-;; clj --main cljs.main --compile scmtest.core --repl
+;; clj --main cljs.main --repl-opts "{:launch-browser false}" --compile scmtest.core --repl
