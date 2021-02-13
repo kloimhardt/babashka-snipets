@@ -14,15 +14,30 @@
             [sicmutils.expression.render :as render]
             [sicmutils.abstract.function :as af :include-macros true]))
 
-(defn test-path
+(defn test-path-1
   "See p. 20"
   [t]
   (st/up (+ (* 4 t) 7)
       (+ (* 3 t) 5)
       (+ (* 2 t) 1)))
 
-(defn la []
+(defn test-path-2
+  "See p. 20"
+  [t]
+  (st/up (+ (* 1 t) 7)
+         (+ (* 3 t) 5)
+         (+ (* 2 t) 1)))
+
+(defn la1 []
   (lg/Lagrangian-action (lg/L-free-particle 3)
-                                  test-path
+                                  test-path-1
                                   0
                                   10))
+
+(defn la2 []
+  (lg/Lagrangian-action (lg/L-free-particle 3)
+                        test-path-2
+                        0
+                        10))
+
+(println "start")
