@@ -1,7 +1,8 @@
 (ns scmtest.core
+  (:refer-clojure :exclude [+ * / -])
   (:require [sicmutils.value :as vl]
             [sicmutils.numsymb :as ny]
-            [sicmutils.generic :as gn]
+            [sicmutils.generic :as gn :refer [+ * / -]]
             [sicmutils.ratio :as rt]
             [sicmutils.structure :as st]
             [sicmutils.simplify :as sp]
