@@ -47,22 +47,14 @@
 
 (output "3...\n")
 (defn la1 []
-  (lg/Lagrangian-action (lg/L-free-particle 3)
-                        test-path-1
-                        0
-                        10))
+  (lg/Lagrangian-action (lg/L-free-particle 3) test-path-1 0 10))
 
 (output "4...\n")
 (defn la2 []
-  (lg/Lagrangian-action (lg/L-free-particle 3)
-                        test-path-2
-                        0
-                        10))
+  (lg/Lagrangian-action (lg/L-free-particle 3) test-path-2 0 10))
 
 (output "5...\n")
-(la1)
-
-(output "6...\n")
-;; (la2)
+(defn la3 []
+  (lg/Lagrangian-action (lg/L-free-particle 3) test-path-2 0 10 {:compile? true}))
 
 (output "start to type\n")

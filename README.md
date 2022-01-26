@@ -12,7 +12,14 @@ Call the following functions:
 ```
 cljs.user=> (scmtest.minimaldemo/la1)
 435
+
 cljs.user=> (scmtest.minimaldemo/la2)
 Execution error (TypeError) at (<cljs repl>:1).
 Cannot mix BigInt and other types, use explicit conversions
+```
+
+Here we need the `:compile` true option
+```
+cljs.user=> (scmtest.minimaldemo/la3)
+210
 ```
