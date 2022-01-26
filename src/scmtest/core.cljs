@@ -40,4 +40,4 @@
                         0
                         10))
 
-(println "start")
+(println "start to type!")

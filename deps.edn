@@ -1,6 +1,3 @@
 {:deps
- {org.clojure/clojurescript {:mvn/version "1.10.758"}
-  sicmutils/sicmutils {:mvn/version "0.15.0"}}}
-
-;; run:
-;; clj --main cljs.main --repl-opts "{:launch-browser false}" --compile scmtest.core --repl
+ {org.clojure/clojurescript {:mvn/version "1.10.914"}
+  sicmutils/sicmutils {:mvn/version "0.21.0"}}}
