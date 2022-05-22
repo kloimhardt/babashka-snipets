@@ -1,7 +1,7 @@
 # Some code snippets for exploring sicmutils features
 
 ## sicmutils and sci
-When runnig the following code in sci, the error 'Could not resolve symbol: d:dt' occurs:
+When runnig the below code in sci, the error 'Could not resolve symbol: d:dt' occurs (the full code is in [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs)).
 
 ```
 (def gamma (literal-manifold-map 'q R1-rect R2-rect))
