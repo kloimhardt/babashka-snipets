@@ -1,29 +1,14 @@
 # Some code snippets for exploring sicmutils features
 
 ## sicmutils and sci
-When runnig the below code in sci, the error 'Could not resolve symbol: d:dt' occurs (the full code is in [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs)).
+When runnig the below code in sci, the error ``Could not resolve symbol: d:dt`` occurs (the full code is in [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs)).
 
 ```
-(def gamma (literal-manifold-map 'q R1-rect R2-rect))
-
-(def the-metric (literal-metric 'g R2-rect))
-
-(def Cartan
-  (Christoffel->Cartan
-   (metric->Christoffel-2
-    the-metric
-    (coordinate-system->basis R2-rect))))
-
 (def geodesic-equation-residuals
   (((((covariant-derivative Cartan gamma) d:dt)
      ((differential gamma) d:dt))
     (chart R2-rect))
    ((point R1-rect) 't)))
-
-(def simple-expression (* 3 'x))
-
-[\"from within sci\"
- [Cartan (->TeX simple-expression)]]
 ```
 
 To reproduce, clone this repo and start the cljs-repl:
