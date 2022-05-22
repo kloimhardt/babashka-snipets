@@ -14,6 +14,8 @@
             [sicmutils.expression.render :as render]
             [sicmutils.abstract.function :as af :include-macros true]))
 
+(println "loading core!")
+
 (defn test-path-1
   "See p. 20"
   [t]
