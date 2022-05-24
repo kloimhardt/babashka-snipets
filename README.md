@@ -1,17 +1,9 @@
 # Some code snippets for exploring sicmutils features
 
 ## sicmutils and sci
-When runnig the below code in sci, the error ``Could not resolve symbol: d:dt`` occurs (the full code is in [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs)).
+ [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs) contains a minimal example of how to run sicmutils within sci.
 
-```
-(def geodesic-equation-residuals
-  (((((covariant-derivative Cartan gamma) d:dt)
-     ((differential gamma) d:dt))
-    (chart R2-rect))
-   ((point R1-rect) 't)))
-```
-
-To reproduce, clone this repo and start the cljs-repl:
+To run, clone this repo and start the cljs-repl:
 
 ```
 clj -M --main cljs.main --repl-opts "{:launch-browser false}" --compile scmtest.scitest --repl
@@ -19,9 +11,7 @@ clj -M --main cljs.main --repl-opts "{:launch-browser false}" --compile scmtest.
 
 open `http://localhost:9000` in your favourite web browser.
 
-the error mentioned above is printed in both terminal and browser console.
-
-## obsolete: sicmutils and the compile option
+## sicmutils and the compile option
 Code for the following [sicmutils issue](https://github.com/sicmutils/sicmutils/issues/271)
 
 Start the cljs-repl:
