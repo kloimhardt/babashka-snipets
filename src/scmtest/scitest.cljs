@@ -6,6 +6,7 @@
 (.log js/console "scm + sci in the browser")
 
 (def code "
+(define-coordinates t R1-rect)
 
 (def gamma (literal-manifold-map 'q R1-rect R2-rect))
 
@@ -34,7 +35,10 @@
 
 (def res
   (try
-    (sci/eval-string code  {:env st :bindings (es/namespaces 'sicmutils.env)})
+    (sci/eval-string code
+                     {:env st
+                      :namespaces es/namespaces
+                      :bindings (es/namespaces 'sicmutils.env)})
     (catch js/Error e
       (let [err-msg (.-message e)]
         (println "error")
