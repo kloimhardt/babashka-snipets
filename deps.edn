@@ -1,5 +1,5 @@
 {:deps
  {org.clojure/clojurescript {:mvn/version "1.11.60"}
-  org.mentat/emmy {:mvn/version "0.30.0"}
+  ;; org.mentat/emmy {:mvn/version "0.30.0"}
   sicmutils/sicmutils {:mvn/version "0.20.0"}
   org.babashka/sci {:mvn/version "0.7.39"}}}

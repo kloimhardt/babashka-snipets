@@ -12,8 +12,10 @@ and open `http://localhost:9000` in your favourite web browser.
 In the termianl, call the following functions:
 
 ```
-cljs.user=> (scmtest.advancerdemo/test-sa1)
+cljs.user=> (scmtest.advancerdemo/test-sa2)
 ```
+
+It gives a `Execution error (DivisionByZero)` error
 
 ## sicmutils and sci
  [scitest.cljs](https://github.com/kloimhardt/babashka-snipets/blob/master/src/scmtest/scitest.cljs) contains a minimal example of how to run sicmutils within sci.
