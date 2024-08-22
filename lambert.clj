@@ -10,7 +10,7 @@
   )
 
 ^:kindly/hide-code
-(ns stefan
+(ns lambert
   (:require [scicloj.kindly.v4.api :as kindly]
             [scicloj.kindly.v4.kind :as kind]
             [clojure.math :as math]))

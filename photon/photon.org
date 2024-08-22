@@ -1,0 +1,239 @@
+* Boltzmann
+Zu Boltzmann:
+
+Ludwig Boltzmann verwendete den Begriff “lebendige Kraft” als eine historische Bezeichnung für kinetische Energie. In seinen Arbeiten, insbesondere in den “Studien über das Gleichgewicht der lebendigen Kraft zwischen bewegten materiellen Punkten”, untersuchte er die Verteilung und das Gleichgewicht der kinetischen Energie in Systemen von bewegten Teilchen12.
+
+GA = Boltzmann, Wissenschaftliche Abhandlungen III
+
+** Paper: Über eine von Hrn. Bart0li entdeckte Beziehung
+GA_Seite_113
+
+Die Arbeit von Bartoli enthält dcm Naehweis einer neuen Be:l.iehUllg' der strahlenden Wärme zum zweiten HauptHat~c. Ohwohl meine Ansichten über diesen Gegenstand noch nicht zum Abschlusse gelangt Silld, HO glaube' ich doch, an dieser Stelle einige da.rauf bezügliche Überlegungen mitteilen zu dürfen, um entweclcr Hrll. 13artoli selbst oder andere Physiker zur weiteren DiakuBsion dieses Gegenstandes anzuregen, der mir jedenfalls mehr Aufmerksam- keit zu verllienen scheint, als ihm bisher zuteil wurde.
+
+— das Bartoli Paper war von 1876, Boltzmann schreibt das 1884
+Hr. Bartoli geht von der rratsache aUH, da.ß in (~il1em von ,XrYärme durchstrahlten Raume eine wenn auch kluine,. al)(~r doch endliche F~nergie in .ITorm von Wn,rmestrahluug vorhaI.lllen ist4), welche durch Verkleinerung des Raunu's einem elarin l>e- findlicllen Körper zugeführt werden kann.
+
+Hält man daher die Hichtigkeit des zweitcll IIanptsntz(;s f e s t , s o m u ß i r g e n d e i n e d e r ben~ltzten V o r s t e l l n n g o n e i n e r Korrektur bedürfen. Am naheliegendst.Em ist die .\nmthmn, daß es absolut· spiegelnde FHichen nicht gibt.
+
+— hier folgt eine lange Erklärung über Schichten und Volumina.
+— Erzhählstil: Verständliches wird von Boltzmann direkt aber in Mitvergangenheit auch erster Person erzählt, Unverständliches in indirekter Rede in Möglichkeitsform, Erklärungen im Präsens/PartiziII in Prolosprache.
+— Direkte Rede: Am naheliegensten war damals den Einwand, dass es absolut spiegelnde Flächen nicht gibt. Der Widerspruch mit dem zweiten Hauptsatz schien mir aber hierdurch noch nicht aufgehoben zu sein.
+— Indirekte Rede: Denn baute man das Ganze riesengroß und die Wände und Schichten dünn, dann wäre theoretisch wenn auch nicht praktisch, jedenfalls wäre aber eine Fläche immer kleiner als das Volumen und daher auch ein schlechter Spiegel und verlorene Reibung egal, man müsse aber doch zügig experimentieren, weil sonst Wärmeausgleich, aber immerhin, theoretisch.
+- Direkt: Der Widerspruch mit dem zweiten Hauptsatze schien mir also durch den Hinweis auf die Unmöglichkeit perfekter Verspiegelungen noch nicht aufgehoben zu sein. Ein Ausweg schien mir bloß in der Annahme zu liegen, daß die Wärmestrahlung selbst, oder das dieselbe vermittelnde Medium Kräfte auf die Körper ausübt. Bartoli nimmt an daß die Wärmestrahlen einen Druck auf die Körper ausüben, wie dies ähnlich bei den Schallwellen vielfach beobachtet wurde.
+	⁃	Erklärung: “zweiter Hauptsatz” heisst: Im Sommer würde jeder gern seine Bude schön kühl halten und ein Gerät basteln das die Wärme rausbläst. Solch ein Gerät kann keiner basteln, keins ohne Stecker, zumindest. Ohne Strom kein gut gekühlter Chablis, das ist heute der Hauptsatz jedes zweiten Sportlers. Damals aber herrschte auch unter den schlaueren Leuten in dem Punkt noch keine Einigkeit.
+	⁃	Man hat geglaubt, wenn man nur einen schlauen Filter bauen könnt, der nur die schnellen durchlässt.
+	⁃	Boltzmann hat noch viele Träge vor sich gehabt, damals und später auch.
+
+GA_Seite_117
+Der Widersprueh mit dem zweiten Hauptsatze könnte aber auch durch eine andere Hypothese gehoben werden, etwa, daß die Körper in dem die Wärmestrahlung fortpflanzenden Medium einen Widerstand nach Art der Reibung erfahren.
+Überhaupt würde dann der Vorgang kaum quantitativ zu be- rechnen sein, da er nicht mehr umkehrbar wäre. Aber sollten selbst diese ponderomotorischen Kräfte des die Wärmestrahlung fortpflanzenden Mittels für immer außerhalb des Bereiches des
+
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:07:42
+[[file:Boltzmann/2024-08-22_11-07-42_screenshot.png]]
+
+experimentell Nachweisbaren liegen, so schien es mir doch von hohem Interesse zu sein, wenn sich deren Existenz aus dem zweiten Hauptsatze apriori nachweisen ließe.
+—- Boltzmann hat an den Äther geglaubt, aber auch andere Gründe zur Rettung des 2. Hauptsatzes zumindest theoretisch in Betracht gezogen. Man wusst ja damals nix.
+—- im Bartoli paper leitet er den druck = 1/3* Energie aus Stefan her. Im berühmten paper nimmt er Maxwell und beweist Stefan.
+
+** Paper: Ableitung des Stefanschen Gesetzes
+GA118
+MaxwelP) hat aus seiner elektromagnetischen Lichttheorie das Resultat abgeleitet, daß ein Strahl VOll Licht oder strahlender Wärme auf die Flächeneinheit bei senkrel'.hter Inzidenz einen Druck ausüben muß, welcher gleich ist der in der Volumeneinheit Äther infolge der Lichtbewegullg ent- haltenen Energie.
+— es ist also nicht ein Drittel, sondern die volle Energie.
+— mir scheint die vorherige Ableitung / vorheriges Boltzmann Paper über Bartoli fruchtbarer, also Maxwell-Druck aus Stefan hergeleitet.
+
+* Kirchhoff Emissionsvermögen
+Ueber das Verhältniss zwischen dem Emissionsvermögen und dem Absorptionsvermögen der Körper für Wärme und Licht
+Ein Körper, der in einer Hülle sich befindet, deren Temperatur der seinigen gleich ist, ändert durch Wärmestrahlung nicht seine Temperatur, absorbiert also in einer gewissen Zeit eben so viel Strahlen als er aussendet. Schon vor langer Zeit hat man hieraus den Schluß gezogen, daß bei derselben Temperatur das Verhaltnis zwischen dem Emissionsvermogen und dem Absorptionsvermogen fur alle Korper das gleiche ist.
+Ich habe nun gefunden, daB jener Satz seine Gültigkeit auch dann behalt, sobaId man nur unter dem Emissionsvermogen die lntensitat der ausgesendeten Strahlen einer Gattung versteht und das Absorptionsvermogen auf Strahlen derselben Gattung bezieht.
+— Die Frage ist nun: emittiert der Körper ebenso viele rote Strahlen wie er rote Strahlen absorbiert, ebensoviele violette Strahlen wie er violette Strahlen absorbiert? Ebensoviele in dieselbe Richtung?Kirchoff sagt: ja! Und zwar ja, aber nur im Thermischen Gleichgewicht, aber egal ob die Wände aus Stein oder Holz sind, egal ob der Körper drinnen aus Plastik oder Stein ist. Gilt für Lambda und Richtung und Polarisation. (Metalle gehen nicht nach Kirchhoff)
+— auch hier anmerken, dass daraus folgt, dass im Hohlraum bei gegebener konstanter Temperatur die Zusammensetzung der Strahlung immer dieselbe ist, egal wie das Material ist.
+?? Was ist ein Strahl, Wärmestrahl, was ist Wellenlänge, hat Wärmestrahlung eine Farbe, Schöpf sagt Farbintervall ??
+Ein jeder Körper sendet Strahlen aus, deren Qualitat und Intensität von seiner Natur und seiner Temperatur abhängig ist.
+?? Was meint er mit Qualität, lambda wahrscheinlich ??
+Wird der Körper von außen her von Strahlen getroffen, so absorbiert er einen Teil derselben und verwandelt ihn in Warme.
+——————————
+— Allgemeine Definition
+Vor einem Körper C, Fig. 1 denke man sich zwei Schirme S1 und S2 aufgestellt.
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:11:35
+[[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-11-35_screenshot.png]]
+Durch diese Öffnungen tritt von dem Körper C ein Strahlenbündel. Von diesem betrachte man den Teil, dessen Wellenlängen zwischen L und L + dL liegen.
+Die Intensität sei E*d_lambda, E heisse das Emissionsvermögen des Körpers.
+?? Wie hat sich der Strahlen, Intensität vorgestellt. Photonen, Anzahl der Photonen ??
+von den eingehenden Strahlen absorbiert der Körper einen Teil, wahrend er das Übrige teils durchläßt, teils reflektiert; das Verhältnis der Intensität der absorbierten Strahlen zu der der auffallenden sei A und heiße das Absorptionsvermögen des Körpers.
+Die Großen E und A hängen ab von der Natur und Temperatur des Körpers C, von der Lage und Gestalt der Öffnungen 1 und 2, von der Wellenlänge lambda ab.
+	1)	Natur
+	2)	Temperatur
+	3)	Lage der Öffnung
+	4)	Gestalt der Öffnung
+	5)	lambda
+Es soll nachgewiesen werden, daß das Verhältnis von E zu A von der Natur des Körpers unabhängig ist.
+— Wichtig: im thermischen Gleichgewicht.
+— Ich kann jetzt schon verraten, dass die Abhängigkeit von 3) Lage und 4) Gestalt der Öffnungen ist sehr einfach sein wird. Es bleiben also nur 2) Temperatur und 5) lambda.
+— Nun der Beweis, dass E/A von der Natur des Körpers gar nicht abhängt.  Um die Argumentation zu starten, wird ein schwarzer Körper in einer schwarzen Box angenommen. Dann: zuerst wird bewiesen, dass A) die Gesamtenergie bei jedem Schwarzen Körper (im Gleichgewicht der Temperatur T) gleich/unabhängig ist. Dann wird bewiesen dass B) die Energie jedes beliebigen Lambda-Intervalls gleich/unabhängig ist. Dann dass C) E/A = e für alle Körper ist.
+Nehme die selbe Anordnung, aber die Hülle und C vollkommen Schwarz.
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:13:28
+[[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-13-28_screenshot.png]]
+
+es soll bewiesen werden, daß e ungeändert bleibt, wenn C durch irgendeinen anderen schwarzen Körper von derselben Temperatur ersetzt wird.
+— Durch Gedankenexperiment mit Spiegel an 2: Emissionsvermögen ist unabhängig vom Material, solange es nur Schwarz ist, also alles absorbiert. i.e. e = e’ (e ist das E des schwarzen Körpers)
+Es ware hiermit der ausgesprochene Satz bewiesen, wenn alle Strahlen der beiden eben miteinander verglichenen Strahlenbündel von der gleichen Wellenlänge L wären.
+
++++ (H.G. Schöpf) Jedoch wurde hiermit nur bewiesen, daß die über alle Wellenlangen und Polarisationszustande integrierte, in einen Raumwinkel ausgestrahlte Energie von der Art des emittierenden Körpers unabhängig ist. Darüber hinaus soIl aber diese Unabhängigkeit für jedes Farbintervall und jede Polarisation einzeln gelten. ++
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:15:34
+[[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-15-34_screenshot.png]]
+
+— Durch Einführung von Platte P wird gezeigt, dass e = e’ für jedes lambda.
+§ 3. Bei der in F~g. 2 dargestellten Anordnung denke man sich zwischen die Offnungen 1 und 2 eine kleine Platte P gebracht, die in den sichtharen Strahlen die Farhen dunner Blattchen zeigt und die teils wegen ihrer geringen Dicke, teils wegen ihrer suhstantiellen Be- schaffenheit eine merkliche Strahlenmenge weder aus- sendet noch absorhiert.
+Aus der Theorie der Farben dunner Blättchen folgt dann …
+§ 5. Die mit e bezeichnete Große hängt außer von der Temperatur und der Wellenlange von der Gestalt und relativen Lage der Öffnungen 1 und 2 ab. Bezeichnet man durch w1 und w2 die Projektionen der Öffnungen auf Ebenen, die senkrecht auf der Achse des betrachteten Strahlenbündels stehen, und nennt 8 die Entfernung der Öffnungen, so ist:
+e = I * (w1 * w2) / s^2
+wo I nur eine Funktion der Wellenlange und der Temperatur bedeutet.
+— Desweiteren wird gezeigt, dass E/A = e ist. Das braucht viel Platz und wird lt. Schöpf in Lehrbüchern umschifft. Dieses Zeigen beruht auch auf einem Reziprozitatstheorem von HELMHOLTZ, das nie bewiesen worden ist (ausser jetzt bei Schöpf).
+Hierdurch ist der Satz, der in dieser Abhandlung bewiesen werden sollte, bewiesen.
+Die mit I bezeichnete Große ist, wie in § 5 bemerkt, eine Funktion der Wellenlange und der Temperatur. Es ist eine Aufgabe von hoher Wichtigkeit, diese Funktion zu finden. Der experimentellen Bestimmung derselben stehen groBe Schwierigkeiten im Wege; trotzdem scheint die Hoffnung begründet, sie durch Versuche ermitteln zu können, da sie unzweifelhaft von einfacher Form ist, wie alle Funktionen es sind, die nicht von den Eigenschaften einzelner Körper abhangen, und die man bisher kennengelernt hat.
+§ 16. Noch eine Folgerung aus dem bewiesenen Satz mage hier zum Schlulß Platz finden.  Wenn ein Raum von Körpern gleicher Temperatur umschlossen ist und durch diese Körper keine Strahlen hindurchdringen können, so ist ein jedes Strahlenbündel im Innern des Raumes seiner Qualitat und Intensitat nach gerade so beschaffen, als ob es von einem vollkommen schwarzen Korper derselben Temperatur herkäme, ist also unabhangig von der Be- schaffenheit und Gestalt der Korper und nur durch die Temperatur bedingt.
+In dem Innern eines undurchsichtigen, glühenden Korpers von gewisser Temperatur findet hiernach auch immer dieselbe Helligkeit statt, welches auch im übrigen die Beschaffenheit desselben sein möge.
+— scheint mir logisch, da E/Akörper = E/Awand ist (für jedes Lambda, und das ist ja der Witz von Kirchhoff und das Entscheidende) und ja überhaupt der Körper tatsächlich schwarz sein könnte und damit schwarz Strahlen.
+
+* Lambert Pyrometrie
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:18:44
+[[file:Lambert_Pyrometrie/2024-08-22_11-18-44_screenshot.png]]
+§48 bei gleicher Termperatur (“Wärme”) ist die Dichte (“Dichtigkeit”, 1/V) im Verhältnis zum Druck (“Schnellkraft der Luft”). 1/V1 : 1/V2 = p1 : p2 (Boyle-Mariotte)
+§49: dass bei gleicherm Volumen (“gleicher Dichtigkeit”, Leichem 1/V), die Temperatur (“Kraft der Wärme”)  im Verhältnis zum Druck (“Schnellkraft der Luft”, “aufliegendes Gewicht”) ist. P1 : T1 = P2 : T2 (Amontons)
+“Beim absoluten Nullpunkt wird die Luft Wasserdicht”
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:19:16
+[[file:Lambert_Pyrometrie/2024-08-22_11-19-16_screenshot.png]]
+
+Bestimmung der Siedepunktes
+
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:20:37
+[[file:Lambert_Pyrometrie/2024-08-22_11-20-37_screenshot.png]]
+
+
+* Stefan
+** Stefan1
+In Schöpf S30 ist ein Fehler, wenn man mit S414 bei Stefan vergleicht:
+(v1-v1’)/(T1^4 -T2^4) = A/C * (a - a’) = const.
+Zweite Formel von Schöpf S30 findet sich auf Stefan S398
+Cv1 = A(H(T1) - H(T2)) +D
+Spannend wird Stefan also ab S411
+
+Der ursprüngliche Anlass war Wüllner über Tyndall (Stefan 421)
+1847 Draper hat schon Versuche bei hohen Temperaturen gemacht.
+
+Stefan ging wohl von Tyndall, Ericson, Draper aus und fand, dass D&P gar nicht passen, sein T^4 jedenfalls besser. Dazu musste er Ericson etwas korrigieren.
+Dann ging er daran, D&P nachzurechnen, da passt T^4 auch ganz gut; mit vielen Diskussionen vermengt.
+Auch hier die Vorsicht:
+S411: Die absolute Grösse .. kann durch Versuche nicht bestimmt werden … nur Hypothetische Bedeutung.
+S420: Wie schon bemerkt worden, haben letztere Zahlen zunächst nur eine hypothetische Bedeutung und ist eine Prüfung derselben nicht möglich, solange nicht Ausstrahlungen gegen Körper von der absoluten Temperatur Null oder wenigstens von einer sehr niedrigen Temperatur gemessen sind.
+
+D&P Formel basiert auf Celsius. Stefan auf Kelvin. Crepeau, S799
+D&P konnten nicht wissen, dass Leitfähigkeit nicht vom Druck abhängt, das haben Clausius und Maxwell erst 1860 rausgefunden.
+Stafan sitzt in der Erdbergstrasse. Die Temperatur der Sonne nach D&P ist zu niedrig. Tyndall schaut nach T^4 aus. Ausserdem haben D&P die Sache mit der Leitfähigkeit falsch verstanden.
+Ausserdem machen Analysen von öffentlichen Daten die T^4 Hypothese glaubwürdiger als die eigene Hypothese mit eigenen Daten zu untermauern.
+
+** Stefan2
+Josef Stefan, “Über die Beziehung der Wärmestrahlung und der Temperatur, 1879
+https://archive.org/details/sitzungsbericht543klasgoog/page/391/mode/1up?view=theater
+Dulong und Petit: Die von einem Körper pro Sekunde ausgestrahlte Wärmemenge hängt von der Temperatur ab. Rausgefunden über Abkühlung eines Thermometers. Formel
+m*a^T
+m Materialkonstante, a = 1,0077
+Versuch zwischen 0 und 280°.
+Pouillet hat mit der Formel die Temperatur der Sonne errechnet, die Zahl war auffallend klein. Die Formel kann für hohe Temperaturen nicht stimmen. Auch die Versuche von Ericsson und Soret widersprechen der Formel.
+Die Formel ist lediglich eine empirische. Sie gibt die der Strahlung zugeschriebenen Wärmeabgabe wieder. Ich kann eine einfachere Formel angeben.
+D&P haben Abkühlungsgeschwindigkeiten angegeben. Diese werden auch durch
+T^4
+beschrieben. Vierte Potenz der absoluten Temperatur. Das Thermometer war in der Mitte einer Kugel, die konstant auf 0° Celsius gehalten wurde. Das Thermometer wurde auf Temperaturen zwischen 80° und 240° erhitzt. D&P entspricht den Beobachtungen besser, doch meine ist auch nicht schlecht.
+Es ist überhaupt nicht gesagt, dass die Abkühlungsgeschwindigkeit die ausgestrahlte Wärmemenge angibt. Die für die Abkühlung angegebenen Zahlen haben vielmehr überhaupt nicht die Bedeutung die man ihnen zuschreibt.
+Nähere Betrachtung des Experiments nötig.
+Thermometer in große kupferne Hohlkugel. Luft abgepumpt. In den "Annales de Chimie et de physique" von 1817 wird angegeben, dass der Druck der Luft 2 Torr (= 2/760 atm) nicht überstieg, in der fast gleichlautenden Publikation im "Journal de l'ecole polytechnique" werden 3 Torr statt 2 Torr angegeben.
+Wärmeabgabe hat zwei Teile: 1) Wärmestrahlung 2) Leitung durch Luft. Um Anteil 2) Abzuschätzen, wurdem Versuche bei 720, 360, 180, 90, 45 Torr gemacht. Ergebnis: Abkühlung immer langsamer. Schluss: 2 Torr so gut wie Vakuum. Die Abkühlgeschwindigkeiten bei 2 Torr wurden als Vakuumgeschwindigkeiten angenommen. Diese VG wurden von den G bei größerem Druck subtrahiert. Das Ergebnis wurde als Mass für die Wärmeleitung der Luft angenommen. Daraus wurde eine Formel für die Luft abgeleitet. Mit dieser Formel wurden die bei 2 Torr beobachteten Abkühlgeschwindigkeiten korrigiert. Diese korrigierten Zahlen dienen als Grundlage für den D&P fit.
+Die Wirkung der Luft ist eine Zweifache. 1) Wärmeströmung: "die den Körper umgebende Luft nimmt Wärme auf, dehnt sich aus, wird durch den Auftrieb gehoben und durch kältere Luft ersetzt. Dieser Prozess wiederholt sich in kontinuierlicher Weise, die Strömung führt fortwährend Wärme von dem sich abkühlenden Thermomenter zur kälteren Umgebung. 2) Wärmeleitung: "Luft leitet Wärme wie ein fester Körper auch wenn sie in vollständiger Ruhe sich befindet". Die 1) Wärmeströmung nimmt mit dem Druck ab. Die Wärmeleitung ist immer gleich, "sie ist in der Luft von 2 Torr und kleiner ebenso groß wie in normaler Luft oder unter  Hochdruck"
+"Diese Eigenschaft von Luft ist ein bekanntes Ergebnis der allgemeinen Gastheorie und wurde in umfangreicher Weise durch Versuche von Kundt und Warburg und Winkelmann und auch mir nachgewiesen. Um dieses Resultat zu erhalten ist es nötig die Strömung im Versuch zu unterbinden. Dies ist der Fall, wenn die Distanz zwischen Thermometer und Kugel klein gehalten wird."
+"Führt man die Versuche mit einem solchen Apparate aus, so erscheint die Abkühlungsgeschwindigkeit unabhängig vom Luftdruck". Bei falscher Wahl ist die AG in normaler Luft größer als in verdünnter Luft, nimmt auch aber nur bis zu einer gewissen Grenze ab. Dies haben auch schon vor uns Mrs. Desains und de la Provostaye beobachtet.
+D&P haben also nur die Strömung rausgerechnet. Die Wärmeleitung wurde nicht von der Strahlung getrennt.
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:22:41
+ [[file:Stefan/2024-08-22_11-22-41_screenshot.png]]
+
+Nun zu den Korrekturen von D&P. Es ist zweifelhaft ob diese Korrekturen überhaupt irgendeinen Sinn haben.
+Wie oben beschrieben stammt ihre Heuristik für die Korrektur der Luft aus Versuchen zwischen 720 und 45 Torr. Die Strömung kann aber bei 2 oder 3 Torr schon vollkommen aufgehört haben, sodass die Luft nur mehr wie ein fester Leiter gewirkt hätte. "Dann haben die von D&P an den Beobachtungen angegebenen Correctionen keinen Sinn". Waren Strömungen vorhanden, so sind die Heuristiken jedenfalls falsch.
+Leider haben D&P die uncorrigierten Geschwindigkeiten nicht angegeben.
+Um wenigsten ein angenähertes Mass für die Unsicherheit der von D&P mitgeteilten Werte zur erhalten, habe ich also selbst die fraglichen Korrekturen nachgerechnet, und zwar sowohl für 2 als auch für 3 Torr.
+???
+D&P haben für ihre Korrekturen vorausgesetzt, dass der Druck der Luft für alle Temperaturen denselben Werth beibehält, was für den ganzen Verlauf eines Versuches ja gar nicht der Fall ist.
+Falls keine Strömungen waren, müssten die von D&P mitgeteilten Werte um ähnliche Korrekturen erhöht werden. So einfach ist es jedoch nicht, weil bei höheren Temperaturen sofort nach Auspumpen zu messen begonnen wurde, was die Luft rein durch das Pumpen verwirbelte. Bei niedrigen Temperaturen war die Luft wohl nicht in einem derart bewegtem Zustande.
+???
+Nun berechne ich die Wärmeleitung der ruhenden Luft. T ist die Temperatur des Thermometers zur Zeit t, dT die Änderung von T in der Zeit dt. Die abgegebene Wärmemenge in der Zeit dt entspricht
+dQ = m * c * dT
+oder
+dQ = m * c * v * dt
+wenn mit m die Masse, mit c die Specifische Wärme des Thermometers und die Abgühlungsgeschwindigkeit dT/dt = v gesetzt wird.
+D&P haben für die Abkühlungsgeschwindigkeit die Minute als Einheit gewählt.
+
+* Wien
+** Eine neue Beziehung der Strahlung
+Ais Voraussetzungen werden wir notig haben zunachst die Gtiltigkeit der elektromagnetischen Lichttheorie, nach welcher der von einem Lichtstrahle in seiner Rich- tung ausgeubte Druck gleich der Energie des Strahles ist, dann die Moglichkeit der Existenz vollkommen schwarzer und vollkommen spiegelnder Korper, welche auch so zusammengesetzt sein konnen, daB sie die auffallenden Lichtstrahlen vollstandig zerstreut zurtickwerfen, wie wir es bei der totalen Reflexion weiBer Korper annahernd erfullt finden. AuBerdem betrachten wir noch den zweiten Hauptsatz der Warmetheorie als gtiltig, daB auch durch Strahlung, welche von dem Warmevorrat fester Korper herrtihrt, keine Arbeit aus Warme ohne sonstige Arbeits- leistungen, Temperaturverluste oder Zustandsanderungen gewonnen werden kann. SchlieBlich setzen wir die An- wendbarkeit des DOPPLERschen Prinzips auf Licht- strahlen voraus.
+— Wien schreibt mal die Voraussetzungen hin, was gut ist. Bisher war alles schwankend. Manche zweifelten wohl an der Gültigkeit des zweiten Hauptsatzes, andere an der Maxwell Theorie, überhaupt der Zulässigleit des Gedankenexperiments mit schwarzen und spiegelnden Körpern. Siehe Boltzmann (Schöpf 154)
+Es folgt also aus der elektromagnetischen Lichttheorie und dem zweiten Hauptsatz unmittelbar das STEFANsche Gesetz der Abhangigkeit der Warmestrahlung von der Tempera- tur, ein,gewiB bemerkenswertes Resultat, wenn auch sicher niemand den vielfach provisorischenCharakter der hier durchgefiihrten Rechnungen verkennen wird.
+
+** Ueber die Energievertheilung im Emmissionsspectrum eines schwarzen Körpers
+Seite 665
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:27:36
+[[file:Wien/2024-08-22_11-27-36_screenshot.png]]
+
+Reasarch: History of Quantum Mechanics, Bohr Einstein Sommerfeld 1900 - 1925
+Basierend auf "Vorgeschichte des Planckschen Strahlungsgesetzes" von Hans Kangro
+p31
+
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:28:07
+[[file:Wien/2024-08-22_11-28-07_screenshot.png]]
+actually f(lambda) = c2/lambda not f(lambda) = c2/(lambda*T)
+Wien, p 665
+
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:29:17
+[[file:Wien/2024-08-22_11-29-17_screenshot.png]]
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:29:27
+[[file:Wien/2024-08-22_11-29-27_screenshot.png]]
+
+Nun auch auf den Begriff Energiequantum achten:
+
+
+#+DOWNLOADED: screenshot @ 2024-08-22 11:29:56
+[[file:Wien/2024-08-22_11-29-56_screenshot.png]]
+Das muss näher ausgeführt werden.
+A BRIEF HISTORY OF THE T4 RADIATION LAW by John Crepeau
+
+* Resources
+** Clj Files
+stefan.clj lambert.clj
+
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
+
+(do
+ (require '[scicloj.clay.v2.api :as clay])
+ (require '[nextjournal.beholder :as beholder])
+ (defn make! [_] (clay/make! {:source-path "babashka-snipets/lambert.clj"}))
+ (def watcher (beholder/watch make! "babashka-snipets"))
+ (make! nil)
+)
+
+** The historical development of quantum theory
+https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
+** Charles's law
+Vorgänger von Gay-Lussac und Dalton. V1:T1 = V2:T2
+https://en.wikipedia.org/wiki/Charles's_law
+** Thermodynamic temperature
+Hinweis auf Lambert und Amontons
+https://en.wikipedia.org/wiki/Thermodynamic_temperature#History
