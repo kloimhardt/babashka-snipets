@@ -1,11 +1,13 @@
-* Boltzmann
+* Photon
+** Boltzmann
+*** begriff "lebendige Kraft"
 Zu Boltzmann:
 
 Ludwig Boltzmann verwendete den Begriff “lebendige Kraft” als eine historische Bezeichnung für kinetische Energie. In seinen Arbeiten, insbesondere in den “Studien über das Gleichgewicht der lebendigen Kraft zwischen bewegten materiellen Punkten”, untersuchte er die Verteilung und das Gleichgewicht der kinetischen Energie in Systemen von bewegten Teilchen12.
 
 GA = Boltzmann, Wissenschaftliche Abhandlungen III
 
-** Paper: Über eine von Hrn. Bart0li entdeckte Beziehung
+*** paper: Über eine von Hrn. Bart0li entdeckte Beziehung
 GA_Seite_113
 
 Die Arbeit von Bartoli enthält dcm Naehweis einer neuen Be:l.iehUllg' der strahlenden Wärme zum zweiten HauptHat~c. Ohwohl meine Ansichten über diesen Gegenstand noch nicht zum Abschlusse gelangt Silld, HO glaube' ich doch, an dieser Stelle einige da.rauf bezügliche Überlegungen mitteilen zu dürfen, um entweclcr Hrll. 13artoli selbst oder andere Physiker zur weiteren DiakuBsion dieses Gegenstandes anzuregen, der mir jedenfalls mehr Aufmerksam- keit zu verllienen scheint, als ihm bisher zuteil wurde.
@@ -31,18 +33,39 @@ Der Widersprueh mit dem zweiten Hauptsatze könnte aber auch durch eine andere H
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:07:42
 [[file:Boltzmann/2024-08-22_11-07-42_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 experimentell Nachweisbaren liegen, so schien es mir doch von hohem Interesse zu sein, wenn sich deren Existenz aus dem zweiten Hauptsatze apriori nachweisen ließe.
 —- Boltzmann hat an den Äther geglaubt, aber auch andere Gründe zur Rettung des 2. Hauptsatzes zumindest theoretisch in Betracht gezogen. Man wusst ja damals nix.
 —- im Bartoli paper leitet er den druck = 1/3* Energie aus Stefan her. Im berühmten paper nimmt er Maxwell und beweist Stefan.
 
-** Paper: Ableitung des Stefanschen Gesetzes
+*** paper: Ableitung des Stefanschen Gesetzes
 GA118
 MaxwelP) hat aus seiner elektromagnetischen Lichttheorie das Resultat abgeleitet, daß ein Strahl VOll Licht oder strahlender Wärme auf die Flächeneinheit bei senkrel'.hter Inzidenz einen Druck ausüben muß, welcher gleich ist der in der Volumeneinheit Äther infolge der Lichtbewegullg ent- haltenen Energie.
 — es ist also nicht ein Drittel, sondern die volle Energie.
 — mir scheint die vorherige Ableitung / vorheriges Boltzmann Paper über Bartoli fruchtbarer, also Maxwell-Druck aus Stefan hergeleitet.
 
-* Kirchhoff Emissionsvermögen
+** kirchhoff Emissionsvermögen
 Ueber das Verhältniss zwischen dem Emissionsvermögen und dem Absorptionsvermögen der Körper für Wärme und Licht
 Ein Körper, der in einer Hülle sich befindet, deren Temperatur der seinigen gleich ist, ändert durch Wärmestrahlung nicht seine Temperatur, absorbiert also in einer gewissen Zeit eben so viel Strahlen als er aussendet. Schon vor langer Zeit hat man hieraus den Schluß gezogen, daß bei derselben Temperatur das Verhaltnis zwischen dem Emissionsvermogen und dem Absorptionsvermogen fur alle Korper das gleiche ist.
 Ich habe nun gefunden, daB jener Satz seine Gültigkeit auch dann behalt, sobaId man nur unter dem Emissionsvermogen die lntensitat der ausgesendeten Strahlen einer Gattung versteht und das Absorptionsvermogen auf Strahlen derselben Gattung bezieht.
@@ -58,6 +81,18 @@ Vor einem Körper C, Fig. 1 denke man sich zwei Schirme S1 und S2 aufgestellt.
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:11:35
 [[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-11-35_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 Durch diese Öffnungen tritt von dem Körper C ein Strahlenbündel. Von diesem betrachte man den Teil, dessen Wellenlängen zwischen L und L + dL liegen.
 Die Intensität sei E*d_lambda, E heisse das Emissionsvermögen des Körpers.
 ?? Wie hat sich der Strahlen, Intensität vorgestellt. Photonen, Anzahl der Photonen ??
@@ -76,6 +111,20 @@ Nehme die selbe Anordnung, aber die Hülle und C vollkommen Schwarz.
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:13:28
 [[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-13-28_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 es soll bewiesen werden, daß e ungeändert bleibt, wenn C durch irgendeinen anderen schwarzen Körper von derselben Temperatur ersetzt wird.
 — Durch Gedankenexperiment mit Spiegel an 2: Emissionsvermögen ist unabhängig vom Material, solange es nur Schwarz ist, also alles absorbiert. i.e. e = e’ (e ist das E des schwarzen Körpers)
@@ -85,6 +134,19 @@ Es ware hiermit der ausgesprochene Satz bewiesen, wenn alle Strahlen der beiden 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:15:34
 [[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-15-34_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 — Durch Einführung von Platte P wird gezeigt, dass e = e’ für jedes lambda.
 § 3. Bei der in F~g. 2 dargestellten Anordnung denke man sich zwischen die Offnungen 1 und 2 eine kleine Platte P gebracht, die in den sichtharen Strahlen die Farhen dunner Blattchen zeigt und die teils wegen ihrer geringen Dicke, teils wegen ihrer suhstantiellen Be- schaffenheit eine merkliche Strahlenmenge weder aus- sendet noch absorhiert.
@@ -99,26 +161,94 @@ Die mit I bezeichnete Große ist, wie in § 5 bemerkt, eine Funktion der Wellenl
 In dem Innern eines undurchsichtigen, glühenden Korpers von gewisser Temperatur findet hiernach auch immer dieselbe Helligkeit statt, welches auch im übrigen die Beschaffenheit desselben sein möge.
 — scheint mir logisch, da E/Akörper = E/Awand ist (für jedes Lambda, und das ist ja der Witz von Kirchhoff und das Entscheidende) und ja überhaupt der Körper tatsächlich schwarz sein könnte und damit schwarz Strahlen.
 
-* Lambert Pyrometrie
-
+** Lambert Pyrometrie
+*** notes
 #+DOWNLOADED: screenshot @ 2024-08-22 11:18:44
 [[file:Lambert_Pyrometrie/2024-08-22_11-18-44_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 §48 bei gleicher Termperatur (“Wärme”) ist die Dichte (“Dichtigkeit”, 1/V) im Verhältnis zum Druck (“Schnellkraft der Luft”). 1/V1 : 1/V2 = p1 : p2 (Boyle-Mariotte)
 §49: dass bei gleicherm Volumen (“gleicher Dichtigkeit”, Leichem 1/V), die Temperatur (“Kraft der Wärme”)  im Verhältnis zum Druck (“Schnellkraft der Luft”, “aufliegendes Gewicht”) ist. P1 : T1 = P2 : T2 (Amontons)
 “Beim absoluten Nullpunkt wird die Luft Wasserdicht”
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:19:16
 [[file:Lambert_Pyrometrie/2024-08-22_11-19-16_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 Bestimmung der Siedepunktes
 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:20:37
 [[file:Lambert_Pyrometrie/2024-08-22_11-20-37_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
+Text Ende
+*** text
+**** S3 §1-5
+“Damals blieb uns das innere Wirken der Körper noch sehr verborgen. Zwar konnten jene roten Kügelchen entdeckt werden, die dem Blute seine Farbe gaben, doch die Kräfte, die sie in Verbindung hielten, konnten wir nur erraten. Aber die Kunst sicher und richtig zu erraten war noch nicht so weit gebracht, als dass sie sich nicht oft mit dem vermengte, was man heute im Dunkeln tappen heisst. Bald bejahte, bald verneinte man zum Beispiel die längst schon aufgeworfene Frage ob das Feuer vom Lichte verschieden oder gar eine besondere Materie sei.”
 
-* Stefan
-** Stefan1
+Es wäre ja durchaus eine etwas missliche Sache gewesen, hat er gesagt, dass zum Erraten Zuflucht genommen werden musste, denn er verstünde damit eigentlich nicht das Annehmen willkürlicher Meinungen, wodurch sich etwa die eine oder die andere Wirkung erklären liesse und wohin hingegen eine Menge anderer Wirkungen unerklärt blieben, oder welches noch schlimmer wäre, der angenommenen Meinung gerade zuwider liefen.
+
+“Von dem Wasser hingegen gebrauchen wir die Benennungen lau, warm, heiss. Doch wenn es über einen gewissen Grad heiss wird, so kommt noch die Empfindung eines Schmerzes hinzu, sodass die Hitze dann ausserhalb des Bezirkes unserer Wärmeempfindung fällt.
+Unserem Empfinden nach müssten wir auch sagen, dass die Kälte brenne. Man darf nur die Hände in Schnee halten bis sie anfangen recht rot zu werden, und dann in ein gewärmtes Zimmer gehen, wenn man das Brennen noch stärker empfinden will.”
+
+Dasselbe gelte natürlich nicht nur für die Hände und man hätte damals auch von gewissen Ordensleuten gehört, die barfuß im Schnee gingen und, wenn sie in ein Zimmer kamen, ihre Füsse in kaltes Wasser stellten um das Aufschrunden ihrer Haut zu verhindern.
+
+“Den Körpern eigneten wir damals die Wärme nur dann zu, wenn wir sie warm nannten. Sobald wir aber fanden, dass die Körper bald wärmer bald kälter wurden, suchten wir den Ursprung der Wärme ausser ihnen, bei Feuer und Sonnenlicht.”
+
+Indessen zeigten sich bei genauerem Nachforschen noch einige andere Ursachen wie Hämmern und Feilen, oder starkem Reiben von Holz und Wärme beim Gären von Wein und Bier.
+
+“Auf diese Art wird Wärme und Feuer herfürgebracht, wo vorhin keine war, wenigsten keine zu sein schien, ein Anlass, die Kenntnisse noch verworrener zu machen. Es klingt ausserordentlich, wenn jemand sich des Kunstücks rühmet, dass er auf dem warmen Ofen Wasser in Eis verwandeln könne. Das hiesse Kälte finden, wo lauter Wärme ist.”
+
+“Bei Versuchen von dieser Art wird man leicht zu dem Geständnisse gebracht, dass uns Wärme und Kälte noch ganz unbekannte Dinge sind.”
+
+**** S5 §6-
+Indessen sind diese Dinge nur beziehungsweise unbekannt.
+
+** Stefan
+*** stefan1
 In Schöpf S30 ist ein Fehler, wenn man mit S414 bei Stefan vergleicht:
 (v1-v1’)/(T1^4 -T2^4) = A/C * (a - a’) = const.
 Zweite Formel von Schöpf S30 findet sich auf Stefan S398
@@ -139,7 +269,7 @@ D&P konnten nicht wissen, dass Leitfähigkeit nicht vom Druck abhängt, das habe
 Stafan sitzt in der Erdbergstrasse. Die Temperatur der Sonne nach D&P ist zu niedrig. Tyndall schaut nach T^4 aus. Ausserdem haben D&P die Sache mit der Leitfähigkeit falsch verstanden.
 Ausserdem machen Analysen von öffentlichen Daten die T^4 Hypothese glaubwürdiger als die eigene Hypothese mit eigenen Daten zu untermauern.
 
-** Stefan2
+*** stefan2
 Josef Stefan, “Über die Beziehung der Wärmestrahlung und der Temperatur, 1879
 https://archive.org/details/sitzungsbericht543klasgoog/page/391/mode/1up?view=theater
 Dulong und Petit: Die von einem Körper pro Sekunde ausgestrahlte Wärmemenge hängt von der Temperatur ab. Rausgefunden über Abkühlung eines Thermometers. Formel
@@ -162,6 +292,20 @@ D&P haben also nur die Strömung rausgerechnet. Die Wärmeleitung wurde nicht vo
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:22:41
  [[file:Stefan/2024-08-22_11-22-41_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 Nun zu den Korrekturen von D&P. Es ist zweifelhaft ob diese Korrekturen überhaupt irgendeinen Sinn haben.
 Wie oben beschrieben stammt ihre Heuristik für die Korrektur der Luft aus Versuchen zwischen 720 und 45 Torr. Die Strömung kann aber bei 2 oder 3 Torr schon vollkommen aufgehört haben, sodass die Luft nur mehr wie ein fester Leiter gewirkt hätte. "Dann haben die von D&P an den Beobachtungen angegebenen Correctionen keinen Sinn". Waren Strömungen vorhanden, so sind die Heuristiken jedenfalls falsch.
@@ -178,17 +322,41 @@ dQ = m * c * v * dt
 wenn mit m die Masse, mit c die Specifische Wärme des Thermometers und die Abgühlungsgeschwindigkeit dT/dt = v gesetzt wird.
 D&P haben für die Abkühlungsgeschwindigkeit die Minute als Einheit gewählt.
 
-* Wien
-** Eine neue Beziehung der Strahlung
+** Wien
+*** eine neue Beziehung der Strahlung
 Ais Voraussetzungen werden wir notig haben zunachst die Gtiltigkeit der elektromagnetischen Lichttheorie, nach welcher der von einem Lichtstrahle in seiner Rich- tung ausgeubte Druck gleich der Energie des Strahles ist, dann die Moglichkeit der Existenz vollkommen schwarzer und vollkommen spiegelnder Korper, welche auch so zusammengesetzt sein konnen, daB sie die auffallenden Lichtstrahlen vollstandig zerstreut zurtickwerfen, wie wir es bei der totalen Reflexion weiBer Korper annahernd erfullt finden. AuBerdem betrachten wir noch den zweiten Hauptsatz der Warmetheorie als gtiltig, daB auch durch Strahlung, welche von dem Warmevorrat fester Korper herrtihrt, keine Arbeit aus Warme ohne sonstige Arbeits- leistungen, Temperaturverluste oder Zustandsanderungen gewonnen werden kann. SchlieBlich setzen wir die An- wendbarkeit des DOPPLERschen Prinzips auf Licht- strahlen voraus.
 — Wien schreibt mal die Voraussetzungen hin, was gut ist. Bisher war alles schwankend. Manche zweifelten wohl an der Gültigkeit des zweiten Hauptsatzes, andere an der Maxwell Theorie, überhaupt der Zulässigleit des Gedankenexperiments mit schwarzen und spiegelnden Körpern. Siehe Boltzmann (Schöpf 154)
 Es folgt also aus der elektromagnetischen Lichttheorie und dem zweiten Hauptsatz unmittelbar das STEFANsche Gesetz der Abhangigkeit der Warmestrahlung von der Tempera- tur, ein,gewiB bemerkenswertes Resultat, wenn auch sicher niemand den vielfach provisorischenCharakter der hier durchgefiihrten Rechnungen verkennen wird.
 
-** Ueber die Energievertheilung im Emmissionsspectrum eines schwarzen Körpers
+*** ueber die Energievertheilung im Emmissionsspectrum eines schwarzen Körpers
 Seite 665
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:27:36
 [[file:Wien/2024-08-22_11-27-36_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 Reasarch: History of Quantum Mechanics, Bohr Einstein Sommerfeld 1900 - 1925
 Basierend auf "Vorgeschichte des Planckschen Strahlungsgesetzes" von Hans Kangro
@@ -197,26 +365,163 @@ p31
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:28:07
 [[file:Wien/2024-08-22_11-28-07_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 actually f(lambda) = c2/lambda not f(lambda) = c2/(lambda*T)
 Wien, p 665
 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:29:17
 [[file:Wien/2024-08-22_11-29-17_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:29:27
 [[file:Wien/2024-08-22_11-29-27_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 Nun auch auf den Begriff Energiequantum achten:
 
-
 #+DOWNLOADED: screenshot @ 2024-08-22 11:29:56
 [[file:Wien/2024-08-22_11-29-56_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 Das muss näher ausgeführt werden.
 A BRIEF HISTORY OF THE T4 RADIATION LAW by John Crepeau
 
-* Resources
-** Clj Files
+** Resources
+*** clj Files
 stefan.clj lambert.clj
 
 clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
@@ -229,11 +534,11 @@ clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal
  (make! nil)
 )
 
-** The historical development of quantum theory
+*** the historical development of quantum theory
 https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
-** Charles's law
+*** charles's law
 Vorgänger von Gay-Lussac und Dalton. V1:T1 = V2:T2
 https://en.wikipedia.org/wiki/Charles's_law
-** Thermodynamic temperature
+*** thermodynamic temperature
 Hinweis auf Lambert und Amontons
 https://en.wikipedia.org/wiki/Thermodynamic_temperature#History
