@@ -225,11 +225,11 @@ Bestimmung der Siedepunktes
  
 
 Text Ende
-*** text
-**** S3 §1-5
-“Damals blieb uns das innere Wirken der Körper noch sehr verborgen. Zwar konnten jene roten Kügelchen entdeckt werden, die dem Blute seine Farbe gaben, doch die Kräfte, die sie in Verbindung hielten, konnten wir nur erraten. Aber die Kunst sicher und richtig zu erraten war noch nicht so weit gebracht, als dass sie sich nicht oft mit dem vermengte, was man heute im Dunkeln tappen heisst. Bald bejahte, bald verneinte man zum Beispiel die längst schon aufgeworfene Frage ob das Feuer vom Lichte verschieden oder gar eine besondere Materie sei.”
+*** Text
+**** s3 §1-5
+“Damals blieb uns das innere Wirken der Körper noch sehr verborgen. Zwar hatten wir bereits die roten Kügelchen entdeckt, welche dem Blut seine Farbe gaben, doch die Kräfte, die sie in Verbindung hielten, konnten wir nur erraten. Aber die Kunst sicher und richtig zu erraten war noch nicht so weit gebracht, als dass sie sich nicht oft mit dem vermengte, was man Tappen im Dunkel heisst. Bald bejahte, bald verneinte man längst schon aufgeworfene Fragen ob das Feuer vom Lichte verschieden oder gar eine besondere Materie sei.”
 
-Es wäre ja durchaus eine etwas missliche Sache gewesen, hat er gesagt, dass zum Erraten Zuflucht genommen werden musste, denn er verstünde damit eigentlich nicht das Annehmen willkürlicher Meinungen, wodurch sich etwa die eine oder die andere Wirkung erklären liesse und wohin hingegen eine Menge anderer Wirkungen unerklärt blieben, oder welches noch schlimmer wäre, der angenommenen Meinung gerade zuwider liefen.
+Es wäre ja durchaus eine etwas missliche Sache gewesen, hat er gesagt, dass zum Erraten Zuflucht genommen werden musste, denn er verstünde damit eigentlich nicht das Annehmen willkürlicher Meinungen, wodurch sich zwar die eine oder die andere Wirkung erklären liesse jedoch eine Menge anderer Wirkungen unerklärt blieben, oder welches noch schlimmer wäre, der angenommenen Meinung gerade zuwider liefen.
 
 “Von dem Wasser hingegen gebrauchen wir die Benennungen lau, warm, heiss. Doch wenn es über einen gewissen Grad heiss wird, so kommt noch die Empfindung eines Schmerzes hinzu, sodass die Hitze dann ausserhalb des Bezirkes unserer Wärmeempfindung fällt.
 Unserem Empfinden nach müssten wir auch sagen, dass die Kälte brenne. Man darf nur die Hände in Schnee halten bis sie anfangen recht rot zu werden, und dann in ein gewärmtes Zimmer gehen, wenn man das Brennen noch stärker empfinden will.”
@@ -244,7 +244,7 @@ Indessen zeigten sich bei genauerem Nachforschen noch einige andere Ursachen wie
 
 “Bei Versuchen von dieser Art wird man leicht zu dem Geständnisse gebracht, dass uns Wärme und Kälte noch ganz unbekannte Dinge sind.”
 
-**** S5 §6-
+**** s5 §6-
 Indessen sind diese Dinge nur beziehungsweise unbekannt.
 
 ** Stefan
@@ -291,7 +291,7 @@ Die Wirkung der Luft ist eine Zweifache. 1) Wärmeströmung: "die den Körper um
 D&P haben also nur die Strömung rausgerechnet. Die Wärmeleitung wurde nicht von der Strahlung getrennt.
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:22:41
- [[file:Stefan/2024-08-22_11-22-41_screenshot.png]]
+[[file:Stefan/2024-08-22_11-22-41_screenshot.png]]
  
  
  

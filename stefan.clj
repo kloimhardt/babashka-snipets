@@ -5,7 +5,8 @@
     (require '[scicloj.clay.v2.api :as clay])
     (require '[nextjournal.beholder :as beholder])
     (defn make! [_] (clay/make! {:source-path "babashka-snipets/stefan.clj"}))
-    (def watcher (beholder/watch make! "babashka-snipets/notebooks"))
+    (def watcher (beholder/watch make! "babashka-snipets"))
+    (make! nil)
     )
   )
 
@@ -18,6 +19,37 @@
 ^:kindly/hide-code
 (def md
   (comp kindly/hide-code kind/md))
+
+(defn sw [e]
+  (conj (rest (rest e)) (first e) (second e) ))
+
+(defn sw2 [e]
+  (if (coll? e) (sw e) e))
+
+(defn sw3 [e]
+  (clojure.walk/postwalk sw2 e))
+
+(defn bx [e]
+  (str "\\fbox{" (apply str (interpose " " e)) "}"))
+
+(defn bx2 [e]
+  (if (coll? e) (bx e) e))
+
+(defn bx3 [e]
+  (clojure.walk/postwalk bx2 e))
+
+(defmacro calcbox [e]
+  {:code (sw3 e)
+   :tex (bx3 e)})
+
+(defn mypow [x n]
+  (apply * (repeat n x)))
+
+(def hoch mypow)
+(def plus +)
+(def minus -)
+(def mal *)
+(def durch /)
 
 (md "# Start now")
 
@@ -34,7 +66,6 @@
 (def st-theor [1.66 2.30 3.05 3.92 4.93 6.09 7.42 8.92 10.62])
 
 ^:kindly/hide-code
-
 (defn transpose [m]
   (apply mapv vector m))
 
@@ -54,20 +85,25 @@
 ;; Temperatur Messwert Differenz RechenWert_D&P
 tb2
 
-(defn mypow [x n]
-  (apply * (repeat n x)))
+(def formel (atom []))
+
+(defn stefan-formel [T]
+  (calcbox ((((T plus 273) hoch 4 )
+             minus
+             (273 hoch 4))
+            durch
+            (6 mal (10 hoch 9)))))
 
 ;; Unten passt die Differenz mit Paper überein, auch Meine-Rechnung lt. Paper gerechnet passt
 (def tb7 (map (fn [[T m st-t]]
                 [T m (round (- st-t m) 2) st-t
-                 (round (/
-                          (- (mypow (+ 273 T) 4) (mypow 273 4))
-                          (* 6 (tenpow 9)))
-                        2)])
+                 (round (:code (stefan-formel T)) 2)])
               (transpose [temper dp-meas st-theor])))
 
 ;; Temperatur Messwert Differenz Rechenwert_St Meine-Rechnung
 tb7
+
+(kind/tex (:tex (stefan-formel 0)))
 
 (defn minsec [sec]
   (mapv math/round [(quot sec 60) (mod sec 60)]))
