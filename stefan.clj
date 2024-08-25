@@ -11,6 +11,15 @@
   )
 
 ^:kindly/hide-code
+(comment
+  ;; clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"}}}"
+  (do
+    (require '[scicloj.clay.v2.api :as clay])
+    (clay/make! {:source-path "babashka-snipets/stefan.clj"})
+    )
+  )
+
+^:kindly/hide-code
 (ns stefan
   (:require [scicloj.kindly.v4.api :as kindly]
             [scicloj.kindly.v4.kind :as kind]
@@ -20,8 +29,19 @@
 (def md
   (comp kindly/hide-code kind/md))
 
+(defn postfix? [e]
+  (= (str (last e)) "stel"))
+
+(defn infix? [e]
+  true)
+
 (defn sw [e]
-  (conj (rest (rest e)) (first e) (second e) ))
+  (cond
+    (postfix? e)
+    (conj (butlast e) (last e))
+    (infix? e)
+    (conj (rest (rest e)) (first e) (second e))
+    :else e))
 
 (defn sw2 [e]
   (if (coll? e) (sw e) e))
@@ -38,9 +58,11 @@
 (defn bx3 [e]
   (clojure.walk/postwalk bx2 e))
 
-(defmacro calcbox [e]
-  {:code (sw3 e)
-   :tex (bx3 e)})
+(defmacro calcbox [e & dbg]
+  (let [swe (sw3 e)]
+       {:code `'~swe
+        :calc (if (seq dbg) (str dbg) swe)
+        :tex (bx3 e)}))
 
 (defn mypow [x n]
   (apply * (repeat n x)))
@@ -85,25 +107,37 @@
 ;; Temperatur Messwert Differenz RechenWert_D&P
 tb2
 
-(def formel (atom []))
+(def Ein 1)
+(def Milliard (fn [x] (* x (tenpow 9))))
+(def stel (fn [x y] (/ x y)))
+(def von *)
 
-(defn stefan-formel [T]
-  (calcbox ((((T plus 273) hoch 4 )
+(defn stefan-formel [X]
+  (calcbox ((Ein (6 Milliard) stel)
+            von
+            (((X plus 273) hoch 4 )
              minus
-             (273 hoch 4))
-            durch
-            (6 mal (10 hoch 9)))))
+             (273 hoch 4)))))
+
+(kind/tex (:tex (stefan-formel 0)))
+(kind/md "So eine Formel kann man immer auf zwei Arten lesen. Einml ganz normal. Probiers. Ein sechs Milliardstel von X plus 273 hoch 4 minus 273 hoch vier. Lesen kann jeder.")
+
+(mypow 273 4)
+
+(kind/md "Man sollte die Formel aber im zweiten Schritt immer auch vom X her lesen. Von innen heraus quasi. X plus 273, das ganze hoch 4, dann das ganze minus ca. 5 1/2 Milliarden und das ganze dann durch 6 Milliarden.")
+
+(kind/md "Ich könnt mir vorstellen, dass diese Milliarden auch Dulong nd Petit abgeschreckt haben")
+
+(:code (stefan-formel 0))
 
 ;; Unten passt die Differenz mit Paper überein, auch Meine-Rechnung lt. Paper gerechnet passt
 (def tb7 (map (fn [[T m st-t]]
                 [T m (round (- st-t m) 2) st-t
-                 (round (:code (stefan-formel T)) 2)])
+                 (round (:calc (stefan-formel T)) 2)])
               (transpose [temper dp-meas st-theor])))
 
 ;; Temperatur Messwert Differenz Rechenwert_St Meine-Rechnung
 tb7
-
-(kind/tex (:tex (stefan-formel 0)))
 
 (defn minsec [sec]
   (mapv math/round [(quot sec 60) (mod sec 60)]))
