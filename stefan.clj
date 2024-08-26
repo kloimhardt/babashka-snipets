@@ -4,7 +4,8 @@
   (do
     (require '[scicloj.clay.v2.api :as clay])
     (require '[nextjournal.beholder :as beholder])
-    (defn make! [_] (clay/make! {:source-path "babashka-snipets/stefan.clj"}))
+    (defn make! [_] (clay/make! {:format [:html] #_[:quarto :pdf]
+                                 :source-path "babashka-snipets/stefan.clj"}))
     (def watcher (beholder/watch make! "babashka-snipets"))
     (make! nil)
     )
@@ -20,14 +21,21 @@
 (def md
   (comp kindly/hide-code kind/md))
 
-(defn postfix? [e]
-  (#{"stel"}
-    (str (last e))))
+(md "# Code Präambel (bitte runterscrollen zum Hauptteil)")
 
-(defn infix? [e]
+(defn postfix? [ex]
+  (#{"stel"}
+    (str (last ex))))
+
+(defn infix? [ex]
   (#{"plus" "minus" "mal" "von" "dot" "durch" "hoch" "Ein" "Milliard"
      "Komma"}
-    (str (second e))))
+    (str (second ex))))
+
+(defn infix-function? [ex]
+  (#{"mit"} (str (second ex))))
+
+(defn notext? [smb] (#{"dot"} (str smb)))
 
 (defn npow [x n]
   (apply * (repeat n x)))
@@ -52,41 +60,39 @@
 (defn Komma [& lst]
   (Double/parseDouble (apply str (conj (rest lst) "." (first lst)))))
 
-
-(defn sw [e]
+(defn sw [ex]
   (cond
-    (postfix? e)
-    (conj (butlast e) (last e))
-    (infix? e)
-    (conj (rest (rest e)) (first e) (second e))
-    :else e))
-
-(defn sw2 [e]
-  (if (coll? e) (sw e) e))
-
-(defn sw3 [e]
-  (clojure.walk/postwalk sw2 e))
+    (not (coll? ex)) ex
+    (infix-function? ex)
+    (list (list 'fn [(first (last ex))] (first ex))
+          (last (last ex)))
+    (postfix? ex)
+    (conj (butlast ex) (last ex))
+    (infix? ex)
+    (conj (rest (rest ex)) (first ex) (second ex))
+    :else ex))
 
 (defn bx [ex]
-  (str "\\fbox{" (apply str (interpose " " ex)) "}"))
+  (if (not (coll? ex)) ex
+      (str "\\fbox{"
+           (apply str
+                  (interpose " " (remove notext? ex)))
+           "}")))
 
-(defn bx2 [e]
-  (if (coll? e)
-    (if (= (str (second e)) "dot")
-      (bx (conj (rest (rest e)) (first e)))
-      (bx e))
-    e))
-
-(defn bx3 [e]
-  (clojure.walk/postwalk bx2 e))
-
-(defmacro calcbox [e & dbg]
-  (let [swe (sw3 e)]
+(defmacro calcbox [ex & dbg]
+  (let [swe (clojure.walk/postwalk sw ex)
+        bxe (clojure.walk/postwalk bx ex)]
     {:code `'~swe
-     :calc (if (seq dbg) (str dbg) swe)
-     :tex  (bx3 e)}))
+     :calc (if (seq dbg) (into [] dbg) swe)
+     :tex  bxe}))
 
-(md "# Start now")
+(defn transpose [m]
+  (apply mapv vector m))
+
+(defn round [x dec]
+  (double (/ (math/round (* x (mypow 10 dec))) (mypow 10 dec))))
+
+(md "# J. Stefan: Über die Beziehung zwischen der Wärmestrahlung und der Temperatur")
 
 ;;Temperatur in Celsius
 (def temper [80 100 120 140 160 180 200 220 240])
@@ -100,20 +106,14 @@
 ;; vom Stefan berechnete Werte
 (def st-theor [1.66 2.30 3.05 3.92 4.93 6.09 7.42 8.92 10.62])
 
-^:kindly/hide-code
-(defn transpose [m]
-  (apply mapv vector m))
-
-^:kindly/hide-code
-(defn round [x dec]
-  (double (/ (math/round (* x (mypow 10 dec))) (mypow 10 dec))))
-
-(defn dp-formel [X]
-  (calcbox (2 mal ((e hoch ((0 Komma 0 0 767) dot X)) minus 1))))
+(defn dp-formel [Celsius]
+  (calcbox [(2 mal ((e hoch ((0 Komma 0 0 767) dot X)) minus 1))
+            mit
+            [X in Celsius]]))
 
 ;; X ist die Temperatur in Grad Celsius. Man muss wissen wo das X steh, welche Werte es ungefähr haben kann und wie man die Formel von innen nach aussen lesen muss, vom X her.
 
-;; eigentlich 2.02 statt genau 2, aber auch mit 2.02 komm ich nur auf ein zwei zehntel hin.
+;; eigentlich fittet 2.02 besser statt genau 2 (im Paper selbst bisher keinen Wert gefunden), aber auch mit 2.02 komm ich nur auf ein zwei zehntel hin.
 ;; 0.00767 ist ln(1.0077), weil formel im paper ist 1,0077^T, habs auf exp umgeändert
 
 (kind/tex (:tex (dp-formel 0)))
@@ -131,29 +131,32 @@ e
 ;; Temperatur Messwert Differenz RechenWert_D&P Meine-Rechnung
 tb2
 
-(defn stefan-formel [X]
-  (calcbox ((Ein (6 Milliard) stel)
-            von
-            (((X plus 273) hoch 4 )
-             minus
-             (273 hoch 4)))))
+(defn stefan-formel [Celsius]
+  (calcbox [((Ein (6 Milliard) stel)
+             von
+             (((X plus 273) hoch 4 )
+              minus
+              (273 hoch 4)))
+            mit
+            [X in Celsius]]))
 
 (kind/tex (:tex (stefan-formel 0)))
-(kind/md "So eine Formel kann man immer auf zwei Arten lesen. Einml ganz normal. Probiers. Ein sechs Milliardstel von X plus 273 hoch 4 minus 273 hoch vier. Lesen kann jeder.")
 
-(kind/md "Man sollte die Formel aber im zweiten Schritt immer auch vom X her lesen. Von innen heraus quasi. X plus 273, das ganze hoch 4, dann das ganze minus ca. 5 1/2 Milliarden und das ganze dann durch 6 Milliarden.")
+(md "So eine Formel kann man immer auf zwei Arten lesen. Einml ganz normal. Probiers. Ein sechs Milliardstel von X plus 273 hoch 4 minus 273 hoch vier. Lesen kann jeder.")
 
-(kind/md "Ich könnt mir vorstellen, dass diese Milliarden auch Dulong nd Petit abgeschreckt haben")
+(md "Man sollte die Formel aber im zweiten Schritt immer auch vom X her lesen. Von innen heraus quasi. X plus 273, das ganze hoch 4, dann das ganze minus ca. 5 1/2 Milliarden und das ganze dann durch 6 Milliarden.")
 
-(def pow_273_4 (calcbox (273 mal (273 mal (273 mal 273)))))
+(md "Ich könnt mir vorstellen, dass diese Milliarden auch Dulong nd Petit abgeschreckt haben")
+
+(def pow_273_4 (calcbox [(X mal (X mal (X mal X))) mit [X gleich 273]]))
 
 (kind/tex (:tex pow_273_4))
 
 (:calc pow_273_4)
 
-(kind/md (str "Um genau zu sein, 273 hoch 4 ist folgende Zahl: " (mypow 273 4) ". Das musste man alles mit der Hand rechnen, sodass es wohl kein Wunder ist, dass es bis zu dem T^4 Gesetz so lange gedauert hat. D&P hat zwar Kommas, aber die Grössenordnungen sind im menschlichen Bereich. In der Moderne nicht mehr möglich weil Loschmidtzahl so hoch"))
+(md (str "Um genau zu sein, 273 hoch 4 ist folgende Zahl: " (mypow 273 4) ". Das musste man alles mit der Hand rechnen, sodass es wohl kein Wunder ist, dass es bis zu dem T^4 Gesetz so lange gedauert hat. D&P hat zwar Kommas, aber die Grössenordnungen sind im menschlichen Bereich. In der Moderne nicht mehr möglich weil Loschmidtzahl so hoch"))
 
-(kind/md "drum sagt er auch -genauso einfache Formel wie D&P- denn die Milliarden machen's nicht unbedingt einfacher. Heutzutage sagen wir ein einfaches T^4 Gesetz")
+(md "drum sagt er auch -genauso einfache Formel wie D&P- denn die Milliarden machen's nicht unbedingt einfacher. Heutzutage sagen wir ein einfaches T^4 Gesetz")
 
 (:code (stefan-formel 0))
 
@@ -214,14 +217,13 @@ tb7
 ;; Zeitdauer der Messwerte in Worten
 (tb4 (map first (tb3 (r-transpose [dp-meas]))))
 
-
-(def minus 'minus)
-(def plus 'plus)
+(def minus- 'minus)
+(def plus+ 'plus)
 
 (defn tb6 [tb]
   (mapv (fn [[[am as] [bm bs]]]
           [[bs
-            (if (neg? (- as bs)) minus plus)
+            (if (neg? (- as bs)) minus- plus+)
             (abs (- as bs))]
            ist
            as])
@@ -231,3 +233,32 @@ tb7
 
 ;; Differenz der Sekunden: St-Rechnung Differenz D&P-Messung
 (tb6 (tb3 (r-transpose [dp-meas st-theor])))
+
+(md "# Kleine Fingerübungen")
+
+(def bsp0 (calcbox (1 plus 3)))
+(kind/tex (:tex bsp0))
+(:calc bsp0)
+;; praktisch zum debuggen: der generierte code
+(:code bsp0)
+
+(def bsp1 (calcbox (2 plus 1) "andere Rechnung" (+ 4 5)))
+(kind/tex (:tex bsp1))
+;; noch praktischer zum debuggen: calculation unterdrücken
+(:calc bsp1)
+
+(def bsp2 (calcbox [(X plus 1) mit [X gleich [(Y plus 2) mit [Y gle=ich 3]]]]))
+(kind/tex (:tex bsp2))
+(:calc bsp2)
+
+(def bsp3 (calcbox [[(X plus Y) mit [X ist-gleich 3]] mit [Y ist 2]] ))
+;; es ist wurst ob glei=ch, ist-gleich, -in-: nur ein Füllwort
+(kind/tex (:tex bsp3))
+(:calc bsp3)
+
+(defn bsp4 [Sekunden Y]
+  (calcbox [(X plus Y) mit [X -in- Sekunden]]))
+
+(kind/tex (:tex (bsp4 0 0)))
+(:calc (bsp4 5 6))
+
