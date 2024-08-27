@@ -24,41 +24,29 @@
 
 (md "# Code Präambel (bitte runterscrollen zum Hauptteil)")
 
-(def gctx {:Schlusselworte
-           {:infix
-            #{"plus" "minus" "mal" "von" "dot" "durch" "hoch" "Ein" "Milliard"
-              "Komma"}
-            :postfix
-            #{"stel"}
-            :infix-function
-            #{"mit" "und"}
-            :infix-function-map-deconstrucion
-            #{"aus"}
-            :notext
-            #{"dot"}}
-           :Schulwissen
-           {:e  clojure.math/E
-            :pi clojure.math/PI}})
-
-(defn postfix? [ex]
-  ((-> gctx :Schlusselworte :postfix)
+(defn postfix? [ctx ex]
+  ((-> ctx :Schlusselworte :postfix)
    (str (last ex))))
 
-(defn infix? [ex]
-  ((-> gctx :Schlusselworte :infix)
+(defn infix? [ctx ex]
+  ((-> ctx :Schlusselworte :infix)
    (str (second ex))))
 
-(defn infix-function? [ex]
-  ((-> gctx :Schlusselworte :infix-function) (str (second ex))))
+(defn infix-function? [ctx ex]
+  ((-> ctx :Schlusselworte :infix-function) (str (second ex))))
 
 (defn ifx-fn-mp-decon? [ctx ex]
-  (and ((-> ctx :Schlusselworte :infix-function)
-        (str (second ex)))
+  (and (infix-function? ctx ex)
        ((-> ctx :Schlusselworte :infix-function-map-deconstrucion)
         (str (second (last ex))))))
 
-(defn notext? [smb]
-  ((-> gctx :Schlusselworte :notext)
+(defn ifx-fn-reverse? [ctx ex]
+  (and (infix-function? ctx ex)
+       ((-> ctx :Schlusselworte :infix-function-reverse)
+        (str (second (last ex))))))
+
+(defn notext? [ctx smb]
+  ((-> ctx :Schlusselworte :notext)
    (str smb)))
 
 (defn npow [x n]
@@ -68,6 +56,12 @@
   (if (integer? n)
     (npow x n)
     (clojure.math/pow x n)))
+
+(defn transpose [m]
+  (apply mapv vector m))
+
+(defn round [x dec]
+  (double (/ (math/round (* x (mypow 10 dec))) (mypow 10 dec))))
 
 (def plus +)
 (def minus -)
@@ -83,26 +77,29 @@
 (defn Komma [& lst]
   (Double/parseDouble (apply str (conj (rest lst) "." (first lst)))))
 
-(defn sw [ex]
+(defn sw [ctx ex]
   (cond
     (not (coll? ex)) ex
-    (ifx-fn-mp-decon? gctx ex)
+    (ifx-fn-mp-decon? ctx ex)
     (list (list 'fn [{:keys (first (last ex))}] (first ex))
           (last (last ex)))
-    (infix-function? ex)
+    (ifx-fn-reverse? ctx ex)
+    (list (list 'fn [(last (last ex))] (first ex))
+          (first (last ex)))
+    (infix-function? ctx ex)
     (list (list 'fn [(first (last ex))] (first ex))
           (last (last ex)))
-    (postfix? ex)
+    (postfix? ctx ex)
     (conj (butlast ex) (last ex))
-    (infix? ex)
+    (infix? ctx ex)
     (conj (rest (rest ex)) (first ex) (second ex))
     :else            ex))
 
-(defn bx [ex]
+(defn bx [ctx ex]
   (if (not (coll? ex)) ex
       (str "\\fbox{"
            (apply str
-                  (interpose " " (remove notext? ex)))
+                  (interpose " " (remove #(notext? ctx %) ex)))
            "}")))
 
 (defn table-formula? [ctx ex]
@@ -116,23 +113,35 @@
       (cons (first ex) (last ex)))
     ex))
 
+(def gctx {:Schlusselworte
+           {:infix
+            #{"plus" "minus" "mal" "von" "dot" "durch" "hoch" "Ein" "Milliard"
+              "Komma"}
+            :postfix
+            #{"stel"}
+            :infix-function
+            #{"mit" "und"}
+            :infix-function-map-deconstrucion
+            #{"aus"}
+            :infix-function-reverse
+            #{"für"}
+            :notext
+            #{"dot"}}
+           :Schulwissen
+           {:e  clojure.math/E
+            :pi clojure.math/PI}})
+
 (defmacro calcbox [ex & dbg]
-  (let [swe (clojure.walk/postwalk sw (threadzero gctx ex))
+  (let [swe (clojure.walk/postwalk #(sw gctx %) (threadzero gctx ex))
         bxe (if (vector? ex)
-              (->> (map #(clojure.walk/postwalk bx %)
-                        (cons (first ex) (apply concat (rest ex))))
+              (->> (cons (first ex) (apply concat (rest ex)))
+                   (map (fn [mex] (clojure.walk/postwalk #(bx gctx %) mex)))
                    (interpose " \\\\ ")
                    (apply str))
-              (clojure.walk/postwalk bx ex))]
+              (clojure.walk/postwalk #(bx gctx %) ex))]
     {:code `'~swe
      :calc (if (seq dbg) (into [] dbg) swe)
      :tex  bxe}))
-
-(defn transpose [m]
-  (apply mapv vector m))
-
-(defn round [x dec]
-  (double (/ (math/round (* x (mypow 10 dec))) (mypow 10 dec))))
 
 (md "# J. Stefan: Über die Beziehung zwischen der Wärmestrahlung und der Temperatur")
 
@@ -149,11 +158,11 @@
 (def st-theor [1.66 2.30 3.05 3.92 4.93 6.09 7.42 8.92 10.62])
 
 (defn dp-formel [Celsius]
-  (calcbox [((M mal ((A hoch x) minus 1))
+  (calcbox [((((A hoch x) minus 1) mal M)
              mit
              [x in Celsius])
-            [und [M gleich (2 Komma 0 2)]]
-            [und [A gleich (1 Komma 0 0 77)]]]))
+            [und [(1 Komma 0 0 77) für A]]
+            [und [(2 Komma 0 2) für M]]]))
 
 ;; X ist die Temperatur in Grad Celsius. Man muss wissen wo das X steh, welche Werte es ungefähr haben kann und wie man die Formel von innen nach aussen lesen muss, vom X her.
 
@@ -177,15 +186,15 @@
 tb2
 
 (defn stefan-formel [Celsius]
-  (calcbox [((B
-               mal
-               (((T plus x) hoch 4 )
-                minus
-                (T hoch 4)))
+  (calcbox [(((((T plus x) hoch 4 )
+               minus
+               (T hoch 4))
+              mal
+              B)
              mit
              [x in Celsius])
-            [und [T gleich 273]]
-            [und [B gleich (Ein (6 Milliard) stel)]]]))
+            [und [(Ein (6 Milliard) stel) für B]]
+            [und [273 für T]]]))
 
 (kind/tex (:tex (stefan-formel 0)))
 
@@ -195,7 +204,7 @@ tb2
 
 (md "Ich könnt mir vorstellen, dass diese Milliarden auch Dulong nd Petit abgeschreckt haben")
 
-(def pow_273_4 (calcbox [(T mal (T mal (T mal T))) [mit [T gleich 273]]]))
+(def pow_273_4 (calcbox [(((T mal T) mal T) mal T) [mit [T gleich 273]]]))
 
 (kind/tex (:tex pow_273_4))
 
