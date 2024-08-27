@@ -1,10 +1,11 @@
 ^:kindly/hide-code
 (comment
   ;; clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
+  ;; clj -M babashka-snipets/stefan.clj
   (do
     (require '[scicloj.clay.v2.api :as clay])
     (require '[nextjournal.beholder :as beholder])
-    (defn make! [_] (clay/make! {:format [:html] #_[:quarto :pdf]
+    (defn make! [_] (clay/make! {:format      [:html] #_ [:quarto :pdf]
                                  :source-path "babashka-snipets/stefan.clj"}))
     (def watcher (beholder/watch make! "babashka-snipets"))
     (make! nil)
@@ -23,19 +24,42 @@
 
 (md "# Code Präambel (bitte runterscrollen zum Hauptteil)")
 
+(def gctx {:Schlusselworte
+           {:infix
+            #{"plus" "minus" "mal" "von" "dot" "durch" "hoch" "Ein" "Milliard"
+              "Komma"}
+            :postfix
+            #{"stel"}
+            :infix-function
+            #{"mit" "und"}
+            :infix-function-map-deconstrucion
+            #{"aus"}
+            :notext
+            #{"dot"}}
+           :Schulwissen
+           {:e  clojure.math/E
+            :pi clojure.math/PI}})
+
 (defn postfix? [ex]
-  (#{"stel"}
-    (str (last ex))))
+  ((-> gctx :Schlusselworte :postfix)
+   (str (last ex))))
 
 (defn infix? [ex]
-  (#{"plus" "minus" "mal" "von" "dot" "durch" "hoch" "Ein" "Milliard"
-     "Komma"}
-    (str (second ex))))
+  ((-> gctx :Schlusselworte :infix)
+   (str (second ex))))
 
 (defn infix-function? [ex]
-  (#{"mit"} (str (second ex))))
+  ((-> gctx :Schlusselworte :infix-function) (str (second ex))))
 
-(defn notext? [smb] (#{"dot"} (str smb)))
+(defn ifx-fn-mp-decon? [ctx ex]
+  (and ((-> ctx :Schlusselworte :infix-function)
+        (str (second ex)))
+       ((-> ctx :Schlusselworte :infix-function-map-deconstrucion)
+        (str (second (last ex))))))
+
+(defn notext? [smb]
+  ((-> gctx :Schlusselworte :notext)
+   (str smb)))
 
 (defn npow [x n]
   (apply * (repeat n x)))
@@ -54,7 +78,6 @@
 (def hoch mypow)
 (def null 0)
 (def Ein 1)
-(def e (clojure.math/exp 1))
 (def Milliard (fn [x] (* x (mypow 10 9))))
 (def stel (fn [x y] (/ x y)))
 (defn Komma [& lst]
@@ -63,6 +86,9 @@
 (defn sw [ex]
   (cond
     (not (coll? ex)) ex
+    (ifx-fn-mp-decon? gctx ex)
+    (list (list 'fn [{:keys (first (last ex))}] (first ex))
+          (last (last ex)))
     (infix-function? ex)
     (list (list 'fn [(first (last ex))] (first ex))
           (last (last ex)))
@@ -70,7 +96,7 @@
     (conj (butlast ex) (last ex))
     (infix? ex)
     (conj (rest (rest ex)) (first ex) (second ex))
-    :else ex))
+    :else            ex))
 
 (defn bx [ex]
   (if (not (coll? ex)) ex
@@ -79,9 +105,25 @@
                   (interpose " " (remove notext? ex)))
            "}")))
 
+(defn table-formula? [ctx ex]
+  (and (coll? (last ex))
+       ((-> ctx :Schlusselworte :infix-function) (str (first (last ex))))))
+
+(defn threadzero [ctx ex]
+  (if (table-formula? ctx ex)
+    (if (> (count ex) 2)
+      (cons (threadzero ctx (butlast ex)) (last ex))
+      (cons (first ex) (last ex)))
+    ex))
+
 (defmacro calcbox [ex & dbg]
-  (let [swe (clojure.walk/postwalk sw ex)
-        bxe (clojure.walk/postwalk bx ex)]
+  (let [swe (clojure.walk/postwalk sw (threadzero gctx ex))
+        bxe (if (vector? ex)
+              (->> (map #(clojure.walk/postwalk bx %)
+                        (cons (first ex) (apply concat (rest ex))))
+                   (interpose " \\\\ ")
+                   (apply str))
+              (clojure.walk/postwalk bx ex))]
     {:code `'~swe
      :calc (if (seq dbg) (into [] dbg) swe)
      :tex  bxe}))
@@ -107,9 +149,11 @@
 (def st-theor [1.66 2.30 3.05 3.92 4.93 6.09 7.42 8.92 10.62])
 
 (defn dp-formel [Celsius]
-  (calcbox [(2 mal ((e hoch ((0 Komma 0 0 767) dot X)) minus 1))
-            mit
-            [X in Celsius]]))
+  (calcbox [((M mal ((A hoch x) minus 1))
+             mit
+             [x in Celsius])
+            [und [M gleich (2 Komma 0 2)]]
+            [und [A gleich (1 Komma 0 0 77)]]]))
 
 ;; X ist die Temperatur in Grad Celsius. Man muss wissen wo das X steh, welche Werte es ungefähr haben kann und wie man die Formel von innen nach aussen lesen muss, vom X her.
 
@@ -120,7 +164,8 @@
 
 (clojure.math/log 1.0077)
 
-e
+(def Schulwissen (-> gctx :Schulwissen))
+(:e Schulwissen)
 
 ;; Unten die Werte in Tabellenform, die berechnete Differenz D&P-Stefan passt mit Paper überein, meine Nachrechnung D&P passt nicht ganz.
 
@@ -132,13 +177,15 @@ e
 tb2
 
 (defn stefan-formel [Celsius]
-  (calcbox [((Ein (6 Milliard) stel)
-             von
-             (((X plus 273) hoch 4 )
-              minus
-              (273 hoch 4)))
-            mit
-            [X in Celsius]]))
+  (calcbox [((B
+               mal
+               (((T plus x) hoch 4 )
+                minus
+                (T hoch 4)))
+             mit
+             [x in Celsius])
+            [und [T gleich 273]]
+            [und [B gleich (Ein (6 Milliard) stel)]]]))
 
 (kind/tex (:tex (stefan-formel 0)))
 
@@ -148,7 +195,7 @@ tb2
 
 (md "Ich könnt mir vorstellen, dass diese Milliarden auch Dulong nd Petit abgeschreckt haben")
 
-(def pow_273_4 (calcbox [(X mal (X mal (X mal X))) mit [X gleich 273]]))
+(def pow_273_4 (calcbox [(T mal (T mal (T mal T))) [mit [T gleich 273]]]))
 
 (kind/tex (:tex pow_273_4))
 
@@ -182,7 +229,7 @@ tb7
 (defn tb3 [tbl]
   (map (fn [tb]
          (map #(minsec (speed->sec %)) tb))
-    tbl))
+       tbl))
 
 ;; Umrechnung von Messwerten und Rechnungen nach Zeitdauer -- MinutenSekunden, Absteigende Temperatur
 
@@ -247,18 +294,26 @@ tb7
 ;; noch praktischer zum debuggen: calculation unterdrücken
 (:calc bsp1)
 
-(def bsp2 (calcbox [(X plus 1) mit [X gleich [(Y plus 2) mit [Y gle=ich 3]]]]))
+(def bsp2 (calcbox ((X plus 1) mit [X gleich [(Y plus 2) mit [Y gle=ich 3]]])))
 (kind/tex (:tex bsp2))
 (:calc bsp2)
 
-(def bsp3 (calcbox [[(X plus Y) mit [X ist-gleich 3]] mit [Y ist 2]] ))
+(def bsp3 (calcbox ( [(X plus Y) mit [X ist-gleich 3]] mit [Y ist 2]) ))
 ;; es ist wurst ob glei=ch, ist-gleich, -in-: nur ein Füllwort
 (kind/tex (:tex bsp3))
 (:calc bsp3)
 
 (defn bsp4 [Sekunden Y]
-  (calcbox [(X plus Y) mit [X -in- Sekunden]]))
+  (calcbox ((X plus Y) mit [X -in- Sekunden])))
 
 (kind/tex (:tex (bsp4 0 0)))
 (:calc (bsp4 5 6))
 
+(defn bsp5 [{:keys [Schulwissen]}]
+  (calcbox ((e hoch pi) mit [[e pi] aus Schulwissen])))
+(kind/tex (:tex (bsp5 gctx)))
+(bsp5 gctx)
+
+(def bsp6 (calcbox [(X plus Y) [mit [X gleich (Y plus 7)]] [mit [Y gle=ich 3]]]))
+(kind/tex (:tex bsp6))
+bsp6
