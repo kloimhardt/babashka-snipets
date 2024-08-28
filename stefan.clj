@@ -102,6 +102,17 @@
                   (interpose " " (remove #(notext? ctx %) ex)))
            "}")))
 
+(defn maxcount [xs mini]
+  (apply max (conj (map #(-> (second %) :style :count) (filter coll? xs)) mini)))
+
+(defn b [p] {:style {:border "1px solid gray" :padding (str p "px") :count p}})
+
+(defn hx [ctx ex]
+  (if (not (coll? ex))
+    (str " " ex " ")
+    (let [rex (remove #(notext? ctx %) ex)]
+      (into [:span (b (+ 3 (maxcount rex 2)))] rex))))
+
 (defn table-formula? [ctx ex]
   (and (coll? (last ex))
        ((-> ctx :Schlusselworte :infix-function) (str (first (last ex))))))
@@ -138,10 +149,17 @@
                    (map (fn [mex] (clojure.walk/postwalk #(bx gctx %) mex)))
                    (interpose " \\\\ ")
                    (apply str))
-              (clojure.walk/postwalk #(bx gctx %) ex))]
+              (clojure.walk/postwalk #(bx gctx %) ex))
+        hxe (if (vector? ex)
+              (->> (cons (first ex) (apply concat (rest ex)))
+                   (map (fn [mex] (clojure.walk/postwalk #(hx gctx %) mex)))
+                   (map #(vector :div %))
+                   (into [:div]))
+              (clojure.walk/postwalk #(hx gctx %) ex))]
     {:code `'~swe
      :calc (if (seq dbg) (into [] dbg) swe)
-     :tex  bxe}))
+     :tex  bxe
+     :hiccup hxe}))
 
 (md "# J. Stefan: Über die Beziehung zwischen der Wärmestrahlung und der Temperatur")
 
@@ -170,6 +188,10 @@
 ;; 0.00767 ist ln(1.0077), weil formel im paper ist 1,0077^T, habs auf exp umgeändert
 
 (kind/tex (:tex (dp-formel 0)))
+
+(kind/hiccup (:hiccup (dp-formel 0)))
+
+(dp-formel 0)
 
 (clojure.math/log 1.0077)
 
