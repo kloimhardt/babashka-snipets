@@ -520,12 +520,123 @@ Nun auch auf den Begriff Energiequantum achten:
 Das muss näher ausgeführt werden.
 A BRIEF HISTORY OF THE T4 RADIATION LAW by John Crepeau
 
+** Soldner, de Broglie
+*** Soldner text
+Wenn man Fixsterne sehr nahe an der Sonne beobachten könnte, so würde man wohl darauf Rücksicht nehmen müssen. Da dies aber bekanntlich nicht geschieht, so ist auch die Perturbation durch die Sonne zu vernachlässigen.
+Hoffentlich wird es niemand bedenklich finden, daß ich einen Lichtstral geradezu als schweren Körper behandle. Denn daß die Lichtstralen alle absoluten Eigenschaften der Materie besitzen, sieht man an dem Phänomen der Aberration, welches nur dadurch möglich ist, daß die Lichtstralen wirklich materiel sind.
+
+*** Soldner text
+Uebrigens glaube ich nicht nöthig zu haben, mich zu entschuldigen, daß ich gegenwärtige Abhandlung bekannt mache; da doch das Resultat dahin geht, daß alle Perturbationen unmerklich sind. Denn es muß uns fast eben so viel daran gelegen seyn, zu wissen, was nach der Theorie vorhanden ist, [172] aber auf die Praxis keinen merklichen Einfluß hat; als uns dasjenige interessirt, was in Rücksicht auf Praxis wirklichen Einfluß hat.
+
+*** Aberration
+das Fernrohr mit einer Geschwindigkeit v  bewegt, muss es in Bewegungsrichtung gekippt werden, um den Lichtstrahl in seiner Mitte zu halten (Bild links), denn das Licht benötigt eine gewisse Zeit, um das Fernrohr zu durchlaufen.
+-> beim Sternderlschaun musst du das Fernrohr etwas schief halten, damit die Lichtkugel (der Lichtglobulus let Newton [Buch Lichtquanten S 119]) nicht gegen die Wände knallt.
+
+*** de Broglie, Rayonnemont noir
+Historical development of QT, vol1 prt2 p584
+(p589 de Broglie and derivation of relativistic quantum condition by Einstein 1917)
+Letter to Fritz Kubli: the symmetry (of wave mechanics) with SRT would not be complete unless one attributed to the photon a proper mass.
+
+note de bas 1: pour l'atome lumiere, m0 doit etre infinement petit et beta infinement voisin de 1 de telle facon que m0/sqrt(1-b^2) ait une valeur definie m.
+
+zitiert darin: Robert Emden 1921 "Über lichtquanten", siehe auch Mieczylaw Wolfke 1921
+
+*** de Broglie, Diss S77
+
+Diss Besprechung startet in Historical development of QT, vol1 prt2 p597
+
+Une tentative faite par nous pour obtenir une théorie atomique du rayonnement noir ... nous avait confirmé dans l’idée de l’existence réelle de l’atome de lumière.
+
+Sans nous dissimuler les difficultés soulevées par une sem-
+blable hardiesse, nous allons essayer de préciser comment on peut actuellement se représenter l’atome de lumière.
+
+(Ohne jedwede Verschleierung der aufgeworfenen Schwierigkeiten einer derartigen Kühnheit gehen wir an den Versuch zu vermitteln)
+
+nous sommes tout naturellement amenés à supposer que les radiations sont formées d’atomes de. lumière se mouvant avec des vitesses très voisines de c, mais légèrement inférieures
+
+p79
+peut-être, peut-on espérer qu’un jour en mesurant la vitesse dans le vide d’ondes de très basse fréquence, on trouvera des nombres assez sensiblement inférieurs à c.
+
+*** Diss engl p106, orig p116
+(Historical development of QT, vol1 prt2 p601)
+
+Si deux ou plusieurs atomes ont des ondes de phase qui se superposent exactement dont on peut dire par suite qu’ils sont transportés par la même onde, .leurs mouvements ne pourront plus être considérés comme entièrement indépendants et ces atomes ne pourront plus être traités comme des unités distinctes dans les calculs de probabilité.
+
+If two or more atoms of light have exactly superimposed phase waves that can be said to be carried by the same wave, their motions can no longer be con- sidered as completely independent and these atoms can no longer be treated as separate units in probability calculations.
+
+Historical development of QT, vol1 prt2 p618
+Auch besprochen in Verbindung mit Bose (oder eher dem Gibbs Paradox) in Einstein 1925a. Ehrenfest hält dagegen. Walter Elsasser erklärt Ramsauer Effekt (HDOQT p624) mit Elektronenwellen.
+
+However: deBroglie ist nicht Bose, aber er sagt im Kontrast zu Einstein 1905 dass sie nicht immer statistisch unabhängig sind.
+
+*** Doktorarbeit Sievers zu deBroglie
+S20
+Bis zu seinem Lebensende war er davon überzeugt, daß sie sich mit etwas geringerer Geschwindigkeit als c bewegen und bezeichnete daher c als „Grenzgeschwindigkeit des Lichtes“.
+
+*** de Broglie, One et Quanta
+Allgemein bekannt:
+Hat ein Teilchen mit Ruheenergie E0 eine Gescheindigkeit v, so wird die Energie des Teilchens lt SRT  höher E = E0 * g (mit g^2 = 1/(1 - b^2) und b = v/c und b < 1; also g >1)
+
+Postulat 1:
+Ich nehme im ruhenden Teilchen eine innere Schwingung mit Frequenz nu0 an die durch nu0 = E0 / h gegeben ist.
+
+Hat das Teilchen eine Gescheindigkeit v wird die innere Schwingung lt. SRT langsamer mit
+
+nu1 = (1 - b^2) * E / h
+
+Beweis:
+lt SRT (Zeitdilatation)
+nu1 = nu0 / g -> nu1 = E0 / (h * g) -> nu1 = E / (h * g^2) -> nu1 = (1 - b^2) * E / h
+
+Was auch immer da beim fliegenden Teilchen im inneren mit Frequenz nu1 schwingt, zeitlich schwingts wie folgt sin(2pi * nu1 * t) also ist die Phase am Ort des Teilchens x = v * t:
+
+sin(2pi * nu1 * x/v)
+
+Postulat 2:
+Ich nehme eine Welle im Raum an, die Materiewelle, sie hat folgende Frequenz:
+
+nu = E / h
+
+es folgt mit Postulat 1 (und damit eine Zusammenführung von SRT + QT)
+
+nu1/nu = 1- b^2
+
+Postulat 3:
+Eine Materiewelle ist immer in Phase mit der inneren Schwingung des Teilchens, daher gilt für ihre Phasengeschwindigkeit P:
+
+P =  c^2/v
+
+Erklärung:
+Trotzdem, dass die Frequenzen nu und nu1 underschiedlich sind, kann der Wellen-Auschlag am Ort des Teilchens immer synchron mit der inneren Schwingung der Teilchens gehalten werden. Die Schwingungen können also in Phase sein obwohl sie verschiedene Frequenzen haben. Siehe auch Animation im Link. Der Trick ist, dass die Materiewelle das Teilchen ständig überholt und dadurch deren höhere Fequenz kompensiert wird.
+
+Beweis:
+Wellengelichung
+sin(w*t - k*x) mit w = 2pi * nu und k = w / P
+sin[ 2pi*nu (t - x/P)]
+
+in Phase am Ort des Teilchens x und damit zur Zeit t = x/v
+sin(2pi * nu1 * x/v) = sin[ 2pi*nu (x/v - x/P)]
+
+nu1 * x/v = nu (x/v - x/P)
+
+nu1/nu = 1 - v / P  [rein Geometrische Bedingung für in Phase sein, keine SRT, QT]
+
+1 - b^2 = 1 - v / P [aus Postulat 2]
+
+v^2 / c^2 = v / P
+
+P  = c^2/v
+
+V ist also höher ist als c und wird auch immer schneller je langsamer das Teilchen ist.
+
+Wellenlänge ist l = P / nu -> l = (c^2/v) / (E0 * g / h) = c^2 * h / (m * c^2 * g * v) = h / p
+
 ** Resources
 *** clj Files
 **** Command lines
 clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"}}}" -M  babashka-snipets/stefan.clj
 
-clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}"
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M babashka-snipets/mariastefan.clj
 
 (require '[scicloj.clay.v2.api :as clay])
 (clay/make! {:source-path "babashka-snipets/stefan.clj"})
@@ -534,7 +645,7 @@ clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal
     (require '[scicloj.clay.v2.api :as clay])
     (require '[nextjournal.beholder :as beholder])
     (defn make! [_] (clay/make! {:format      [:html] #_ [:quarto :pdf]
-                                 :source-path "babashka-snipets/stefan.clj"}))
+                                 :source-path "babashka-snipets/mariastefan.clj"}))
     (def watcher (beholder/watch make! "babashka-snipets"))
     (make! nil)
     )
@@ -545,27 +656,133 @@ Stefan Paper ohne emmy
 hat aber mit ein bischen mehr Text zu den Rechnungen
 **** mariastefan.clj
 Stefan Paper mit emmy und für maria (siehe einen maria.cloud Kommentar)
+snapshot zu sehen online auf
+https://2.maria.cloud/gist/39e81f931737ea7032991c796f93c020
+
 **** lambert.clj
 Buch von Lambert
 
-*** the historical development of quantum theory
+*** Papers
+**** Willy Wien
+deutsches Wikipedia
+http://myweb.rz.uni-augsburg.de/~eckern/adp/history/historic-papers/1896_294_662-669.pdf
+**** Planck
+„... ich dachte mir nicht viel dabei ...“
+Plancks ungerader Weg zur Strahlungsformel
+Domenico Giulini und Norbert Straumann
+https://onlinelibrary.wiley.com/doi/pdf/10.1002/phbl.20000561214
+
+**** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
+Hinweis in Histrory of Quantum Physics vol1 part1 p24
+**** the historical development of quantum theory
 https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
-*** charles's law
-Vorgänger von Gay-Lussac und Dalton. V1:T1 = V2:T2
-https://en.wikipedia.org/wiki/Charles's_law
-*** thermodynamic temperature
+
+vol1 part1
+https://archive.org/details/quantumtheoryofp0001meThe Historical Development of Quantum Theory, Vol. 1
+
+vol 1 part2
+https://archive.org/details/quantumtheoryofp0001mehr_g3o9
+
+vol3
+https://archive.org/details/formulationofmat0003mehr
+
+**** de Broglie
+Doktorarbeit, Thesis
+nicht so gut:
+https://fondationlouisdebroglie.org/LDB-oeuvres/De_Broglie_Kracklauer.pdf
+besser: in Calibre von reserchgate.
+
+nicht greifbar:
+Untersuchungen zur Quantentheorie. Louis de Broglie
+Übersetzt Von Dr. Walther Becker. Pp. ii + 88. (Leipzig: Akademische Verlagsgesellschaft m.b.H., 1927.)
+
+Sievers Doktorarbeit, Kommentar zur Thesis (über deutschen Wikipedia Eintrag für de Broglie)
+https://arxiv.org/pdf/physics/9807012v2.pdf
+
+Google Books Preview:
+The Wave-Particle Dualism: A Tribute to Louis de Broglie on his 90th Birthday (First article)
+
+Nobel lecture
+https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf
+
+Paper: Royome noir at lumiere
+in Calibre
+
+Paper: Ondes et quanta
+Materiewellen mit genauer Sinus Herleitung
+https://www.davis-inc.com/physics/rendus-f.pdf (Orig)
+https://www.davis-inc.com/physics/broglie/broglie.shtml (engl)
+graphic of Schwingunf in Phase
+https://www.davis-inc.com/physics/wavegrph.html
+
+*** Ideen Wikipedia
+**** Aberration (Astronomie)
+https://de.wikipedia.org/wiki/Aberration_(Astronomie)
+**** thermodynamic temperature
 Hinweis auf Lambert und Amontons
 https://en.wikipedia.org/wiki/Thermodynamic_temperature#History
 
-** Ideen
+**** charles's law
+Vorgänger von Gay-Lussac und Dalton. V1:T1 = V2:T2
+https://en.wikipedia.org/wiki/Charles's_law
+**** Bose-Einstein
+https://en.wikipedia.org/wiki/Bose–Einstein_statistics
+During this lecture, Bose committed an error in applying the theory, which unexpectedly gave a prediction that agreed with the experiment. The error was a simple mistake—similar to arguing that flipping two fair coins will produce two heads one-third of the time
+
+Man kommt einfach empirisch drauf wie man zählen muss, und dann sagt man: die zwei Fälle Kopf-Zahl, Zahl-Kopf sind halt ununterscheidbar.
+Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild drumrum stricken.
+
 *** YAMLscipt
-!yamlscript/v0
-Formel mit [x in Celsius]:
-    (((A hoch x) minus 1) mal M):
-     und:
-        (1 Komma 0 0 77) fur: A
-     und:
-        (2 Komma 0 2) fur: M
+
+#+begin_src yaml
+
+    !yamlscript/v0
+
+    Formel mit [x in Celsius]:
+        (((A hoch x) minus 1) mal M):
+         und:
+            (1 Komma 0 0 77) fur: A
+         und:
+            (2 Komma 0 2) fur: M
+
+    Formel für:
+      x in Celsius: (((A hoch x) minus 1) mal M)
+      und: (1 Komma 0 0 77) fur A
+      und: (2 Komma 0 2) fur M
+
+    Formel fur x in Celsius ist: (x + 1)
+
+    Formel:
+      fur: (x in Celsius)
+      ist: (((A hoch x) minus 1) mal M)
+      mit: (1 Komma 0 0 77) fur A
+      und: (2 Komma 0 2) fur M
+#+end_src
+
+#+begin_src clojure
+      (Formel
+       (fur (x in Celsius))
+       (ist (((A hoch x) minus 1) mal M))
+       (mit (1 Komma 0 0 77) fur A)
+       (und (2 Komma 0 2) fur M))
+
+      (:tiles/vert (Formel
+       (fur (:tiles/infix (in x Celsius)))
+       (ist (:tiles/infix (mal (:tiles/infix (minus (:tiles/infix (hoch A x)) 1))  M)))
+       (mit [1 Komma 0 0 77] fur A)
+       (und [2 Komma 0 2] fur M)))
+
+  (((fn [A M]
+         (fn [x]
+           (mal (minus (hoch A x) 1) M)))
+       1.0077
+       2.02)
+    'Celsius)
+#+end_src
+
+"ist, mit, und" sind ein und dieselbe Funktion die von Infix auf Prefix rechnet und html-boxes macht.
+Formel fasst alles nochmal zusammen.
+
 *** Nachwort
 **** Josef Stefan
 this mericulous analysis of a man from a haunted region, where he gets the most out ofy any data he can get hold of. neber being used to abundance  from a miunderstood people always needing to defend homself sgainst the typical mockeries of the untalented amongst suppressed people , misunderstood amingst the misunderstood living by every scrap, devoted to his task, where after every painstaking analysis I scream please stop i believe you, but no, he goes on putting effort in a case which either one believes in or will not be convinced by yet anotjer streak of calculation
