@@ -1,3 +1,10 @@
+;; # Table of Contents
+;; ### 1 Code Preamble
+;; ### 2 Josef Stefan's T^4 law
+;; ### 3 Small doodley pieces
+;; ### 4 deBroglie Wavelength
+
+;; # 1 Code Präambel (bitte runterscrollen zum Hauptteil)
 (ns mariastefan
   (:refer-clojure :exclude [+ - * / = abs compare zero? ref partial
                             numerator denominator infinite?])
@@ -7,9 +14,18 @@
 
 (def html kind/hiccup)
 
-(defn equals? [a b] (simplify (- b a)))
+(defn is-within! [a [b db]]
+  (when (< (- b db) (simplify a) (+ b db)) a))
 
-;; # Code Präambel (bitte runterscrollen zum Hauptteil)
+(defn is-equal! [a b]
+  (when (zero? (simplify (- a b))) a))
+
+(defn solves! [x f]
+  (when (zero? (simplify (f x))) x))
+
+(defn gives-zero! [f x]
+  (when (zero? (simplify (f x))) x))
+
 (defn postfix? [ctx ex]
   ((-> ctx :Schlusselworte :postfix)
    (str (last ex))))
@@ -176,7 +192,7 @@
      :tex    bxe
      :hiccup hxe}))
 
-;; # J. Stefan: Über die Beziehung zwischen der Wärmestrahlung und der Temperatur
+;; # 2 J. Stefan: Über die Beziehung zwischen der Wärmestrahlung und der Temperatur
 
 ;;Temperatur in Celsius
 (def temper [80 100 120 140 160 180 200 220 240])
@@ -291,7 +307,7 @@ tb7
 ;; Differenz der Sekunden: St-Rechnung Differenz D&P-Messung
 (tb6 (tb3 (r-transpose [dp-meas st-theor])))
 
-;; # Kleine Fingerübungen
+;; # 3 Kleine Fingerübungen
 
 (def bsp0 (calcbox (1 plus 3)))
 (html (:hiccup bsp0))
@@ -329,14 +345,10 @@ tb7
   (calcbox ((e hoch pi) mit [[e pi] aus Schulwissen])))
 (html (:hiccup (bsp5 gctx)))
 
-(bsp5 gctx)
-
 (def bsp6 (calcbox [(X plus Y) [mit [X gleich (Y plus 7)]] [mit [Y gle=ich 3]]]))
 (html (:hiccup bsp6))
 
-bsp6
-
-;; # deBroglie Wavelength
+;; # 4 deBroglie Wavelength
 
 ;; ## Internal Vibarations
 ;; as always with Einstein, we start with E = mc^2
@@ -348,11 +360,8 @@ bsp6
 (defn nu_naught [E0] (/ E0 'h))
 
 ;; particle travels at velocity v
-(defn gamma [v c] (/ 1 (sqrt (- 1 (/ (* v v) (* c c))))))
-
-;; Light travels 300.000 km/s, a comet travels 120.000 km/h
-;; which means that gamma is very near to 1
-(gamma (/ (/ 120000 60) 60) 300000)
+(defn v [beta c] (* beta c))
+(defn gamma [beta] (/ 1 (sqrt (- 1 (* beta beta)))))
 
 ;; time dilation: internal vibration is slower for observer
 (defn nu_one [nu_naught gamma] (/ nu_naught gamma))
@@ -366,17 +375,14 @@ bsp6
 ;; so the time can be measured by the position of the particle
 (defn t [x v] (/ x v))
 
-;; as an exercise, we manually calculated
-;; the phase of the internal swing at particle point x
-(def internal-phase-formula
-  (* 2 'pi 'nu_one (/ 'x 'v)))
+;; calculate the phase of the internal swing at particle point x
+(def internal-phase
+  (asin ((internal-swing 'nu_one) (t 'x 'v))))
 
-;; the proof is in the pudding
-(equals? internal-phase-formula
-         (let [t (t 'x 'v)]
-           (asin ((internal-swing 'nu_one) t))))
+(is-equal! (* 2 'pi 'nu_one (/ 'x 'v))
+           internal-phase)
 
-;; ## The Wave
+;; ## A general Wave
 ;; now for soemthing completely different: general definition of a wave
 (defn wave [omega k]
   (fn [x t] (sin (- (* omega t) (* k x)))))
@@ -388,17 +394,45 @@ bsp6
 ;; a dispersion free wave traveling at phase-velocity V
 (defn k [omega V] (/ omega V))
 
-;;exercise: calculate the phase of wave at time t and point x
-(def wave-phase-formula
-  (* 2 'pi 'nu (- 't (/ 'x 'V))))
+;; calculate the phase of the wave at point x and time t = x/u
+;; note that u is an arbitrary velocity, used to set the time t
 
-;; proof
-(equals? wave-phase-formula
-         (let [omega (omega 'nu)
-               k     (k omega 'V)]
-           (asin ((wave omega k) 'x 't))))
+(def wave-phase
+  (let [omega (omega 'nu)
+        k     (k omega 'V)]
+    (asin ((wave omega k) 'x (t 'x 'u)))))
+
+(is-equal! (* 2 'pi 'nu (- (/ 'x 'u) (/ 'x 'V)))
+           wave-phase)
+
+;; ## Phase difference
+;; since we can calculate the phase of both the internal vibration and the wave,
+;; we can also calculate their difference.
+
+;; calculate the phase difference at time t = x / v of the particle.
+;; as a function of the ratio of the frequencies
+(defn phase [x] (/ (asin x) (* 2 'pi)))
+
+(defn phase-difference [r]
+  (let [nu_one (* r 'nu)
+        omega  (omega 'nu)
+        k      (k omega 'V)]
+    (- (phase ((internal-swing nu_one) (t 'x 'v)))
+       (phase ((wave omega k) 'x (t 'x 'v))))))
+
+(is-equal! (* 'nu (+ (* (- 'r 1) (/ 'x 'v)) (/ 'x 'V)))
+           (phase-difference 'r))
+
+;; show that internal-vibration and wave are in phase
+;; when the ratio of the frequencies equals
+;; a certain simple relation between
+;; the velocity of the particle and the phase velocity
+(defn nu-ratio-in-phase [v V] (- 1 (/ v V)))
+
+(simplify (phase-difference (nu-ratio-in-phase 'v 'V)))
 
 ;; the Energy of the particle for the observer
+
 (defn E [E0 gamma] (* E0 gamma))
 
 ;; we assume the wave has the frequency: energy devided by Planck's constant.
@@ -406,44 +440,31 @@ bsp6
 ;; especially for the observer who is not in the rest frame.
 (defn nu [E] (/ E 'h))
 
-;; ## Phase difference
-;; since we can calculate the phase of both the internal vibration and the wave,
-;; we can also calculate their difference. we do this dependent on
-;; the wave's phase-velocity V.
-;; the phase difference is calculated at point x = v * t of the particle.
-;; this time we calculate all the way down to the basic constants: m c v
+;; now that nu is set, calculate the general ratio of the frequencies
+(defn nu-ratio [beta]
+  (simplify (/ (nu_one (nu_naught 'E0) (gamma beta))
+               (nu (E 'E0 (gamma beta))))))
 
-(defn phase-difference [V]
-  (let [E0        (E0 'm 'c)
-        gamma     (gamma 'v 'c)
-        E         (E E0 gamma)
-        nu_naught (nu_naught E0)
-        nu_one    (nu_one nu_naught gamma)
-        nu        (nu E)
-        omega     (omega nu)
-        k         (k omega V)]
-    (- (asin ((internal-swing nu_one) (t 'x 'v)))
-       (asin ((wave omega k) 'x (t 'x 'v))))))
+;; this sets the value of the phase-velocity V
+(defn V [v c] (/ (* c c) v))
 
-;; deBroglies second hypothsis was to demand that the phase difference must be zero.
-;; this assumtion links the internal-vibration to the wave and defines its velocity.
-;; calculation shows that the phase-velocity of a deBroglie wave must equal
-(def matter-wave-velocity (/ (* 'c 'c) 'v))
-
-;; proof
-(simplify (phase-difference matter-wave-velocity))
+(is-equal! (nu-ratio 'beta)
+           (nu-ratio-in-phase (v 'beta 'c) (V (v 'beta 'c) 'c)))
 
 ;;note: the phase-velocity is always greater than the speed of light. It is independent
 ;; of the position x and the mass of the particle
 
-;; wavelength in general is calculated by dividing the phase-velocity by the frequency
+;; the relativistic momentum is defined as
+(defn p [m v gamma]
+  (* m v gamma))
+
+;; calculate the deBroglie wavelength (by dividing the phase-velocity by the frequency)
+;; and show that it indeed is h devided by the momentum
 (def de-broglie-wavelength
-  (/ matter-wave-velocity
+  (/ (V 'v 'c)
      (nu (E (E0 'm 'c) 'gamma))))
 
-;; finally, the famous result:
-;; the deBroglie wavelength of the matter wave is calculated to
-;; h devided by the particle-momentum
-(simplify de-broglie-wavelength)
+(is-equal! (/ 'h (p 'm 'v 'gamma))
+           de-broglie-wavelength)
 
 (println "Success!!")

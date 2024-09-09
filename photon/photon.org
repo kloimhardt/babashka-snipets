@@ -574,6 +574,7 @@ S20
 Bis zu seinem Lebensende war er davon überzeugt, daß sie sich mit etwas geringerer Geschwindigkeit als c bewegen und bezeichnete daher c als „Grenzgeschwindigkeit des Lichtes“.
 
 *** de Broglie, One et Quanta
+Codiert in Clojure in mariastefan.clj
 Allgemein bekannt:
 Hat ein Teilchen mit Ruheenergie E0 eine Gescheindigkeit v, so wird die Energie des Teilchens lt SRT  höher E = E0 * g (mit g^2 = 1/(1 - b^2) und b = v/c und b < 1; also g >1)
 
