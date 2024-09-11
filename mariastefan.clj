@@ -14,17 +14,11 @@
 
 (def html kind/hiccup)
 
-(defn is-within! [a [b db]]
-  (when (< (- b db) (simplify a) (+ b db)) a))
-
 (defn is-equal! [a b]
   (when (zero? (simplify (- a b))) a))
 
-(defn solves! [x f]
-  (when (zero? (simplify (f x))) x))
-
-(defn gives-zero! [f x]
-  (when (zero? (simplify (f x))) x))
+(defn solves! [a f]
+  (when (zero? (simplify (f a))) a))
 
 (defn postfix? [ctx ex]
   ((-> ctx :Schlusselworte :postfix)
@@ -352,7 +346,7 @@ tb7
 
 ;; ## Internal Vibarations
 ;; as always with Einstein, we start with E = mc^2
-(defn E0 [m c] (* m c c))
+(defn E0 [m] (* m 'c 'c))
 
 ;; deBroglies first hypothesis was to assume that every particle has a hypothetical
 ;; internal vibration at frequency nu0 which relates to the rest energy
@@ -360,10 +354,14 @@ tb7
 (defn nu_naught [E0] (/ E0 'h))
 
 ;; particle travels at velocity v
-(defn v [beta c] (* beta c))
+(defn v [beta] (* beta 'c))
+(defn beta [v] (/ v 'c))
 (defn gamma [beta] (/ 1 (sqrt (- 1 (* beta beta)))))
 
-;; time dilation: internal vibration is slower for observer
+;; time dilation: internal vibration is slower for observer.
+;; so the frequency-energy relation does not hold: the frequency indeed decreases
+;; instead of increasing with energy.
+;; this is the conundrum deBroglie solved. so hang on.
 (defn nu_one [nu_naught gamma] (/ nu_naught gamma))
 
 ;; sine formula for internal vibration. we do not know what exactly vibrates
@@ -371,19 +369,17 @@ tb7
 (defn internal-swing [nu_one]
   (fn [t] (sin (* 2 'pi nu_one t))))
 
-;; the particle is at position x = v * t (yes, even in special relativity)
-;; so the time can be measured by the position of the particle
-(defn t [x v] (/ x v))
-
-;; calculate the phase of the internal swing at particle point x
-(def internal-phase
-  (asin ((internal-swing 'nu_one) (t 'x 'v))))
+;; calculate the phase of the internal swing at particle point x = v * t
+(defn internal-phase [nu_one x v]
+  (asin ((internal-swing nu_one) (/ x v))))
 
 (is-equal! (* 2 'pi 'nu_one (/ 'x 'v))
-           internal-phase)
+           (internal-phase 'nu_one 'x 'v))
+
+;; personal note: to me, this is the sine-part of a standing wave, the standing vibration.
 
 ;; ## A general Wave
-;; now for soemthing completely different: general definition of a wave
+;; now for something completely different: general definition of a wave
 (defn wave [omega k]
   (fn [x t] (sin (- (* omega t) (* k x)))))
 
@@ -394,77 +390,77 @@ tb7
 ;; a dispersion free wave traveling at phase-velocity V
 (defn k [omega V] (/ omega V))
 
-;; calculate the phase of the wave at point x and time t = x/u
-;; note that u is an arbitrary velocity, used to set the time t
+;; calculate the phase of the wave
+(defn wave-phase [nu x t V]
+  (asin ((wave (omega nu) (k (omega nu) V)) x t)))
 
-(def wave-phase
-  (let [omega (omega 'nu)
-        k     (k omega 'V)]
-    (asin ((wave omega k) 'x (t 'x 'u)))))
-
-(is-equal! (* 2 'pi 'nu (- (/ 'x 'u) (/ 'x 'V)))
-           wave-phase)
+(is-equal! (* 2 'pi 'nu (- 't (/ 'x 'V)))
+           (wave-phase 'nu 'x 't 'V))
 
 ;; ## Phase difference
-;; since we can calculate the phase of both the internal vibration and the wave,
-;; we can also calculate their difference.
 
-;; calculate the phase difference at time t = x / v of the particle.
+;; calculate the phase difference between the vibration
+;; and some wave at time t = x / v
 ;; as a function of the ratio of the frequencies
-(defn phase [x] (/ (asin x) (* 2 'pi)))
 
-(defn phase-difference [r]
-  (let [nu_one (* r 'nu)
-        omega  (omega 'nu)
-        k      (k omega 'V)]
-    (- (phase ((internal-swing nu_one) (t 'x 'v)))
-       (phase ((wave omega k) 'x (t 'x 'v))))))
+(defn phase-difference [r x v nu V]
+  (- (internal-phase (* r nu) x v)
+     (wave-phase nu x (/ x v) V)))
 
-(is-equal! (* 'nu (+ (* (- 'r 1) (/ 'x 'v)) (/ 'x 'V)))
-           (phase-difference 'r))
+(is-equal! (* 2 'pi 'nu (+ (* (- 'r 1) (/ 'x 'v)) (/ 'x 'V)))
+           (phase-difference 'r 'x 'v 'nu 'V))
 
-;; show that internal-vibration and wave are in phase
-;; when the ratio of the frequencies equals
-;; a certain simple relation between
-;; the velocity of the particle and the phase velocity
-(defn nu-ratio-in-phase [v V] (- 1 (/ v V)))
+;; state the general ratio of frequencies that keeps
+;; the vabration of the particle in phase with some wave of velocity V
+;; in terms of the velocity of the particle
 
-(simplify (phase-difference (nu-ratio-in-phase 'v 'V)))
+(solves! (@(defn nu-ratio-in-phase [v V] (- 1 (/ v V)))
+          'v 'V)
+         (fn [r] (phase-difference r 'x 'v 'nu 'V)))
 
 ;; the Energy of the particle for the observer
 
 (defn E [E0 gamma] (* E0 gamma))
 
-;; we assume the wave has the frequency: energy devided by Planck's constant.
+;; we assume the deBroglie wave has the frequency: energy devided by Planck's constant.
 ;; reminder: this relation holds in every frame of reference,
 ;; especially for the observer who is not in the rest frame.
 (defn nu [E] (/ E 'h))
 
-;; now that nu is set, calculate the general ratio of the frequencies
-(defn nu-ratio [beta]
-  (simplify (/ (nu_one (nu_naught 'E0) (gamma beta))
-               (nu (E 'E0 (gamma beta))))))
+;; now that nu is set, calculate the physically viable ratio of the frequencies
+;; in terms of beta
+(defn physical-nu-ratio [beta]
+  (/ (nu_one (nu_naught 'E0) (gamma beta))
+     (nu (E 'E0 (gamma beta)))))
 
-;; this sets the value of the phase-velocity V
-(defn V [v c] (/ (* c c) v))
+(is-equal! (- 1 (* 'beta 'beta))
+           (physical-nu-ratio 'beta))
 
-(is-equal! (nu-ratio 'beta)
-           (nu-ratio-in-phase (v 'beta 'c) (V (v 'beta 'c) 'c)))
+;; state the value of the physical phase-velocity V
+;; that keeps the vibration and the deBroglie wave in phase
+;; in terms of the particle velocity v
+(solves! (@(defn phase-velocity [beta] (/ 'c beta))
+          'beta)
+         (fn [V] (- (physical-nu-ratio 'beta)
+                    (nu-ratio-in-phase (v 'beta) V))))
 
 ;;note: the phase-velocity is always greater than the speed of light. It is independent
 ;; of the position x and the mass of the particle
 
 ;; the relativistic momentum is defined as
+
 (defn p [m v gamma]
   (* m v gamma))
 
 ;; calculate the deBroglie wavelength (by dividing the phase-velocity by the frequency)
 ;; and show that it indeed is h devided by the momentum
 (def de-broglie-wavelength
-  (/ (V 'v 'c)
-     (nu (E (E0 'm 'c) 'gamma))))
+  (/ (phase-velocity (beta 'v))
+     (nu (E (E0 'm) 'gamma))))
 
 (is-equal! (/ 'h (p 'm 'v 'gamma))
            de-broglie-wavelength)
+
+;; personal note: one can see this upside down. V and nu define not only the deBroglie phase wave but also a standing wave (standing vibration). and the intersection of the two waves gives the trajectory of the particle (and hence it's velocity v). Intersection meaning the points where the phase of the wave and the sine-part of the standing vibration-wave have the same value. The mass of the particle is then given by the deBroglie-wavelength and the v. Mass is thus a constant of the motion, the same value in every frame.
 
 (println "Success!!")
