@@ -322,6 +322,13 @@ dQ = m * c * v * dt
 wenn mit m die Masse, mit c die Specifische Wärme des Thermometers und die Abgühlungsgeschwindigkeit dT/dt = v gesetzt wird.
 D&P haben für die Abkühlungsgeschwindigkeit die Minute als Einheit gewählt.
 
+*** Eigener Text, Ideen
+this mericulous analysis of a man from a haunted region, where he gets the most out ofy any data he can get hold of. neber being used to abundance  from a miunderstood people always needing to defend homself sgainst the typical mockeries of the untalented amongst suppressed people , misunderstood amingst the misunderstood living by every scrap, devoted to his task, where after every painstaking analysis I scream please stop i believe you, but no, he goes on putting effort in a case which either one believes in or will not be convinced by yet anotjer streak of calculation
+
+stefan: schreib rein was alles versucht wurde und nicht funktioniert hat. weil sonst weiss  man nicht warum das nötig war. wie in trinity mit walkthrough bleibt sonst immer die frage offen: warum hab ich die Insel gesprengt. ein walkthrough braucht immer einen kommentar.
+
+Sometimes Science seems like a recipe "how you ought to think". That is true, but we have to give alternatives to show that thecurrent one is the best we have.
+
 ** Wien
 *** eine neue Beziehung der Strahlung
 Ais Voraussetzungen werden wir notig haben zunachst die Gtiltigkeit der elektromagnetischen Lichttheorie, nach welcher der von einem Lichtstrahle in seiner Rich- tung ausgeubte Druck gleich der Energie des Strahles ist, dann die Moglichkeit der Existenz vollkommen schwarzer und vollkommen spiegelnder Korper, welche auch so zusammengesetzt sein konnen, daB sie die auffallenden Lichtstrahlen vollstandig zerstreut zurtickwerfen, wie wir es bei der totalen Reflexion weiBer Korper annahernd erfullt finden. AuBerdem betrachten wir noch den zweiten Hauptsatz der Warmetheorie als gtiltig, daB auch durch Strahlung, welche von dem Warmevorrat fester Korper herrtihrt, keine Arbeit aus Warme ohne sonstige Arbeits- leistungen, Temperaturverluste oder Zustandsanderungen gewonnen werden kann. SchlieBlich setzen wir die An- wendbarkeit des DOPPLERschen Prinzips auf Licht- strahlen voraus.
@@ -716,7 +723,7 @@ https://www.davis-inc.com/physics/broglie/broglie.shtml (engl)
 graphic of Schwingunf in Phase
 https://www.davis-inc.com/physics/wavegrph.html
 
-*** Ideen Wikipedia
+*** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
 **** thermodynamic temperature
@@ -733,6 +740,9 @@ During this lecture, Bose committed an error in applying the theory, which unexp
 Man kommt einfach empirisch drauf wie man zählen muss, und dann sagt man: die zwei Fälle Kopf-Zahl, Zahl-Kopf sind halt ununterscheidbar.
 Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild drumrum stricken.
 
+**** Nature writing
+https://de.wikipedia.org/wiki/Deutscher_Preis_für_Nature_Writing
+literatur u wissenschaft deutschlfk + literaturhaus berlin
 *** YAMLscipt
 
 #+begin_src yaml
@@ -783,8 +793,4 @@ Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild d
 
 "ist, mit, und" sind ein und dieselbe Funktion die von Infix auf Prefix rechnet und html-boxes macht.
 Formel fasst alles nochmal zusammen.
-
-*** Nachwort
-**** Josef Stefan
-this mericulous analysis of a man from a haunted region, where he gets the most out ofy any data he can get hold of. neber being used to abundance  from a miunderstood people always needing to defend homself sgainst the typical mockeries of the untalented amongst suppressed people , misunderstood amingst the misunderstood living by every scrap, devoted to his task, where after every painstaking analysis I scream please stop i believe you, but no, he goes on putting effort in a case which either one believes in or will not be convinced by yet anotjer streak of calculation
 

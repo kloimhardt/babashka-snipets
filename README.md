@@ -62,3 +62,25 @@ with sicmutils 0.21.1, there is no error even without the `:compile`
 cljs.user=> (scmtest.minimaldemo/la2)
 210
 ```
+
+## The Photon project
+Essays on the history of radiation form early Thermodynamics (Lambert) to Quantum Theory (deBroglie)
+
+```
+$ clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
+
+(do
+    (require '[scicloj.clay.v2.api :as clay])
+    (require '[nextjournal.beholder :as beholder])
+    (defn make! [_] (clay/make! {:source-path "babashka-snipets/lambert.clj"}))
+    (def watcher (beholder/watch make! "babashka-snipets"))
+)
+
+also look at photon/photon.org -> Resources -> clj Files -> Command lines
+
+```
+## sicm_ch1.clj: a "define"-Macro for Scheme emulation
+
+```
+$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"}   nrepl/nrepl {:mvn/version "1.3.0"}}}'  -m nrepl.cmdline
+```
