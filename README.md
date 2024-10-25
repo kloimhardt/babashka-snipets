@@ -81,6 +81,11 @@ also look at photon/photon.org -> Resources -> clj Files -> Command lines
 ```
 ## sicm_ch1.clj: a "define"-Macro for Scheme emulation
 
+Start nRepl with bells and whistles for Emacs editing:
 ```
-$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"}   nrepl/nrepl {:mvn/version "1.3.0"}}}'  -m nrepl.cmdline
+clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
+```
+Or just a bare nRepl
+```
+clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} nrepl/nrepl {:mvn/version "1.3.0"}}}' -m nrepl.cmdline
 ```
