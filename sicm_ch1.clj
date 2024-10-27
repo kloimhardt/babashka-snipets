@@ -8,23 +8,11 @@
             [emmy.mechanics.lagrange :as eml]
             [clojure.walk :as w]))
 
-;; ~/Photon/babashka-snipets$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
+;; command to run this file:
+;;$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M sicm_ch1.clj
 
-(defn f [x]
-  (let [y 1]
-    (defn g [z] (+ y z))
-    (g x)))
-
-(f 7)
-(g 4)
-
-(comment
-  (defmacro hu [x] (str x))
-  ;; does not work
-  ;; (hu pi/2)
-  :end)
-
-(* 1/2 pi)
+;; command to run a cider nrepl for development
+;;$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
 
 (defmacro let-scheme [b & e]
   `(let ~(into [] (apply concat b)) ~@e))
