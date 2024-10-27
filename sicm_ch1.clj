@@ -1,6 +1,6 @@
 (ns sicm-ch1
   (:refer-clojure :exclude [+ - * / = abs compare zero? ref partial
-                            numerator denominator infinite?])
+                            numerator denominator infinite? time])
   (:require [emmy.env :as e :refer :all
              :exclude [F->C Lagrangian-action find-path Lagrange-equations p->r r->p
                        Lagrangian->state-derivative Lagrange-equations-first-order
@@ -46,6 +46,7 @@
 (def velocities velocity)
 (def coordinates coordinate)
 (def vector-length count)
+(defn time [state] (first state))
 
 ;; 1 Lagrangian Mechanics
 ;; 1.4 Computing Actions
@@ -276,8 +277,7 @@
 (define (L-rotating-rectangular m Omega)
   (compose (L-rotating-polar m Omega) (F->C r->p)))
 
-;; some error here
-#_(show-expression
+(show-expression
   ((L-rotating-rectangular 'm 'Omega)
    (up 't (up 'x_r 'y_r) (up 'xdot_r 'ydot_r))))
 
@@ -288,8 +288,7 @@
    (* 1/2 'm (expt 'xdot_r 2))
    (* 1/2 'm (expt 'ydot_r 2)))
 
-;; error here
-#_(show-expression
+(show-expression
   (((Lagrange-equations (L-rotating-rectangular 'm 'Omega))
     (up (literal-function 'x_r) (literal-function 'y_r)))
    't))
@@ -327,8 +326,7 @@
 
 (define L-pendulum (- T-pend V-pend))
 
-;; some error
-#_(show-expression
+(show-expression
   (((Lagrange-equations
       (L-pendulum 'm 'l 'g (literal-function 'y_s)))
     (literal-function 'theta))
@@ -353,8 +351,8 @@
 (define (L-pend m l g y_s)
   (compose (L-uniform-acceleration m g)
            (F->C (dp-coordinates l y_s))))
-;;some error
-#_(show-expression
+
+(show-expression
   ((L-pend 'm 'l 'g (literal-function 'y_s))
    (up 't 'theta 'thetadot)))
 
@@ -422,24 +420,17 @@
   (let ((ys (periodic-drive A omega 0)))
     (L-pend m l g ys)))
 
-;; error
-;; No method in multimethod 'cos' for dispatch value: [:emmy.structure/up]
-;; probably lacks a require
-
-#_(show-expression
+(show-expression
   (((Lagrange-equations
       (L-periodically-driven-pendulum 'm 'l 'g 'A 'omega))
     (literal-function 'theta))
    't))
 
-
 (define (pend-state-derivative m l g A omega)
   (Lagrangian->state-derivative
     (L-periodically-driven-pendulum m l g A omega)))
 
-;; error
-;; same a above
-#_(show-expression
+(show-expression
   ((pend-state-derivative 'm 'l 'g 'A 'omega)
    (up 't 'theta 'thetadot)))
 
