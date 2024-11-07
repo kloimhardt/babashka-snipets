@@ -1,11 +1,9 @@
 ^:kindly/hide-code
 (comment
-  ;; clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
+  ;; clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta22\"}}}"
   (do
     (require '[scicloj.clay.v2.api :as clay])
-    (require '[nextjournal.beholder :as beholder])
-    (defn make! [_] (clay/make! {:source-path "babashka-snipets/lambert.clj"}))
-    (def watcher (beholder/watch make! "babashka-snipets"))
+    (clay/make! {:source-path "lambert.clj" :live-reload true})
     )
   )
 

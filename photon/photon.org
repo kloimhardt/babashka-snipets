@@ -641,27 +641,11 @@ Wellenlänge ist l = P / nu -> l = (c^2/v) / (E0 * g / h) = c^2 * h / (m * c^2 *
 
 ** Resources
 *** clj Files
-**** Command lines
-clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"}}}" -M  babashka-snipets/stefan.clj
-
-clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M babashka-snipets/mariastefan.clj
-
-(require '[scicloj.clay.v2.api :as clay])
-(clay/make! {:source-path "babashka-snipets/stefan.clj"})
-
-  (do
-    (require '[scicloj.clay.v2.api :as clay])
-    (require '[nextjournal.beholder :as beholder])
-    (defn make! [_] (clay/make! {:format      [:html] #_ [:quarto :pdf]
-                                 :source-path "babashka-snipets/mariastefan.clj"}))
-    (def watcher (beholder/watch make! "babashka-snipets"))
-    (make! nil)
-    )
-
 **** stefan.clj
 neuere Version ist mariastefan.clj
 Stefan Paper ohne emmy
 hat aber mit ein bischen mehr Text zu den Rechnungen
+
 **** mariastefan.clj
 Stefan Paper mit emmy und für maria (siehe einen maria.cloud Kommentar)
 snapshot zu sehen online auf

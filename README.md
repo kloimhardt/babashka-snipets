@@ -67,18 +67,22 @@ cljs.user=> (scmtest.minimaldemo/la2)
 Essays on the history of radiation form early Thermodynamics (Lambert) to Quantum Theory (deBroglie)
 
 ```
-$ clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta15\"} com.nextjournal/beholder {:mvn/version \"1.0.2\"}}}"
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta22\"}}}"
+```
 
-(do
-    (require '[scicloj.clay.v2.api :as clay])
-    (require '[nextjournal.beholder :as beholder])
-    (defn make! [_] (clay/make! {:source-path "babashka-snipets/lambert.clj"}))
-    (def watcher (beholder/watch make! "babashka-snipets"))
-)
-
-also look at photon/photon.org -> Resources -> clj Files -> Command lines
+Then, on the appearing `user=>` prompt:
 
 ```
+(do
+    (require '[scicloj.clay.v2.api :as clay])
+    (clay/make! {:source-path "lambert.clj" :live-reload true})
+    )
+```
+
+```
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta22\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M mariastefan.clj
+```
+
 ## sicm_ch1.clj: a "define"-Macro for Scheme emulation
 
 Start nRepl with bells and whistles for Emacs editing:
