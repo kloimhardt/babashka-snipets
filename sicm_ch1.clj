@@ -14,29 +14,41 @@
 ;; command to run a cider nrepl for development
 ;;$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
 
+(defn walk [inner outer form]
+  (cond
+    (list? form) (outer (apply list (map inner form)))
+    (seq? form)  (outer (doall (map inner form)))
+    (coll? form) (outer (into (empty form) (map inner form)))
+    :else        (outer form)))
+(defn postwalk [f form]
+  (walk (partial postwalk f) f form))
+(defn postwalk-replace [smap form]
+  (postwalk (fn [x] (if (contains? smap x) (smap x) x)) form))
 (defmacro let-scheme [b & e]
-  `(let ~(into [] (apply concat b)) ~@e))
-
-(defmacro define [h & b]
-  (let [body (w/postwalk-replace {'let 'let-scheme} b)]
+  (concat (list 'let (into [] (apply concat b))) e))
+(defmacro define-1 [h & b]
+  (let [body (postwalk-replace {'let 'let-scheme} b)]
     (if (coll? h)
       (if (coll? (first h))
-        `(defn ~(ffirst h) ~(into [] (rest (first h)))
-           (fn ~(into [] (rest h)) ~@body))
-        `(defn ~(first h) ~(into [] (rest h))
-           ~@body))
-      `(def ~h ~@body))))
-
+        (list 'defn (ffirst h) (into [] (rest (first h)))
+              (concat (list 'fn (into [] (rest h))) body))
+        (concat (list 'defn (first h) (into [] (rest h)))
+                body))
+      (concat (list 'def h) body))))
+(defmacro define [h & b]
+  (if (and (coll? h) (= (first h) 'tex-inspect))
+    (list 'do
+          (concat ['define-1 (second h)] b)
+          h)
+    (concat ['define-1 h] b)))
 (defmacro lambda [h b]
-  `(fn ~(into [] h) ~b))
-
+  (list 'fn (into [] h) b))
 (def show-expression simplify)
 (def velocities velocity)
 (def coordinates coordinate)
 (def vector-length count)
 (defn time [state] (first state))
 
-;; 1 Lagrangian Mechanics
 ;; 1.4 Computing Actions
 
 (define ((L-free-particle mass) local)
