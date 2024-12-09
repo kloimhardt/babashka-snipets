@@ -639,6 +639,16 @@ V ist also höher ist als c und wird auch immer schneller je langsamer das Teilc
 
 Wellenlänge ist l = P / nu -> l = (c^2/v) / (E0 * g / h) = c^2 * h / (m * c^2 * g * v) = h / p
 
+** Einstein
+*** statistische Wahrscheinlichkeit
+(mit "statistische Wahrscheinlichkeit" meint Einstein wohl eine Gastheorie-Wschkt. die keine "vollständige molekular-mechanische Theorie" oder "Elementartheorie" als Grundlage benötigt)
+
+Photon-Heuristic-Paper: Fussnote 29 ("statistische Wahrscheinlichkiet")  führt auf -> 1909b, Gegenwärtigen Stand Strahlung, p187: "Nach der klassischen Theorie nimmt das System nach einer bestimmten Zeit einen bestimmten dieser Zustände (z. B. Al) an, und verharrt darauf in diesem Zustand (thermodynamisches Gleichge- wicht). Nach der statistischen Theorie nimmt aber das System in unregelmäßiger Folge alle Zustände A1 .... Al immer wieder an"
+
+1909b p187, Fussnote 18 -> 1910c Theorie d Opaleszenz p1276: "Das Boltzmannsche Prinzip erhält jedoch einen Inhalt unabhängig von jeder Elementartheorie, wenn man aus der Molekularkinetik den Satz annimmt und verallgemeinert, daß die Nichtumkehrbarkeit der physikalischen Vorgänge nur eine scheinbare sei."
+
+Nach Einstein durchläuft ein System mit gegebener Energie viele !!makroskopisch unterscheidbare!! Zustände, die alle eine eigene Entropie haben.
+
 ** Resources
 *** clj Files
 **** stefan.clj
@@ -706,6 +716,33 @@ https://www.davis-inc.com/physics/rendus-f.pdf (Orig)
 https://www.davis-inc.com/physics/broglie/broglie.shtml (engl)
 graphic of Schwingunf in Phase
 https://www.davis-inc.com/physics/wavegrph.html
+
+Louis de Broglie’s “double solution” a promising but unfinished theory: https://fondationlouisdebroglie.org/AFLB-421/2DF411.pdf
+Interpretation of quantum mechanics by the double solution theory: https://fondationlouisdebroglie.org/AFLB-classiques/aflb124p001.pdf
+https://fondationlouisdebroglie.org/AFLB-classiques/tableclassiques.htm
+
+Quantum mechanics : historical contingency and the Copenhagen hegemony
+https://archive.org/details/quantummechanics0000cush
+
+**** Einstein
+CPAE, Searchable Einstein papers:
+https://einsteinpapers.press.princeton.edu
+
+SRT: https://de.wikibooks.org/wiki/A._Einstein:_Kommentare_und_Erläuterungen:_Zur_Elektrodynamik_bewegter_Körper
+
+Photon-Heuristic:
+https://einsteinpapers.press.princeton.edu/vol2-doc/186
+http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1905_17_132-148.pdf
+(via https://en.wikipedia.org/wiki/Albert_Einstein#Publications)
+
+1909b, Gegenwärtigen Stand Strahlung, p187 https://einsteinpapers.press.princeton.edu/vol2-doc/580
+
+1910c (?oder d?): Theorie d Opaleszenz  https://einsteinpapers.press.princeton.edu/vol3-doc/325
+Norton,  Einstein’s Miraculous Argument of 1905
+https://sites.pitt.edu/~jdnorton/papers/Miraculous_Berlin_final.pdf
+
+Darrigol, the Quantum Enigma in: The Cambridge Companion to Einstein, Volume 1
+https://books.google.at/books?hl=en&lr=&id=LBhvAwAAQBAJ&oi=fnd&pg=PR11&dq=Darrigol+Quantum+Enigma&ots=BoTThBIS8u&sig=M-KnddLN5kYd04yO0k3XcVoG6tc&redir_esc=y#v=onepage&q=Darrigol%20Quantum%20Enigma&f=false
 
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
