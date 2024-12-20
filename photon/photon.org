@@ -636,7 +636,7 @@ Wieder zum 1902a paper, Seite 2:
 "Diesen [damals ja noch nicht bewiesenen] Satz verallgemeinern wir hypothetisch zu folgendem: Man bleibt im Einklange mit der Erfahrung, wenn man den zweiten Hauptsatz auf physikalische Gemische anwendet, auf deren einzelne Componenten beliebige conservative Kräfte wirken. Auf diese Hypothese werden wir uns im Folgenden stets stützen, auch wo es nicht absolut notwendig erscheint."
 Hier sieht man schon die Methode, eine Hypothese zu postulieren "Satz verallgemeinern wir hypothetisch".
 
-**** 3. Statistische Mechanik paper mit Proto-Photonen aus Stefan-Gesetz
+**** 1903: Drittes Statistische Mechanik paper mit Proto-Photonen aus Stefan-Gesetz
 https://einsteinpapers.press.princeton.edu/vol2-doc/142
 
 **** Photon-Heuristic-Paper:
@@ -764,11 +764,10 @@ Luca Peliti · Raul Rechtman: Einstein’s Approach to Statistical Mechanics: Th
 
 ** Resources
 *** clj Files
-**** stefan.clj
-neuere Version ist mariastefan.clj
-Stefan Paper ohne emmy
-hat aber mit ein bischen mehr Text zu den Rechnungen
+**** #stefan.clj
+Stefan Paper ohne emmy, hat aber mit ein bischen mehr Text zu den Rechnungen als
 
+die neuere Version mariastefan.clj
 **** mariastefan.clj
 Stefan Paper mit emmy und für maria (siehe einen maria.cloud Kommentar)
 snapshot zu sehen online auf
@@ -872,7 +871,7 @@ WA3 = Boltzmann, Wissenschaftliche Abhandlungen III
 "Gastheorie" Bücher:
 https://de.wikipedia.org/wiki/Ludwig_Boltzmann -> Lehrbücher
 
-"Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen"
+"Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen" #weitere-studien
 Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften in Wien, mathematisch-naturwissenschaftliche Classe, 66, 1872, pp. 275–370.
 vorgelegt in der Sitzung am 10. October 1872
 https://de.wikisource.org/wiki/Sitzungsberichte_der_Kaiserlichen_Akademie_der_Wissenschaften_in_Wien_–_mathematisch-naturwissenschaftliche_Classe/Inhalt#Bd._066,_1872
@@ -906,8 +905,15 @@ Man kommt einfach empirisch drauf wie man zählen muss, und dann sagt man: die z
 Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild drumrum stricken.
 
 **** Nature writing
+man muss die Formeln wie die beschreibung eines Bildes für blinde erklären. Dirac hat so ähnlich gearbeitet. Die Formel sollte sich aus dem Text rekonstruieren lassen, so wie ich in meinem Stefan-notebook #stefan.clj jeder satz kann auch ohne kästchen und klammern eine formel sein, wenn man nur ein malli-scheme der wörter hat.
+
+auch Boltzmann beschreibt genau die Formeln in #weitere-studien
+
 https://de.wikipedia.org/wiki/Deutscher_Preis_für_Nature_Writing
 literatur u wissenschaft deutschlfk + literaturhaus berlin
+**** Jeder Absatz soll ein fettgedrucktes Wort haben
+Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
+
 *** YAMLscipt
 
 #+begin_src yaml
@@ -960,6 +966,12 @@ literatur u wissenschaft deutschlfk + literaturhaus berlin
 Formel fasst alles nochmal zusammen.
 
 * KarlMay
+** Ardistan
+„Könnte dir auch der Mir von Ardistan nicht das Gefühl der Bangigkeit erwecken?«
+»Nein«, antwortete ich.
+»Würdest du den Mut haben, ihn als dein erklärter Gegner in seiner Hauptstadt Ard aufzusuchen, um mit ihm Auge in Auge zu verkehren?“
+„Wohl am Schluß des Krieges als Sieger?«
+»Nein! Mitten im Krieg! Vollständig unbeschützt! Ohne alle Waffen, du nur mit Hadschi Halef
 ** Ave Maria
 mit beten von Ave Maria eine Geiselgruppe in Gaza vor der Exekution bewahren.
 Ave Maria, gratia plena,
@@ -1100,6 +1112,8 @@ Shit, hätt ich tun sollen weil ich mit meinen Reparaturfähigkeiten geprahlt ha
 
 Nachbarn haben Klohäuschen zerstört! Rache!
 
+75+50=125 das weiss nämlich nicht jeder zwerg das wird offenbart zum gegebenen zeitpunkt. wokämen wir hin wenns jeder zwerg wüsste dann wären ja wir die dumme weil sonst hamma ja auch nix nein nein
+
 ** Neues für den Katholiken
 Das Folgende ist nur gedacht und nachvollziehbar für Leser, die als Kinder katholischen Religionsunterricht erhalten und immer wieder am Sonntag die Hostie zu sich genommen haben.
 
@@ -1176,6 +1190,9 @@ weder vom Osten noch vom Westen,
 dessen Öl gleichsam schon leuchtete  
 bevor es mit dem Feuer in Berührung kam.
 
+Besonders schön sind Koranrezitationen (tajwid) von Frauen, find ich, z.B von von Madinah Javed
+
 Ich hab hier nochmal selbst aus meiner deutschen Koranvorlage etwas poetisiert, aber ich bin bereit der Erzählung glauben zu schenken, dass Menschen zu weinen beginnen, wenn ein stimmbegabter Imam das arabische Original vorsingt (und der Boden im Gebetsraum nicht steinkalt ist). Der Leser denke zum Vergleich an den Gemeinschaftsgesang des „grosser Gott wir loben dich“ in der heimischen Stadtpfarrkirche. Say no more.
 
 Ja, der Koran hat Relevantes hinzuzufügen. Und so höre ich aus dem Gebetsruf eines jeden Muezzin den Aufruf, doch wieder in den Stephansdom zu gehen, eine Kerze anzuzünden, und wieder zu lernen wenns drauf ankommt ein guter Katholik zu sein. Und wer weiss, vielleicht gibt’s mal die Möglichkeit als Katholik, für ein zwei Stunden als vollkommen gläubiger Katholik, in einer Moschee für die Gaben zu danken. Ja, eine Moschee wäre tatsächlich der beste Platz leise zu beten als durch und durch, im besten Sinne der Aufklärung, aufrichtiger Katholik.
+

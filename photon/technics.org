@@ -1,0 +1,3560 @@
+* Clojure and the JVM
+** blog
+*** Intro
+This blog is for a special audience: people who intend to give a talk about a specific Clojure library to a special audience: Java programmers.
+
+This blog is an excerpt of a talk by Rich Hickey "Clojure for Java Programmers".
+
+*** talk excerpt
+
+*** personal note
+
+** talk summary part 1
+oriented towards people who program in Java or C
+0:17
+or C++ in particular that I'm not going to presume any knowledge of lisp
+
+0:44
+this talk it's going to be an introduction to the language a fly by tour of some of the features
+
+closure is a dynamic programming
+4:17
+language and dynamic has a lot of different meanings uh in particular it's dynamically typed that would be an
+4:23
+expectation you'd have of python or or Ruby or groovy um if it achieves that D Dynamic
+4:32
+Nature by being a lisp and I'll talk more about that I don't see a lot of
+4:37
+people who know lisp here uh but that doesn't mean there
+4:43
+isn't a bias against lisp how many people have seen list and said oh my God I can't I can't believe the uh the
+4:52
+parenthesis and uh I would say I I I'd hope you'd put that bias aside for the
+4:57
+purposes of this talk
+
+closure is a very different
+5:21
+list uh it's syntactically much leaner than a lot of lists it has fewer
+5:27
+parentheses uh it uses more data structure in its syntax
+
+there are ports of other languages that sort of just sit on the jbm there are ports of for instance
+6:20
+common list that sit on the jbm uh but they don't really connect very well for
+6:25
+a number of reasons one is they're implementing a standard the standard was written before Java was written and you
+6:31
+know there's just no merging the type systems uh on the other hand closure was written for the jvm and so it's very
+6:39
+heavily integrated with it uh so not only does it reside there which is a benefit because you can run it if that's
+6:46
+your environment uh but it Embraces it which means the integration is good and uh it's pretty transparent to go back
+6:52
+and forth the fourt
+
+some people are very happy of the people who are programming Java how many
+8:04
+are happy about that they like Java they have no complaints okay not too
+8:10
+many uh it ends up that I think many Java programmers look at people who are
+8:16
+uh using python or Ruby and being very productive and um I think justifiably
+8:23
+Envy their productivity the succinctness the flexibility they have and in particular how quickly they can get
+8:29
+things done and it's it ends up that that is a fact of the static languages especially the ones like Java that
+8:37
+they're inherently slower because of the amount of um well some people call it
+8:44
+ceremony 
+
+interactivity is another key Point again this goes back
+8:57
+to lisp lisp is pretty much always been an interactive language uh and that means a lot of
+9:04
+things in particular it means that when you got a list up and running uh you feel like you are engaged with an
+9:10
+environment as opposed to you know shoveling your text through a compiler
+9:16
+phase to produce something else out the other end uh so that interactivity is
+9:21
+kind of a deep thing 
+
+Dynamic languages tend to be more concise that doesn't mean that static
+9:33
+languages can't be hascal in particular is very concise but the curly brace languages are not concise Java is
+9:41
+probably a great example of a language that's not concise um and that's just not a matter of tedium it's a matter of
+9:48
+you where is your logic how far apart is your logic how spread out is can you see what you're thinking about or is it
+9:55
+in pieces is it spread out by a bunch of uh things that are not about your
+10:01
+problem Dynamic languages are definitely more suitable for exploration uh there's
+10:06
+a certain aspect in which static languages are like concrete that's a good aspect when you're trying to you
+10:12
+know finish in some systems you know concrete is going to be more resilient it's you know it's more resilient to
+10:18
+change uh it's more structured and it's rigid uh on the other hand that's not
+10:24
+necessarily the kind of materials you want to be working with when you're trying to figure out uh what your what
+10:29
+there are many Dynamic
+11:30
+languages available for the jbm and dynamic languages are supported as a
+11:35
+concept in in the Java Community you know at Java 1 there was plenty of
+11:40
+presentations on uh jython and J Ruby and groovy uh and these other languages
+you can categorize
+12:05
+languages in one dimension pretty straightforward are they a port of a language that exists somewhere else or
+12:11
+were they written for the jbm ports have a bunch of challenges one is there is a canonic version out there
+12:19
+because most of these languages are not defined by a specification they're defined by a canonic implementation so
+12:25
+there's C Ruby right there's C python those are really the languages and the
+12:31
+other things are ports which are have to struggle to um follow along with the c
+12:36
+version
+an effort to Port python to Java means
+12:53
+having to replicate those ca libraries so there's that I would say the main appeal to a ported language which is if
+12:59
+you already have an investment in Ruby or python or you have to really love the language designs that's a good way to go
+13:07
+here I would say if not if you're just starting from scratch uh you may find
+13:12
+that a language that's native to the jvm uh is going to give you better integration uh you know the version
+13:18
+you're using is the canonic version the canonic version of groovy is a jbm language the canonic version of closure
+13:25
+is a jvm language
+of the two groups grovy is going to let you do what you do in Java except a little
+13:34
+bit more easily fewer semicolons more Dynamic there are some Builders there are some idioms there are closures uh
+13:41
+sort of the fun of dynamic programming uh and a lot of the similar syntax to Java so I think if you're just
+13:49
+interested in Dynamic and uh want to continue to write
+13:54
+programs that are like your Java programs groovy can can't be touched [is unbeatable] um
+14:01
+closure is not about writing programs like your Java programs closure is about realizing what's wrong with your Java
+14:07
+programs and doing something different
+the there's a certain mathematical Purity to Lambda calculus
+14:32
+in the way it's realized in lisp the uniformity of the syntax uh is
+14:37
+elegant
+
+nice things about Java is uh it has a wide uh
+16:10
+range closure has direct wer free access to Java some of the ported languages
+16:16
+have to use wrappers because those languages have their own object systems that imply a bunch of dynamic uh
+16:22
+features that they have to glom on top of java objects when you interoperate with them closure was designed to
+16:29
+provide direct access to Java
+
+lisp in general is dynamic okay in that way
+17:36
+interacting with an environment
+17:43
+able to modify things in a running program
+
+17:50
+feature of all lisps if they want to be a lisp is that code is represented as data 
+
+being a list means having
+18:12
+an extremely small core you'll find when you contrast closure to other languages even languages that are you know
+18:18
+theoretically lightweight like python or Ruby uh closure has way less syntax than
+18:24
+those languages far less complexity u in spite of the fact that they
+18:30
+appear easy
+
+closure has
+22:51
+integers they have arbitrary Precision they can get you know as large as your memory can support
+22:59
+uh and the promotion of small integers to larger integers while arithmetic is going on is
+23:06
+automatic
+
+uh it supports doubles as the floating Point format those are doubles those are big d double Java
+23:14
+doubles uh when you type them in Trad they're they're right right they're
+23:21
+Java doubles but they're the Big D doubles right so one of the things you're going to see about closure is uh
+23:26
+everything is an object okay all numbers are boxed at least until you get inside a loop or I can
+23:32
+unbox them uh but it's a language in which uh numbers are boxed unlike common
+23:39
+list where you have access under the hood to use tagged integers and tagged
+23:45
+numbers which is more efficient than allocating them on the Heap
+
+you have big decimal literals you have ratios 22 over 7 is
+24:24
+something it's not divide 22 by 7 it's a number it's a number that's not going to lose any
+24:29
+information uh versus dividing 22 by 7 and either truncating or converting into a floating Point format where you will
+24:36
+lose information so ratios are first class uh string literals are in double
+24:42
+quotes they are Java strings same thing immutable no conversions no mapping
+24:49
+being again being a native jvm language means I can just adopt the semantics of
+24:55
+java literals I don't have to take um strings from a language spec that said
+25:01
+for instance they could be mutable and have to force that on the jvm by having my own type and conversions to and from
+25:08
+so because I'm a an immutability oriented language I'm very happy with
+25:13
+Java's definition of a string being an immutable thing so closure strings are Java strings
+
+nil um means nothing it also is the same thing in
+28:56
+closure as J null didn't have to be but it is so you can rely on that so nil means nothing
+29:05
+and it's the same value as Java null so when you get back nulls from java they're going to say nil nil is
+29:12
+traditional lisp word
+
+there are composite or aggregate data structures uh enclosure and uh they're kind of the
+32:04
+core abstractions of computer science one is the list 
+parentheses separated by spaces um there's no need for commas you'll see
+33:01
+some commas commas are wh space enclosure they're completely ignored you can put them in if it makes you feel
+33:07
+better or makes things somewhat more readable but they're not actually syntax they're not um considered by the
+33:14
+evaluator
+
+heterogenous uh collections are supported in all cases I
+36:10
+didn't necessarily show them everywhere but they are um it's not a list of something it's a list can contain
+36:17
+anything and any mix of things okay with lists the next thing is a vector uses
+36:23
+square brackets um that should imply I would hope for Java programmers and people from that domain array right
+36:32
+square brackets mean arrays uh well they do
+36:37
+now so a vector uh is like an array in particular it supports efficient indexed
+36:45
+access 
+
+so what's the syntax of closure
+46:57
+we just did it I'm not going to talk about semicolons curly
+47:03
+braces you know when you have to say this when you have to have a new line or
+47:08
+anything else because the the structure of a closure program is a data structure
+47:17
+or a series of data structures there is no other stuff there are no rules about
+47:23
+where things go there are no precedence rules there's nothing else you write a closure program by writing
+47:30
+the data structures I just showed you that's it which
+47:36
+means I'll show you um so you write a program by writing
+47:43
+data structures the data structures are the code
+
+there's a fancy name for it
+47:55
+called homo iconicity and it means that the representation of the program is
+48:02
+done in the core data structures of the program which means that programs are
+48:07
+meable to uh processing by other programs because they data
+48:16
+structures uh so I'm not going to talk anymore about text based syntax because there is no more um now many people
+48:22
+claim of lisps well lisps has no syntax and that's not really true it doesn't have all this little fiddly character
+48:28
+syntax necessarily U there is syntax to the interpretation of the data structures uh you know there's we going
+48:36
+to see a lot of lists they have different things at the front the thing at the front will tell you the meaning
+48:43
+of the rest all right so let's talk a little
+48:48
+bit about evaluation so how does this all work U this is we should all know from Java or many other languages like
+48:54
+Java okay we types our program into a text file and we save it and then we we
+49:02
+send those characters of that text to the compiler who has a very involved you
+49:08
+know abstract syntax tree and parser and lexer that interpret the rules of the
+49:14
+language
+
+and then it will turn it into something that can run in
+49:40
+the case of java that's something will be B code
+
+as
+51:08
+a developer you know seeing it run and saying O that was bad I wonder what happened I wish I had run it in debug
+51:15
+mode I wish I had put a breakpoint somewhere interesting and I'm really sad
+51:20
+that I spent an hour calculating that data and dropped it on the floor because I have to do it again with the
+51:25
+breakpoint in um that's a lot different experience than keeping your program around and
+51:31
+having that data Stay Loaded and fixing your function and running it again without starting over so that's what
+51:37
+happens in closure 
+
+what comes out of the reader are data
+52:28
+structures and what's unique about a list and closure is that the compiler
+52:33
+compiles data structures it does not compile text it never sees text what the
+52:40
+compiler gets handed is maybe a a a list with three symbols in it or a vector
+52:47
+with five numbers in it that's actually what the compiler has it has a data structure in hand with actual data in it
+52:54
+not text and it compiles it and in the case of
+52:59
+closure it is a compiler there are many well there are actually many lists that are interpreters but many people believe
+53:06
+that lisp is interpreted it's certainly easy to make an interpreter for lisp that would uh take those data structures
+53:11
+and on the Fly produce the values they imply uh but closure is a compiler and a
+53:19
+particular closure uh compiles those data structures to Java B code right
+53:25
+away there's no interpretation uh enclosure so it's a compiler it produces B code just like
+53:32
+Java C does and because it's an interactive
+53:38
+environment it presents that b code right away to the jbm to
+53:43
+execute and and it executes right away
+
+closure is completely a pure Java
+54:55
+project right there's no native code there's no C libraries there's nothing it's all it's all Java either generated by Java
+55:04
+itself or generated by clo closure um it does not turn off the verifier or anything like that in order
+55:11
+to get performance 
+
+it's quite possible to write a program that generates the data structures that the
+56:12
+compiler wants to see and have it send them to the compiler to be evaluated so
+56:17
+program generating programs are a common thing in this kind of an environment uh whereas this kind of
+56:25
+stuff when you're doing it with text is really
+56:31
+messy 
+
+you could theoretically say oh I
+1:00:47
+could write something and if if the compiler could hand me the abstract syntax tree I could navigate it with some custom API and do whatever it's not
+1:00:54
+nearly the same though what the compiler is handing you are those three data structures I just showed you that every
+1:00:59
+program knows how to manipulate and has a wildly huge library that directly can
+1:01:06
+can uh manipulate so that's how list works I'll
+1:01:11
+try to speed it up a little bit uh in closure unlike Java uh everything is an
+1:01:17
+expression so you know in Java there's a difference between declarations and statements and expressions uh There's no
+1:01:23
+distinction in closure everything is an expression everything has a value everything gets evaluated 
+
+all those data literals I showed you
+1:01:52
+right symbols numbers character literals um vectors Maps sets are all evaluated
+1:02:01
+um by the compiler to represent themselves
+1:02:07
+except lists and symbols lists and symbols by default are
+1:02:13
+treated specially by the evaluator so when it reads a list of a list of symbols in particular it's going to do
+1:02:19
+some work it's not just going to return the list of symbols to your program it's going to try to understand them uh as
+1:02:26
+a an operation which I'll show you in a second so symbols it's are going to try
+1:02:32
+to the compiler is going to try to map to values okay like variables like you
+1:02:38
+know in a variable you can say in I equals 5 later in your program in Java you say I Java is going to try to figure
+1:02:44
+out oh that was that's five that's the I you set up there same thing in closure when use a symbol in your data structure
+1:02:52
+closure is going to try to find a value that's been associated with that symbol
+
+or it's a list and it's going to say this is an operation of some sort I have to figure out what to do with a
+1:03:14
+list so how does that work well again we said what's the data structure it's it's parens it starts with something it may
+1:03:21
+have more stuff or not but from the evaluator standpoint all that matters is
+1:03:26
+the first thing the first thing is the operator or op uh that's going to determine what to
+1:03:35
+do 
+
+whatever value that yields I'm going to treat as a function and attempt to call with the calling mechanism of
+1:04:23
+closure 
+
+propagating up from macros the source of
+1:24:52
+the problem in the macro uh is something that's being worked on some compilers do it uh pretty well for
+1:24:59
+common list it's an area I hope to enhance enclosure uh but it will always
+1:25:05
+be more challenging than a function and that's why ma macro writing
+1:25:12
+is not for um new newcomers or or the inexperienced part of the team
+
+finally we get to the easier thing I mean start with special operat and macros mostly because that's the evaluation order uh but functions exist
+1:27:41
+and they're they're kind of straightforward uh the first thing about functions you need to know is that they're first class values they're
+1:27:48
+values like any other um methods in Java are not first class you can't put a
+1:27:53
+method into a variable you can't pass a method to a function there are special
+1:27:58
+things uh in lisps and in fact in most dynamic languages today uh functions are
+1:28:04
+first class which means the function is a value 
+
+Syntax summary [with chart]
+1:31:12
+this things that would be declarations or control structures or function calls
+1:31:19
+or operators or whatever in Java all are
+1:31:25
+uniform in closure or any list in that there are
+1:31:31
+lists where the operator is the first thing in the list so we've reduced all of this
+1:31:39
+variation here to something uniform 
+
+a tremendous uniformity there's a lot of
+1:34:47
+value to that uniformity uh you know I know a lot of programming languages and every time I have to learn the
+1:34:54
+Arcane whatever the rules are syntax and this thing next to that means that and this character means this and you can
+1:35:00
+have a semicolon here but not there and it better be indented by the same amount
+1:35:05
+or whatever it is I really get angry now because it there is no reason for that
+1:35:11
+it is not better than this
+
+one of the
+1:35:59
+things that is typical about lisp is that a lisp is that it has a rich
+1:36:04
+library for manipulating lists uh but it ends up that I think in
+1:36:10
+my opinion it's a shortcoming of lisps traditionally that those functions are
+1:36:16
+limited to a particular data structure which is the singly linked list
+
+** Transcript part 1
+https://www.youtube.com/watch?v=P76Vbsk_3J0
+0:04
+hi I'm Riki I'm here to talk about closure which is a programming language I wrote for the
+0:10
+jbm um this particular talk is oriented towards people who program in Java or C
+0:17
+or C++ in particular that I'm not going to presume any knowledge of lisp so you
+0:24
+might find some of it uh tedious although I am preparing for a talk I'm going to give e coup to the European
+0:32
+lisp Workshop where I'm going to talk about you know the ways closure is a different lisp so maybe some of this
+0:38
+will be interesting to you in that respect uh but that's the that's the nature of
+0:44
+this talk it's going to be an introduction to the language a fly by tour of some of the features I'll drill
+0:49
+down it to some of the others um I started to ask this question before but I'll just ask it again to sort of see uh
+0:56
+is there anyone here who knows or uses any flavor of list common list scheme or
+1:02
+closure okay so mostly no uh I presume a lot of Java or anything in that family
+1:09
+C++ C uh Scala anyone you must be playing
+1:14
+with it right uh how about functional programming languages like ml or hasal the strict guys anyone a little don't
+1:22
+really want to raise their hands about that one uh okay that's good um in particular I think uh coming from that
+1:29
+back backround you'll understand a lot of this straight away uh how about dynamic programming lineages python Ruby
+1:36
+or groovy yes about half um and I asked before closure we have a
+1:43
+few people with their their toes in the water the other key aspect of closure
+1:50
+that would matter to you if you're a Java programmer is whether or not you do any real multi-reader programming in
+1:57
+Java or in any language yes so some so you use locks
+2:03
+and all of that nightmare stuff uh I'm a p practitioner I
+2:12
+programmed in C and C++ and Java and c and common lisp and Python and
+2:19
+JavaScript and a bunch of languages over the years uh way back this same group I
+2:25
+think it's the same lineage was the cig and uh when I first started to come I started to teach C++ to the cig and it
+2:32
+became the C++ and cig and eventually the C C++ in Java Sig and now the Java
+2:38
+Sig so back in the 90s early 90s and mid 90s uh I taught C++ and advanced C++ to
+2:45
+this group uh and ran study groups and I've come back tonight uh to
+2:53
+apologize for having done that to you and uh to try to set you off on a better
+2:58
+a better track uh so we're going to look at the fundamentals of closure and it will be
+3:07
+also of lisp in many ways but I'm going to say closure don't take offense all
+3:13
+these things or many of the things I say are true of closure are true of many lists I didn't invent them they're not
+3:19
+unique to closure but some things are uh then we'll look at the syntax and
+3:25
+evaluation model this is the stuff that will seem most unused usual to you if
+3:30
+you've come from a you know compile link run language and one of the curly brace
+3:35
+C deres like Java uh then we'll look at some aspects
+3:42
+of closure sequences in particular uh and the Java integration which I imagine
+3:47
+will be interesting uh and I'll finally end up talking about concurrency why closure
+3:53
+has some of the features it does and how they address the problems of writing concurrent programs that run on the new
+3:59
+and and indefinitely you know for the indefinite future multicore machines and
+4:05
+I'll take some questions at some point in the middle we'll probably take a break uh I don't know exactly where
+4:11
+that's going to go so what's the fundamentals of closure closure is a dynamic programming
+4:17
+language and dynamic has a lot of different meanings uh in particular it's dynamically typed that would be an
+4:23
+expectation you'd have of python or or Ruby or groovy um if it achieves that D Dynamic
+4:32
+Nature by being a lisp and I'll talk more about that I don't see a lot of
+4:37
+people who know lisp here uh but that doesn't mean there
+4:43
+isn't a bias against lisp how many people have seen list and said oh my God I can't I can't believe the uh the
+4:52
+parenthesis and uh I would say I I I'd hope you'd put that bias aside for the
+4:57
+purposes of this talk it it ends up that for people who have not used lisp those biases are have no basis and for most
+5:05
+people who have given it a solid try um they they vanish and in fact many of the
+5:10
+things that you consider to be um problems with lisp are
+5:16
+features down the line uh but having said that closure is a very different
+5:21
+list uh it's syntactically much leaner than a lot of lists it has fewer
+5:27
+parentheses uh it uses more data structure in its syntax and as a result I think is more
+5:34
+succinct and more readable uh so may be the time to try lisp again uh another
+5:42
+aspect of closure is that it's a functional programming language and again I'm going to talk in detail about these things for now you can just say uh
+5:49
+that means a focus on immutability in your programs to write programs primarily with immutable data
+5:55
+structures and if you're coming from another list this will be an area where closure is definitely different uh I
+6:02
+made different decisions about the data structures and closure the Third Leg of closure you
+6:07
+know it sort of stands on Four Points it's Dynamic it's functional it's hosted on the jvm and it Embraces the jvm its
+6:14
+host platform there are ports of other languages that sort of just sit on the jbm there are ports of for instance
+6:20
+common list that sit on the jbm uh but they don't really connect very well for
+6:25
+a number of reasons one is they're implementing a standard the standard was written before Java was written and you
+6:31
+know there's just no merging the type systems uh on the other hand closure was written for the jvm and so it's very
+6:39
+heavily integrated with it uh so not only does it reside there which is a benefit because you can run it if that's
+6:46
+your environment uh but it Embraces it which means the integration is good and uh it's pretty transparent to go back
+6:52
+and forth the fourth aspect of closure is the concurrency aspect uh you know I
+6:58
+work in C uh with guys writing broadcast automation systems they're you know
+7:05
+they're multi-threaded they have all kinds of nasty stuff going on multiple connections to sockets lots of databases
+7:12
+you know data feeds from all kinds of places and uh it's not fun uh writing
+7:19
+programs like that that need to share data structures amongst threads and to have them get maintained over time uh
+7:26
+and have everybody remember what the Locking model is it's extremely challenging anyone who's done any
+7:31
+extensive multi-reader programming with the Locking model knows how hard it is to get that right so closure is an
+7:38
+effort on my part to to solve those problems in in an automatic way with language
+7:45
+support and the last thing is you know it is an open source language and uh it's very transparent the implementation
+7:51
+and everything else is up there for you to see we started to talk about this before
+7:57
+why use a dynamic language uh some people are very happy of the people who are programming Java how many
+8:04
+are happy about that they like Java they have no complaints okay not too
+8:10
+many uh it ends up that I think many Java programmers look at people who are
+8:16
+uh using python or Ruby and being very productive and um I think justifiably
+8:23
+Envy their productivity the succinctness the flexibility they have and in particular how quickly they can get
+8:29
+things done and it's it ends up that that is a fact of the static languages especially the ones like Java that
+8:37
+they're inherently slower because of the amount of um well some people call it
+8:44
+ceremony that you have to go through to communicate with the language um it slows you down uh so flexibility is a
+8:52
+key thing you would look for in a dynamic language uh interactivity is another key Point again this goes back
+8:57
+to lisp lisp is pretty much always been an interactive language uh and that means a lot of
+9:04
+things in particular it means that when you got a list up and running uh you feel like you are engaged with an
+9:10
+environment as opposed to you know shoveling your text through a compiler
+9:16
+phase to produce something else out the other end uh so that interactivity is
+9:21
+kind of a deep thing the reppel is part of it that means read eval print Loop and I'll talk about that in detail in a
+9:28
+little bit um Dynamic languages tend to be more concise that doesn't mean that static
+9:33
+languages can't be hascal in particular is very concise but the curly brace languages are not concise Java is
+9:41
+probably a great example of a language that's not concise um and that's just not a matter of tedium it's a matter of
+9:48
+you where is your logic how far apart is your logic how spread out is it can you see what you're thinking about or is it
+9:55
+in pieces is it spread out by a bunch of uh things that are not about your
+10:01
+problem Dynamic languages are definitely more suitable for exploration uh there's
+10:06
+a certain aspect in which static languages are like concrete that's a good aspect when you're trying to you
+10:12
+know finish in some systems you know concrete is going to be more resilient it's you know it's more resilient to
+10:18
+change uh it's more structured and it's rigid uh on the other hand that's not
+10:24
+necessarily the kind of materials you want to be working with when you're trying to figure out uh what your what
+10:29
+your structure should look like in the first place um so Dynamic languages are better for
+10:34
+exploration H and in particular what I what I like about Dynamic languages and and lisp fundamentally and I think uh in
+10:43
+a way other languages don't achieve is it it lets you focus on your problem you
+10:49
+can with lisp and its ability to do syntactic abstraction suck everything
+10:55
+out of the way except the problem and uh for me you know when I discovered lisp I
+11:00
+was pretty expert C++ programmer uh I I
+11:06
+said to myself what have I've been doing with my life uh it was that that big a
+11:12
+deal uh so there are many Dynamic languages
+11:18
+I'm going to talk about closure and I won't do you know bashing of other languages but I will try to highlight why you might choose closure over some
+11:25
+of the other options because in particular now I think it's it's a great thing that there are many Dynamic
+11:30
+languages available for the jbm and dynamic languages are supported as a
+11:35
+concept in in the Java Community you know at Java 1 there was plenty of
+11:40
+presentations on uh jython and J Ruby and groovy uh and these other languages
+11:46
+and sun has you know hired some of the developers of these languages and given it you know kind of official
+11:53
+support uh as something that's viable to do on the jbm so you're going to see
+11:58
+mixed language programming being accepted in Java shops so how do you pick uh I think you can categorize
+12:05
+languages in one dimension pretty straightforward are they a port of a language that exists somewhere else or
+12:11
+were they written for the jbm ports have a bunch of challenges one is there is a canonic version out there
+12:19
+because most of these languages are not defined by a specification they're defined by a canonic implementation so
+12:25
+there's C Ruby right there's C python those are really the languages and the
+12:31
+other things are ports which are have to struggle to um follow along with the c
+12:36
+version uh the other problem ports have is a lot of the infrastructure for the languages especially the ones that don't
+12:42
+perform very well are written in C in other words to get the library performance they need the support
+12:47
+libraries for python are written in C so an effort to Port python to Java means
+12:53
+having to replicate those ca libraries so there's that I would say the main appeal to a ported language which is if
+12:59
+you already have an investment in Ruby or python or you have to really love the language designs that's a good way to go
+13:07
+here I would say if not if you're just starting from scratch uh you may find
+13:12
+that a language that's native to the jvm uh is going to give you better integration uh you know the version
+13:18
+you're using is the canonic version the canonic version of groovy is a jbm language the canonic version of closure
+13:25
+is a jvm language um and I would say of the two groups grovy is going to let you do what you do in Java except a little
+13:34
+bit more easily fewer semicolons more Dynamic there are some Builders there are some idioms there are closures uh
+13:41
+sort of the fun of dynamic programming uh and a lot of the similar syntax to Java so I think if you're just
+13:49
+interested in Dynamic and uh want to continue to write
+13:54
+programs that are like your Java programs groovy can can't be touched um
+14:01
+closure is not about writing programs like your Java programs closure is about realizing what's wrong with your Java
+14:07
+programs and doing something different and uh so you'll find some of that
+14:14
+through the talk um so closure itself uh it inherit
+14:19
+from lisp uh an expressivity and elegance I think is unmatched uh
+14:25
+depending on your mindset you may or may not agree uh but the there's a certain mathematical Purity to Lambda calculus
+14:32
+in the way it's realized in lisp the uniformity of the syntax uh is
+14:37
+elegant uh closure also has very good performance again I'm not going to get
+14:43
+involved in any language bashing but I'm pretty confident no other Dynamic language on the jbm approaches the
+14:49
+performance of closure in any area and and is unlikely
+14:54
+to uh but everybody's working on performance I interrupt just for a second
+15:06
+certainly we've converted them they're Java programmers now [Laughter]
+15:13
+Java uh so the performance is good I made a point uh before starting the talk that uh the objective and objective of
+15:21
+closure is to be useful in every area in which Java is useful that you can tackle the same kind of problems I don't write
+15:29
+web apps and put stuff in and take it out of the database kind of applications I write scheduling systems broadcast
+15:37
+automation systems election projection systems um machine listening
+15:44
+systems audio analysis systems um and I write them in languages like C and Java
+15:50
+and C++ and closure can be used for those kinds of problems doesn't mean
+15:55
+they can't also be used for web apps and people you know did right away with closure and database and UI stuff uh but
+16:04
+it has that same kind of reach and one of the nice things about Java is uh it has a wide uh
+16:10
+range closure has direct wer free access to Java some of the ported languages
+16:16
+have to use wrappers because those languages have their own object systems that imply a bunch of dynamic uh
+16:22
+features that they have to glom on top of java objects when you interoperate with them closure was designed to
+16:29
+provide direct access to Java um it looks like closure but it's
+16:34
+direct um closure being a lisp is extensible uh in a deep way and we'll
+16:41
+talk a little bit more about how you get syntactic extensibility uh through macros uh and then closure I think is
+16:49
+completely unique amongst the languages on the jvm uh in
+16:55
+promoting immutability and concurrency uh much more so than even Scala which is
+17:01
+often talked about as a functional language uh but isn't deeply uh
+17:06
+immutable it sort of is an option uh closure is really oriented towards writing concurrent programs and
+17:14
+immutability for its other benefits outside of concurrency so how does closure get to
+17:21
+be these things uh it is a lisp again put what you think about lisp aside I'll
+17:27
+explain what that means uh in depth as I go into each of these points but lisp in general is dynamic okay in that way
+17:36
+interacting with an environment having a reppel having sort of introspection capabilities on the environment being
+17:43
+able to modify things in a running program uh or all characteristics uh that make it Dynamic a fundamental
+17:50
+feature of all lisps if they want to be a lisp is that code is represented as data and again I'll explain that um in
+17:59
+detail there is a reader which is part of the implementation of cod's data sort
+18:05
+of something in between your text and the evaluator uh being a list means having
+18:12
+an extremely small core you'll find when you contrast closure to other languages even languages that are you know
+18:18
+theoretically lightweight like python or Ruby uh closure has way less syntax than
+18:24
+those languages far less complexity u in spite of the fact that they
+18:30
+appear easy uh lisps generally have tended to
+18:35
+emphasize lists um closure is not exactly the same way it's an area where closure differs
+18:42
+from lists in that it frees the uh abstraction of first and rest from a
+18:50
+data structure the con cells and in doing so offers the power of lisp to
+18:56
+many more data structures than most lisps do uh so there's that sequence thing and
+19:01
+I'll talk more about that in detail and syntactic abstraction again we have abstraction capabilities with functions
+19:07
+or methods in most languages uh lisps take that to the next level by allowing you to suck even more repetition out of
+19:15
+your programs when that repetition can't be sucked out by making a
+19:23
+function okay so we'll dig down a little bit more what does it mean to do Dynamic development uh it means that there's
+19:29
+going to be something called a reppel a read eval print Loop in which you can type things and press enter and see what
+19:38
+happens I guess we should probably do that uh so this is a little editor it's
+19:45
+kind of squashed in this screen resolution but down below is is the reppel this is closure in an interactive
+19:52
+mode and we can go and we can say plus one 2 3 and we get six
+19:59
+um we can do other things Java like I'll show you some more of that later but the general idea is that you're going to be
+20:05
+able to type expressions or in your editor say please evaluate this I I can go up here to math. math.pi and hit the
+20:13
+keystroke that says evaluate this and you see below we get that and that's kind of what it feels like to develop
+20:20
+I'm going to show you even more after I explain what you're looking at because I I don't want this talk to be yet another
+20:27
+where people are shown list and uh not having had explain to them
+20:32
+what they're looking at so we're going to do that first but you have this interactive environment you can Define
+20:37
+functions on the Fly you can fix functions on the Fly you can have a running program and fix a bug in a
+20:43
+running program uh and that's not like being in a mode in a debugger where you have the special capability to reload
+20:50
+something it's always present um if you build an application with some access to
+20:56
+the ability to load code either a remote reppel connection or some way to do that your running production systems will
+21:03
+have this capability to uh have fixes loaded into running programs
+21:09
+uh in general there isn't the same distinction between compile time and
+21:15
+runtime compiling happens all the time every time you load code every time you EV evaluate an
+21:21
+expression compilation occurs U so that notion of phases of compilation is
+21:26
+something you have to relax um when you're when you're looking at a language like like closure and I'll show you the evaluation model in a second I talked a
+21:34
+little B about the a little bit about the introspection but that's that's present you're sitting at a repple closure is there closure has name spaces
+21:41
+you can get a list of them closure has symbols you can get a list of those you can look inside the infrastructure that
+21:47
+underlies the runtime um and manipulate it uh and that's what I mean by an
+21:54
+interactive environment I just don't mean typing things in I mean uh there is a program behind your program that is
+21:59
+the runtime of of closure and that's
+22:05
+accessible if I say something you don't understand you can ask for
+22:12
+clarification I'm endeavoring to try to come up with the ideal way to explain lisp to people who have never seen it
+22:20
+and uh this is what I've come up with which is to talk about data um lots of languages have syntax
+22:27
+you know you could talk about Java you could talk about about here's Main and here's what public means and static and
+22:32
+then you could dig into arguments to a function and things like that uh but we're going to start here with data in
+22:37
+particular data literals and I think everybody understands data literals from languages they're familiar with you type in you know 1 2 3 4 and you know that's
+22:45
+going to mean 1,234 to your program so closure has
+22:51
+integers they have arbitrary Precision they can get you know as large as your memory can support
+22:59
+uh and the promotion of small integers to larger integers while arithmetic is going on is
+23:06
+automatic uh it supports doubles as the floating Point format those are doubles those are big d double Java
+23:14
+doubles uh when you type them in Trad they're they're right right they're
+23:21
+Java doubles but they're the Big D doubles right so one of the things you're going to see about closure is uh
+23:26
+everything is an object okay all numbers are boxed at least until you get inside a loop or I can
+23:32
+unbox them uh but it's a language in which uh numbers are boxed unlike common
+23:39
+list where you have access under the hood to use tagged integers and tagged
+23:45
+numbers which is more efficient than allocating them on the Heap no capability of doing that in the jbm uh
+23:51
+there's been talk about it them adding it which is stunning to me apparently the guy there's this guy John Rose um at
+23:58
+Sun who really does understand list very well and has talked about all kinds of really neat features which if they make
+24:03
+it into the jvm would make it stunning uh like tail call elimination and U
+24:09
+tagged numbers uh but in the absence of that numbers are boxed so that everything can be an object and can be
+24:16
+treated uniformally uh you have big decimal literals you have ratios 22 over 7 is
+24:24
+something it's not divide 22 by 7 it's a number it's a number that's not going to lose any
+24:29
+information uh versus dividing 22 by 7 and either truncating or converting into a floating Point format where you will
+24:36
+lose information so ratios are first class uh string literals are in double
+24:42
+quotes they are Java strings same thing immutable no conversions no mapping
+24:49
+being again being a native jvm language means I can just adopt the semantics of
+24:55
+java literals I don't have to take um strings from a language spec that said
+25:01
+for instance they could be mutable and have to force that on the jvm by having my own type and conversions to and from
+25:08
+so because I'm a an immutability oriented language I'm very happy with
+25:13
+Java's definition of a string being an immutable thing so closure strings are Java strings yes is there any way to
+25:21
+represent underly words say unless
+25:29
+something don't you don't know no try Frank have you ever seen it oh you will
+25:36
+love it you can add all kinds of units and figure out how many you know
+25:41
+balloons of you know hydrogen it would take to move a camel across this much
+25:47
+distance it's a it's amazing units for absolutely everything old ancient
+25:52
+Egyptian unit it's it's really it's fantastic the guy is just a fanatic about precision
+25:58
+um making sure you don't lose anything but you can you can arbitrarily multiply all kinds of units everything is
+26:04
+preserved everything works correctly fantastic Frank what's name Frank f r i n
+26:10
+k uh but no is that Java or is that Frink Frink yes Frink is a language for
+26:16
+the jbm it's its own language uh but it's a lot of fun I've seen the guy talking he just he has some great
+26:23
+examples um you know some involve how many belts it would take to you know move a hot air
+26:30
+balloon to the moon and things like that uh okay so we have uh string literals
+26:35
+and double quotes we have characters are preceded by a slash a backs
+26:40
+slash uh so that's a character literal and that's a big c character Java character U now we're going to get to
+26:47
+two things that are possibly a little bit different because they're not first class things in Java uh one would be
+26:54
+symbols which are identifiers they can't contain any spaces they have no
+27:00
+adornments uh symbols are used as identifiers primarily um in code uh but
+27:07
+they can be used for other things as well they're first class objects like strings if you have one of these things you can look at it and it will be a
+27:13
+symbol closure Lang symbol uh Fred eth are two symbols Fred and Ethel are two
+27:19
+symbols that's correct uh the other thing uh closure has are keywords which
+27:24
+are very similar to symbols except they always designate the themselves so
+27:29
+they're not subject to evaluation or mapping to values by the uh compiler
+27:35
+like symbols are so symbol might be something you would use for a variable you could make Fred be equivalent to
+27:41
+five you could never make uh colon Fred be equal to five colon Fred will always mean itself so when it gets evaluated
+27:50
+the value of of the keyword Fred is the keyword Fred it's sort of an identity thing and
+27:57
+there extremely useful they're very useful in particular as keys and Maps uh because they're very fast for comparison
+28:05
+and they print as themselves and read as themselves that will make a little bit
+28:11
+more sense in a minute uh there are booleans this is different from uh from Lis although there is still null is
+28:18
+false nil is false uh but in addition there are proper uh true and false
+28:24
+mostly for the purposes of interoperability it ends up that that you can't solve the nil becoming false
+28:31
+problem at least I couldn't so there are true and false and they're for use in interoperability with
+28:38
+Java you can use them in your closure programs as well uh but uh conditional evaluation in in closure uh looks for
+28:45
+two things it looks for false or nil uh which is the next thing I to talk about
+28:51
+nil um means nothing it also is the same thing in
+28:56
+closure as J null didn't have to be but it is so you can rely on that so nil means nothing
+29:05
+and it's the same value as Java null so when you get back nulls from java they're going to say nil nil is
+29:12
+traditional lisp word uh but I like it because also traditionally in lisp uh if
+29:20
+you you can say if nil and that means and it'll evaluate to the else Branch because nil is
+29:26
+false nil is not true um so that's another literal thing that
+29:33
+nil uh there are some other things there are Rex literal so if the reader reads
+29:39
+that it's just a string Rex exactly the same syntax as Javas preceded by uh hash
+29:47
+U will turn into a compiled pattern so at read time you can get
+29:52
+compiled patterns which can then incorporate in macros and things like that which is which is very powerful
+29:59
+and shows how that delineation between compilation and runtime is a little bit
+30:05
+fungible from empty list correct and there's a good reason for that and the
+30:10
+reason is um empty list is no longer as special as it was once you have empty vector and empty
+30:16
+map uh however the sequencing Primitives the
+30:22
+functions that manipulate sequences return nil when they're done not the empty list
+30:28
+so that aspect of being able to test for the end of iteration with if is still
+30:34
+there so closure sits in a unique point he's asking about aspects of closure that differ a little bit from common
+30:40
+list and scheme there's a there's like an a longstanding fight between what should the difference between false nil
+30:48
+and the empty list be should they be unified they are in common list should there be some differences there are some
+30:54
+differences in scheme um closure actually does sum of both there is
+31:00
+false however nil is still uh testable in a conditional uh it does not unify
+31:07
+nil and the empty list which is a difference from common list however all of the sequencing Or List operations uh
+31:14
+when they're done return nil not the empty list which is an important thing for common list like idioms where you
+31:21
+want to keep going until it says false as opposed to having to test for empty explicitly which you would have to do in
+31:27
+scheme does anybody know scheme here yeah you know sche but you know both so
+31:32
+you know what I'm talking about for everyone else I wouldn't worry too much about that because you wouldn't have
+31:38
+presumed nil would have been the empty list right probably
+31:43
+not uh okay so those are the atomic things they can't be divided right that's what
+31:50
+Atomic means right you can't there a number isn't a composite thing uh but
+31:55
+there are composite or aggregate data structures uh enclosure and uh they're kind of the
+32:04
+core abstractions of computer science one is the list and in this case
+32:11
+I mean very specifically the singly link list and even more specifically the
+32:17
+singly linked list in which things get added at the front so when you add to a
+32:23
+list you're adding at the front the list is a chain of things which means that finding the nth element
+32:31
+is a linear time cost right it's going to take n steps to do that on the other
+32:38
+hand taking stuff on and off the front is constant time right because that's
+32:44
+the nature of a singly link list so it has all the promises all the performance Promises of a singly link list with
+32:49
+stuff at the front and it's literal representation is stuff inside
+32:54
+parentheses separated by spaces um there's no need for commas you'll see
+33:01
+some commas commas are wh space enclosure they're completely ignored you can put them in if it makes you feel
+33:07
+better or makes things somewhat more readable but they're not actually syntax they're not um considered by the
+33:14
+evaluator uh so any questions about lists stuff in
+33:21
+pens two parts one then obviously the comments up there are just people
+33:29
+not uh right well these these commas the ones between 1 2 3 4 5 and Fred at Lucy
+33:35
+are are actually English commas but but there are some commas uh for instance when we get down to Maps
+33:40
+here you'll see commas inside the data structure those are ignored those are white space
+33:59
+I don't support any commas inside numbers the the printed representations of numbers and closure are those of
+34:14
+java in lisp no in lisp they grow at the front
+34:19
+with cons a onto some makes a the first thing in that list uh and that's true of
+34:26
+closure to um yes is it
+34:31
+based absolutely not all of these data structures are unique to closure um I'm
+34:37
+only giving you some very high level descriptions of their representation uh and their performance
+34:44
+characteristics but what we're going to find out later is all of these things and that in in particular I'm talking
+34:50
+about adding to lists all these data structures are immutable um and they're persistent
+34:56
+which is another characteristic will explain um a little bit later so uh
+35:01
+these are very different beasts and they have excellent performance yet they're immutable uh and it's sort of the secret
+35:08
+sauce sauce of of closure uh without these you can't do what I do in the
+35:14
+language
+35:24
+um that's correct references can change again what what
+35:32
+how this gets interpreted we're going to talk about in a little bit right now what you're looking at is a list of three symbols you may end up within your
+35:39
+program a data structure that's a list of three symbols you may pass this to the evaluator and say evaluate this in
+35:45
+which case it's going to try to interp it's going to try to evaluate each of those symbols and find out its value and
+35:51
+treat the first one as if it was a function uh but we're not we're not there yet so there that that is a list
+35:58
+of three symbols the list at the end is a list of one symbol and three
+36:03
+numbers so heter heterogenous uh collections are supported in all cases I
+36:10
+didn't necessarily show them everywhere but they are um it's not a list of something it's a list can contain
+36:17
+anything and any mix of things okay with lists the next thing is a vector uses
+36:23
+square brackets um that should imply I would hope for Java programmers and people from that domain array right
+36:32
+square brackets mean arrays uh well they do
+36:37
+now so a vector uh is like an array in particular it supports efficient indexed
+36:45
+access okay it's an expectation you would have of a vector you wouldn't have of a link list that getting at the 50th
+36:52
+guy is fast it's not going to be 50 steps to do that um and the closure
+36:58
+vectors meet that performance expectation fast indexing in addition
+37:04
+it's a little bit like Java util Vector uh or array list in that uh it supports
+37:11
+growing and in this case at the end and that also is efficient as
+37:16
+efficient as your expectation would be of array list that's a constant time operation to put things at the
+37:23
+end uh similarly it can hold anything the first is a vector of five numbers
+37:28
+the second is a vector of three symbols must it be no all the
+37:34
+collections can be heterogeneous okay so far so that's
+37:41
+going to behave like an array uh in terms of being able to find the N element quickly and finally as a
+37:48
+core data structure we have uh Maps Okay and a map is like a well it's
+37:54
+like a Java map and or any kind of associative data structure in providing a
+37:59
+relationship between a key and a value each key uh occurring only
+38:05
+once uh and having a mapping to a value so the way they're represented is in curly
+38:11
+braces and they're represented simply as key value key value key value again the
+38:19
+commas don't matter so they're Whit space they get eliminated for instance in the second
+38:24
+map you see there that's a map of the number one to the string ethyl and and
+38:30
+the number two to the string Fred you don't need the you don't need the commas uh and the expectation with
+38:38
+the map is that it provide fast access to the value at a particular key um there are usually two kinds of
+38:46
+maps you would encounter in ordinary programming languages one would be
+38:52
+sorted right some sort of sorted map in which case uh the a is going to be
+38:58
+typically log in right to find a particular guy depending on how many things are in the map because they use
+39:04
+trees or red black trees and things like that and closure does have sorted Maps uh the one you get from the literal
+39:10
+representation like this is a hash map uh and the expectation of a hash map is constant or near constant time lookup of
+39:17
+values at keys and that maps to Hash tables um so what you have in the closure literal Maps is the equivalent
+39:24
+of a hash table uh it's it's fast
+39:29
+everybody okay so faren if I introduce another ay another key in
+39:36
+this another key a a it will be replaced you want it so the last
+39:43
+one correct there only one instance of a key in a map is that your question yeah
+39:49
+yes so if you were to say um the the the function that I'm saying if I type it up
+39:55
+like this yes and after C A again is it an error or is
+40:01
+it just a replac uh it's probably a replacement I say in the same thing yes
+40:08
+I don't think it's an error that's a good question I might type it in later for
+40:14
+you uh
+40:20
+okay yeah I mean Sim question it's the same thing
+40:28
+yeah it's the same thing well but there's no Associated value so Fred will be there uh so let's talk about sets the
+40:34
+the fourth thing I'm showing you here is sets sets are a set of of unique values
+40:39
+each value occurs only once in the set and really the only thing the set can do for you is tell you whether or not something is in it there's no Associated
+40:45
+value it's just does the set contain this key you have a [Music]
+40:55
+question there are s sets and hash sets same thing as with the maps um the sets
+41:01
+here are hash sets so no the order is not retained you can request a sorted
+41:08
+set and the order will be the sord order um does that answer your question okay
+41:16
+what is test for equality what is the test for equality uh equal the equal sign is the
+41:23
+test for equality and um equality means the same thing for everything in closure
+41:30
+it means equal value um you'll see that closure definitely deemphasizes identity
+41:37
+completely in fact there is an identity function and I have yet to use it uh
+41:44
+closure is about values um identical uh contents are identical from by
+41:52
+equals U that's made faster than you might Imagine by caching hash values um
+41:58
+but equality is equality of value enclosure
+42:03
+andil and mutability helps certainly well it's if you've ever read Henry Baker's paper on
+42:10
+egal uh closure implements egal finally uh if you haven't and don't
+42:17
+worry about it uh so yes equality is equality of
+42:22
+value all right yes you hi Rob
+42:35
+no you can get you can make arrays and you can interact with Java arrays that are arrays of either objects or native
+42:42
+arrays um you can say float array and the size and you'll get an array of floats so you have the ability to do
+42:48
+Java stuff I'm going to emphasize the closure data structures because they let you do what closure lets you do um you
+42:54
+can access Java but if you start accessing mutable things some of the things closure can do for you we can't
+43:00
+do doesn't mean you're not allowed to do them uh but there's no point of me showing you how to interact with the
+43:06
+Java right except to show you the syntax which I might later um so the last point about this is that everything nests uh a
+43:12
+key in a map can be another map it can be a vector anything can be a key or a value because of this equality semantics
+43:20
+um there's no problem having a vector or a map whose keys are vectors um that's perfectly fine so if
+43:26
+you need needed to use tles as Keys you know pairs of things as Keys that's just completely
+43:39
+doable well you can get the hash of of a
+43:49
+vector impation an an implementation level to
+43:54
+say that you have very complex structure mhm correct right that sounds expensive
+44:02
+to un well it's depends on what you're doing I I would imagine that really
+44:07
+complex structures are not frequently used as keys but they could be um can that be helped yes the fact that these
+44:14
+are hash by default means that once and once only
+44:21
+the hash value of some aggregate structure will be calculated and that will be cached so there's a quick hash
+44:28
+test otherwise we do the Deep value check uh but again I don't think you're
+44:34
+going to encounter complex data structures as hash values that often but using kind of small things like poules
+44:41
+or other small Maps as Keys is tremendously useful it's really really handy to not even have to think about
+44:47
+that uh I think we got one other closure programmer arrived uh who can possibly
+44:55
+attest independent of me how closure's performance is how's closure's performance um fine yeah
+45:04
+[Music] especially right well now there's some
+45:09
+extra numeric goodness in there uh but these data structures are pretty good what's the reality the reality of these
+45:16
+data structures is I've tried to keep them all within uh one to four times a
+45:21
+Java data structure the equivalent Java data structure in other words hashmap
+45:28
+Vector well singular link lists are pretty straightforward um so they're within Striking Distance the BS side is
+45:35
+in in a concurrent program there is no locking necessary for use with these data structures um if you want to make a
+45:42
+an incremental change through a data structure in a certain context there's no copying required to do that so some of these other costs that would be very
+45:49
+high with a mutable data structure vanish so you have to be very careful uh
+45:54
+in looking at that the other thing that's sounding to me at least is that the lookup time again the ad times are
+46:01
+are higher than than hashmap but the lookup times can be much better because this has better hash um cach locality
+46:09
+than a big array for a hash table okay we're all good on this I
+46:15
+probably have to move a little bit quicker yes more
+46:22
+quickly there is destructuring yes I I actually won't get to talk about that today uh but there is destructuring
+46:29
+there is not pattern matching okay but there is destructuring to arbitrary depth of all of these uh
+46:36
+destructuring means a way to to easily say I want to make this set of symbols that has in that I express in a similar
+46:43
+data structure maap to corresponding parts of a complex data structure on past closure has that it's it has some
+46:51
+really neat destructuring capabilities all right so what's the syntax of closure
+46:57
+we just did it I'm not going to talk about semicolons curly
+47:03
+braces you know when you have to say this when you have to have a new line or
+47:08
+anything else because the the structure of a closure program is a data structure
+47:17
+or a series of data structures there is no other stuff there are no rules about
+47:23
+where things go there are no precedence rules there's nothing else you write a closure program by writing
+47:30
+the data structures I just showed you that's it which
+47:36
+means I'll show you um so you write a program by writing
+47:43
+data structures the data structures are the code um that has huge implications
+47:49
+um it's it's you know it is the nature of lisp uh there's a fancy name for it
+47:55
+called homo iconicity and it means that the representation of the program is
+48:02
+done in the core data structures of the program which means that programs are
+48:07
+meable to uh processing by other programs because they data
+48:16
+structures uh so I'm not going to talk anymore about text based syntax because there is no more um now many people
+48:22
+claim of lisps well lisps has no syntax and that's not really true it doesn't have all this little fiddly character
+48:28
+syntax necessarily U there is syntax to the interpretation of the data structures uh you know there's we going
+48:36
+to see a lot of lists they have different things at the front the thing at the front will tell you the meaning
+48:43
+of the rest all right so let's talk a little
+48:48
+bit about evaluation so how does this all work U this is we should all know from Java or many other languages like
+48:54
+Java okay we types our program into a text file and we save it and then we we
+49:02
+send those characters of that text to the compiler who has a very involved you
+49:08
+know abstract syntax tree and parser and lexer that interpret the rules of the
+49:14
+language this is what constitutes a character this is what constitutes a number and then furthermore you know if
+49:19
+you've said if and you put forn and then you said some stuff and you put a semicolon and you happen to put else
+49:25
+then you're still in the this construct called if things like that it knows all about that and it deals with the text
+49:33
+and it will tell you if you've you've met the requirements in terms of it being a valid program and then it will turn it into something that can run in
+49:40
+the case of java that's something will be B code and we'll go into a class file or JW file we know this right and then
+49:46
+there's this separate step which is called Running where we take that stored
+49:51
+executable representation and we ask it to happen usually with in this case will
+49:56
+say you know Java Dash something class file and it will run and it will run and
+50:03
+it will end and it'll be over and we could try again if we didn't
+50:08
+like it uh that's the traditional edit compile
+50:13
+run be disappointed start
+50:20
+over oh correct but I'm talking about the development process right yeah you
+50:26
+know yes the run time is just that hard hopefully
+50:33
+that's uh Until you realize it's not working and you have to ask everybody to please wait for our downage while we fix
+50:42
+it right that's the difference if you read about llang which is getting a lot of press they'll tell you about phone
+50:48
+switches and how that's really not allowed and and and lisp was doing this
+50:54
+for for a very long time this kind of live live hot swapping of code and running systems I think it goes more in
+51:01
+this case it's less about the production thing than it is about what's the nature of of developing your program because as
+51:08
+a developer you know seeing it run and saying O that was bad I wonder what happened I wish I had run it in debug
+51:15
+mode I wish I had put a breakpoint somewhere interesting and I'm really sad
+51:20
+that I spent an hour calculating that data and dropped it on the floor because I have to do it again with the
+51:25
+breakpoint in um that's a lot different experience than keeping your program around and
+51:31
+having that data Stay Loaded and fixing your function and running it again without starting over so that's what
+51:37
+happens in closure you take the code text could be it's characters there is character
+51:43
+representation and what you showed you there can be represented in characters in Nasi uh it does not go first to the
+51:50
+evaluator it goes to something called the reader and this is the core part of what
+51:56
+something a list which is that uh the reader has a very simple job its job is to take the description I just told you
+52:03
+you know keyword starts with a colon and the list is in parentheses and the map is in curly braces and its pairs of
+52:09
+stuff its job is to take those characters and turn it into data structures the data structures I
+52:15
+described you start with the pen you say stuff you close the pen that's going to become a list when the reader's done
+52:21
+with it start with square brackets that's going to become a vector when the reader's done with it so what comes out of the reader are data
+52:28
+structures and what's unique about a list and closure is that the compiler
+52:33
+compiles data structures it does not compile text it never sees text what the
+52:40
+compiler gets handed is maybe a a a list with three symbols in it or a vector
+52:47
+with five numbers in it that's actually what the compiler has it has a data structure in hand with actual data in it
+52:54
+not text and it compiles it and in the case of
+52:59
+closure it is a compiler there are many well there are actually many lists that are interpreters but many people believe
+53:06
+that lisp is interpreted it's certainly easy to make an interpreter for lisp that would uh take those data structures
+53:11
+and on the Fly produce the values they imply uh but closure is a compiler and a
+53:19
+particular closure uh compiles those data structures to Java B code right
+53:25
+away there's no interpretation uh enclosure so it's a compiler it produces B code just like
+53:32
+Java C does and because it's an interactive
+53:38
+environment it presents that b code right away to the jbm to
+53:43
+execute and and it executes right away and you can see the effect are they living the
+53:51
+same uh when you're in the reppel you have AVM right you have one thing
+53:57
+uh so yes your environment is your program your your compiler is in your
+54:03
+program yes all c yeah I mean there most commercial some
+54:10
+commercial lists give you tools to take out the compiler in in production mostly
+54:15
+because they don't want you giving away their compiler um normally there's no reason to prevent that uh because it's a
+54:21
+useful thing to have particularly when you want to load code later to fix problems you're going to need that compiler there so enclosure there's no
+54:27
+strip out the compiler
+54:33
+option uh we'll see that um there there is a core of closure um the data
+54:40
+structures are written in Java the um special operators are written in Java
+54:45
+and then most of the rest of closure is written in closure right okay so no
+54:50
+native code there's no native code closure is completely a pure Java
+54:55
+project right there's no native code there's no C libraries there's nothing it's all it's all Java either generated by Java
+55:04
+itself or generated by clo closure um it does not turn off the verifier or anything like that in order
+55:11
+to get performance there been some schemes that tried to do that closure is completely legit that way so when we
+55:17
+have this separation of concerns between the reader and the evaluator we get a couple of things one of the things we
+55:22
+get is uh we don't have to get the text from a file right we can get it right
+55:27
+from you you just saw me type right into the reppel an expression never went through a file never got stored so the
+55:35
+first thing you get is this kind of interactivity of you can just type in stuff and say go uh that's a big deal I
+55:41
+mean if you've been programming in Java or C++ long enough to remember when the debuggers didn't give you the ability to
+55:48
+evaluate expressions at a breako you remember how hard that was um that's you
+55:55
+always have that capability here uh to have Expressions directly evaluated uh
+56:00
+what else do we get from this well we get the ability to skip the characters
+56:05
+completely for instance it's quite possible to write a program that generates the data structures that the
+56:12
+compiler wants to see and have it send them to the compiler to be evaluated so
+56:17
+program generating programs are a common thing in this kind of an environment uh whereas this kind of
+56:25
+stuff when you're doing it with text is really
+56:31
+messy way there are firms I know because of
+56:37
+compliance requirements that they have they might be very
+56:49
+comt it's that option of saying is always person production Environ
+56:57
+influence being that's the security well I mean it's that's a that's a security
+57:03
+policy thing whether or not you expose this in a production system so I'm talking about you could if you needed to
+57:10
+you could have that over a secure Saka Channel and have it be just an administrator who knows what they're doing have that capability um because
+57:18
+the alternative is Downing your system if you don't have that and of course opening this in a production system
+57:23
+that's completely a policy thing it has nothing to do with the language except if your language doesn't let you do it you can't do it that's fair uh so so it
+57:32
+does the other thing is that these data structures you might write this program and have this happen directly then you
+57:37
+might say I like this program let me take those data structures and this a thing called the printer which will turn
+57:42
+them back into that which you could store and somebody could sign off on and say this is the canonic program which our program generated that we're going
+57:49
+to use and we'll we'll lock that down and do whatever yes so are the dat
+57:56
+phal files no they're in memory data structures the ones your program would
+58:03
+would see so you know an instance of closure lay persistent Vector might get
+58:11
+Ed to the compiler the compiler's got to deal with it figure it
+58:16
+out there's one more thing that this allows and this is the secret sauce of all lisps including closure which is
+58:24
+what would happen I mean it's fine to sit stand alone and write a program that generates a program but what would
+58:30
+happen if we said you know what we're handing these data structures to the compiler right it would be great if the
+58:38
+compiler would let us participate in this if it could send us the data structures when we get a little program
+58:45
+very small program and give it back different data structures then we could
+58:51
+participate very easily in the extension of our language
+58:56
+because this compiler it's going to know how to do what it knows how to do it's going to know what to do with the vector
+59:02
+it's going to know what if means and a couple of other things uh but there'll be new things that we'll think of that
+59:08
+we'd love to be able to say right when you have something you'd love to be able to say in Java what do you have to
+59:15
+do you have to beg son and wait for years and hope other people beg for the
+59:21
+same things and you get it that's it you have no say you have no ability to to shape the
+59:30
+language uh in list that that's completely not what it's about it's
+59:35
+about getting you in the loop and in fact the language itself has a well- defined way for you to say this is a
+59:42
+little program I'd like you to run when you encounter this name I don't want you
+59:48
+to evaluate it right away I'd like you to send me that data structure I know what to do with it I'm going to give you
+59:55
+back data structure and you evaluate that that's called a
+1:00:01
+macro and it is what gives lists and closure syntactic abstraction and
+1:00:07
+syntactic extensibility can that happen in the context of a name space yes it can there
+1:00:15
+are name spaces in enclosure and they allow me to have my cool function and
+1:00:20
+you to have your cool function by the same cool function yes
+1:00:29
+uh so that's what makes lisp amazing uh it's something that I won't have time to
+1:00:34
+dig deeply into tonight if you can come away with at least the understanding that that's how it works that's how it's
+1:00:41
+possible and the fact that these are data structures here and here makes it easy you could theoretically say oh I
+1:00:47
+could write something and if if the compiler could hand me the abstract syntax tree I could navigate it with some custom API and do whatever it's not
+1:00:54
+nearly the same though what the compiler is handing you are those three data structures I just showed you that every
+1:00:59
+program knows how to manipulate and has a wildly huge library that directly can
+1:01:06
+can uh manipulate so that's how list works I'll
+1:01:11
+try to speed it up a little bit uh in closure unlike Java uh everything is an
+1:01:17
+expression so you know in Java there's a difference between declarations and statements and expressions uh There's no
+1:01:23
+distinction in closure everything is an expression everything has a value everything gets evaluated and prod of a
+1:01:28
+value sometimes that value is nil not particularly meaningful but everything is an
+1:01:34
+expression so the job of the compiler is to look at the data structures and
+1:01:39
+evaluate them uh there's a really simple rule for
+1:01:44
+that it is slightly oversimplified but in general you can understand it this way all those data literals I showed you
+1:01:52
+right symbols numbers character literals um vectors Maps sets are all evaluated
+1:02:01
+um by the compiler to represent themselves
+1:02:07
+except lists and symbols lists and symbols by default are
+1:02:13
+treated specially by the evaluator so when it reads a list of a list of symbols in particular it's going to do
+1:02:19
+some work it's not just going to return the list of symbols to your program it's going to try to understand them uh as
+1:02:26
+a an operation which I'll show you in a second so symbols it's are going to try
+1:02:32
+to the compiler is going to try to map to values okay like variables like you
+1:02:38
+know in a variable you can say in I equals 5 later in your program in Java you say I Java is going to try to figure
+1:02:44
+out oh that was that's five that's the I you set up there same thing in closure when use a symbol in your data structure
+1:02:52
+closure is going to try to find a value that's been associated with that symbol can be associated with it through a
+1:02:58
+construct called let sort of the way you create a local name or through defa which is the way you create a global
+1:03:06
+name or it's a list and it's going to say this is an operation of some sort I have to figure out what to do with a
+1:03:14
+list so how does that work well again we said what's the data structure it's it's parens it starts with something it may
+1:03:21
+have more stuff or not but from the evaluator standpoint all that matters is
+1:03:26
+the first thing the first thing is the operator or op uh that's going to determine what to
+1:03:35
+do and it can be one of three things it can be a special app okay this is Magic this is sort of
+1:03:43
+the this is the stuff that's built into the compiler upon which everything else is bootstrapped so some things are
+1:03:48
+special I'm going to numerate them in a second it can be a macro like we saw
+1:03:53
+before there's a way to register with the compiler to say when you see the op
+1:03:59
+my cool thing go over here and run this function which is going to give you something to
+1:04:05
+use in place of the my cool thing call and the third thing it could be is an
+1:04:11
+ordinary expression it's going to use the normal means of evaluating an expression and it's going to say
+1:04:17
+whatever value that yields I'm going to treat as a function and attempt to call with the calling mechanism of
+1:04:23
+closure uh which is not limited to functions but you can cons its main purposes for
+1:04:29
+functions uh so for people who know lisps closure is a list
+1:04:35
+one um it is a list one that supports def macro well and the use of name
+1:04:41
+spaces and U the way back quote Works makes that possible uh and everyone else
+1:04:48
+can ignore that that let pull the point an expression whichs the function as
+1:04:54
+opposed to it's the function well what what what it's going to encounter is
+1:04:59
+it's going to encounter a list and the first thing is going to be the symbol Fred Fred is not a special operator no
+1:05:06
+Fred enclosure let's say no one has registered a macro called Fred then it's
+1:05:11
+going to use the rules we said before what about symbols to find the value of Fred where hopefully someone before has
+1:05:19
+Said Fred is this function or something that at the end yelds function they won't keep
+1:05:26
+evaluating it's going to evaluate that expression but there are other function like things or callable things inclosure
+1:05:33
+in addition to functions I'll show you that in a second so let's dig down into each of these three pieces yes it
+1:05:39
+doesn't encounter any of those you have an error at run time it'll say it's not a
+1:05:47
+function effectively what will happen is it will say this is not a function if you said uh Fred is is De Fred one so
+1:05:54
+Fred is the number one and you tried to call Fred or use Fred as an operator it's going to say one is not a function
+1:06:00
+probably with a not very Illuminating stack
+1:06:07
+Trace uh okay so special operators there are very few I think you know one of the
+1:06:13
+things that's really cool about lisps and it's also cool about closure is uh you can Define most of them in terms of
+1:06:19
+themselves uh one of the great brilliant things that John McCarthy did when he invented lists was figure out that with
+1:06:25
+only I think seven Primitives you could Define the evaluator for those seven
+1:06:32
+Primitives and everything you could build on them like the the core of computation and it still gives me
+1:06:38
+goosebumps when I say that uh it is a beautiful thing uh it really is and if you've
+1:06:45
+never looked at the land calculus or at list from that perspective uh it's quite stunning uh his early papers are just
+1:06:51
+great and they're just brilliant in a transparent way uh so let's look at a couple I'm going
+1:06:58
+to show you two and I'm going to list the rest okay uh death would be one how do we establish uh a value for a name uh
+1:07:07
+there's a special operator Called Death it takes a name now that name is going to be a
+1:07:12
+symbol obviously that can't be evaluated right because the whole
+1:07:19
+purpose of this special operator is to give it a value if the compiler were to use normal evaluation the position you'd
+1:07:26
+have a problem because you're trying to Define what it means how could you do that so one of the things about special
+1:07:32
+operators that you have to remember and it's true of macros as well is they can
+1:07:38
+have nonnormal evaluation of their arguments like the arguments might not
+1:07:43
+be evaluated in fact def doesn't evaluate the name it uses it as a symbol
+1:07:49
+and it Associates that symbol with the value it does not evaluate the symbol
+1:07:55
+so this is a simple way to say if I say def name some expression the expression
+1:08:00
+will be evaluated the name will be mapped to that value or bound to that value when you later go and say name
+1:08:08
+you'll get the value it was used to initialize it do that
+1:08:13
+once uh you actually can do that more than once you shouldn't do that more than once unless you're trying to fix
+1:08:20
+something in other words def should not be used as Set uh but you can use def to Define a
+1:08:25
+function and later you can use it again to fix it um so the things that are defined by Def are mutable at the root
+1:08:33
+and it's probably you know it's the only escape hatch for that Dynamic change en
+1:08:41
+closure that's not governed by um transactions or some other um
+1:08:47
+mechanism okay so it establishes a global variable again there are Nam spaces I don't have enough time to talk about them but it's all subject to a nam
+1:08:53
+space if you're in a nam space and you define the name then it's in your namespace it's distinct from that same name in another Nam space Nam spaces are
+1:09:00
+not the same as packages in common list they're very much different in particular symbols are not inherently in
+1:09:06
+a name space symbols are have no value cell they're not places they're just
+1:09:13
+labels and there are vars which are the places more like common list
+1:09:19
+symbols uh if is another thing that's built in and if you think about if and
+1:09:25
+language which you may not have ever done right if you thought about if as why couldn't if be a
+1:09:31
+function why why could I say if some test expression some expression some
+1:09:37
+else expression why can't if be a function I mean it looks like a function well it doesn't actually look function in in Java but why can't it be a
+1:09:47
+function excuse
+1:09:52
+me it should only evaluate one of these two that's why right and a function
+1:09:57
+evaluates what all of its arguments so if you try to write if as a function you
+1:10:04
+would have a problem because functions evaluate all their arguments so if has to be special and if is special in
+1:10:09
+closure too it evaluates the test expression and then depending on the
+1:10:15
+truth or falsity of this in in kind of a generic sense for closure this is nil or
+1:10:23
+false that if it's anything else will evaluate
+1:10:29
+this but will only evaluate one of those two things must else no it doesn't have
+1:10:36
+to the else can be missing in which case it defaults to nil uh so if is another example
+1:10:43
+something that has to be special it can't evaluate all of its arguments um and uh then we have these others in fact
+1:10:51
+this is it right there's something that defines a function something that establishes uh names in a
+1:10:59
+local scope a pair of things that allow you to do a functional looping to to create a
+1:11:06
+loop in your program something that let you create a block of statements the last of which will be the
+1:11:12
+value it allocates a new Java thing access to MERS of java
+1:11:19
+things throw try do what you expect from java set
+1:11:25
+will rebind a value and quote and bar kind of special purpose for list manipulation things so
+1:11:32
+I'm not going to get into them tonight question
+1:11:39
+yeah of Def macro uh def macro is bootstrapped on
+1:11:48
+this oh no def there is Def macro and it's defined a couple of pages into the
+1:11:53
+boot script for closure which I might show you if we have some time
+1:12:02
+yes to something to yeah this is bad what are you doing this
+1:12:10
+for yes no it ends up that enclosure um
+1:12:18
+macros are functions and so there's just a way there's a way to on the bar say this
+1:12:25
+function is a macro and it will be treated as a macro instead of as a
+1:12:31
+function okay so that's a tiny set of things in fact when you take out the
+1:12:37
+stuff related to Java U it's an extremely tiny set I don't think I made it down to S one 2 three four five six
+1:12:45
+seven eight I have more than Morey St but I don't have
+1:12:51
+dozens so how could this possibly work this is not enough to program with
+1:12:57
+this no no no no so so we need macros okay
+1:13:04
+there are plenty supplied with closure um and what's beautiful about
+1:13:11
+closure and lisps is you have the same power that I have to write macros when
+1:13:17
+you see the kinds of things that are implemented in closure as macros you realize the kind of power you have as a
+1:13:24
+developer because you can write those same macros you could have written them you don't have to wait for
+1:13:29
+me I'm not son this is not Java you want to do something you have something you
+1:13:35
+want to express a certain way you want to extend the language that way if you can do it with a macro you can do it
+1:13:41
+without contacting me or asking me for the favor of adding a feature for you uh which means the language is much more
+1:13:47
+extensible by programmers so let's look a little bit about how they work uh if
+1:13:52
+we remember we're getting data structures past the compiler so it looked at the first thing and somehow
+1:13:59
+there's a way and I I can't show you that tonight to say this name designates a macro and associated with that name
+1:14:06
+then is a function the function expects to be passed the rest of the stuff
+1:14:11
+that's in the parentheses so we have this cool function my cool my cool macro
+1:14:17
+maybe it expects to be passed two things the things that gets past are not evaluated it gets past the data
+1:14:24
+structures that the compiler got passed because the compiler is going to say you told me you know how to do this here are
+1:14:31
+the data structures give me back the data structure I should be processing so
+1:14:36
+it's a transformation process where the macro is handed the data that's inside
+1:14:42
+the Parn as arguments to the function that the macro is it
+1:14:47
+will run any arbitrary program you want to convert that data structure into
+1:14:54
+a different different data structure you can write macros that look stuff up in databases that go and ask a rule-based
+1:15:00
+system for advice most are not that complicated uh
+1:15:05
+but the thing is it's an arbitrary program transformation there's not a pattern language there's not a set of rules about this can be turned into that
+1:15:13
+it's an arbitrary program a macro and in this way it's like a common list macro
+1:15:19
+uh that given the data structure G gives back its own replacement replace me the
+1:15:26
+expression that began with me with this and then keep going which may yield another macro and another round of that
+1:15:32
+or it may yield something it already knows how to process yes so would
+1:15:41
+itre uh no this is happening at compile time uh this is part of comp compilation
+1:15:47
+right the compiler got handed this data structure it said oh it begins with the macro name hands it to the macro it
+1:15:53
+comes back that transformation occurs it keeps compiling then you get by code after you
+1:15:59
+get by code there's no more talking to the macro so macros replace themselves with another data structure and then
+1:16:05
+compilation continues uh so we can look at a macro you'll notice on the list of Primitives
+1:16:11
+there's no or or is not primitive enclosure and in fact if you think about
+1:16:16
+or or is not primitive or is not Primal primitive logical operation you can
+1:16:21
+build or on top of if right the or I'm talking about is like
+1:16:27
+the double bar or in uh in Java in that what happens if the first part tests
+1:16:33
+true what happens to the second part not evaluated right still got that magic thing but if already knows how to
+1:16:40
+do that if already knows how to do a conditional evaluation of only one of
+1:16:45
+two choices which means we can Define or in terms of if
+1:16:51
+uh and so this is what happens so or is a macro when it's expanded by the compiler it it
+1:16:59
+returns something like this so we going to say or X or Y and this is what comes back another data structure begins with
+1:17:05
+let which we haven't seen so far but let says it takes a a set of pairs of things
+1:17:10
+it says make this name mean this inside the scope of the it's like a local
+1:17:17
+variable except it's not variable you can't bury it but it has the same kind of scope so it says let's let's do that
+1:17:25
+why it does it is because this is going to be some expression right it it looks like X here but it could be like a call
+1:17:31
+to calculate some incredibly difficult thing that's going to take an hour in
+1:17:36
+which case I probably wouldn't want to repeat that more than once in my expansion because it would calculate that thing twice so we're going to take
+1:17:42
+whatever that expression is put it here assign its value to this variable name
+1:17:48
+which is made up obviously you wouldn't pick this name it's a good machine pick
+1:17:53
+name uh so it makes a variable and then it says if that thing is true right we
+1:17:58
+took an hour to calculate this right we have if that's true return it if right you know is it going do this
+1:18:07
+if this is true otherwise it's going to do why and that's the implementation of
+1:18:14
+or if the first thing is true it returns it well in fact in Java you don't get a
+1:18:20
+good value but inclosure you get the value that was true the invocation of any function can
+1:18:27
+return a value in a false or you interpret certain kind of Val all values
+1:18:32
+can be placed in a conditional not just Boolean and it's subject to the the rules I said before if it is nil or if
+1:18:39
+it is false you'll get the else expression Valu if it is anything else
+1:18:47
+seven the string Fred anything else is true so closure like most Li allows any
+1:18:56
+expression to be evaluated as the conditional test
+1:19:05
+here side effects no I talked about that let's say
+1:19:12
+this x took an hour right a well written macro will make sure it only gets evaluated once I could have put if x x y
+1:19:23
+yes this is the answer to your question I could have said if x x otherwise y
+1:19:29
+corre then if x had side effects it would happen twice that would make this a not well written macro this is a well
+1:19:36
+written macro where it needs to use that expression twice which means it's going to B the temporary value a temporary
+1:19:43
+variable to the value which means X only happens and appears only once here so if
+1:19:48
+it had a side effect it would happen only once if it took a long time it would take a long time only once it is I
+1:19:55
+still have questions
+1:20:04
+to Le actually takes at the topmost level it takes um n arguments the first
+1:20:12
+of which has to be a vector of pairs of things you can you
+1:20:17
+can have multiple Expressions name value name value name value in a letter this
+1:20:25
+is one Sy this is one symbol yeah that yeah so and then let is a block so it
+1:20:31
+actually can have multiple expressions in it in this case it has only one and then it just does whatever next
+1:20:39
+it Returns the value of well this is a macro and all it's going to do is give the compiler back this and the compiler
+1:20:45
+has to keep going with this in hand now yes I'm just trying to figure out
+1:20:50
+what let will Le establishes this name this yeah then when let runs the series
+1:21:00
+of Expressions inside let run and the last of them is the value of the lead expression in this case there's only one
+1:21:07
+expression inside the let in this case there's only one expression inside the Le so the value of
+1:21:14
+the if expression is the value of the Le which is what we want because we you know we want this to mean or and that's
+1:21:20
+the scope this is the end of the scope over here matches that that's what I was noticing
+1:21:28
+so I was yes and well it's one of the beautiful things about this system which we'll see clarified in a moment is that
+1:21:36
+all expressions are bound so we don't have a lot of complexity with precedents and Terminators and things like that it
+1:21:43
+started with the p and ends with the matching P later what about
+1:21:50
+bigo big Boolean yeah the job of big in fact it has to be big Boolean false
+1:21:58
+if it's coming from java I test to make sure because an improperly constructed big Boolean might not be Boolean do
+1:22:07
+false new Boolean new Boolean is wrong and in fact not only is new Boolean wrong but the reflection API in Java
+1:22:14
+uses it exactly that way so it returns multiple different values of big Boolean
+1:22:19
+false got it's I I have a patch that looks for that because I got bit by that
+1:22:26
+already so it will make conversions of big Boolean falses that aren't Boolean
+1:22:32
+do false into Boolean do
+1:22:37
+false I'm sorry I didn't write Java I only wrote closure uh so but the point here is
+1:22:45
+that this seems like a primitive thing like if the language doesn't have it you're in trouble it is not if I hadn't
+1:22:52
+if I had somehow left out ore you could have added it you could have written the macro that does this job and
+1:22:59
+added or to closure I'm sure I forgot some things in closure you could add them many things in fact we saw how tiny
+1:23:07
+the special operators list is and or cond all kinds of things are built on
+1:23:13
+top of these things as macros Andor functions U and and after the point of
+1:23:19
+the special ops you can't add a special operator but you can add a macro
+1:23:50
+you're going to get uh reference to the expansion the inside of the
+1:23:56
+everything expanded flat correct how
+1:24:01
+does to what that can be
+1:24:07
+challenging that was the answer I was
+1:24:13
+expecting it's it's still an area
+1:24:21
+buy I I think that one of the things that's good about lisp is because you have the
+1:24:27
+ability to work in the small and to say I just wrote this little component of this thing I'm going to run this right
+1:24:34
+now I don't have to wait till the big program that contains this runs your
+1:24:39
+ability to do that immediate unit test to make sure that thing is working is
+1:24:45
+good uh on the 50,000 F foot level um propagating up from macros the source of
+1:24:52
+the problem in the macro uh is something that's being worked on some compilers do it uh pretty well for
+1:24:59
+common list it's an area I hope to enhance enclosure uh but it will always
+1:25:05
+be more challenging than a function and that's why ma macro writing
+1:25:12
+is not for um new newcomers or or the inexperienced part of the team seems a
+1:25:18
+to language design it is language design it definitely is on the other hand
+1:25:23
+without it you're limited to the abstraction capabilities of functions which are limited think about how much
+1:25:30
+you repeat in Java think about how much code you repeat to close files in Java
+1:25:35
+think about it think about how many times you've written the exact same thing I mean having your IDE spit it out
+1:25:41
+is a little bit handier but when you decide oh I need to change my policy about doing this I want to check something else all that generated code
+1:25:47
+is not amendable to you know to fixing uh so those kinds of things that can't
+1:25:52
+be um whose whose redundancy can't be eliminated by functions can be
+1:25:58
+eliminated by macros and that's something you want to do because the be side of this is if you're doing all that
+1:26:04
+stuff by hand yes it's transparent you get this debugger error okay you did that by hand
+1:26:11
+where all over your program right because you didn't have a macro that generated it you don't have one place to
+1:26:18
+fix you have end places to fix so there's you have places to fix oh I need
+1:26:25
+this mistake everywhere but you still have to find everywhere you have to fix it and these
+1:26:31
+things are idioms everybody that programs in Java has to know this these idioms are only by convention and they
+1:26:37
+have to be manually replic replicated is it not taken
+1:26:45
+aspi feeds Sol it is an attempt to address those cross cutting concerns but
+1:26:50
+it it's still unproven as to whether or not you people will describe them their those things in
+1:26:57
+advance because what tends to happen is that you don't know it and then you say oh I'm doing this all over the place and
+1:27:02
+then you know will you implement an aspect is there a policy is there a way to describe an aspect that will insert
+1:27:08
+it everywhere it's needed it's a very challenging problem but the problem of
+1:27:14
+Discovery is a little easier with aspect uh I mean I think aspect oriented
+1:27:21
+program programming is interesting but uh it's different so anyway there tradeoff with
+1:27:27
+macros yes it may be less transparent there on the other side when you fix a macro you fixed every usage of the
+1:27:34
+macro finally we get to the easier thing I mean start with special operat and macros mostly because that's the evaluation order uh but functions exist
+1:27:41
+and they're they're kind of straightforward uh the first thing about functions you need to know is that they're first class values they're
+1:27:48
+values like any other um methods in Java are not first class you can't put a
+1:27:53
+method into a variable you can't pass a method to a function there are special
+1:27:58
+things uh in lisps and in fact in most dynamic languages today uh functions are
+1:28:04
+first class which means the function is a value so I've defined five to mean
+1:28:09
+five and of course I don't need to do that but I'm showing you a depth right
+1:28:14
+of a symbol to a value now I'm going to show you a depth of a symbol sqr to a value which
+1:28:23
+is called to one of the other special operat called fun and what fun does is
+1:28:29
+it creates a function object this is going to turn that code
+1:28:34
+into something that gets compiled into a function that takes one argument and multiplies it by
+1:28:43
+itself any invation ofr will to see it's being inv argument
+1:28:51
+and say something it's a it's a regular function it's going to be an instance of a of a Java interface that that takes an
+1:28:59
+argument it's a real regular method in the end in
+1:29:05
+Java you'll have an invalidity uh problem okay I need to move a little bit more quickly so let's
+1:29:11
+uh let's hold the functions for a little bit let me let me move forward so this fun I can't describe all of the features
+1:29:19
+of fun it's exciting and Rich thing but the simple one we can take fun as a
+1:29:24
+special operator it takes a vector of the names of its arguments that's the
+1:29:30
+simplest way of understanding it and then it contains a set of Expressions which will be uh the body of the
+1:29:36
+function the last expression is the value returned by the function there's no return uh statement uh in in closure
+1:29:45
+so when we say Square Five it returns 25 okay this is a function call again we
+1:29:52
+said what does it do it says is square a special operator no is it a macro we're going to say right now It Isn't So
+1:29:59
+what's the value of square it's this function object okay call it and pass it
+1:30:06
+that the value of that okay so the arguments to functions are evaluated so it's going to pass Square
+1:30:13
+the number five square is going to multiply by itself and return
+1:30:19
+25 so functions of first class there are other things that are like function in
+1:30:24
+other words the compiler says you know can I call this the answer is true of funds it's also true of other things in
+1:30:31
+particular one of the neat things about closure is that maps are functions because if you think about
+1:30:37
+Maps mathematically U they are functions maps are functions of their keys given a
+1:30:43
+key a map should return the value of that key and it does enclosure so maps are
+1:30:51
+functions sets are also functions vectors are also functions vectors are functions of their
+1:30:58
+indices okay that's cool stuff and when you see idiomatic closure some of it is
+1:31:05
+quite beautiful because of that relationship so we'll try to summarize
+1:31:12
+this things that would be declarations or control structures or function calls
+1:31:19
+or operators or whatever in Java all are
+1:31:25
+uniform in closure or any list in that there are
+1:31:31
+lists where the operator is the first thing in the list so we've reduced all of this
+1:31:39
+variation here to something uniform so we look at each one in IAL 5 establishes
+1:31:45
+I as a name whose meaning is the value five death I does that as well where in
+1:31:53
+this does it say definition whatever some rule about the shape of this thing says it's a definition in enclosure
+1:32:00
+death says that's what it means okay if x is equal to Zer return y otherwise
+1:32:06
+return Z when does this end I'm showing you the rest of the program is it is this
+1:32:13
+done got me you don't know I don't know right because it could say else else right else else if right we oh it
+1:32:22
+couldn't it has to say else if and then say else right we have to keep looking forward we could not have had an else
+1:32:28
+right it's not closed uh in addition without these returns it it doesn't
+1:32:33
+yield a value this is a statement in Java right there's a there is an if conditional which is an expression
+1:32:39
+they're two different things uh enclosure if against first we know what
+1:32:45
+we're dealing with if it's here we saw the syntax it takes three three
+1:32:50
+things what's the z that's a function name you can have
+1:32:56
+question marks in names uh closure is much more liberal about the symbols that can appear in names but not completely
+1:33:02
+Lial because I need some symbols for myself x * y * Z what are
+1:33:11
+these mathematical operators again another special thing about Java and they can go in between things and
+1:33:17
+there's precedence rules all other kinds of G right closure it's the beginning I have
+1:33:24
+to look anywhere I have to look in the middle or read for look for semicolon what's happening multiplication
+1:33:30
+first uh also you'll notice multiplication can take multiple operands more than two it's not just a
+1:33:36
+binary operator it's a Nary operator uh Fu XYZ this is
+1:33:44
+what function call right people complain about the
+1:33:50
+parentheses of how many parentheses difference
+1:33:55
+none right you move it from here over there same
+1:34:01
+thing same thing I know what you're talking about and you're never going to see curly curly curly curly curly curly
+1:34:07
+curly yes you may see par like that but it's better I'm telling you it doesn't
+1:34:13
+keeps your program near itself you don't have to go down to the next page to see the next step and then this member
+1:34:20
+access I'm going to talk more about the Java uh interoperability but uh same kind of thing different
+1:34:26
+number of parentheses no different number of dots no but dot goes first because dot tells
+1:34:34
+closure we're doing some Java stuff here and that has its own special interpretation because dot is a special
+1:34:41
+operator we saw before so there's a tremendous uniformity there's a lot of
+1:34:47
+value to that uniformity uh you know I know a lot of programming languages and every time I have to learn the
+1:34:54
+Arcane whatever the rules are syntax and this thing next to that means that and this character means this and you can
+1:35:00
+have a semicolon here but not there and it better be indented by the same amount
+1:35:05
+or whatever it is I really get angry now because it there is no reason for that
+1:35:11
+it is not better than this and if you've used this for any amount of time you
+1:35:19
+will not disagree because there's no one who has who does
+1:35:25
+it
+1:35:34
+also how I'll show you
+1:35:39
+later um if I only have another hour I have to go much faster everybody
+1:35:46
+ready uh so let's hold the questions until like a question time uh unless
+1:35:52
+you're really confused confused but just general interest things will will hold because I may cover it uh one of the
+1:35:59
+things that is typical about lisp is that a lisp is that it has a rich
+1:36:04
+library for manipulating lists uh but it ends up that I think in
+1:36:10
+my opinion it's a shortcoming of lisps traditionally that those functions are
+1:36:16
+limited to a particular data structure which is the singly linked list because
+1:36:22
+the functions that underly that abstraction are broader and there are
+1:36:29
+three of them the first is I'd like to obtain some sort of a sequence like
+1:36:34
+thing from some sort of a collection like thing that's the abstract way to
+1:36:40
+say something given that sequence like thing I want and need only two functions
+1:36:47
+one is to say give me the first thing the other is to say give me the
+1:36:53
+quence that is the rest of this sequence in the case of seek if there is
+1:37:00
+no stuff it returns nil because nil means
+1:37:06
+nothing which means you can say Seek call and you can put that in an if expression as a test thing and because
+1:37:12
+nil returns logical false you'll know there's nothing to do that's an
+1:37:18
+important idiom of common lless closure preserves unlike scheme where you have
+1:37:23
+to say empty all the time if it's not empty you will get back
+1:37:30
+an object that object only makes two promises you can call these two functions on
+1:37:36
+it right this function promises one thing there will be a first element because we
+1:37:42
+already covered if there's not a first element here so if you say first the seek and it's and this is not N means
+1:37:50
+you have a seek you get back a guy the first thing in the
+1:37:55
+sequence if you call the second thing you can do with the seek is you can call rest on it which says give me the
+1:38:01
+sequence that represents the rest not including the first thing of course if there's no more what should we get nil
+1:38:10
+right because we said here nothing if we have nothing we get n otherwise we're going to get another
+1:38:15
+seek this is an extremely abstract way to talk about lists uh but the advantage
+1:38:21
+over common list and scheme list is they would promise that the return value of
+1:38:26
+of this thing is a conell and that is a real limitation uh because now I can
+1:38:33
+make seek work on absolutely everything seek works on lists because they have the structure but it's possible to
+1:38:40
+create a seek object if you think about iterators and I want to make this analogy extremely weakly right there's a
+1:38:47
+way to walk through a vector right similarly there's a way to walk through a map there's a way to walk through a
+1:38:52
+string there's a way to walk through a file uh and it ends up that seek is
+1:38:59
+supported on all those things you can walk through Java arrays all the closure collections strings files everything and
+1:39:06
+you can use these two operations to move around this abstraction of
+1:39:13
+list and which I call a sequence because a list is more of a concrete thing is is
+1:39:18
+bound to lists in most lists wow this is hard to say
+1:39:24
+uh but is not enclosure and it's I think one Advance one advance of closure in in
+1:39:30
+the list world uh which means that you can apply these things to everything so what what does this mean well this is kind of primitive I mean walking through
+1:39:37
+what step by step but what it means is that you can build a library on top of these Primitives uh that provides a lot
+1:39:44
+of power for manipulating data structures without Loops I'm just going to show you a tiny tiny little bit but
+1:39:50
+it should give you a feel for what it's like to program en close if you would think about what it would take to do these things in Java for
+1:39:57
+instance I have a set of things I'd like to have everything except the first two things right we say drop two from
+1:40:06
+whatever the collection is that happens to be a vector it could have been a list it could have been a string we dro the
+1:40:13
+first two characters whatever it is there's a way to exract out at the notion of walking
+1:40:19
+through it drop means leave out that many and give me the rest as a
+1:40:25
+sequence take is the opposite it says only give me nine of these things look at the
+1:40:32
+second function cycle cycle is a function called it takes 1 2 3 4 in this case could take any sequenceable
+1:40:40
+thing it returns an infinite list an
+1:40:45
+infinite sequence of those things around and around in a cycle how could it do
+1:40:51
+that isn't that going to chew up all the memory of my machine cycle sounds like a really scary function uh it does that
+1:40:57
+because if we go back to this definition of this is there anything about the way
+1:41:03
+I describe the operation of these things that says that the rest of this thing has to
+1:41:08
+exist I could make up the rest right when you ask me right and how much of it would I have to make
+1:41:14
+up just one more thing the thing I give you has to have one more thing in it and it's I'm I'm okay and it could delay the
+1:41:22
+calculation of the next are till the next time you call rest that's called laziness and in fact
+1:41:29
+all of the sequence stuff I'm showing you for closure uh is lazy which means that you can uh write sequence functions
+1:41:38
+that return infinite sets and you can use them as long as you don't try to consume all of them you can consume a
+1:41:43
+little bit of them so in this case we're making an infinite sequence out of one two 3 4 and we're taking the first nine
+1:41:49
+things from it this looks like a weird weird abstract thing but I've had plenty of
+1:41:55
+programs in reality I've had to do exactly this thing round robin you can use it to round robin work dispersal you
+1:42:02
+can use it to uh get distributions I mean cycle it seems like some theoretical isn't this cool you can make
+1:42:08
+an infinite sequence but it really has utility it ends up in real programs uh
+1:42:14
+and it goes on and on inter does what you think one from this sequence one from that makes a new sequence again one
+1:42:20
+of these could be infinite right you'd only make as much of this as you needed to match the length of the non-infinite
+1:42:27
+one uh partition split this up into pieces think about the loops to do this
+1:42:33
+stuff you and in Java you have to write everyone every
+1:42:38
+time right never mind the laziness part uh
+1:42:43
+now we get to a more interesting function which is math okay now we're not talking about map the data structure we're talking about map a function uh
+1:42:51
+which is again from list uh land uh
+1:42:56
+which says take this function right so the first argument of map is a function
+1:43:01
+value and uh apply it to pair wise or
+1:43:08
+however many sequences I give you the elements of the sequences I provide so in this case we're going to call the
+1:43:13
+function vector and we're going to call it on a and one then we're going to call
+1:43:18
+it on B and 2 and c and 3 and d and four and e and five and Vector makes vectors
+1:43:25
+out of whatever you pass it so we're mapping Vector across this pair of sequences to vectorize corresponding
+1:43:33
+elements of those sequences we get a set of data structures back out of this so map is a very powerful thing
+1:43:41
+instead of saying for each blah blah blah do this and stick the answer into this collection you say just map this
+1:43:46
+function across this data and it'll give you back a set of new data the result of applying that function to each thing you
+1:43:53
+can also apply it against multiple sequences that's what this is doing maybe I shouldn't have done something this complex here um apply is also very
+1:44:01
+interesting and it's a unique thing to to lisps and and languages that are
+1:44:06
+Dynamic apply says I'm also going to pass you a function what I want you to do is take the next expression and
+1:44:13
+figure out the sequence it yields and then use that as the arguments to a call
+1:44:19
+to this function so we're going to apply the function stir and stir says given any
+1:44:25
+set of things turn it into a string concat you turn each part into a string and concatenate them all back together
+1:44:31
+into a string so we want to put that together and what interpose does is it says take
+1:44:37
+this thing and put it in between everything in this sequence so interpose comma ASDF is going to turn
+1:44:44
+ASDF into a sequence and return characters so we're going to have the character a and a comma s and a comma d
+1:44:53
+and a comma F and a comma seven things yes three four things with three things
+1:44:59
+two seven things and we say apply stir to that which means string concatenate
+1:45:05
+them as if these they were the arguments to stir words if I called stir and said stir a
+1:45:11
+comma uh s comma D comma f f it would
+1:45:16
+make a string out of them well I can just apply it to this sequence as if I called it with those arguments and it
+1:45:22
+will do the job uh I get back a single string with that in
+1:45:29
+between again if you don't quite get these it's okay I'm just trying to show you the power and the succinctness of
+1:45:35
+this reduce is another function that takes a function it says apply this function uh to successive pairs of the
+1:45:43
+sequence you're you're given taking the result of each application and using it as the first argument of the next so if
+1:45:50
+you if you say reduce with Plus you're going to get the first two things plus each other and then take that and do
+1:45:57
+that plus the next thing and take that and do that plus the next thing that's what reduced does so this is effectively
+1:46:03
+is summing uh this range range is a
+1:46:08
+function that returns a sequence of numbers and you can you can
+1:46:15
+uh you know set where it starts and where it ends and how how it steps and things like that uh this is obviously a
+1:46:23
+much higher level way to write programs than you do in Java yes no or your head hurts I don't
+1:46:30
+know what is uh yeah let's take a this is be a
+1:46:37
+good time for a break does anybody have any questions on this real quick
+1:46:55
+right and cycle returns a sequence which has only got one in it and the recipe
+1:47:01
+for producing the rest of the cycle sort of like a delayed function that's what happens inside
+1:47:07
+cycle it doesn't produce an infinite list obviously it returns an object that
+1:47:15
+satisfies returns it returns a sequence
+1:47:20
+correct go ahead why can't you call S
+1:47:25
+directly why can't you call stir directly um well in this case well I'd
+1:47:31
+have to write a comma s comma D comma F comma
+1:47:39
+right it's then you're going to then you're passing stir a sequence and what I want to do is is say
+1:47:46
+take that sequence and pretend it was the arguments to S not an argument to S but but n arguments
+1:47:59
+to because that's the syntax of closure SL comma is a character literal for
+1:48:05
+comma quote is used for other things that's why I don't use it for character literals all right let's take a break
+
+** talk summary part 2
+
+** Transcript part 2
+https://www.youtube.com/watch?v=hb3rurFxrZ8
+0:00
+okay so let's look a little bit about jaw a little look at Java Interop because one of the great things one of
+0:07
+the other great things about closure is it sort of solves the library problem by adopting the library of Java you know
+0:13
+all new languages have this problem in that well depending on the implemented if they're implemented on a sea bass
+0:19
+they're starting from nothing they're writing their own runtimes their own garbage collectors or own evaluators
+0:24
+their own libraries etc etc and this tremendous amount of wheel reinvention so closures approach is to say you know
+0:32
+these libraries are written if you could leverage them in an idiomatic way you would be done because for a lot of
+0:38
+things not everything there's not a big syntactic benefit to one language or
+0:45
+another closing a file it always looks and smells a little bit like closed file the parens might be in
+0:52
+a different place there might be a dot there might not but it's just it's not
+0:57
+that rich a thing and many library things are like that so closure sort of
+1:03
+has a hybrid approach the first phase is use Java directly you can use Java directly in closure no wrappers you
+1:11
+don't have to write your own library it shouldn't make you feel too dirty if you like Lisp and I'll show you you know how
+1:16
+how that looks if you have a higher level abstraction you want to make it
+1:21
+look a little bit more like something you would do in Lisp you can build on
+1:27
+top of it if you need to but when you see how closure both lets you access Java and how closure brings Java things
+1:34
+into its world you'll see that you often don't need to do that so first thing
+1:40
+that math.pi dot we saw was a special operator and it says we're going to
+1:47
+treat the rest of this like it's Java in particular we're going to look at the second thing in the list and look to see
+1:56
+is that either a class or not if it's a class this is a static thing rather
+2:04
+going to be accessing a static field or a static method if it's not a class
+2:09
+this is an instance thing so that first call is a static call right now hi I'm
+2:17
+just a dot math bye that happens to be an access to a variable yes in this case closure adds
+2:23
+some friends because it does wanted to limit things it doesn't want any magic syntax so versus a direct field access
+2:32
+there going to be a pair of friends at it but for function calls it's no more friends or dots than Java and we type
+2:42
+that in and that's what happens I'm going to show you some neat things right away because that's what's cool about
+2:49
+closure the first thing is somebody asked earlier but what about concatenated calls right you can say in
+2:55
+Java this not that not that and you could say that enclosure to by saying dot this whatever and then surrounding
+3:01
+that with dot the next thing whatever right and doing the list kind of thing with growing shells of calls but I think
+3:11
+I mean I know most Java programmers would not be happy with that but that's where macros come to play because there
+3:18
+it was really easy for me to write a macro called got what it means is read this is if you put dots in between
+3:25
+everything so this is system gap properties get Java version key and it
+3:32
+returns that and I can put as many things in that list as I want that turns
+3:39
+into the nested set of calls to the first thing but you don't have to write that you can write this if you have
+3:46
+other patterns that you like you can write macros for those too but this one comes in comes included dot so that's a
+3:53
+this is an instance of alright once a statical and in statistical right Chris
+4:01
+get properties gives you a property object properties object and that's a
+4:06
+method get new yes
+4:18
+dot dot is just a macro there's no language thing it's not in the compiler it's not special syntax it takes those
+4:24
+forms and turns them into the first one that turns into a nested set of the first thing the first thing is the only
+4:31
+primitive Java member access thing that exists in closure other words that dot
+4:36
+upfront in the top is the only special operator this is an ordinary macro code
+4:41
+that it's not special you say def macro
+4:50
+you saw me say def something there's something called def macro where you write something it looks like a function but it's designed to take forms and
+4:58
+return forms but I can't describe def macro more detailed than that tonight
+5:07
+def macro it's like a function definition but its arguments will be the
+5:13
+forms that are up here in its invocation new does what you think it allocates a
+5:19
+new thing there's also syntactic sugar to make that smaller notice you can
+5:24
+scope you guys and you can do all that stuff no more parens and whatever and they
+5:30
+print and do whatever but of course no one would be satisfied with that because one of the nice things about closures so
+5:36
+let you fix Java so let's look at a very macro called do to write how if I had to
+5:42
+have you had to say this thing dot that this things out the other thing this thing that they're looking listing method oh my god I hate that so as soon
+5:50
+as I'm in closure I don't have to wait for Sun just give me with or some thing to make that go away I made it go away
+5:57
+when a macro called due to what does it do it does to this first thing all these
+6:03
+other things
+6:10
+you can just say that's due to this first thing all the other things as if
+6:16
+it was the first argument to all those other functions if those functions the
+6:25
+macro will put them in think about what you could do if you could do this in Java you could you could make
+6:32
+abstractions for all those patterns that you can't get rid of automatically closing files and things like that
+6:39
+exception handling patterns that you want to put in logging policies you can
+6:45
+encode them all in macros and they're going to be uniformly applied everywhere and when they need to fix them you can
+6:50
+fix them in one place as opposed to everywhere where you put them manually this is a better way to write Java so
+6:58
+what happens when I say this it turns into this again don't get too confused by these generated things but I want to
+7:04
+show them because it shows you how there's a program behind this there's a way to say generate a symbol for me that
+7:09
+we haven't seen before and ends up with the number on it let some identifiers be that first thing
+7:18
+this is a macro right the use of dot and a name is a macro it's a macro for new
+7:26
+so this is the same saying new jframe but let's to write a much more declarative style so let somebody that
+7:34
+fire your new jframe then do because we want to do a bunch of steps so this is the way you make a block of expressions
+7:41
+for side effects because these are all side effects right adding something to the frame hacking it and showing it so
+7:48
+do these things again that's that first impact dot the thing instance call
+7:55
+not the thing that dot the things showing let's say doctor thing over and over and over again finally return to
+8:03
+thing this is what you have to write in Java this is what you have to write in
+8:09
+closure and it writes this for you there's lots of other stuff like this at
+8:18
+a higher level the integration with Java is very good you know I said before closure strings or Java strings the
+8:25
+numbers are big in number the collections all implement collection the
+8:31
+collection library in Java is particularly good and one of the nice things about it is that they defined as
+8:37
+optional all of the non read-only functions of the collection interface so
+8:44
+closure implements the read-only part of the collection interface which you can it can implement the mutating operations
+8:51
+of the collection interface because it's data structures are immutable but it does do that so you want to take the
+8:57
+closure vector and pass it to something that you know copy from or any of the job functions to take collections it
+9:02
+will do it also all closure collections are iterable so they do that I mean they
+9:10
+are because their collections but so you can use them there those functions when
+9:16
+you say fun whatever that yields an object that implements callable and runnable so you can pass them directly
+9:22
+to the executives framework to swing callbacks directly usable in Java and
+9:30
+bye-bye calls to Java that need objects and implement particular interfaces there's much more of that but you can
+9:36
+just presume if I could make it work on the semantics we're correct I've done it
+9:41
+so that you can you can interoperate from another interoperability thing like
+9:47
+you are hosting closure or if you wanted to extend closure like I've shown you maps and sets and some other things most
+9:54
+of them are written in Java you might have some really cool data structure you want to implement seek there's an interface first seek
+10:02
+it's called I seek if you implement that interface seek and first and rest and
+10:08
+every function I showed you before and every other function in the closure library will work on your data structure
+10:13
+you implement a three function interface and you're done you interoperate with
+10:19
+closure that's what it takes to add a data structure to closure and you can do it you don't need to ask me
+10:26
+similarly there are interfaces for everything else I persistent collection I persistent list I persistent map and
+10:33
+everything else interfaces for everything you can extend closure yourself the other way the sequence
+10:42
+library already works on a lot of Java stuff with no work for instance that seek first rest and all those functions
+10:48
+work on anything that's Java iterable which is all the collections in Java
+10:53
+they work on strings directly and they work on Java arrays of both objects and
+10:59
+native types so all of that library you want to call partition on a hash map you
+11:07
+know Java hash that you know or you know Java lists or all those functions will
+11:12
+work on Java stuff you can implement and
+11:17
+extend Java interfaces and classes in closure closure does not really advocate
+11:24
+treating closure like Java or really the creation of classes with members and things like that
+11:30
+closure likes interfaces and emphasizes implementing interfaces you can extend a
+11:38
+concrete Java class mostly because there are unfortunately defined Java libraries
+11:44
+that force you to do that so I had to support it as a design thing I don't
+11:50
+support it but you can do it because you have to I mean everybody seen it's funny you know the guys who did Java util
+11:56
+collections they're awesome right you look at like stream all the concrete classes in there no
+12:03
+interfaces it's terrible so but you have to deal with that stuff and I accept
+12:09
+that so you can do that I've recently added primitive support where the speed is exactly the same as Java leveraging
+12:17
+hotspot to get a dynamic performance in lining that they do I don't actually do
+12:23
+it in fact closure does not emit byte codes for for instance integer arithmetic I
+12:28
+don't do it but I've created the ability to call a static method that does that
+12:33
+and hotspot will dynamically inline that and it's exactly the same as if my
+12:38
+compiler wrote integer plus and the speed is just as good and the speed is
+12:43
+stunning in fact it's faster than any Lisp I can find with all the declarations in place
+12:50
+a hotspot is outstanding so what does
+12:57
+this look like what's a bigger thing look like well this is a this is actually a Java example right the
+13:02
+Celsius thing anybody know this one I
+13:09
+think I had some had some stuff here so oh I should show you this so here let's
+13:15
+look at uh let's make sure I've loaded some library system imports here now I
+13:22
+have a Java GUI stuff so this is that do two jframe making a jframe oh there it
+13:31
+is holo world but one of the things that's cool about closure so this I put that do two jframe add label pack show
+13:38
+inside a variable so I could talk to it some more so that's it here hello world
+13:43
+but I can call set size on it all right you doing this in Java today I don't
+13:51
+think so so dynamically talking to your UI app and tweaking things and changing
+13:57
+the layout manager or whatever you can do that all in closure of course this isn't quite legit right I shouldn't be
+14:04
+calling subsides outside the Oh threat right so there's a utilities
+14:10
+thing utilities invoke and wait now look what I have to do to make this
+14:16
+consumable by that interface does everybody know this does anybody do some programming swing has rules the rules
+14:21
+are you can't talk to you I stuff from arbitrary threads because swing is not thread safe so they have a thing that
+14:28
+says give me runnable and i'll go and run it in the art thread where it's okay
+14:35
+then I'll return to you and I'll make you wait until I do it and that's called invoking wait
+14:40
+so because closure functions are runnable I can call that just like this
+14:46
+this pound sign here is just even shorter syntax for fun but you can
+14:52
+imagine this says fun I can't really explain that right now but it's just another macro like thing so then we can
+14:59
+do that and that's using invoke and wait and passing a runnable from closure it's not that simple in Java that's for sure
+15:08
+okay so now we have our book we have the
+Swing Example
+15:16
+swing example so what are we going to do we're going to do some imports that's what imports look like notice how that's
+15:22
+also shorter than the Java version of the same thing where you'd have to repeat important point apparently we're
+15:30
+going to define a function def fun is sort of combines def and fun so you
+15:36
+don't have to do two separate steps that fun we're going to define a function Celsius takes two arguments we're going
+15:41
+to let a bunch of local names be values we're going to set up the frame
+15:47
+this is that new with their arguments
+15:55
+then we're going to add an action listener now this is another macro in
+16:02
+those this and that are connected so we saw that was dot convert action listener
+16:09
+as the canonic for this macro interpretation of dot allows you to put
+16:15
+the method first which lists programmers prefer if you don't like that you could
+16:23
+say dot convert button and action this thing I don't do that I don't dictate
+16:30
+you do either both are supported so this is a list view way to do stuff which is what are you doing goes first to who
+16:38
+goes next so an action listen to the convert button now we see dynamic
+16:44
+creation of an instance of an interface right we have to implement action listener so proxy is the thing that
+16:51
+allows us dynamically on the fly do an implementation of an interface we're
+16:57
+going to proxy action listener
+17:03
+this could be a list of interfaces and at most run flats so that you could
+17:10
+extend a class here or implement interfaces there's a name of our method right are we know ceremony or nothing
+17:18
+clearly return type will type the Argos whatever and then I just put the code okay which in this case is just going to
+17:25
+hope this is code for brown white conversion so that's a step and the most
+17:31
+that can take multiple expressions it's going to evaluate to the last one but
+17:37
+you can do things for side effects this is a side effect right setting an action listener is modified convert button then
+17:45
+we did the due to trip where this would be all this lines of frame doctors framing up that frame that the string
+17:50
+like that or we're going to take the frame set its layout and size it so it
+17:58
+should we sure
+18:03
+so that code is here
+18:09
+so I already did this import so I could do this other hello world thing so I'm just putting my cursor around the
+18:15
+Celsius and I'm pushing the key that says evaluate this that compiled the function Celsius and that's what that
+18:22
+tells you there is now the Celsius function exists and this is a call here
+18:28
+this is a call to Celsius it takes no arguments will do that and we get the
+18:34
+Java sample Celsius converter
+18:42
+so that gives you a taste of what it's like to do Java programming enclosure I
+18:48
+find it a lot more fun than Java programming job alright and now there
+18:59
+you get very fast coverage of functional programming so Bulger's dynamic embraces
+19:05
+the JVM we've seen that it's less right
+19:11
+it supports functional programming and concurrency and they sort of go together although there's a lot of value in
+19:18
+functional programming without the concurrency I don't really think there's valid concurrency without the functional
+19:24
+programming so what do I mean by functional programming I mean in this case mostly two things I think the term
+19:32
+functional programming is erroneously applied to some languages including sometimes - Scala that's just meaning
+19:37
+having first-class functions functions as values closures and functions you can pass to other functions making our
+19:44
+returning functions from functions but the but real functional programming is about side-effect free functions and
+19:50
+immutable data it's about saying every function is is literally a function of
+19:55
+its arguments that produces a new value and nothing changes in the function nothing has past changes and nothing in
+20:03
+the outside world changes now obviously we can call closure we can call Java
+20:08
+from closure and do all kinds of side effects so what I'm talking about here is what closure provides in addition to
+20:15
+allowing you to make a mess in Java closure gives you the recipe for doing functional programming correctly so we
+20:23
+mean immutable data and the first questions we saw that's what I just said yes could you do this by convention a
+20:31
+little bit one of the problems with the mutable data as we'll see if I can talk extremely quickly is having data be
+20:38
+immutable isn't isn't enough you need it to be you need the ability to create
+20:44
+things that appear to be modifications efficiently like you can make immutable data by copying everything
+20:50
+just will never change this I'll make a full copy every time I need to make a change that's not practical and it's not
+20:55
+going to perform well so the immutable data is trickier than you think there
+21:04
+are a couple of flavors and functional languages there's some that are very strongly statically typed to have very intricate type systems in particular
+21:10
+Haskell they're not for everybody some people love it I think if you're
+21:15
+mathematically oriented and your programs are like calculations this tremendous fit in a language like
+21:22
+Haskell if your program has to talk to a database on the screen and the web and all this other stuff I don't know that's
+21:29
+as good a fit and people do web programming in Haskell but I don't see it in addition I think there are
+21:36
+expressivity problems to type systems until you become omniscient which is not going to be anytime soon
+21:41
+then is dynamic functional languages which are actually very rare I think
+21:47
+Erlang you know certainly led the way here and closure is another example of a dynamic language that's functional so
+21:54
+now you're combining dynamic typing with immutability different pairing why do
+Why Functional Programming?
+22:01
+this okay because it makes your programs better much better concurrency
+22:08
+completely aside I have completely changed over to functional style
+22:14
+programming even when I'm stuck in something like c-sharp or Java because your programs are better you can look at
+22:19
+them you understand what they do this function it takes these things it produces that you don't have to look
+22:24
+anywhere else to understand what's happening and as you scale up that
+22:30
+property becomes incredibly valuable versus being in the method of some class that has a bunch of fields trying to
+22:36
+figure out how you got there or how to get back there in order to test it I
+22:42
+think functional programming is essential for concurrency how many people have read Java concurrency and practice fantastic book absolutely
+22:51
+fantastic how many times as he mentioned immutable in that book tons the problem
+22:57
+is it's hard to take that advice in Java because there are no mutable classes and there are no
+23:03
+persistent immutable classes like I'll describe so it's hard advice to follow
+23:09
+but it's certainly I mean he's not advocating functional programming but
+23:15
+his advice about immutability works for functional programming if your data is immutable you don't have concurrency issues they
+23:22
+can't exist because you're not changing something that's being shared there are
+23:27
+other benefits to functional programming that don't accrue to closure because closures not purely functional because
+23:33
+you can't prove something about codes you can't prove it never calls Java some of the things you can do with Haskell
+23:38
+you can't do with closure on JVM there's a couple of choices but not very many
+23:44
+Cal would be one that's going to give you the Haskell like experience I don't know if so much about it except it's
+23:49
+that kind of a language and on the JVM Scala I think gets a lot of talk in this area but I'm not sure they're
+23:56
+immutability story is consistent enough to deliver here I'll go easy because I don't know
+24:04
+closure however is as a functional language all those data structures I showed you are immutable and persistent
+24:11
+so what does that mean well again if you have an immutable data structure or
+Persistent Data Structures
+24:16
+something you want to pretend was immutable all you have to do is not ever change it the trick comes from well you
+24:24
+usually have to change it or you at least you need to make a modified version of it and what is the cost of
+24:30
+making a modified version of course if you could modify it from an efficiency standpoint it's pretty easy you know
+24:36
+just take what was there and put something else in place that brings into play all the problems of how do you understand your program and a bunch of
+24:43
+problems for concurrency what it so
+24:48
+there's something called persistent data structures and here the board persistence has nothing to do with databases a lot of times people hear the
+24:54
+word persistent they think we're storing something on disk that's not this notion of persistence this notion of
+25:00
+persistence is this the collection is immune when you produce a new version of the
+25:06
+collection the old one is still available and when you do that all the
+25:11
+operations all the performance guarantees of the operations imply by that collection type are still true of
+25:19
+the new version and the old version right which means you want to add
+25:24
+something to a vector okay well I promise you adding something to a vector
+25:30
+was near constant time you can't copy the whole vector and make that performance guarantee right because
+25:36
+copying the vector is linear time so somehow behind under the hood closure
+25:41
+has to have a way to produce a new version of the vector without modifying the old and without breaking the
+25:47
+performance guarantees which are you know the ones I said before look up clients for hash tables and insert them
+25:53
+and access times all those guarantees have to be maintained so by implication
+25:59
+the new versions cannot be full copies right that's just logic all the data
+26:07
+structures have shown all the data structures in closure are persistent they have these characteristics they
+26:12
+maintain their performance characteristics across quote modifications and they they have some
+26:20
+interesting implementations which I don't have time to talk about if you wanted to look up how I did it you could
+26:25
+look up array mapped hash trees and Bagwell and you can see the
+26:30
+implementation underneath the hash map in particular and the vector I also have
+26:36
+a sorted map and that's just it's kind of a standard ripple red-black tree with login access and lookup characteristics
+Structural Sharing
+26:43
+so how does this work well the way it works is that the new version has to share some structure with the old
+26:48
+version right in order to not have a full copy you have to share something with the last version and that's called
+26:56
+structural sharing and that's how you do efficient copies you don't really copy very much at all you build a new little
+27:03
+bit over here and have a point at the old bits because everything is immutable
+27:10
+and final there's no chance of interference if I'm making a modification to X and you're
+27:16
+making a modification to X and we end up sharing state with it well because it could never change we can share state
+27:22
+with it because we're never going to be corrupted by a change to the thing we're sharing and so on and so on and so forth
+27:28
+that means they're thread safe means they're iterations safe there's no concurrent modification exceptions or
+27:35
+any of that nonsense so how does that work well in general it works and I can't describe the
+Path Copying
+27:41
+implementation of these things in less than two hours each but in general it works by path copying these kinds of
+27:48
+data structures under the hood are trees and when you make a modification what ends up happening is you had this tree
+27:57
+the inside of a hashmap
+28:09
+the rest of the street if it ends up i
+28:29
+no longer pay attention to the old version what happens the parts of that
+28:35
+going to get TC so it's not like we accrue infinite references to things and
+28:41
+keep around forever the things we don't really use anymore get TC so if I never held on to this over the rest wouldn't
+28:53
+because the new one is still pointing to them but if I did keep it around the person accessing this one would be totally happy nothing happens in their
+29:01
+data structure and so on and so forth does that's just a general idea ok ok so
+29:09
+far so all of the closure collections have those properties
+29:23
+I'm not making a copy right same kind of
+29:31
+a thing you're still a path copy right I'm going to end up with a pointer to a tree
+29:36
+where I'm going to change nothing's
+29:56
+going to get garbage collected until it's all the references remember these are all nodes so that garbage
+30:01
+collections per node not for the whole entity
+30:13
+linked lists are easy because everything
+30:18
+happens at the head and you know that's it's actually the trivial canonic persistent data structure is the Lisp
+30:24
+linked list the the other two it ends up the vector and the the hashmap are
+30:31
+similar structurally they're both hash array map trees it's just that in the
+30:36
+case of the vector I know what the keys are all the time they're always integer indexes so it is a different
+30:42
+implementation but logically it's not different oh well there's some other details but
+30:48
+now that these were hard data structures to write these took me you know years of research and work but the performance is
+30:55
+good and the benefits are unbelievable being able to just freely give somebody
+31:01
+something and they can use it any thread they want and nothing bad could ever happen and they could make incremental changes for minimal cost just put you in
+31:08
+a completely different world in terms of the way you can look at designing systems all right so now we'll put that
+31:15
+into context I think even if you set concurrency aside using those kinds of data structures and taking a functional
+31:21
+approach to writing your programs is going to give you much much better programs much more reliable much easier
+31:27
+to test and understand and maintain but when you put concurrency in the loop
+31:34
+there is no longer any contest nothing compares to using this kind of a
+31:39
+strategy in designing your program so let's talk a little bit about concurrency what do I mean when I say
+31:44
+that I mean interleaved execution simultaneous whether it's actually simultaneous or simulated simultaneous
+31:51
+the key thing is that operations will be interleaved some of some will happen some of another will happen and we need
+31:58
+the program to see consistent data and to produce consistent data no matter what the interleaving is there are
+32:07
+simple scenarios in which that's easy to achieve as you get more data as you get more sharing it becomes much more
+32:13
+difficult as you get into operations that involve more entities again the difficulty level increase
+32:20
+everybody here is a multi-threaded programming knows about deadlocks lakh orders and everything else it is hard
+32:30
+there are other things that you can mean when you talk about concurrency and particularly you can mean parallelism
+32:37
+I'm not talking about that here my dens of closure does have some neat parallel stuff I just recently added that's built
+32:43
+on the fork joint which is beautiful parallel Map Reduce all those functions I showed before you can get automatic
+32:50
+parallel they'll use every CPU in your machine you still say Mac sweet ok it's
+State - You're doing it wrong
+32:57
+my favorite slide I'm going to have this in every talk I do from now on it is my
+33:04
+opinion that object-oriented programming as delivered by Java etc is not a good
+33:11
+default way to structure your program it simply is not and believe me I'm not
+33:16
+sitting from the outside saying that right I was one of the first people who program in C++ and I've worked in that
+33:23
+language for lots of years and was expert in it done tons of stuff in c-sharp and Java and I have had it is
+33:31
+not right and there are many reasons why one is it is spaghetti code
+33:38
+encapsulation does not change that ok encapsulation just means I'm in
+33:43
+charge of the spaghetti code it does not change it from being spaghetti code which is all the side effects the
+33:49
+inability to look at a function and understand what it means or to look at a piece of data and understand how it got
+33:56
+there it's hard to understand it's hard to test all of these testing frameworks
+34:02
+is that about an inherent problem of programming or is it about a problem of the programming languages I think to a
+34:09
+large extent it's the latter right all these mock objects all these things you
+34:14
+need to get back into the same place so you could try to execute a test is is
+34:20
+all built around the fact that these languages are not really giving you a good default object-oriented programming
+34:26
+was born in simulation you know it's pretty good for that then it was used by framework does
+34:32
+who had to provide interfaces to staple things like the disk or the screen or
+34:40
+sockets well guess what object-oriented programming is pretty good for that too because there is
+34:45
+actually really state that corresponds to these objects then they wrote these nice frameworks then they gave you a
+34:51
+language that lets you do that then what is every application programmer do they don't have to abstract the screen that's
+34:56
+in the library there have to do the disk or the sockets what are they doing information well guess what that isn't a
+35:04
+good object at all a person class or an account class that's ridiculous thing right you can't change an account
+35:11
+anymore you can change the day of the week it is the day of the week tomorrow that's another day it's a different day
+35:17
+it's not this day plus a day or this day you know it will it is this day plus a day if you do it functionally but it's
+35:24
+not this date changed with an additional day so yeah but but it's the whole
+35:35
+language implies here's your class here your fields by default on our final write your you're set up to do the wrong
+35:42
+thing so it's hard to test understand and reason about from a concurrency
+35:48
+standpoint it's a complete catastrophe it's a disaster it's unworkable right
+35:54
+eventually you will die with locks you'll either die trying to make them work trying to understand them or just
+35:59
+from the stress it's not going to work so as a default architecture for a
+36:05
+program I think it's not very good but
+36:10
+doing the right thing taking the advice of gets and making the stuff immutable it's really hard because it's not
+36:16
+idiomatic in Java right it just simply isn't everything in the language is telling you do something else
+Concurrency Methods
+36:35
+let me let me keep going I agree there is a need in real programs to have
+36:42
+things appear to change absolutely I you know and that's an area where I think
+36:47
+closure you know disagrees with Haskell where they're trying to say well you
+36:52
+know we really don't want to do that and you know if your program is fundamentally a calculation I think you
+36:57
+can get away with that most programs I've written are not calculations I've written your broadcast automation systems at the run 24 hours a day and
+37:04
+there's all kinds of all kinds of state and all kinds of things that have to appear to have state but there's a
+37:09
+difference between appearing to have state and having state and we're going
+37:14
+to see what that is so what are the two ways of doing this one is the conventional way right which is the way
+37:20
+you have to build a program in traditional object-oriented language you have references to objects and those
+37:26
+objects can change you have direct reference to a mutable thing okay
+37:32
+what is your op what is your obligation when you're trying to make that concurrently safe you have to lock right
+37:39
+because you have to keep you from making these changes while you're trying to see something consistent or while you're trying to make something consistent cuz
+37:44
+you're all changing the same thing the same space so you have to lock and you
+37:51
+have to worry and everything about it at least in Java today and languages like it which is you know everything is
+37:57
+manual and by convention there is no language support helping you do this correctly so now
+38:10
+there are some locked free data structures but if you look at well where
+38:17
+I'm going to talk about transaction over in a second but there's there two different things locked free data structures usually don't support
+38:22
+composite operations but transactional memory does let me let me keep going so
+38:28
+the conventional way is that everybody's looking at the same space and that space you know can get scribbled on by anybody
+38:34
+else and there's all this quickly I'm scribbling on the space and you know wait I need to see it don't scribble on
+38:40
+it I'm trying to understand it that's how your programs work today it's crazy especially when there's
+38:47
+multiple spaces and now well I started to scribble on this already I scrambled on this and I need to
+38:53
+scribble on that what are you going to do crazy so there's another way and
+38:59
+there is another way right we don't have direct references to things that can change we have indirect references to things
+39:06
+that can't change and what we can do is make those references refer to other things that can't change and we can do
+39:12
+that atomically so the other model that makes it appear that things are changing
+39:18
+in your program is that you have indirect references to immutable data structures that are persistent I'll
+39:25
+explain it in a second and you have concurrency semantics for those references in other words you can say the only thing I'll let you change is
+39:30
+this box the box is going to point to something they can't change and you can change this box only by atomically
+39:36
+making a point to something else that can't change and closures provides three kinds of boxes or references that all
+39:43
+have concurrency semantics in other words they all have rules about when you can change what's in the box and none of them require any manual
+39:50
+locks for the for the programmer so this is the this is your this is your program today right you've got a reference
+Indirect references to Immutable Objects
+39:58
+directly which has random who knows what in it
+40:03
+because as soon as somebody else can have that same kind of a reference they could be changing it and the only way to
+40:09
+turn those question marks into something concrete is to stop the world from touching that thing while you either
+40:15
+touch it yourself or read it yourself there's no other way okay
+40:21
+so ensuring a consistent object completely Falls to the programmer it's completely manual and by convention and
+40:26
+as you get more objects and more objects that need to be changed in a single logical unit of work this fails this is
+40:36
+the closure way in direct references to immutable objects so we have this box it has the reference to a thing the thing
+40:43
+of a person that's a mutable persistent data structure ain't never going to
+40:49
+change so now let's say I'm the user I need to read it I can look in this box I
+40:54
+get a reference to it am i whirring no cannot change if well I got this out
+41:03
+let's link to the box so I care no I don't care there's never an inconsistent object so
+41:12
+how do we fake change okay well we
+41:17
+change so we know everybody that's
+41:40
+looking at that box is seeing the other thing then atomically we update which
+Atomic Update
+41:48
+means we change the box from referring to the one thing to referring to the other thing and if if that change of the
+41:55
+inside of the box is controlled with concurrency semantics you're done
+42:11
+are you suggesting the
+42:23
+no no no no no no not at all what you have a reference in your program is the best and any point in
+42:31
+time you want to you can say give me what's in the box and at that point you get around that no addresses get swapped
+42:39
+out from underneath you but the contents of the box may change so all you need is concurrency semantics for the box and
+42:45
+you have a working system that the program is named to worry about so closure has three kinds of boxes I don't
+Clojure References
+42:51
+have enough time to really describe them all but I'll just say generally what they are there's a kind of box that
+42:58
+allows you to isolate change within threads in other words I have my views the world in my thread you have your
+43:05
+view of the world in your thread you can't even see my view of the world I can't see yours in other words we have a
+43:11
+logical box called Fred but when I'm in my thread I see a different contents of
+43:17
+the box than when you're in your thread you see your own box the mapping there logically is thread-local storage okay
+43:25
+so there are boxes that are implemented in terms of thread local storage that's a concurrency Samantha it's a
+43:31
+concurrency semantics that guarantees isolation within threads now let's take
+43:37
+on the harder problem the harder problem is we'd like multiple threads to see the same set of things to see changes that
+43:44
+each other makes more sharing and there are two kinds of boxes and closure that do this one are references Refs
+43:51
+I should they're all references the boxes are called references there's a particular kind of box that's called a ref a ref is transactional the rules for
+44:00
+ref so that they can't be changed except in a transaction and what they allow is first shared synchronized coordinated
+44:08
+changes between threads I want to change these three boxes to be whatever they will keep anybody else from doing the
+44:14
+changing those boxes until you're done or maybe they'll change them and you'll have to try again
+44:19
+so that's transactional the other thing it has is agents where every individual
+44:24
+box is completely asynchronous you can request a change and eventually that
+44:30
+change will happen but you can't see it until you go for later and the order of those changes
+44:36
+being made is non-deterministic outside of your single threat noise you send ABC
+44:42
+you'll get ABC if somebody else since D and E they can get in Philly it's exactly the change semantics of actors
+44:49
+but the implementation is much different than scaler or or allowing actors so I call them agents you can't do
+44:57
+synchronous changes that way like I'm changing two things so let's talk about the most powerful of closures references
+45:07
+which are the transactional ones would solve the hardest problem the hardest problem is I want to move something from
+45:12
+here to there and I want it to be either here or there never in both places and never in
+45:18
+neither place in order to do that you really need to access two separate things so that's a hard problem with
+45:24
+locks because you have no lock acquisition order and things like that a what locks cover which objects and the
+45:30
+way its closure does is with something called a software transactional memory if you've ever used a database it's
+45:35
+really easy to understand it's like a database it's a transaction you say start a transaction do some stuff right
+45:42
+and the promise of the STM is that either all those things will happen or
+45:47
+none of those things will happen notice you're going to see all the effects you'll see none of the effects so if you
+45:53
+look at it from the acid properties its atomic and it's isolated there's no consistency because there's no like
+45:59
+constraints on the data that's the thing I could add there's no durability because if we're in memory with this stuff so every change made to rest
+46:08
+within a transaction occurs or none do and no transaction sees the operations
+46:14
+of any other transaction so it's exactly like a database except it's in memory what's the result of that well some
+46:19
+transact and transactions are speculative what if we both try to change the same box well only one of us
+46:25
+is going to win the other one's going to have to retry and those retries have done automatically STM so you're going to go back in you
+46:33
+may see well now I can't do what I wanted or I can do it I just I'm going to do with new data new information what
+46:39
+that means is that inside a transaction you have to avoid side effects I can't enforce that so if you print in a
+46:48
+transaction you may see it happen multiple times if your transaction is getting retried so don't print
+47:00
+oh yeah I mean a lot of the closure infrastructure is employers is I think
+47:06
+pretty nice Java library all the data structures are written in Java the STM is in Java you can use it all I mean
+47:12
+when I was building it I had to test it and before I had closure the language I had closure to the library so yeah you
+47:20
+can well retry until it can't and then there
+47:27
+are sort of limits there's retry limits and timeouts and things like that to govern give up no it looks like a
+47:38
+function call and it returns yeah I'm going to show you that in a second yes
+47:50
+Nestea transactions get absorbed by parent transactions they don't have independent commits so it's not like
+47:56
+true nested transactions but the fact that they get absorbs means it absorbed means it is very composable so if you
+48:02
+wrote a unit of work which was transferred from account to account and then you needed a shuffling transfer
+48:10
+which you know transferred from A to B and B to C and that called transfer twice if you put that in a transaction
+48:16
+all those transactions would be one transaction and the whole set we got to succeed or fail together the difference
+48:23
+between doing this and doing programming concurrent programming in Java with LOX is night and day it's just a completely
+48:30
+different world because this is automatic the language is going to do this for you if you put your things and
+48:36
+reps and your things are immutable you can't do it wrong and you can't forget and you can't get your locker order
+48:41
+wrong and you cannot deadlock
+48:59
+yeah that's cool debugging your manual locks I mean there are tools for helping you do that I'd
+49:04
+rather not even go there not that I'm
+49:20
+aware of no I mean the lock analysis is a research problem still even with
+49:26
+static information in a statically typed program and with lots of declaration help you still don't really know the
+49:31
+order of operations because you have to track all the flow control on your program so you don't need to go there at
+49:37
+all with closure these mechanisms are completely independent of that kind of stuff and if you look at the STM you'll
+49:43
+see some really hairy Java locking code but I had to do it and now you know so
+Concurrency Demo
+49:51
+I'm going to show off a little bit here a little demo I'm not going to have time to explain the code but I'm going to tell you what the program does it's a
+50:00
+simulation of an ant colony and the idea is that there's a world populated with
+50:05
+food and ants and the ants are foraging for food they're trying to bring it back to their home they're going to drop pheromones on
+50:13
+the way as they're working they're going to sense pheromones and try to you know follow them it helps them do path
+50:18
+following or finding food or finding home they're going to sense food and obviously try to acquire it and they're
+50:24
+going to sense home or they're going to drop stuff off the trick here is that ants act independently in multiple real
+50:32
+threads and green threads or prepend threads or round-robin or tick every ant faking it this is real so you could do a
+50:41
+simulation without doing this but what this does show you is what if there were 50 or
+50:47
+I have 50 threads trying to modify the same data space because that's what
+50:52
+these ants are doing they're walking around and looking at the same spaces they're picking up food I mean somebody has to pick it up somebody can somebody
+50:58
+can occupy that space and the other one can there's all kinds of collision problems there's all kinds of multiple
+51:05
+cell problems because when an ant does is it looks around itself to see is there stuff so it may look at three cells well those three cells may overlap
+51:12
+a little bit with some cells that other answer looking at so there's overlapping irregular data usage patterns this is a
+51:20
+really really hard concurrency problem as opposed to like we all know we're going to touch this and max all all
+51:25
+going to touch this and then that that's an easy concurrency problem this is a really hard concurrency problem so the
+51:32
+ants act independently just to make it harder will mono thermal and evaporation so the pheromones are evaporating in
+51:39
+parallel and of course we should have an animated GUI and we should do it in less than 250 lines right so this is a this
+51:53
+is the code and again I can't walk through all of this but I do want to
+51:58
+show you what a transaction looks like this that's complicated
+52:14
+this simulation uses both the agents and the STM but I'll just going to show you
+52:20
+the STM so going to look at turn here and what turn needs to do is modify the
+52:26
+place that the antis is at and really all you need to do to have something be
+52:32
+transactional is to put it in a do sink you just say do sink and you do whatever work you want manipulating wraps and
+52:39
+this at sign is dereferencing a rep so this is actually going to take it and
+52:44
+ant in a transaction and change its change its state of course it doesn't really change just Pierce or change to
+52:51
+anybody who looks in the same place so that's all it takes you say do sync and
+52:56
+do your work they're bigger transactions down below take food would be a good one
+53:01
+so take food you're potentially you're potentially fighting with other ants
+53:08
+this is an example of some code that's designed to be called in another transaction so you can see i'm
+53:14
+dereferencing well maybe you don't save it all these app signs are dereferencing a box get me the stuff that's in the box right
+53:20
+and then these things this one
+53:25
+decrements this altar call actually changes the place to have a different
+53:32
+amount of food in it so that's going to be need to be done in a transaction but you notice I didn't say do sync right so
+53:40
+what should happen if I call this and you do you get an error so that's what
+53:46
+you want you don't have to manually do enforcement closure does enforcement if
+53:51
+you tried to call this outside of a transaction you would get an error it happens to be the case that this gets
+53:57
+called inside a bigger behave function which does it and other things inside a transaction so automatic enforcement
+54:04
+this is the kind of language level help you need that you're not getting from Java so they move around they take food
+54:11
+I already show it off a little GUI code before but you can see you know it's rendering and painting and doing image
+54:19
+drawing you know buffered images and all that stuff it's really pretty straightforward Java there so we have
+54:29
+loaded that so here's our world home is this blue box on that graphics guy so
+54:35
+that's the part of my my primitive graphics we'll create a set of ants and
+54:43
+will establish the food so the fruit of the red dots and then we're going to
+54:48
+send off behave actions to the answer to answer agents so the ants use the agent
+54:55
+system to act in parallel and they use the transaction system to coordinate
+55:00
+modifications to the world that's a really simplistic description so we started off the ants they all start at
+55:06
+home and they start wandering around the green is the pheromones that they're dropping and then I'll start up another
+55:12
+thread which is the evaporation thread which will cause that to evaporate it was this whole thing turned green whoa
+55:28
+my rep has 69 threads so there's a whole
+55:33
+bunch of ants there all have their own thread they're all interacting with the environment there's no way to see this
+55:39
+because it's moving but at no point will two ants occupy the same space take the same food place food in the same place
+55:44
+all that works and there's no calls to
+55:49
+lock or anything else no because this is set up to be real-time in those if I let
+55:57
+this run as fast as it can it would you wouldn't really get a good like the answer moving effect but it's
+56:03
+taking more than 100% CPU so you do know it's doing something right and see 120
+56:10
+but there was there actually are some sleeps in there and to paste this thing so that you get the sense of motion
+56:21
+but this may not be the kind of program that you write but what this implies for
+56:26
+programs that do use multiple resources from multiple threads is enormous just
+56:32
+saying do sync putting your stuff in references and saying do sync around your work and doing your work in any
+56:38
+order you want and knowing nothing bad can happen to you is just a completely different world but it all goes together
+56:47
+this couldn't work if what was in those references wasn't a persistent data structure because you need the ability
+56:53
+to do that in transaction modification that's speculative modification
+56:58
+efficiently if everybody that read a transaction had to copy the data that they were going to slam back in there
+57:04
+who would not scale so the persistent data structures it all goes together closure is of a single mind and it's
+57:12
+designed to you know to get here I mean I think there are lots of value to persistent data structures being able to
+57:19
+use a map like a list and recursive things but you couldn't do with a hash table in Common Lisp you can do that
+57:26
+with maps you can use it because they are structurally recursive the maps and the vectors is very neat but this I
+57:33
+think is almost impossible to do otherwise and know that and know that it
+57:40
+will work I mean you can think you check below your law borders and you know you wrote down on napkins what to do when
+57:45
+but the next guy gets in there and changes your code and who knows if the program still works and that's what
+57:51
+really happens in multi-threaded programs so we'll let that go
+58:01
+so that's a pretty small program and there's it's not cluttered with threading stuff you start threads you
+58:08
+say agent go do this it's often another thread off a thread pool you know it uses old Java goodness on underneath
+58:14
+there's a whole lot more to closure I went pretty fast and I have just scratched the surface I haven't shown
+58:22
+you all kinds of things that has metadata there are ways to write loops that are functional it has destructuring
+58:28
+as somebody asked before it has list comprehensions which you might know from either Haskell or Python there's a whole
+58:36
+set of things for relational algebra all functional that allow you to do things like joins of these maps and sets of
+58:42
+these maps there are multi methods which are like generic functions but are even more general than allow you to do things
+58:49
+like polymorphism without type hierarchies basically saying the
+58:54
+function to call when you get these arguments is a function of the arguments which is really what dispatches except
+59:00
+it's always a function of the class of the first argument that's just a very narrow subset of what real generic
+59:07
+dispatches which is dispatched based upon some characteristic of the arguments find the function then call it
+59:13
+closure supports that supports parallelism as I said before I haven't shown you namespaces they're functional
+59:19
+zippers XML support any questions
+** draft Ideas
+
+(2)
+0:0
+8 interop and macro go together. 10 interface for everything iseq ivector
+
+18:50 Java programming in clojure
+no valid concurrency without functional programming (pure side effect free) can do in java clojure gives the recipy to do correctly
+
+21:50
+if your program i more like a calculation, haskell is extremly valuable[ich: but science is throwaway code after the journal has accepted a paper]
+
+34:43 OO rant
+
+** draft personal note
+Lisp with broadcast automation in mind, so Rich not scientific in mind, more situated programs.
+they're multi-threaded they have all kinds of nasty stuff going on multiple connections to sockets lots of databases
+7:12
+you know data feeds from all kinds of places and uh it's not fun uh writing
+7:19
+programs like that that need to share data structures amongst threads and to have them get maintained over time uh
+7:26
+we have abstraction capabilities with functions
+19:07
+or methods in most languages uh lisps take that to the next level by allowing you to suck even more repetition out of
+19:15
+your programs when that repetition can't be sucked out by making a
+
+closure is really oriented towards writing concurrent programs and
+17:14
+immutability for its other benefits outside of concurrency
+
+Immutability is realized in two ways: 1) pure functions and 2) persistent data structures. In the context of SciCloj, I would not mention persisten data structures at all, pure functions convey the idea clear enough and appeal to scientists already. Mentioning persisten data structures just confuses things as to distinguis between 1) and 2) is not possible in a SciCloj talk.
+Moreover, programming in Clay is way more mutable than the compile cycle of Java, so I would avoid mentioning "immutability" at all. Just "pure functions" in a "dynamic language".
+
+I would not mention macros outside the context of interop. this (me and my macros well good for you)
+it is perfectly ok to write macros withour hsving a repl.
+we have clay+filewatch pioneered by figwheel is tremendously effective when dealing with visuals. we have defonce and memoize
+also parens can be at any place naughtydog
+
+Do not mention Repl when talking about interactivity, in SciCloj at least Clay needs to be mentioned before the word Repl appears, Clay holds state, 
+
+The fact that RH has CfJ as well as CfL talks shows that the audience matters when presenting Clojure as it is always described in terms of "difference to X"
+
+Does not make sense to explain the Seq abstraction along with first, rest, map, interleave etc. becuase data manipulation will be handled by the SciCloj library that is presented.
