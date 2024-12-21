@@ -762,6 +762,10 @@ RECHTMAN (1985); DARRIGOL (1988), 32-41; NAVARRO (1991), 40-42. See also “Edit
 **** Other
 Luca Peliti · Raul Rechtman: Einstein’s Approach to Statistical Mechanics: The 1902–04 Papers https://arxiv.org/pdf/1606.04890
 
+** Planck
+I read your treatise the way a curious child listens in suspense to the solution of a puzzle that has plagued him for a long time, and I delight in the beauties revealed to the eye.
+
+[Max Planck](https://phaidra.univie.ac.at/o:1542358) to Erwin Schrödinger on 2 April 1926
 ** Resources
 *** clj Files
 **** #stefan.clj

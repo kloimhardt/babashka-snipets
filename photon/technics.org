@@ -7,9 +7,103 @@ This blog is an excerpt of a talk by Rich Hickey "Clojure for Java Programmers".
 
 *** talk excerpt
 
-*** personal note
+[0:10] This talk is oriented towards people who program in Java or C or C++. In particular I'm not going to presume any knowledge of Lisp.
 
-** talk summary part 1
+[0:40] This talk is going to be an introduction to the Clojure language. A fly by tour of some of its features.
+
+[4:10] Closure is a dynamic programming language. Dynamic has a lot of different meanings. In particular it's dynamically typed. That would be an expectation you'd have of Python or Ruby or Groovy. It achieves that dynamic nature by being a Lisp and I'll talk more about that.
+
+[4:30] I don't see a lot of people who know lisp here, but that doesn't mean there isn't a bias against Lisp. How many people have seen Lisp and said "oh my God I can't believe the parenthesis". I would say I'd hope you'd put that bias aside for the purposes of this talk.
+
+[5:20] Clojure is a very different Lisp. It's syntactically much leaner than a lot of Lisps, it has fewer parentheses, it uses more than one data structure in its syntax. That means it has more than the singly linked List.
+
+[6:20] There are also ports of languages other than Clojure that sort of just sit on the JVM. There are ports of for instance Common-Lisp that sit on the JVM. But they don't really connect very well for a number of reasons. One is they're implementing a standard that was written before Java was written. And second there's just no merging of its type systems onto the other. hand
+
+[6:40] Closure was written for the JVM and so it's very heavily integrated with it. So not only does it reside there which is a benefit because you can run it as if that's your environment. But it embraces the JVM which means the integration is good and it's pretty transparent to go back and forth.
+
+[8:00] Of the people in this room who are programming Java, how many are happy about that, they like Java, they have no complaints? Okay not too many. It ends up that I think many Java programmers look at people who are using Python or Ruby and being very productive. I think justifiably they envy their productivity, the succinctness, the flexibility they have. And in particular how quickly they can get things done. It ends up that, and that is a fact of the static languages especially the ones like Java, that they're inherently slower because of the amount of - well some people call it ceremony.
+
+[9:00] Interactivity is another key point. Again this goes back to Lisp which has pretty much always been an interactive language. That means a lot of things. In particular it means that when you got a Lisp up and running you feel like you are engaged with an environment as opposed to, you know, shoveling your text through a compiler phase to produce something else out the other end. So that interactivity is kind of a deep thing.
+
+[9:30] Dynamic languages tend to be more concise. That doesn't mean that static languages can't be. Haskell in particular is very concise. But the curly brace languages are not concise. Java is probably a great example of a language that's not concise. And that's just not a matter of tedium it's a matter of: where is your logic? how far apart is your logic? how spread out? can you see what you're thinking about? or is it in pieces? is it spread out by a bunch of things that are not about your problem?
+
+[10:00]
+There's a certain aspect in which static languages are like concrete. And that's a good aspect. Concrete is going to be more resilient to change, it's more structured and it's rigid.
+
+[10:20] On the other hand that's not necessarily the kind of material you want to be working with when you're trying to figure out what your structure should look like in the first place. So dynamic languages are better for exploration. In particular what I like about dynamic languages and Lisp fundamentally (I think in a way other languages don't achieve) is that it lets you focus on your problem. You can with Lisp and its ability to do syntactic abstraction suck everything out of the way except the problem.
+
+[10:30] There are many dynamic languages available for the JVM and dynamic languages are supported as a concept in in the Java community. At Java 1 there was plenty of presentations on  Jython and JRuby and Groovy and these other languages.
+
+[12:00]
+You can categorize languages in one dimension pretty straightforward. Are they a port of a language that exists somewhere else or were they written for the JVM. Ports have a bunch of challenges, e.g. is there is a canonic version out there? Because most of these languages are not defined by a specification but by a canonic implementation. So
+there's CRuby, there's CPython. Those are really the languages and the other things are ports which have to struggle to follow along with the C version.
+
+[12:50]
+An effort to port Python to Java means having to replicate those libraries. So I would say the main appeal to a ported language is in that you already have an investment in Python. Or you really love the language design, that's a good way to go.
+
+[13:10]
+If you're just starting from scratch you may find that a language that's native to the JVM is going to give you better integration. You know the canonic version of Groovy is a JVM language, the canonic version of Clojure is a JVM language.
+
+[13:30] Of the two groups Groovy is going to let you do what you do in Java. Except a little bit more easily. Fewer semicolons, more dynamic. There are some builders. There are some idioms. There are closures. Groovy is sort of the fun of dynamic programming with a lot of the similar syntax to Java. So I think if you're just interested in dynamic and want to continue to write programs that are like your Java programs, Groovy can can't be touched (is unbeatable).
+
+[14:00] Clojure is not about writing programs like your Java programs. Clojure is about realizing what's wrong with your Java programs and doing something different. There's a certain mathematical purity to Lambda calculus and in the way it's realized in Lisp, the uniformity of the syntax is elegant.
+
+[16:10] Nice things about Java is it has a wide range. Clojure has direct wrapper free access to Java. Some of the ported languages have to use wrappers because those languages have their own object systems that imply a bunch of dynamic features that they have to glue on top of Java objects when you interoperate with them. Clojure was designed to provide direct access to Java.
+
+[17:50] A feature of all Lisps, if they want to be a Lisp, is that code is represented as data.
+
+[18:10] Being a Lisp means having an extremely small core. You'll find when you contrast Clojure to other languages, even languages that are theoretically lightweight like Python or Ruby, Clojure has way less syntax than those languages. There is far less complexity in spite of the fact that they appear easy.
+
+[20:50] Clojure has Integers that have arbitrary precision, they can get as large as your memory can support. And the promotion of small integers to larger integers while arithmetic is going on is automatic.
+
+[23:10] It supports doubles as the floating point format. The Clojure doubles are the Java Doubles with capital D. One of the things you're going to see about Clojure is everything is an object. That means all numbers are boxed at least until you get inside a loop where I can unbox them. But it's a language in which numbers are boxed unlike Common-Lisp where you have access under the hood to use tagged integers and tagged numbers which is more efficient than allocating them on the heap.
+
+[24:20] You have big decimal literals. You have ratios: 22 over 7 is something. It's not divide 22 by 7 it's a number that's not going to lose any information versus dividing 22 by 7 and either truncating or converting into a floating point format, so ratios are first class.
+
+[24:40] String literals are in double quotes. They are Java strings, same thing. Immutable, no conversions, no mapping being again a native JVM language means I can just adopt the semantics of Java literals. I don't have to take strings from a language spec that said for instance they could be mutable and have to force that on the JVM by having my own type and conversions to and from so because I'm an immutability oriented language I'm very happy with Java's definition of a string being an immutable thing so Clojure strings are Java strings.
+
+[27:00] Symbols are used as identifiers. They're first class objects like strings. Symbol are something you would use for a variable. You could make the symbol "Fred" be equivalent to the number five.
+
+[28:50]
+nil means nothing. It also is the same thing in Clojure as Java null. Didn't have to be but it is. So you can rely on that. So nil means nothing and it's the same value as Java null. So when you get back nulls from Java they're going to say nil. nil is the traditional lisp word.
+
+[32:00] There are composite or aggregate data structures. In Clojure they're kind of the core abstractions of computer science. One is the list, parentheses separated by spaces, there's no need for commas. You'll see some commas, commas are white space in Clojure, they're completely ignored. You can put them in if it makes you feel better or makes things somewhat more readable. But they're not actually syntax, they're not considered by the evaluator.
+
+[36:10] Heterogenous collections are supported in all cases. It's not a list of something, it's a list that can contain anything and any mix of things.
+
+[36:20] The next thing is a vector. It uses square brackets. That should imply, for Java programmers, the notion of an array. Square brackets mean arrays, so a vector is like an array, in particular it supports efficient indexed access.
+
+[46:50] So what's the syntax of Clojure? We just did it! I'm not going to talk about semicolons, curly braces, when you have to have a new line or anything else because the structure of a Clojure program is a data structure. Or better: a series of (self-contained) data structures. There is no other stuff. There are no rules about where things go, there are no precedence rules, there's nothing else. You write a Clojure program by writing the data structures I just showed you. That's it. Which means you write a program by writing data structures. The data structures are the code.
+
+[47:50] There's a fancy name for it called homo iconicity. It means that the representation of the program is done in the core data structures of the program which means that programs are amenable to processing by other programs, because they are data structures.
+
+[48:20] So I'm not going to talk anymore about text based syntax because there is no more. Now many people claim of Lisps that Lisp has no syntax and that's not really true. It doesn't have all this little fiddly character syntax necessarily. There is syntax to the interpretation of the data structures. We are going to see a lot of lists, they have different things at the front. The thing at the front will tell you the meaning of the rest.
+
+[48:40] So let's talk a little bit about evaluation. So how does this all work? We know the traditional way from Java or many other languages like Java. We type our program into a text file and we save it and then we we send those characters of that text to the compiler who has a very involved abstract syntax tree and parser and lexer that interpret the rules of the language. And then it will turn it into something that can run. In the case of java that something will be bytecode.
+
+[51:00] A developer seeing it run with this procedure maybe sais: "O that was bad I wonder what happened, I wish I had run it in debug mode, I wish I had put a breakpoint somewhere interesting, and I'm really sad that I spent an hour calculating that data and dropped it on the floor because I have to do it again with the breakpoint in". That's not a good experience.
+
+[51:30] In fact, that's a lot different experience than keeping your program around, which happens in Clojure. Having that data stay loaded and fixing your function and running it again without starting over so that's what happens in Clojure.
+
+[52:30] What comes out of the reader are data structures. And what's unique about a List and Clojure is that the compiler compiles data structures. It does not compile text. It never sees text. What the compiler gets handed is maybe a list with three symbols in it or a vector with five numbers in it that's actually what the compiler has. It has a data structure in hand with actual data in it, not text. And it compiles it. In the case of Clojure it is indeed a compiler. There are actually many Lisps that are interpreters and many people believe that Lisp is always interpreted. It's certainly easy to make an interpreter for Lisp that would take those data structures and on the fly produce the values they imply. But Clojure is a compiler which compiles those data structures to Java bytecode right away, there's no interpretation in Clojure. So it's a compiler it produces bytecode just like Java and C does and because it's an interactive environment it presents that bytecode right away to the JVM to execute and and it executes right away. Data-structure by Data-structure, list by list, vector by vector.
+
+[54:00] Your environment is your program, your compiler is in your program. I mean some commercial lists give you tools to take out the compiler in production. In Clojure there's no "strip out the compiler" option.
+
+[56:10] It's quite possible to write a program that generates the data structures that the compiler wants to see and have it send them to the compiler to be evaluated. So programs generating programs are a common thing in this kind of an environment, whereas this kind of stuff when you're doing it with text is really messy.
+
+[1:00:40] You could theoretically write something and if if the compiler could hand me the abstract syntax tree I could navigate it with some custom API and do whatever it's not nearly the same though what the compiler is handing you are those lists and vectors I just showed you that every program knows how to manipulate and has a wildly huge library that directly can manipulate
+
+[1:01:10] Unlike Java, in Clojure everything is an expression. So you know in Java there's a difference between declarations and statements and expressions. There's no distinction in Clojure everything is an expression everything has a value everything gets evaluated.
+
+[1:01:50] All those data literals I showed you, numbers, strings, vectors, are all evaluated by the compiler to represent themselves except lists and symbols. Lists and symbols by default are treated specially by the evaluator so when it reads a list of symbols in particular, it's going to do some work. It's not just going to return the list of symbols to your program it's going to try to understand them as an operation. So the compiler is going to try to map the symbols to values, like variables. Like you know in a variable you can say "n equals 5" later in your program in Java you say "n" and Java is going to try to figure out "oh that's five that's the n you set up there". Same thing in Clojure when you use a symbol in your data structure Clojure is going to try to find a value that's been associated with that symbol.
+
+*** personal note
+talk is from 2012, maybe the tone vis a vis Java is harsh and maybe other languages have taken up the points presented in favour of Clojure on the JVM. In particular the endorsement of Groovy over Clojure is very honest and worth noticing.
+
+"So I think if you're just interested in dynamic and want to continue to write programs that are like your Java programs, Groovy can can't be touched"
+"Clojure is about realizing what's wrong with your Java programs and doing something different"
+
+** excerpt part 1
 oriented towards people who program in Java or C
 0:17
 or C++ in particular that I'm not going to presume any knowledge of lisp
@@ -348,6 +442,17 @@ Java C does and because it's an interactive
 environment it presents that b code right away to the jbm to
 53:43
 execute and and it executes right away
+
+your environment is your program your your compiler is in your
+54:03
+program yes all c yeah I mean there most commercial some
+54:10
+commercial lists give you tools to take out the compiler in in production
+enclosure there's no
+54:27
+strip out the compiler
+54:33
+option
 
 closure is completely a pure Java
 54:55
@@ -2457,6 +2562,347 @@ to because that's the syntax of closure SL comma is a character literal for
 comma quote is used for other things that's why I don't use it for character literals all right let's take a break
 
 ** talk summary part 2
+look at Java Interop because one of the great things one of
+0:07
+the other great things about closure is it sort of solves the library problem by adopting the library of Java you know
+0:13
+all new languages have this problem in that well depending on the implemented if they're implemented on a sea bass
+0:19
+they're starting from nothing they're writing their own runtimes their own garbage collectors or own evaluators
+0:24
+their own libraries etc etc and this tremendous amount of wheel reinvention so closures approach is to say you know
+0:32
+these libraries are written if you could leverage them in an idiomatic way you would be done
+
+you can use Java directly in closure no wrappers you
+1:11
+don't have to write your own library it shouldn't make you feel too dirty if you like Lisp
+
+you can build on
+1:27
+top of it if you need to but when you see how closure both lets you access Java and how closure brings Java things
+1:34
+into its world you'll see that you often don't need to do that
+
+"dot" we saw was a special operator and it says we're going to
+1:47
+treat the rest of this like it's Java
+
+concatenated calls right you can say in
+2:55
+Java this dot that dot that and you could say that in Clojure too by saying dot this whatever and then surrounding
+3:01
+that with dot the next thing whatever right and doing the list kind of thing with growing shells of calls but I think
+3:11
+I mean I know most Java programmers would not be happy with that but that's where macros come to play because there
+3:18
+it was really easy for me to write a macro called dotdot
+
+if you have
+3:46
+other patterns that you like you can write macros for those too but this one comes included ""dotdot"".
+
+4:18
+""dotdot"" is just a macro there's no language thing it's not in the compiler it's not special syntax it takes those
+4:24
+forms and turns them into the first one that turns into a nested set of the first thing the first thing "dot" is the only
+4:31
+primitive Java member access thing that exists in closure other words that ""dot""
+4:36
+upfront in the top is the only special operator
+
+5:36
+let you fix Java so let's look at a very macro called doto
+
+think about what you could do if you could do this in Java you could you could make
+6:32
+abstractions for all those patterns that you can't get rid of automatically closing files and things like that
+6:39
+exception handling patterns that you want to put in logging policies you can
+6:45
+encode them all in macros and they're going to be uniformly applied everywhere and when they need to fix them you can
+6:50
+fix them in one place as opposed to everywhere where you put them manually this is a better way to write Java
+
+at
+8:18
+a higher level the integration with Java is very good you know I said before closure strings or Java strings the
+8:25
+numbers are big in number the collections all implement collection the
+8:31
+collection library in Java is particularly good and one of the nice things about it is that they defined as
+8:37
+optional all of the non read-only functions of the collection interface so
+8:44
+closure implements the read-only part of the collection interface which you can it can implement the mutating operations
+8:51
+of the collection interface because it's data structures are immutable but it does do that so you want to take the
+8:57
+closure vector and pass it to something that you know copy from or any of the job functions to take collections it
+9:02
+will do it also all closure collections are iterable so they do that I mean they
+9:10
+are because their collections but so you can use them there those functions when
+9:16
+you say fun whatever that yields an object that implements callable and runnable so you can pass them directly
+9:22
+to the executives framework to swing callbacks directly usable in Java and
+9:30
+bye-bye calls to Java that need objects and implement particular interfaces there's much more of that but you can
+9:36
+just presume if I could make it work on the semantics we're correct I've done it
+9:41
+so that you can you can interoperate from another interoperability thing like
+9:47
+you are hosting closure or if you wanted to extend closure like I've shown you maps and sets and some other things most
+9:54
+of them are written in Java you might have some really cool data structure you want to implement seek there's an interface first seek
+10:02
+it's called I seek if you implement that interface seek and first and rest and
+10:08
+every function I showed you before and every other function in the closure library will work on your data structure
+10:13
+you implement a three function interface and you're done you interoperate with
+10:19
+closure that's what it takes to add a data structure to closure and you can do it you don't need to ask me
+10:26
+similarly there are interfaces for everything else I persistent collection I persistent list I persistent map and
+10:33
+everything else interfaces for everything you can extend closure yourself the other way the sequence
+10:42
+library already works on a lot of Java stuff with no work for instance that seek first rest and all those functions
+10:48
+work on anything that's Java iterable which is all the collections in Java
+10:53
+they work on strings directly and they work on Java arrays of both objects and
+10:59
+native types so all of that library you want to call partition on a hash map you
+11:07
+know Java hash that you know or you know Java lists or all those functions will
+11:12
+work on Java stuff you can implement and
+11:17
+extend Java interfaces and classes in closure closure does not really advocate
+11:24
+treating closure like Java or really the creation of classes with members and things like that
+11:30
+closure likes interfaces and emphasizes implementing interfaces you can extend a
+11:38
+concrete Java class mostly because there are unfortunately defined Java libraries
+11:44
+that force you to do that so I had to support it as a design thing I don't
+11:50
+support it but you can do it because you have to I mean everybody seen it's funny you know the guys who did Java util
+11:56
+collections they're awesome right you look at like stream all the concrete classes in there no
+12:03
+interfaces it's terrible so but you have to deal with that stuff and I accept
+12:09
+that so you can do that I've recently added primitive support where the speed is exactly the same as Java
+
+that gives you a taste of what it's like to do Java programming enclosure I
+18:48
+find it a lot more fun than Java programming
+
+19:11
+it supports functional programming and concurrency and they sort of go together although there's a lot of value in
+19:18
+functional programming without the concurrency I don't really think there's valid concurrency without the functional
+19:24
+programming so what do I mean by functional programming I mean in this case mostly two things I think the term
+19:32
+functional programming is erroneously applied to some languages including sometimes - Scala that's just meaning
+19:37
+having first-class functions functions as values closures and functions you can pass to other functions making our
+19:44
+returning functions from functions but the but real functional programming is about side-effect free functions
+
+and
+19:50
+immutable data it's about saying every function is is literally a function of
+19:55
+its arguments that produces a new value and nothing changes in the function nothing has past changes and nothing in
+20:03
+the outside world changes now obviously we can call closure we can call Java
+20:08
+from closure and do all kinds of side effects so what I'm talking about here is what closure provides in addition to
+20:15
+allowing you to make a mess in Java closure gives you the recipe for doing functional programming correctly so we
+20:23
+mean immutable data and the first questions we saw that's what I just said yes could you do this by convention a
+20:31
+little bit one of the problems with the mutable data as we'll see if I can talk extremely quickly is having data be
+20:38
+immutable isn't isn't enough you need it to be you need the ability to create
+20:44
+things that appear to be modifications efficiently like you can make immutable data by copying everything
+20:50
+just will never change this I'll make a full copy every time I need to make a change that's not practical and it's not
+20:55
+going to perform well so the immutable data is trickier than you think there
+21:04
+are a couple of flavors and functional languages there's some that are very strongly statically typed to have very intricate type systems in particular
+21:10
+Haskell they're not for everybody some people love it I think if you're
+21:15
+mathematically oriented and your programs are like calculations this tremendous fit in a language like
+21:22
+Haskell if your program has to talk to a database on the screen and the web and all this other stuff I don't know that's
+21:29
+as good a fit and people do web programming in Haskell but I don't see it in addition I think there are
+21:36
+expressivity problems to type systems until you become omniscient which is not going to be anytime soon
+21:41
+then is dynamic functional languages which are actually very rare I think
+21:47
+Erlang you know certainly led the way here and closure is another example of a dynamic language that's functional so
+21:54
+now you're combining dynamic typing with immutability different pairing why do
+Why Functional Programming?
+22:01
+this okay because it makes your programs better much better concurrency
+22:08
+completely aside I have completely changed over to functional style
+22:14
+programming even when I'm stuck in something like c-sharp or Java because your programs are better you can look at
+22:19
+them you understand what they do this function it takes these things it produces that you don't have to look
+22:24
+anywhere else to understand what's happening and as you scale up that
+22:30
+property becomes incredibly valuable versus being in the method of some class that has a bunch of fields trying to
+22:36
+figure out how you got there or how to get back there in order to test it I
+22:42
+think functional programming is essential for concurrency how many people have read Java concurrency and practice fantastic book absolutely
+22:51
+fantastic how many times as he mentioned immutable in that book tons the problem
+22:57
+is it's hard to take that advice in Java because there are no mutable classes and there are no
+23:03
+persistent immutable classes like I'll describe so it's hard advice to follow
+23:09
+but it's certainly I mean he's not advocating functional programming but
+23:15
+his advice about immutability works for functional programming if your data is immutable you don't have concurrency issues they
+23:22
+can't exist because you're not changing something that's being shared there are
+23:27
+other benefits to functional programming that don't accrue to closure because closures not purely functional because
+23:33
+you can't prove something about codes you can't prove it never calls Java some of the things you can do with Haskell
+23:38
+you can't do with closure on JVM there's a couple of choices but not very many
+23:44
+Cal would be one that's going to give you the Haskell like experience I don't know if so much about it except it's
+23:49
+that kind of a language and on the JVM Scala I think gets a lot of talk in this area but I'm not sure they're
+23:56
+immutability story is consistent enough to deliver here I'll go easy because I don't know
+24:04
+closure however is as a functional language all those data structures I showed you are immutable and persistent
+
+all the data structures in closure are persistent they have these characteristics they
+26:12
+maintain their performance characteristics across quote modifications and they they have some
+26:20
+interesting implementations which I don't have time to talk about if you wanted to look up how I did it you could
+26:25
+look up array mapped hash trees by Bagwell and you can see the
+26:30
+implementation underneath
+
+these were hard data structures to write these took me you know years of research and work but the performance is
+30:55
+good and the benefits are unbelievable being able to just freely give somebody
+31:01
+something and they can use it any thread they want and nothing bad could ever happen and they could make incremental changes for minimal cost just put you in
+31:08
+a completely different world in terms of the way you can look at designing systems all right so now we'll put that
+31:15
+into context I think even if you set concurrency aside using those kinds of data structures and taking a functional
+31:21
+approach to writing your programs is going to give you much much better programs much more reliable much easier
+31:27
+to test and understand and maintain but when you put concurrency in the loop
+31:34
+there is no longer any contest nothing compares to using this kind of a
+31:39
+strategy in designing your program
+
+it is my
+33:04
+opinion that object-oriented programming as delivered by Java etc is not a good
+33:11
+default way to structure your program 
+
+there are many reasons why one is it is spaghetti code
+33:38
+encapsulation does not change that ok encapsulation just means I'm in
+33:43
+charge of the spaghetti code it does not change it from being spaghetti code which is all the side effects the
+33:49
+inability to look at a function and understand what it means or to look at a piece of data and understand how it got
+33:56
+there it's hard to understand it's hard to test all of these testing frameworks
+34:02
+is that about an inherent problem of programming or is it about a problem of the programming languages I think to a
+34:09
+large extent it's the latter right all these mock objects all these things you
+34:14
+need to get back into the same place so you could try to execute a test is is
+34:20
+all built around the fact that these languages are not really giving you a good default object-oriented programming
+34:26
+was born in simulation you know it's pretty good for that then it was used by framework does
+34:32
+who had to provide interfaces to staple things like the disk or the screen or
+34:40
+sockets well guess what object-oriented programming is pretty good for that too because there is
+34:45
+actually really state that corresponds to these objects then they wrote these nice frameworks. Then they gave you a
+34:51
+language that lets you do that. Then what is every application programmer do they don't have to abstract the screen that's
+34:56
+in the library. they don't have to do the disk or the sockets. what are they doing? information! well guess what. that isn't a
+35:04
+good object at all. a person class or an account class that's ridiculous thing right you can't change an account
+35:11
+anymore than you can change the day of the week. tomorrow that's another day. it's a different day.
+
+it's
+35:24
+not this date -  changed with an additional day.  the whole
+35:35
+language implies here's your class. here are your fields. by default they are all final. you're set up to do the wrong
+35:42
+thing so it's hard to test understand and reason about from a concurrency
+35:48
+standpoint it's a complete catastrophe. it's a disaster. it's unworkable right
+35:54
+eventually you will die with locks you'll either die trying to make them work trying to understand them or just
+35:59
+from the stress it's not going to work so as a default architecture for a
+36:05
+program I think it's not very good. but
+36:10
+doing the right thing taking the advice of gets and making the stuff immutable it's really hard because it's not
+36:16
+idiomatic in Java right it just simply isn't everything in the language is telling you do something else.
+
+I agree there is a need in real programs to have
+36:42
+things appear to change. absolutely. In that scenario where I think
+36:47
+closure you know disagrees with Haskell. where they're trying to say well you
+36:52
+know we really don't want to do that. and you know if your program is fundamentally a calculation I think you
+36:57
+can get away with that. most programs I've written are not calculations I've written your broadcast automation systems at the run 24 hours a day and
+37:04
+there's all kinds of all kinds of state and all kinds of things that have to appear to have state. but there's a
+37:09
+difference between appearing to have state and having state.
 
 ** Transcript part 2
 https://www.youtube.com/watch?v=hb3rurFxrZ8
