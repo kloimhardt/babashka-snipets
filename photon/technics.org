@@ -97,11 +97,169 @@ nil means nothing. It also is the same thing in Clojure as Java null. Didn't hav
 
 [1:01:50] All those data literals I showed you, numbers, strings, vectors, are all evaluated by the compiler to represent themselves except lists and symbols. Lists and symbols by default are treated specially by the evaluator so when it reads a list of symbols in particular, it's going to do some work. It's not just going to return the list of symbols to your program it's going to try to understand them as an operation. So the compiler is going to try to map the symbols to values, like variables. Like you know in a variable you can say "n equals 5" later in your program in Java you say "n" and Java is going to try to figure out "oh that's five that's the n you set up there". Same thing in Clojure when you use a symbol in your data structure Clojure is going to try to find a value that's been associated with that symbol.
 
-*** personal note
-talk is from 2012, maybe the tone vis a vis Java is harsh and maybe other languages have taken up the points presented in favour of Clojure on the JVM. In particular the endorsement of Groovy over Clojure is very honest and worth noticing.
+[1-1:03:10] If it's a list and it's going to say this is an operation of some sort, I have to figure out what to do with a list. So how does that work? From the evaluator standpoint all that matters is the first thing. The first thing is the operator  that's going to determine what to do. Whatever value that yields I'm going to treat as a function and attempt to call with the calling mechanism of Clojure.
 
-"So I think if you're just interested in dynamic and want to continue to write programs that are like your Java programs, Groovy can can't be touched"
-"Clojure is about realizing what's wrong with your Java programs and doing something different"
+[1-1:27:48] The first thing about functions you need to know is that they're first class values. They're values like any other. Methods in Java are not first class. You can't put a method into a variable. You can't pass a method to a function. There are special things. In lisps and in fact in most dynamic languages today, functions are first class which means the function is a value.
+
+[1-1:31:12] In general, the things that in Java would be declarations or control structures or function calls or operators, in Clojure they all are uniform in Clojure or any Lisp in that there are lists where the operator is the first thing in the list so we've reduced all of this variation here to something uniform.
+
+[1-1:34:47] There's a lot of value to that uniformity. I know a lot of programming languages and every time I have to learn the "whatever the rules are" syntax -- and this thing next to that means that and this character means this and you can have a semicolon here but not there and it better be indented by the same amount or whatever it is -- I really get angry now because there is no reason for that. It is certainly not better than Clojure data structures.
+
+[1-1:35:59] todo
+one of the things that is typical about lisp is that a lisp is that it has a rich library for manipulating lists but it ends up that I think in my opinion it's a shortcoming of lisps traditionally that those functions are limited to a particular data structure which is the singly linked list
+
+[2-0:00:00] Let's look at Java Interop because one of the great things one about Clojure is it sort of solves the library problem by adopting the library of Java. You know all new languages have this problem. If they're implemented on a C basis they're starting from nothing they're writing their own runtimes their own garbage collectors their own libraries etc etc. This is a tremendous amount of wheel reinvention so Clojure's approach is to say: you know these libraries are already written, if you could leverage them in an idiomatic way you would be done.
+
+[2-0:01:10] You can use Java directly in Clojure, no wrappers. You don't have to write your own library. It shouldn't make you feel too dirty if you like Lisp.
+
+[2-0:01:30] You can build on top of it if you need to. But when you see how Clojure both lets you access Java and how Clojure brings Java things into its world, you'll see that you often don't need to do that.
+
+[2-0:01:47] For interop, Clojure has this symbol "dot". It is a special operator that is included in the Clojure compiler. It says we're going to treat the rest of the list like it's a Java method along with it's class.
+
+[2-0:02:50] Concerning concatenated calls: you know in Java you can say "this dot that dot that" and you could say the same in Clojure too. By saying "dot this whatever" and then surrounding that with "dot the next thing whatever". And doing the list kind of thing with growing shells of calls. But I know most Java programmers would not be happy with that. And that's where macros come to play because there it was really easy for me to write a macro called "dotdot".
+
+[1-0:56:10 [sic]] A macro is a program that generates a data structures that is sent to the compiler to be evaluated. Programs generating programs are a common thing in Lisp.
+
+[2-0:04:20] The symbol "dotdot" is just a macro. There's no language thing. It's not in the compiler, it's not special syntax. It takes those forms coming after it and turns them into a nested list all starting with "dot". The first thing "dot" is the only primitive Java member access thing that exists in Clojure. That "dot" upfront in the top is the only special operator.
+
+[2-0:03:40] If you have other patterns that you like, you can write macros for those too. But this one comes included: "dotdot".
+
+[1-1:24:52 [sic]] Propagating up from macros to the source of the problem in the macro is something that's being worked on. Some compilers do it pretty well for Common-Lisp. It's an area I hope to enhance Clojure but a macro will always be more challenging than a function. That's why macro writing is not for new newcomers or the inexperienced part of the team.
+
+[2-0:05:30] One of the nice things about Clojure is to let you fix Java. One example is the macro called "doto".
+
+[2-0:05:30] Think about what you could do, if you could do this in Java. You could make abstractions for all those patterns that you can't get rid of automatically. Closing files and things like that. Exception handling patterns that you want to put in logging policies. You can encode them all in macros and they're going to be uniformly applied everywhere and when they need to fix them you can fix them in one place as opposed to everywhere where you put them manually. This is a better way to write Java.
+
+[2-0:08:20] At a higher level, the integration with Java is very good. You know I said before Clojure strings are Java strings. The numbers are big N Java Numbers. The Clojure collections all implement the Java collection interface. The collection library in Java is particularly good.
+
+[2-0:08:30]
+And one of the nice things about it is that the interfaces are defined as optional, i.e. all of the non read-only functions of the collection interface are optional. So Clojure implements the read-only part of the collection interface. Which you can. You cannot implement the mutating operations of the collection interface within Clojure because it's data structures are immutable. So if you want to take the Clojure vector and pass it to Java, something like "copy from" or any of the job functions that take collections, it will do it.
+
+Also all Clojure collections are iterable. They are that, because they are collections.
+
+Concerning Clojure functions: when you say defn, that yields a Java object that implements Callable and Runnable. So you can pass them directly to the executives framework, to Swing callbacks, directly usable in Java and by calls to Java that need objects and implement particular interfaces.
+
+There's much more of that but you can just presume that if I could make it work and the semantics were correct, I've done it.
+
+If you wanted to extend Clojure like I've shown you lists and vectors and some other things. Most of them are written in Java. You might have some really cool data structure you want to implement "seq" on, there is an interface for "seq". It's called "ISeq". If you implement that interface "ISeq" and in addition "first" and "rest", every function in the Clojure library will work on your data structure. You implement an interface with just three functions, and you're done.
+
+You interoperate with Clojure, that's what it takes to add a data structure to Clojure. And you can do it. You don't need to ask me.
+
+Similarly there are interfaces for everything else. IPersistentCollection, IPersistentList, IPersistentMap and everything else. Interfaces for everything. You can extend Clojure yourself.
+
+Concerning the other way: the Clojure sequence library already works on a lot of Java stuff with no work. For instance that "seq" "first" "rest" and all those functions work on anything that's Java iterable. Which is all the collections in Java. They work on strings - directly. And they work on Java arrays - of both objects and native types. So all of that Clojure library is there for you. You want to call "partition" on a Java hash map or Java lists, all those Clojure functions will work on Java stuff.
+
+You can implement and extend Java interfaces and classes in Clojure. Clojure does not really advocate treating Clojure like Java, like the creation of classes with members and things like that. Closure likes interfaces and emphasizes implementing interfaces. Extending a concrete Java class in Clojure is not recommended. It is possible though, mostly because there are "unfortunately defined" Java libraries that force you to do that. So I had to support it as a design thing I don't recommend it but you can do it because you have to.
+
+It's funny, you know, the guys who did java.util.Collection, they're awesome. You look e.g. at "stream" - all the concrete classes in there, no interfaces. It's terrible. But you have to deal with that stuff and I accept that so you can do that.
+
+[2-0:18:30] I've recently added primitive support where the speed is exactly the same as Java. The performance is stunning, its the fastest Lisp I can find.
+
+[2-0:18:48] That gives you a taste of what it's like to do Java programming in Clojure. I find it a lot more fun than Java programming.
+
+[2-0:19:10] Clojure supports functional programming and concurrency and they sort of go together. Although there's a lot of value in functional programming without the concurrency, I don't really think there's valid concurrency without the functional programming. So what do I mean by functional programming? I mean in this case mostly two things. I think the term functional programming is erroneously applied to some languages including sometimes to Scala. That's just meaning having first-class functions. Functions as values you can pass to other functions. Or returning functions from functions.
+
+But the but real functional programming is about side-effect free functions.
+
+and
+19:50
+immutable data it's about saying every function is is literally a function of
+19:55
+its arguments that produces a new value and nothing changes in the function nothing has past changes and nothing in
+20:03
+the outside world changes now obviously we can call closure we can call Java
+20:08
+from closure and do all kinds of side effects so what I'm talking about here is what closure provides in addition to
+20:15
+allowing you to make a mess in Java closure gives you the recipe for doing functional programming correctly so we
+20:23
+mean immutable data and the first questions we saw that's what I just said yes could you do this by convention a
+20:31
+little bit one of the problems with the mutable data as we'll see if I can talk extremely quickly is having data be
+20:38
+immutable isn't isn't enough you need it to be you need the ability to create
+20:44
+things that appear to be modifications efficiently like you can make immutable data by copying everything
+20:50
+just will never change this I'll make a full copy every time I need to make a change that's not practical and it's not
+20:55
+going to perform well so the immutable data is trickier than you think there
+21:04
+are a couple of flavors and functional languages there's some that are very strongly statically typed to have very intricate type systems in particular
+21:10
+Haskell they're not for everybody some people love it I think if you're
+21:15
+mathematically oriented and your programs are like calculations this tremendous fit in a language like
+21:22
+Haskell if your program has to talk to a database on the screen and the web and all this other stuff I don't know that's
+21:29
+as good a fit and people do web programming in Haskell but I don't see it in addition I think there are
+21:36
+expressivity problems to type systems until you become omniscient which is not going to be anytime soon
+21:41
+then is dynamic functional languages which are actually very rare I think
+21:47
+Erlang you know certainly led the way here and closure is another example of a dynamic language that's functional so
+21:54
+now you're combining dynamic typing with immutability different pairing why do
+Why Functional Programming?
+22:01
+this okay because it makes your programs better much better concurrency
+22:08
+completely aside I have completely changed over to functional style
+22:14
+programming even when I'm stuck in something like c-sharp or Java because your programs are better you can look at
+22:19
+them you understand what they do this function it takes these things it produces that you don't have to look
+22:24
+anywhere else to understand what's happening and as you scale up that
+22:30
+property becomes incredibly valuable versus being in the method of some class that has a bunch of fields trying to
+22:36
+figure out how you got there or how to get back there in order to test it I
+22:42
+think functional programming is essential for concurrency how many people have read Java concurrency and practice fantastic book absolutely
+22:51
+fantastic how many times as he mentioned immutable in that book tons the problem
+22:57
+is it's hard to take that advice in Java because there are no mutable classes and there are no
+23:03
+persistent immutable classes like I'll describe so it's hard advice to follow
+23:09
+but it's certainly I mean he's not advocating functional programming but
+23:15
+his advice about immutability works for functional programming if your data is immutable you don't have concurrency issues they
+23:22
+can't exist because you're not changing something that's being shared there are
+23:27
+other benefits to functional programming that don't accrue to closure because closures not purely functional because
+23:33
+you can't prove something about codes you can't prove it never calls Java some of the things you can do with Haskell
+23:38
+you can't do with closure on JVM there's a couple of choices but not very many
+23:44
+Cal would be one that's going to give you the Haskell like experience I don't know if so much about it except it's
+23:49
+that kind of a language and on the JVM Scala I think gets a lot of talk in this area but I'm not sure they're
+23:56
+immutability story is consistent enough to deliver here I'll go easy because I don't know
+24:04
+closure however is as a functional language all those data structures I showed you are immutable and persistent
+
+*** personal note
+The talk is from 2012 and 2025 is different. For example Kotlin https://kotlinlang.org appeared and concurrency did not turn out to be the expected big thing. But here I want to specifically mention two points that make the talk hard to replicate: 1) the authentic voice of the language-creator and 2) his deep knowledge of both Java and Lisp.
+
+There is this creator's verve in the presentation that, if replicated by a mere Clojure user, would sound rediculous in a future talk. There is a difference between just saying "I am using Clojure because the Repl is so intimate" and saying "I CREATED Clojure because ...".  The first one can merely lead to think (depending on the particular Java people) "well, good for you, everyone has his fetish", while the second one provokes a "wow, the Repl thing must really be something".
+
+The creator is at an advantage to spread enthusiasm. I do agree with Eric Normand (Defn podcast https://zencastr.com/z/t7QDS4kE 00:35:40) that Elixir's adoption is helped by it's creator who "talks at every single conference. He talks at the American one, he talks at the European one. He's just always talking about something. It's not [necessary to give] one of these Rich Hickey talks that's gonna stand the test of time".
+
+This brings in the second point. Only a Java guru can imply that Java is broken. "One of the nice things about Clojure is to let you fix Java", "This is a better way to write Java". On the other hand, the endorsement of Groovy over Clojure is very honest and adds to credibility but also needs the stature to say it.
+
+One can hear Rich Hickeys personal suffering of year long Java usage. The style reminds me of our national writer, Bernhard, who understood Austria so well that his suffering led to the creation of virtually a new language. And this suffering is what engages followers (Clojure is popular in Europe). "So I think if you're just interested in dynamic and want to continue to write programs that are like your Java programs, Groovy can't be touched", "Clojure is about realizing what's wrong with your Java programs and doing something different".
+
+I think hardly anyone else can have the audacity to talk like that to seasoned Java programmers. Now Rich Hickey says in 2024 https://www.youtube.com/watch?v=Earx_BjvgO0&t=260s that Clojure enthusiasts should go out there and talk in person to Java groups. Well, enthusiasm alone woun't do. I think Rich Hickey does not see the following point: that giving enthusiastic AND good, fruitful talks is not so simple when you are just a Clojure user and not a language expert.
+
+So what do we learn from the talk? Macros should be explained with interop as the concrete use case. Functional programming means side-effect-free functions and should be explained with concurrency as the concrete use case. And persistent data structures should be introduced as a means to write those pure functions. And: only talk about topics you really know well and hope that other people will cover the rest in a competent way.
 
 ** excerpt part 1
 oriented towards people who program in Java or C
@@ -2561,7 +2719,7 @@ to because that's the syntax of closure SL comma is a character literal for
 1:48:05
 comma quote is used for other things that's why I don't use it for character literals all right let's take a break
 
-** talk summary part 2
+** excerpt part 2
 look at Java Interop because one of the great things one of
 0:07
 the other great things about closure is it sort of solves the library problem by adopting the library of Java you know
@@ -3961,9 +4119,9 @@ closure supports that supports parallelism as I said before I haven't shown you 
 zippers XML support any questions
 ** draft Ideas
 
-(2)
-0:0
-8 interop and macro go together. 10 interface for everything iseq ivector
+include:spagetti code, I am not talking as an outsider.
+
+10 interface for everything iseq ivector
 
 18:50 Java programming in clojure
 no valid concurrency without functional programming (pure side effect free) can do in java clojure gives the recipy to do correctly
