@@ -49,6 +49,9 @@ Der Widersprueh mit dem zweiten Hauptsatze könnte aber auch durch eine andere H
  
  
  
+ 
+ 
+ 
 
 experimentell Nachweisbaren liegen, so schien es mir doch von hohem Interesse zu sein, wenn sich deren Existenz aus dem zweiten Hauptsatze apriori nachweisen ließe.
 —- Boltzmann hat an den Äther geglaubt, aber auch andere Gründe zur Rettung des 2. Hauptsatzes zumindest theoretisch in Betracht gezogen. Man wusst ja damals nix.
@@ -76,6 +79,7 @@ Vor einem Körper C, Fig. 1 denke man sich zwei Schirme S1 und S2 aufgestellt.
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:11:35
 [[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-11-35_screenshot.png]]
+ 
  
  
  
@@ -118,6 +122,7 @@ Nehme die selbe Anordnung, aber die Hülle und C vollkommen Schwarz.
  
  
  
+ 
 
 es soll bewiesen werden, daß e ungeändert bleibt, wenn C durch irgendeinen anderen schwarzen Körper von derselben Temperatur ersetzt wird.
 — Durch Gedankenexperiment mit Spiegel an 2: Emissionsvermögen ist unabhängig vom Material, solange es nur Schwarz ist, also alles absorbiert. i.e. e = e’ (e ist das E des schwarzen Körpers)
@@ -127,6 +132,7 @@ Es ware hiermit der ausgesprochene Satz bewiesen, wenn alle Strahlen der beiden 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:15:34
 [[file:Kirchhoff_Emissionsvermögen/2024-08-22_11-15-34_screenshot.png]]
+ 
  
  
  
@@ -177,6 +183,8 @@ In dem Innern eines undurchsichtigen, glühenden Korpers von gewisser Temperatur
  
  
  
+ 
+ 
 §48 bei gleicher Termperatur (“Wärme”) ist die Dichte (“Dichtigkeit”, 1/V) im Verhältnis zum Druck (“Schnellkraft der Luft”). 1/V1 : 1/V2 = p1 : p2 (Boyle-Mariotte)
 §49: dass bei gleicherm Volumen (“gleicher Dichtigkeit”, Leichem 1/V), die Temperatur (“Kraft der Wärme”)  im Verhältnis zum Druck (“Schnellkraft der Luft”, “aufliegendes Gewicht”) ist. P1 : T1 = P2 : T2 (Amontons)
 “Beim absoluten Nullpunkt wird die Luft Wasserdicht”
@@ -192,12 +200,15 @@ In dem Innern eines undurchsichtigen, glühenden Korpers von gewisser Temperatur
  
  
  
+ 
 
 Bestimmung der Siedepunktes
 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:20:37
 [[file:Lambert_Pyrometrie/2024-08-22_11-20-37_screenshot.png]]
+ 
+ 
  
  
  
@@ -292,6 +303,7 @@ D&P haben also nur die Strömung rausgerechnet. Die Wärmeleitung wurde nicht vo
  
  
  
+ 
 
 Nun zu den Korrekturen von D&P. Es ist zweifelhaft ob diese Korrekturen überhaupt irgendeinen Sinn haben.
 Wie oben beschrieben stammt ihre Heuristik für die Korrektur der Luft aus Versuchen zwischen 720 und 45 Torr. Die Strömung kann aber bei 2 oder 3 Torr schon vollkommen aufgehört haben, sodass die Luft nur mehr wie ein fester Leiter gewirkt hätte. "Dann haben die von D&P an den Beobachtungen angegebenen Correctionen keinen Sinn". Waren Strömungen vorhanden, so sind die Heuristiken jedenfalls falsch.
@@ -326,6 +338,9 @@ Seite 665
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:27:36
 [[file:Wien/2024-08-22_11-27-36_screenshot.png]]
+ 
+ 
+ 
  
  
  
@@ -390,12 +405,18 @@ p31
  
  
  
+ 
+ 
+ 
+ 
 actually f(lambda) = c2/lambda not f(lambda) = c2/(lambda*T)
 Wien, p 665
 
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:29:17
 [[file:Wien/2024-08-22_11-29-17_screenshot.png]]
+ 
+ 
  
  
  
@@ -446,11 +467,19 @@ Wien, p 665
  
  
  
+ 
+ 
+ 
 
 Nun auch auf den Begriff Energiequantum achten:
 
 #+DOWNLOADED: screenshot @ 2024-08-22 11:29:56
 [[file:Wien/2024-08-22_11-29-56_screenshot.png]]
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -682,7 +711,7 @@ gibt Analyse der Planck'schen Ableitung zur Strhlung, kommt zum Schluss dass Pla
 **** 1907a: schöne Ableitung von Planck'scher Strahlung
 "Dagegen verläßt man Gleichung (4) [E=kT], d. h. man nimmt an, daß die Anwendung der molekular-kinetischen Theorie den Widerspruch mit der Erfahrung bedinge. Hingegen halten wir an den Formeln (2) und (3) [dW=exp(E/kT)dqdp] der allgemeinen molekularen Theorie der Wärme fest."
 
-Einstein kennt also die molekular-kinetische und die allgemein-molekulare Theorie.
+Einstein kennt also die molekular-kinetische (Maxwell E=3/2kT) und die allgemein-molekulare Theorie (Boltzmann S=logW).
 
 **** LUIS NAVARRO: Gibbs, Einstein and the Foundations of Statistical Mechanics
 Es scheint mir, dass Gibbs von einem Hamilton System ausgeht, aber keine weitere physikalische Annahme (etwa Moleküle vs Kontinuum) macht. Einstein nimmt Moleküle an, geht aber davon aus, dass sie nicht mit einem Hamiltonian T + V beschrieben werden, also er geht davon aus, dass Elektrodynamik nicht gilt. Darum auch der Hinweis in Navarro, dass Einstein im Sinne von H. Hertz Kräfte nicht zulassen will.
@@ -857,6 +886,7 @@ http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1905_17_132-
 1909b, Gegenwärtigen Stand Strahlung, p187 https://einsteinpapers.press.princeton.edu/vol2-doc/580
 
 1907a Die Plancksche Theorie der Strahlung
+https://einsteinpapers.press.princeton.edu/vol2-doc/415
 
 1910c (?oder d?): Theorie d Opaleszenz  https://einsteinpapers.press.princeton.edu/vol3-doc/325
 
@@ -1127,6 +1157,10 @@ Nun gibt es Neuigkeiten. Nämlich aus dem Koran. Nachdem Gott lebt, werde ich so
 
 #+DOWNLOADED: file:///Users/kloimhardt/klmtemp/blog/docs/images/CaravaggioMatthaeusmitdemEngelVerbrannt.jpeg @ 2024-12-19 20:51:08
 [[file:KarlMay/2024-12-19_20-51-08_CaravaggioMatthaeusmitdemEngelVerbrannt.jpeg]]
+ 
+ 
+ 
+ 
  
  
  
