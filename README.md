@@ -93,3 +93,9 @@ Or just a bare nRepl
 ```
 clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} nrepl/nrepl {:mvn/version "1.3.0"}}}' -m nrepl.cmdline
 ```
+
+## Run Jupyter
+```
+source python_venv/bin/activate
+jupyter lab
+```

@@ -924,11 +924,10 @@ https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
-**** thermodynamic temperature
+**** thermodynamic temperature, Lambert
 Hinweis auf Lambert und Amontons
 https://en.wikipedia.org/wiki/Thermodynamic_temperature#History
 
-**** charles's law
 Vorgänger von Gay-Lussac und Dalton. V1:T1 = V2:T2
 https://en.wikipedia.org/wiki/Charles's_law
 **** Bose-Einstein
@@ -938,17 +937,7 @@ During this lecture, Bose committed an error in applying the theory, which unexp
 Man kommt einfach empirisch drauf wie man zählen muss, und dann sagt man: die zwei Fälle Kopf-Zahl, Zahl-Kopf sind halt ununterscheidbar.
 Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild drumrum stricken.
 
-**** Nature writing
-man muss die Formeln wie die beschreibung eines Bildes für blinde erklären. Dirac hat so ähnlich gearbeitet. Die Formel sollte sich aus dem Text rekonstruieren lassen, so wie ich in meinem Stefan-notebook #stefan.clj jeder satz kann auch ohne kästchen und klammern eine formel sein, wenn man nur ein malli-scheme der wörter hat.
-
-auch Boltzmann beschreibt genau die Formeln in #weitere-studien
-
-https://de.wikipedia.org/wiki/Deutscher_Preis_für_Nature_Writing
-literatur u wissenschaft deutschlfk + literaturhaus berlin
-**** Jeder Absatz soll ein fettgedrucktes Wort haben
-Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
-
-*** YAMLscipt
+*** Formel als Sätze
 
 #+begin_src yaml
 
@@ -999,7 +988,47 @@ Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
 "ist, mit, und" sind ein und dieselbe Funktion die von Infix auf Prefix rechnet und html-boxes macht.
 Formel fasst alles nochmal zusammen.
 
+* GEB
+43:
+Such strings, producible by the rules, are called theorems. The term "theorem" has, of course, a common usage in mathematics which is quite different from this one. It means some statement in ordinary language which has been proven to be true by a rigorous argument, such as Zeno's Theorem about the "unexistence" of motion, c Euclid's Theorem about the infinitude of primes. But in formal system theorems need not be thought of as statements- they are merely strings c symbols. And instead of being proven, theorems are merely produced, as in a machine, according to certain typographical rules. To emphasize this important distinction in meanings for the word "theorem", I will adopt the following convention in this book: when "theorem" is capitalized, its meaning will be the everyday one-a Theorem is a statement in ordinary language which somebody once proved to be true by some sort of logic argument. When uncapitalized, "theorem" will have its technical meaning: a string producible in some formal system.
+
+58:
+The perception of an isomorphism between two known structures is a significant advance in knowledge-and I claim that it is such perceptions of isomorphism which create meanings in the minds of people. A final word on the perception of isomorphisms: since they come in many shapes and sizes, figuratively speaking, it is not always totally clear when you really have found an isomorphism. Thus, "isomorphism" is a word with all the usual vagueness of words-which is a defect but an advantage as well.
+
+This symbol-word correspondence has a name: interpretation.
+Secondly, on a higher level, there is the correspondence between true statements
+and theorems. But-note carefully-this higher-level correspondence could not be perceived without the prior choice of an interpretation for the symbols. Thus it would be more accurate to describe it as a correspondence between true statements and interpreted theorems.
+
+67:
+[Euclid's Theorem about the infinitude of primes]
+In mathematics the goal always to give an ironclad proof for some unobvious statement [i.e. Theorem, capital T]. The structure can best be exposed by finding a new vocabulary-a stylized vocabulary, consisting of symbols-suitable only for expressing statements about numbers. Then we can look at the proof as it exists in its translated version. It will be a set of statements which are related, line by line, in some detectable way. But the statements, since they're represented by means a small and stylized set of symbols, take on the aspect of patterns. In other words, though when read aloud, they seem to be statements about numb and their properties, still when looked at on paper, they seem to be abstract patterns-and the line-by-line structure of the proof may start to look like slow transformation of patterns according to some few typographical rules.
+
+68:
+We use the word "all" in a few ways which are defined by the thought processes of reasoning. That is, there are rules which our usage of "all" obeys. We may be unconscious of them, and tend to claim we operate on the basis of the meaning of the word; but that, after all, is only a circumlocution for saying that we are guided by rules which we never make explicit. We have used words all our lives in certain patterns, and instead of calling the patterns "rules", we attribute the courses of our thought processes to the "meanings" of words.
+
+A very important question will be whether the rules for symbol manipulation which we have then formulated are really of equal power (as far as number theory is concerned) to our usual mental reasoning abilities-or, more generally, whether it is theoretically possible to attain the level of our thinking abilities, by using some formal system.
+
 * KarlMay
+** Bücher
+Eric Vuillard, die Tagesordnung: Aufstieg Hitlers
+john chadwick decipherment of linear B, ist wie adventure puzzle game, dechffrierung der story.
+
+** Gedanken
+*** Leser Motivation
+der leser muss motiviert sein zu lesen, so wie die strange loop neugierig auf geb macht. oder der umstand dass es ein klassiker, karamasov ist, den Einstein mochte.  oder weil jeder drüber redet.
+
+*** Nature writing
+man muss die Formeln wie die beschreibung eines Bildes für blinde erklären. Dirac hat so ähnlich gearbeitet. Die Formel sollte sich aus dem Text rekonstruieren lassen, so wie ich in meinem Stefan-notebook #stefan.clj jeder satz kann auch ohne kästchen und klammern eine formel sein, wenn man nur ein malli-scheme der wörter hat.
+
+auch Boltzmann beschreibt genau die Formeln in #weitere-studien
+
+https://de.wikipedia.org/wiki/Deutscher_Preis_für_Nature_Writing
+literatur u wissenschaft deutschlfk + literaturhaus berlin
+
+*** Jeder Absatz soll ein fettgedrucktes Wort haben
+Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
+
+
 ** Ardistan
 „Könnte dir auch der Mir von Ardistan nicht das Gefühl der Bangigkeit erwecken?«
 »Nein«, antwortete ich.
@@ -1035,7 +1064,7 @@ Der Rettungsanker aus dem ganzen Wirrwarr von Traum und Ironie liegt eben darin,
 
 Ein weiterer Rettungsanker ist, dass Moderne und Postmoderne in ein und derselben Person koexistieren. Ein Märchen kann an einem Tag unverstanden als Märchen bleiben, am nächsten Tag als moderne Handlungsanleitung gelesen werden.
 
-## Das Märchen
+*** Das Märchen
 Die Siebezehn-Plus Zwerge feiern fröhlich vor sich hin. Als es Zeit wird machen sich alle auf ihren Lebensweg, ein harter Kern kommt immer wieder mal in die Hütte, jetzt nur mehr Sommerhütte, und hält die Fahne hoch.
 
 Dem ein oder anderen seine Leber streikt mit der Zeit, aber er telefoniert regelmässig. Die andern finden das bissl feig, weil birschtln via Draht nicht wirklich pirschtln. Wir verlassen hier unsere Kernzwerge und folgen dem Glück eines anderen.
