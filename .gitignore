@@ -3,3 +3,11 @@
 .cpcache/
 README.md.temp
 out/
+.#sicm_ch1.clj
+.clj-kondo/
+.lsp/
+.nrepl-port
+Jupyter-notebooks/.ipynb_checkpoints/
+photon/Kompendium-lyx20.lyx~
+photon/tmp.org
+python_venv/

@@ -99,4 +99,4 @@ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} nrepl/nrepl {:mvn/ve
 source python_venv/bin/activate
 jupyter lab
 ```
-(works only Java@21 not 23, nicht vergessen: lösche klmtemp/jupyterlab)
+(works only Java@21 not 23)

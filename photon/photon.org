@@ -819,20 +819,6 @@ Plancks ungerader Weg zur Strahlungsformel
 Domenico Giulini und Norbert Straumann
 https://onlinelibrary.wiley.com/doi/pdf/10.1002/phbl.20000561214
 
-**** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
-Hinweis in Histrory of Quantum Physics vol1 part1 p24
-**** Rechenberg: the historical development of quantum theory HDQT
-https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
-
-vol1 part1
-https://archive.org/details/quantumtheoryofp0001meThe Historical Development of Quantum Theory, Vol. 1
-
-vol 1 part2
-https://archive.org/details/quantumtheoryofp0001mehr_g3o9
-
-vol3
-https://archive.org/details/formulationofmat0003mehr
-
 **** de Broglie
 Doktorarbeit, Thesis
 nicht so gut:
@@ -920,6 +906,29 @@ nicht alle Themen der Paper erscheinen in den "Gastheorie" Büchern.
 
 Standford Eintrag (via wikipedia-de Boltzmann):
 https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
+
+**** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
+Hinweis in Histrory of Quantum Physics vol1 part1 p24
+**** Rechenberg: the historical development of quantum theory HDQT
+https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
+
+vol1 part1
+https://archive.org/details/quantumtheoryofp0001meThe Historical Development of Quantum Theory, Vol. 1
+
+vol 1 part2
+https://archive.org/details/quantumtheoryofp0001mehr_g3o9
+
+vol3
+https://archive.org/details/formulationofmat0003mehr
+
+**** Eisenberg: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles
+https://www.amazon.com/Quantum-Physics-Molecules-Solids-Particles/dp/047187373X
+the first three chapters allegedly explain Plancks History of radiation and Einstein.
+**** A. Pais: Subtle is the lord
+Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
+
+**** Sen: Einstein's Fridge
+Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Ist es "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
 
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
