@@ -907,9 +907,21 @@ nicht alle Themen der Paper erscheinen in den "Gastheorie" Büchern.
 Standford Eintrag (via wikipedia-de Boltzmann):
 https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
 
+Boltzmann Biographien (aus HPFQM)
+David Lindley, Boltzmann’s Atom (The Free Press, New York, 2001); John T. Blackmore, Ernst Mach, His Work, Life, and Influence (Univ. of California Press, Berkeley, 1972); E. Broda, The Intellectual Triangle: Mach-Boltzmann-Planck-Einstein CERN 81-10, July 1981; and The Interaction of Boltzmann with Mach, Ostwald, and Planck, and His Influence on Nernst and Einstein, 16th Internation Congress on the History of Science, Bucharest, 1981; and Pullman, loc. cit.
+“He may have been wounded by many things a more robust person would have hardly noticed.... I believe he was a powerful teacher just because of his uncommon human- ity.” Boltzmann’s demise was most likely due to his painfully deteriorating health and failing eyesight [Blackmore in HPFQM].
+
+vs Zermelo wg. recurrence objection, in HQM p19:
+Zustand sollte eigentlich immer wieder kehren, Boltzmann redet dagegen:
+WAIII p567 "Entgegnung auf die wärmetheoretischen Betrachtungen des Hrn. E. Zermelo."
+(Wied. Ann. 57, S. 773-784. 1896.)
+
+auch Cohen: https://arxiv.org/abs/cond-mat/9608054
+heute erklärt mit https://en.wikipedia.org/wiki/Fluctuation–dissipation_theorem (es gibt kein abgeschlossenes System)
+
 **** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
 Hinweis in Histrory of Quantum Physics vol1 part1 p24
-**** Rechenberg: the historical development of quantum theory HDQT
+**** HDQT Rechenberg: the historical development of quantum theory
 https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
 
 vol1 part1
@@ -930,6 +942,7 @@ Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
 **** Sen: Einstein's Fridge
 Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Ist es "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
 
+**** HPFQM Historical and Physical Foundations of Quantum Mechanics -- Robert Golub, Steven K Lamoreaux -- 2023 -- Oxford University Press
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
@@ -946,6 +959,8 @@ During this lecture, Bose committed an error in applying the theory, which unexp
 Man kommt einfach empirisch drauf wie man zählen muss, und dann sagt man: die zwei Fälle Kopf-Zahl, Zahl-Kopf sind halt ununterscheidbar.
 Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild drumrum stricken.
 
+**** Random ideas
+Genauso wie Newton nicht mehr die Doktrin der Bibel erklären musste in der Principia, wollte Einstein mit seinen Photonen nicht die Doktrin der Interferenz, der Empirie, erklären.
 *** Formel als Sätze
 
 #+begin_src yaml
@@ -997,6 +1012,15 @@ Insofern muss man einfach die richtige Statistik erraten und dann ein Weltbild d
 "ist, mit, und" sind ein und dieselbe Funktion die von Infix auf Prefix rechnet und html-boxes macht.
 Formel fasst alles nochmal zusammen.
 
+* CLJ-Tiles Brilliant manual
+brilliant.org/sabine
+** orgfile- vs embeeded-puzzles
+Full org files are good for succinct code like SICM.
+However, for transcribing normal books, like historical development, the full code is not useful as puzzle, need a highlight like in the driven pendulum example.
+
+** The Scribe
+more like medieval copist than an original bok writer.
+
 * GEB
 43:
 Such strings, producible by the rules, are called theorems. The term "theorem" has, of course, a common usage in mathematics which is quite different from this one. It means some statement in ordinary language which has been proven to be true by a rigorous argument, such as Zeno's Theorem about the "unexistence" of motion, c Euclid's Theorem about the infinitude of primes. But in formal system theorems need not be thought of as statements- they are merely strings c symbols. And instead of being proven, theorems are merely produced, as in a machine, according to certain typographical rules. To emphasize this important distinction in meanings for the word "theorem", I will adopt the following convention in this book: when "theorem" is capitalized, its meaning will be the everyday one-a Theorem is a statement in ordinary language which somebody once proved to be true by some sort of logic argument. When uncapitalized, "theorem" will have its technical meaning: a string producible in some formal system.
@@ -1036,7 +1060,6 @@ literatur u wissenschaft deutschlfk + literaturhaus berlin
 
 *** Jeder Absatz soll ein fettgedrucktes Wort haben
 Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
-
 
 ** Ardistan
 „Könnte dir auch der Mir von Ardistan nicht das Gefühl der Bangigkeit erwecken?«
