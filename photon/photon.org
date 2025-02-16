@@ -1041,6 +1041,9 @@ We use the word "all" in a few ways which are defined by the thought processes o
 
 A very important question will be whether the rules for symbol manipulation which we have then formulated are really of equal power (as far as number theory is concerned) to our usual mental reasoning abilities-or, more generally, whether it is theoretically possible to attain the level of our thinking abilities, by using some formal system.
 
+Kommentar:
+gödl liest eine andere bedeutung in die symbole von russel. einstein liest eine andere bedeutung in optische daten. eine neue bedeutung von gleichzeitigkeit. kann man vielleicht eine noch andere bedeutung in bell-experiment daten reinlesen?
+
 * KarlMay
 ** Bücher
 Eric Vuillard, die Tagesordnung: Aufstieg Hitlers
@@ -1208,6 +1211,9 @@ Shit, hätt ich tun sollen weil ich mit meinen Reparaturfähigkeiten geprahlt ha
 Nachbarn haben Klohäuschen zerstört! Rache!
 
 75+50=125 das weiss nämlich nicht jeder zwerg das wird offenbart zum gegebenen zeitpunkt. wokämen wir hin wenns jeder zwerg wüsste dann wären ja wir die dumme weil sonst hamma ja auch nix nein nein
+
+*** Fortsetzung
+der zwerg der sagt: sobald man mich zu einer aussage zwingt im chat, werd ich das geheimnis preisgeben.
 
 ** Neues für den Katholiken
 Das Folgende ist nur gedacht und nachvollziehbar für Leser, die als Kinder katholischen Religionsunterricht erhalten und immer wieder am Sonntag die Hostie zu sich genommen haben.
