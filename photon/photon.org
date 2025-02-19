@@ -795,6 +795,224 @@ Luca Peliti · Raul Rechtman: Einstein’s Approach to Statistical Mechanics: Th
 I read your treatise the way a curious child listens in suspense to the solution of a puzzle that has plagued him for a long time, and I delight in the beauties revealed to the eye.
 
 [Max Planck](https://phaidra.univie.ac.at/o:1542358) to Erwin Schrödinger on 2 April 1926
+** Hertz
+*** Bilder
+**** Einleitung
+Die wirkliche Forderung von Hertz war, dass man in der Physik nur mit Formeln beginnen sollte, deren Elemente sich als Bilder denken lassen.
+
+Die Bilder sollen "logisch zulässig" sein. "Als unzulässig sollten wir von vornherein solche Bilder bezeichnen, welche schon einen Widerspruch gegen die Gesetze des Denkens in sich tragen".
+
+Was sind nun seine "die Gesetze des Denkens"? Ich unterstelle Hertz hier, dass er die Gesetze von Kant meint. Diese besagen, dass die Dinge sind nur in Raum und Zeit denken lassen. Die Hertz'schen Bilder müssen sich in Raum und Zeit denken lassen, nur dann sind sie "zulässig". Meine Unterstellung ist, dass Hertz die Formeln anschaulich haben will, dass sie Bilder in Raum und Zeit erzeugen. "So können wir an ihnen, wie an Modellen, in kurzer Zeit die Folgen entwickeln".
+
+Mit Bild meinte Hertz also die Kopfgeburten, die sich der Mathematiker macht wenn er Formeln liest. Die Bilder der Hertz'schen Physik sollten so sein, dass ihre Folgen "richtig" sind, also nicht zu irgendwelchen beliebigen Barbapapa Bildern führen. Das ist eine sinnvolle Forderung für einen Physiker. Hier das volle Zitat, es ist etwas hölzern, aber darum wurde es ja im obigen Abschnitt langsam eingeführt:
+
+"Wir machen uns innere Scheinbilder oder Symbole der äusseren Gegenstände, und zwar machen wir sie von solcher Art, das die denknotwendigen Folgen der Bilder stets wieder die Bilder seien von den naturnotwendigen Folgen der abgebildeten Gegenstände."
+
+Hertz gibt noch eine wichtige Vorbedingung für das Unterfangen: "Damit diese Forderung überhaupt erfüllbar sei, müssen gewisse Übereinstimmungen vorhanden sein zwischen der Natur und unserem Geiste. Die Erfahrung lehrt uns, daß die Forderung erfüllbar ist".
+
+Hertz glaubt also an einen Dualismus von physikalischer Natur auf der einen Seite und menschlichem Geist auf der anderen.
+
+"In der That wissen wir auch nicht, und haben auch kein Mittel zu erfahren, ob unsere Vorstellungen von den Dingen mit jenen in irgend etwas anderem übereinstimmen" als in eben ihren Folgen. Das ist sowas von Kant. Man spürt förmlich wie Hertz schreiben möchte "unsere Vorstellungen von den Dingen" übereinstimmen mit den "Dingen an sich". Ich unterstelle wieder puren Kant-sprech an dieser Stelle.
+
+Die Hertz'schen Bilder müssen also A) "zulässig" und B) "richtig" sein. Sie müssen also A) anschaulich in Raum und Zeit und B) folgerichtig in der Erfahrung sein.
+
+"Von zwei Bildern desselben Gegenstandes wird dasjenige das zweckmässigere sein, welches mehr wesentliche Beziehungen des Gegenstandes wiederspiegelt als das andere; welches, wie wir sagen wollen, das deutlichere ist." Das wird uns noch bei Schrödinger wieder begegnen.
+
+"Bei gleicher Deutlichkeit wird von zwei Bildern dasjenige zweckmässiger sein, welches neben den wesentlichen Zügen die geringere Zahl überflüssiger oder leerer Beziehungen enthält, welches also  das einfachere ist. Ganz werden sich leere Beziehungen nicht vermeiden lassen, denn sie kommen den Bildern schon deshalb zu, weil es eben nur Bilder und zwar Bilder unseres besonderen Geistes sind und also von den Eigenschaften seiner Abbildungsweise mitbestimmt sein müssen."
+
+Die Bilder werden also nie auf Raum und Zeit verzichten können, weil diese als Formen der Anschauung grundlegend für unseren Geist sind.
+
+"Zulässigkeit" "Richtigkeit" "Zweckmässigkeit". Sind die Kriterien.
+
+"Wir verlangen von der letzteren [den Bildern], daſs
+sie uns klar zum Bewuſstsein führe, welche Eigenschaften den
+Bildern zugelegt seien um der Zulässigkeit willen, welche um
+der Richtigkeit willen, welche um der Zweckmäſsigkeit willen."
+
+"Zweckmässigkeit": willkürlich. -> zerfällt in deutlich + einfach
+"Richtigkeit": Erfahrung
+"Zulässigkei": Eigenschaft des Geistes, für alle Zeit.
+
+"Sind diese schmerzenden Widersprüche entfernt, so ist zwar nicht die Frage
+nach dem Wesen beantwortet, aber der nicht mehr gequälte
+Geist hört auf, die für ihn unberechtigte Frage zu stellen." Kant wieder.
+
+"was in dem entworfenen Bilde aus Denknotwendigkeit, was aus der Erfahrung, was aus unserer Willkür stammt."
+
+"Ist das entworfene
+Bild vollkommen deutlich? Enthält es alle Züge, welche die
+heutige Erkenntnis an den natürlichen Bewegungen zu unterscheiden vermag? Diese Frage beantworten wir nun entschieden mit nein.
+Diese Frage beantworten wir nun entschieden mit nein. Nicht alle Bewegungen, welche die Grundgesetze zulassen und welche die Mechanik als mathematische
+Übungsaufgaben behandelt, kommen in der Natur vor; wir
+können von den natürlichen Bewegungen, Kräften, festen Verbindungen mehr aussagen, als es die angenommenen Grundgesetze thun."
+
+Kurzum, sowohl was die Kräfte, als was die festen Verbindungen anlangt, enthält unser System der Prinzipien zwar
+alle die natürlichen Bewegungen, aber es umfängt gleichzeitig
+sehr viele Bewegungen, welche nicht natürliche sind. Ein
+System, welches diese letzteren oder doch einen Teil derselben
+ausschlösse, würde mehr wirkliche Beziehungen der Dinge zu
+einander wiederspiegeln und also in diesem Sinne zweckmäſsiger [deutlicher]
+sein.
+ Doch selbst wenn die Kräfte nur von uns
+in die Natur hineingetragen wären, dürften wir darum ihre
+Einführung noch nicht als unzweckmäfsig bezeichnen. Wir
+waren uns von vornherein klar darüber, daſs sich unwesentliche Nebenbeziehungen in unsern Bildern nicht ganz würden
+vermeiden lassen.  Nur möglichste Einschränkung dieser Beziehungen, nur weise Besonnenheit in ihrem Gebrauch
+durften wir verlangen.
+
+**** für Atome, aber  keine Kräfte oder so altes Zeug.
+Nun sind wir ja allerdings gegenwärtig überzeugt davon, daſs
+die wägbare Materie aus Atomen besteht; auch haben wir von
+der Gröſse dieser Atome und ihren Bewegungen in gewissen
+Fällen einigermafsen bestimmte Vorstellungen.
+ Aber die Gestalt der Atome, ihr Zusammenhang, ihre Bewegungen in den
+meisten Fällen, alles dies ist uns gänzlich verborgen; 
+ keineswegs aber ist sie
+besonders geeignet, als bekannte und gesicherte Grundlage
+mathematischer Theorieen zu dienen. 
+Einen so streng denkenden Forscher, wie es GusTAV KIRCHHOFF war, berührte
+es daher fast peinlich, die Atome und ihre Schwingungen ohne
+zwingende Notwendigkeit in den Mittelpunkt einer theoretischen
+Ableitung gestellt zu sehen. Die willkürlich angenommenen
+Eigenschaften der Atome mögen ohne Einfluss auf das Endresultat sein, das letztere mag richtig sein. Gleichwohl sind
+die Einzelheiten der Ableitung selbst zum groſsen Teile mutmafslich falsch, die Ableitung ist ein Scheinbeweis. Die ältere
+Denkweise der Physik läſst hier kaum eine Wahl, einen Ausweg zu. Dagegen bietet die Auffassung der Energielehre und
+damit unser zweites Bild der Mechanik den Vorteil, dafs in
+die Voraussetzungen der Probleme nur die der Erfahrung unmittelbar zugänglichen Merkmale, Parameter, oder willkürlichen
+Koordinaten der betrachteten Körper eintreten
+**** Einfachheit der Bilder
+ Freilich können
+wir von der Natur nicht a priori Einfachheit fordern, noch
+auch urteilen, was in ihrem Sinne einfach sei. Aber den Bildern, welche wir uns von ihr machen, können wir als unsern
+eigenen Schöpfungen Vorschriften machen. Wir urteilen nun
+mit Recht, daſs, wenn unsere Bilder den Dingen gut angepaſst
+sind, dafs dann die wirklichen Beziehungen der Dinge durch
+einfache Beziehungen zwischen den Bildern müssen wiedergegeben werden. Wenn aber die wirklichen Beziehungen
+zwischen den Dingen nur durch verwickelte, ja dem unvorbereiteten Geiste sogar unverständliche Beziehungen zwischen
+den Bildern sich wiedergeben lassen, so urteilen wir, daſs
+diese Bilder den Dingen nur ungenügend angepaſst sind. Unsere
+Forderung der Einfachheit geht also nicht an die Natur, sondern an die Bilder, welche wir uns von ihr machen, und unser
+Widerspruch gegen eine verwickelte Aussage als Grundgesetz
+drückt nur die Überzeugung aus, dass, wenn der Inhalt der
+Aussage richtig und umfassend sei, er sich durch zweckmäſsigere Wahl der Grundvorstellungen auch in einfacherer
+Form müsse aussprechen lassen. 
+
+**** Raum Zeit Masse
+ daſs sie von nur drei unabhängigen Grundvorstellungen ausgeht; denen der Zeit, des Raumes und der
+Masse. Sie betrachtet daher als ihre Aufgabe, die natürlichen
+Beziehungen zwischen diesen dreien und allein zwischen diesen
+dreien darzustellen. Ein vierter Begriff, wie der Begriff der
+Kraft oder der Energie, an welchen sich vorhin die Schwierigkeiten knüpften, ist als selbständige Grundvorstellung beseitigt.
+
+**** Hamilton charakteristische Funktion
+zustimmen, wenn ich als
+dritten Nutzen unserer Methode anführe, daſs dieselbe ein
+helles Licht auf die von HAMILTON erfundene Behandlungsweise mechanischer Probleme mit Hilfe charakteristischer
+Funktionen wirft.
+ In unserer
+Form der mathematischen Darstellung aber trägt die HAMILTON'sche Methode nicht den Charakter eines Seitenzweiges, sondern sie erscheint als die gerade, naturgemäſse und sozusagen
+selbstverständliche Fortsetzung der elementaren Aussagen in
+allen den Fällen, in welchen sie überhaupt anwendbar ist.
+Auch das läſst unsere Darstellungsweise klar hervortreten,
+dafs die HAMILTON'Sche Behandlungsweise nicht in den besonderen physikalischen Grundlagen der Mechanik ihre Wurzeln
+hat, wie man wohl gewöhnlich annimmt, sondern daſs sie im
+Grunde genommen eine rein geometrische Methode ist, welche
+begründet und ausgebildet werden kann, ganz unabhängig von
+der Mechanik, und welche mit dieser in keiner engeren Beziehung steht, als alle andere von der Mechanik benutzte
+geometrische Erkenntnis auch.
+
+**** Starre Verbindungen
+ sie berühren nicht mehr die Frage,
+ob es logisch zulässig sei, feste Verbindungen unabhängig
+von und vor den Kräften zu behandeln. Daſs diese Frage zu
+bejahen sei und nur dies wünschten wir zu erweisen und
+glauben wir erwiesen zu haben.
+**** Sprünge
+ Mit welchem Rechte können wir versichern, dafs
+alle Zusammenhänge der Natur durch lineare Differentialgleichungen erster Ordnung sich ausdrücken lassen?
+als Grund unserer Überzeugung anführen, daſs alle
+Verbindungen eines Systems, welche aus dem Rahmen unserer
+Mechanik heraustreten, in dem einen oder in dem andern
+Sinne eine unstetige Aneinanderreihung seiner möglichen Bewegungen bedeuten würden, daſs es aber in der That eine
+Erfahrung allgemeinster Art sei, dafs die Natur im Unendlichkleinen überall und in jedem Sinne Stetigkeit aufweise, eine
+Erfahrung, die sich in dem alten Satze,,natura non facit
+saltus", zu fester Überzeugung verdichtet hat.
+**** zu Kant
+Vorbemerkung. Den Überlegungen des ersten Buches 1
+bleibt die Erfahrung völlig fremd. Alle vorgetragenen Aussagen sind Urteile a priori im Sinne KANT's. Sie beruhen auf
+den Gesetzen der inneren Anschauung und den Formen der
+eigenen Logik des Aussagenden und haben mit der äufseren
+Erfahrung desselben keinen anderen Zusammenhang, als ihn
+diese Anschauungen und Formen etwa haben.
+
+*** Geist vs. Natur
+ dafs wir weder behaupten können,
+daſs die inneren Vorgänge der Lebewesen denselben Gesetzen
+folgen, wie die Bewegungen der leblosen Körper, noch auch
+behaupten können, daſs sie andern Gesetzen folgen. Der Anschein aber und die gewöhnliche Meinung spricht für einen
+grundsätzlichen Unterschied. Und dasselbe Gefühl, welches
+uns antreibt, aus der Mechanik der leblosen Welt jede Andeutung einer Absicht, einer Empfindung, der Lust und des
+Schmerzes, als fremdartig auszuscheiden, dasselbe Gefühl läfst
+uns Bedenken tragen, unser Bild der belebten Welt dieser
+reicheren und bunteren Vorstellungen zu berauben.
+ Eben weil es [Mechanisches Gesetz] uns nur eine
+Thatsache giebt, ohne derselben den Schein der Notwendigkeit
+beizulegen, läſst es uns erkennen, daſs alles auch anders sein
+könnte.
+
+*** Verborgen Bewegungen
+Unter Mechanik verstehen die Meisten "wohl schlechthin die NEWTON'schen Gesetze der Bewegung."
+
+Aber Hertz stand auf Kriegsfuss mit den Kräften die Newton in die Mechanik eingeführt hat. Sie waren ihm zu flexibel. Jeder konnte seine eigene Kraft erfinden.
+
+"In Wahrheit aber erhalten diese letzteren [Newton'schen] Gesetze ihren inneren Sinn und ihre physikalische Bedeutung erst durch den stillen Nebengedanken, dass die Kräfte, von welchen sie reden, einfacher Natur sind und einfache Eigenschaften haben. Was nun aber hier noch einfach und noch zulässig sei, und was schon nicht mehr, das steht nicht fest".
+
+Hertz will die Kräfte loswerden. Er stützt sich dabei auf eine Arbeit von Helmholtz, in der "zum ersten Male in allgemeiner Weise Sinn und Bedeutung der verborgenen Bewegungen behandelt" werden.
+
+Verborgene Bewegungen also. Verborgen aber anschaulich in Raum und Zeit. Neben vielen anderen Einflüssen verdankt Hertz "sehr viel dem schönen Buche über die Entwickelung der Mechanik von Mach."
+
+Das heisst die beobachtbaren Teilchen bewegten sich an den straffen Schnüren von versteckten Teilchen.
+
+*** Rest: Heisenberg, Mach, Pauli, Schrödinger
+Mach hatte sich gegen verborgene Teilchen, die prinzipiell nicht nachweisbar sein sollen ausgesprochen. Mach war aber für Kräfte, da sie zwar nicht direkt beobachtbar, aber quasi aus Gummibändern heraus gedanklich extrapoliert werden können. Kräfte waren erfahrbar, so quasi erweiterte Erfahrungen.
+
+Hertz ging es um Bilder, Scheinbilder zwar, aber  anschauliche Bilder in Raum und Zeit, wie auch immer die äußeren Gegenstände sein mochten. Die Bilder mussten "anschaulich" sein.
+
+Mach wollte den direkten funktionalen Zusammenhang von (erweiterten) Erfahrungen. Raum und Zeit musste bei den funktionalen Zusammenhängen von Erfahrungen keine fundamentale Rolle spielen. Diese Funktionalen Zusammenhänge sollten Prinzipien gehorchen. Das Vorbild war die Thermodynamik. Prinzip der Energieerhaltung bei jeder Erfahrung. Prinzip der steigenden Entropie bei jeder Erfahrung.
+
+Kurz gesagt: Mach war für Tabellen, Hertz war für Bilder. Und hier haben wir die zwei Ontologien die bis 1930 kämpften.
+
+Boltzmann war ein Fan von Bildern, Schrödinger war ein Fan von Boltzmann und Bildern.
+
+Einstein wollte beides, Bilder und Prinzipien. Relativitätsprinzip, Äquivalenzprinzip. Am Anfang war ihm vielleicht Raum und Zeit nicht so wichtig, er war von der Naturphilosophie von Mach stark beeinflusst. Aber er hat dann Raum und Zeit selbst modelliert, sodass er am Ende deren fundamentale Existenz angenommen hat. Er war halt extrem flexibel wie kein Anderer in Mischung und Anwendung von Bildern und Prinzipien. Seine Prinzipien und Bilder stehen bis heute (zwar immer angefochten aber) komplett intakt da. Der Mann steht außer Konkurrenz.
+
+Bohr war ein Fan von Prinzipien, Korrespondenzprinzip, Komplementaritätsprinzip. Heisenberg war ein Schüler von Bohr. Auch Pauli war in diesem Camp. Alle waren Bereit anschauliche Bilder in Raum und Zeit zu opfern. Ja sogar zu verbieten, aus ... Prinzip.
+
+Man sollte überhaupt mehr Pauli lesen:
+
+"auch [wird] der kinematische Bewegungsbegriff der klassischen Theorie tiefgehende Modifikationen erfahren müssen. (Deshalb habe ich auch die Bezeichnung "Bahn" in meiner Arbeit durchweg vermieden.) Da dieser Bewegungsbegriff auch dem Korrespondenzprinzip zu Grunde liegt, so müssen seiner Klärung vor allem die Anstrengungen der Theoretiker gelten. Ich glaube, daß Energie- und Impulswerte der stationären Zustände etwas viel realeres sind als "Bahnen" - trotz unseres guten Freundes Kramers und seiner bunten Bilderbücher. Wenn auch das Verlangen dieser Kinder nach Anschaulichkeit teilweise ein berechtigtes und gesundes ist, so darf dieses Verlangen doch niemals in der Physik als Argument für die Beibehaltung gewisser Begriffssysteme gelten. Das (noch unerreichte) Ziel muß sein, diese und alle anderen physikalisch realen, beobachtbaren Eigenschaften der stationären Zustände aus den (ganzen) Quantenzahlen und quantentheoretischen Gesetzen zu deduzieren. Wir dürfen aber nicht die Atome in die Fesseln unserer Vorurteile schlagen wollen (zu denen nach meiner Meinung auch die Annahme der Existenz von Elektronenbahnen im Sinne der gewöhnlichen Kinematik gehört), sondern wir müssen umgekehrt unsere Begriffe der Erfahrung anpassen." (Brief an Bohr, Dezember 1924)
+
+Insofern war Pauli mehr Machianer als Einstein. Heisenberg vielleicht noch mehr. Sein Einleitungssatz zum Durchbruch im Juli 1925 war: "In der Arbeit soll versucht werden, Grundlagen zu gewinnen für eine quantentheoretische Mechanik, die ausschließlich auf Beziehungen zwischen prinzipiell beobachtbaren Größen basiert ist."
+
+Und jetzt wissen wir auch warum Bohr immer auf dem Begriff der Komplementarität herumgeritten ist. Denn er wollte ein Prinzip, das Komplementaritätsprinzip als Fundament der Quantenmechanik aufstellen. Das Problem ist nur, dass keiner versteht, was Bohr mit Komplementarität gemeint hat. Er wollte der Welt halt ein Prinzip geben, wenn man ihr schon Raum und Zeit nimmt.
+
+Oben haben wir gesehen, dass Pauli vom Komplementaritätsprinzip wenig gehalten hat. Und auch bei der Komplementarität ist es ratsam, sich an ihn zu halten, er ist ziemlich klar und diesmal neutral-positiv. Er hatte halt den physikalischen Durchblick und war gleichzeitig ein mathematischer Riese:
+
+"Erkenntnistheoretisch beruht der von der Quantenmechanik postulierte indeterministische Charakter der Naturgesetze auf der freien Wahl des Experimentators zwischen einander ausschließenden Versuchsanordnungen. Jede dieser Anordnungen enthält eine für sie charakteristische unbestimmbare Wechselwirkung zwischen Meßinstrument und beobachtetem System und hat neben dem Gewinn gewisser Kenntnisse über dieses System unvermeidbar und unwiderruflich den Verlust anderer Kenntnisse zur Folge. Diese Situation wurde von Bohr als Komplementarität bezeichnet." (aus: Der Begriff der Wahrscheinlichkeit und seine Rolle in den Naturwissenschaften, 1952).
+
+Man sollte überhaupt mehr Pauli lesen.
+
+Schrödinger war anders. Er lehnte die Quantenmechanik ab obwohl er sie selbst miterfunden hatte. Er wollte etwas Anschauliches hinstellen, erkannte aber, dass er ein verschwommenes Bild gezeichnet hatte. Er war sich mit Einstein einig: "nicht der wahre Jakob".
+
+Wir würden uns leichter tun, wenn die QM ein in Worten verständliches Prinzip habe würd. Wie Bohr. Ein Bild in Raum und Zeit, wie Schrödinger, wird's wohl nicht mehr spielen.
+
+Dirac hat den Sack zugemacht, er stellte eine komplett abstrakte Operatoralgebra auf. Reine Mathematik. Und damit begann die moderne Physik.
+
+**** Schrödinger
+geht von der kraftfreien Hamiltonmechanik aus. -> Schüler von Hertz.
+**** Feynman
+Mit seinen Diagrammen war ihm nicht klar, dass es total unvernünftig ist, Bilder in Raum und Zeit zu malen von Dingen, die in Raum und Zeit nicht vorkommen.
+
 ** Resources
 *** clj Files
 **** #stefan.clj
@@ -855,6 +1073,21 @@ https://fondationlouisdebroglie.org/AFLB-classiques/tableclassiques.htm
 Quantum mechanics : historical contingency and the Copenhagen hegemony
 https://archive.org/details/quantummechanics0000cush
 
+Hidden Thermodynamics
+https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics_book.pdf
+https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics.pdf
+
+**** Pauli
+Biographie:
+Pais, Abraham (2000). The Genius of Science
+https://archive.org/details/geniusofsciencea00pais/mode/1up
+
+ Charles P. Enz Kar! v. Meyenn Wolfgang Pauli Das Gewissen der Physik (in Calibre)
+darin das Pauli Prinzip
+Pauli, W. Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. Zeitschrift für Physik 1925, 31, 765–783.
+Vorgänger:
+Pauli, W. Über den Einfluß der Geschwindigkeitsabhängigkeit der Elektronenmasse auf den Zeemaneffekt. Zeitschrift für Physik 1925, 31, 373–385. (nicht im Internet gefunden)
+
 **** Einstein
 CPAE, Searchable Einstein papers:
 https://einsteinpapers.press.princeton.edu
@@ -908,8 +1141,10 @@ Standford Eintrag (via wikipedia-de Boltzmann):
 https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
 
 Boltzmann Biographien (aus HPFQM)
-David Lindley, Boltzmann’s Atom (The Free Press, New York, 2001); John T. Blackmore, Ernst Mach, His Work, Life, and Influence (Univ. of California Press, Berkeley, 1972); E. Broda, The Intellectual Triangle: Mach-Boltzmann-Planck-Einstein CERN 81-10, July 1981; and The Interaction of Boltzmann with Mach, Ostwald, and Planck, and His Influence on Nernst and Einstein, 16th Internation Congress on the History of Science, Bucharest, 1981; and Pullman, loc. cit.
+David Lindley, Boltzmann’s Atom (The Free Press, New York, 2001); John T. Blackmore, Ernst Mach, His Work, Life, and Influence (Univ. of California Press, Berkeley, 1972); E. Broda, The Intellectual Triangle: Mach-Boltzmann-Planck-Einstein CERN 81-10, July 1981; and The Interaction of Boltzmann with Mach, Ostwald, and Planck, and His Influence on Nernst and Einstein, 16th Internation Congress on the History of Science, Bucharest, 1981; and Bernard Pullman, The Atom in the History of Human Thought (Oxford University Press, 2001).
 “He may have been wounded by many things a more robust person would have hardly noticed.... I believe he was a powerful teacher just because of his uncommon human- ity.” Boltzmann’s demise was most likely due to his painfully deteriorating health and failing eyesight [Blackmore in HPFQM].
+
+Blackmore on archive.org: https://archive.org/details/ernstmachhiswork0000blac/mode/2up
 
 vs Zermelo wg. recurrence objection, in HQM p19:
 Zustand sollte eigentlich immer wieder kehren, Boltzmann redet dagegen:
@@ -918,6 +1153,16 @@ WAIII p567 "Entgegnung auf die wärmetheoretischen Betrachtungen des Hrn. E. Zer
 
 auch Cohen: https://arxiv.org/abs/cond-mat/9608054
 heute erklärt mit https://en.wikipedia.org/wiki/Fluctuation–dissipation_theorem (es gibt kein abgeschlossenes System)
+
+Biographie -- Ludwig Boltzmann: The Man Who Trusted Atoms Carlo Cercignani
+https://archive.org/details/ludwigboltzmannm0000cerc/page/n1/mode/2up
+
+**** Erst Mach
+EC Banks, The Realistic Empiricism of Mach, James, and Russell: Neutral Monism Reconceived (zitiert in Rovelli, Helgoland, Fussnote 86)
+
+"Boltzmann's concessions to Mach's philosophy of science"
+JT Blackmore - Ludwig Boltzmann, Gesamtausgabe, 1982 - Vieweg Braunschweig (Editor: Sexl)
+Siehe auch Blackmore oben
 
 **** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
 Hinweis in Histrory of Quantum Physics vol1 part1 p24
@@ -940,9 +1185,12 @@ the first three chapters allegedly explain Plancks History of radiation and Eins
 Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
 
 **** Sen: Einstein's Fridge
-Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Ist es "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
+Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Es ist ziemlich sicher "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
+
+Auch Leibnitz kannte die vis viva (kinetische Energie)
 
 **** HPFQM Historical and Physical Foundations of Quantum Mechanics -- Robert Golub, Steven K Lamoreaux -- 2023 -- Oxford University Press
+
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
@@ -1014,6 +1262,12 @@ Formel fasst alles nochmal zusammen.
 
 * CLJ-Tiles Brilliant manual
 brilliant.org/sabine
+** brings einem Computer bei
+geht auch mit Mathematica
+hat den Vorteil, dass die mechanische Teile aus der Physik genommen werden
+die Sache Anschaulichkeit bekommt.
+** Didaktisch der Visualisierung
+man kann Puzzles machen, Competence before comprehension
 ** orgfile- vs embeeded-puzzles
 Full org files are good for succinct code like SICM.
 However, for transcribing normal books, like historical development, the full code is not useful as puzzle, need a highlight like in the driven pendulum example.
