@@ -574,6 +574,8 @@ Auch besprochen in Verbindung mit Bose (oder eher dem Gibbs Paradox) in Einstein
 
 However: deBroglie ist nicht Bose, aber er sagt im Kontrast zu Einstein 1905 dass sie nicht immer statistisch unabhängig sind.
 
+Mir kommt vor, die deBroglie Wellen sind eher die Felder der QED, deBroglie hat also an Quantenfeldtheorie gearbeitet.
+
 *** Doktorarbeit Sievers zu deBroglie
 S20
 Bis zu seinem Lebensende war er davon überzeugt, daß sie sich mit etwas geringerer Geschwindigkeit als c bewegen und bezeichnete daher c als „Grenzgeschwindigkeit des Lichtes“.
@@ -1027,170 +1029,6 @@ https://2.maria.cloud/gist/39e81f931737ea7032991c796f93c020
 **** lambert.clj
 Buch von Lambert
 
-*** Papers
-**** Willy Wien
-deutsches Wikipedia
-http://myweb.rz.uni-augsburg.de/~eckern/adp/history/historic-papers/1896_294_662-669.pdf
-**** Planck
-„... ich dachte mir nicht viel dabei ...“
-Plancks ungerader Weg zur Strahlungsformel
-Domenico Giulini und Norbert Straumann
-https://onlinelibrary.wiley.com/doi/pdf/10.1002/phbl.20000561214
-
-**** de Broglie
-Doktorarbeit, Thesis
-nicht so gut:
-https://fondationlouisdebroglie.org/LDB-oeuvres/De_Broglie_Kracklauer.pdf
-besser: in Calibre von reserchgate.
-
-nicht greifbar:
-Untersuchungen zur Quantentheorie. Louis de Broglie
-Übersetzt Von Dr. Walther Becker. Pp. ii + 88. (Leipzig: Akademische Verlagsgesellschaft m.b.H., 1927.)
-
-Sievers Doktorarbeit, Kommentar zur Thesis (über deutschen Wikipedia Eintrag für de Broglie)
-https://arxiv.org/pdf/physics/9807012v2.pdf
-
-Google Books Preview:
-The Wave-Particle Dualism: A Tribute to Louis de Broglie on his 90th Birthday (First article)
-
-Nobel lecture
-https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf
-
-Paper: Royome noir at lumiere
-in Calibre
-
-Paper: Ondes et quanta
-Materiewellen mit genauer Sinus Herleitung
-https://www.davis-inc.com/physics/rendus-f.pdf (Orig)
-https://www.davis-inc.com/physics/broglie/broglie.shtml (engl)
-graphic of Schwingunf in Phase
-https://www.davis-inc.com/physics/wavegrph.html
-
-Louis de Broglie’s “double solution” a promising but unfinished theory: https://fondationlouisdebroglie.org/AFLB-421/2DF411.pdf
-Interpretation of quantum mechanics by the double solution theory: https://fondationlouisdebroglie.org/AFLB-classiques/aflb124p001.pdf
-https://fondationlouisdebroglie.org/AFLB-classiques/tableclassiques.htm
-
-Quantum mechanics : historical contingency and the Copenhagen hegemony
-https://archive.org/details/quantummechanics0000cush
-
-Hidden Thermodynamics
-https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics_book.pdf
-https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics.pdf
-
-**** Pauli
-Biographie:
-Pais, Abraham (2000). The Genius of Science
-https://archive.org/details/geniusofsciencea00pais/mode/1up
-
- Charles P. Enz Kar! v. Meyenn Wolfgang Pauli Das Gewissen der Physik (in Calibre)
-darin das Pauli Prinzip
-Pauli, W. Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. Zeitschrift für Physik 1925, 31, 765–783.
-Vorgänger:
-Pauli, W. Über den Einfluß der Geschwindigkeitsabhängigkeit der Elektronenmasse auf den Zeemaneffekt. Zeitschrift für Physik 1925, 31, 373–385. (nicht im Internet gefunden)
-
-**** Einstein
-CPAE, Searchable Einstein papers:
-https://einsteinpapers.press.princeton.edu
-
-SRT: https://de.wikibooks.org/wiki/A._Einstein:_Kommentare_und_Erläuterungen:_Zur_Elektrodynamik_bewegter_Körper
-https://einsteinpapers.press.princeton.edu/vol2-doc/312
-
-Photon-Heuristic:
-https://einsteinpapers.press.princeton.edu/vol2-doc/186
-http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1905_17_132-148.pdf
-(via https://en.wikipedia.org/wiki/Albert_Einstein#Publications)
-
-1906d: Theorie der Lichterzeugung und absorbtion https://einsteinpapers.press.princeton.edu/vol2-doc/386
-
-1909b, Gegenwärtigen Stand Strahlung, p187 https://einsteinpapers.press.princeton.edu/vol2-doc/580
-
-1907a Die Plancksche Theorie der Strahlung
-https://einsteinpapers.press.princeton.edu/vol2-doc/415
-
-1910c (?oder d?): Theorie d Opaleszenz  https://einsteinpapers.press.princeton.edu/vol3-doc/325
-
-Norton,  Einstein’s Miraculous Argument of 1905
-https://sites.pitt.edu/~jdnorton/papers/Miraculous_Berlin_final.pdf
-
-Darrigol, the Quantum Enigma in: The Cambridge Companion to Einstein, Volume 1
-https://books.google.at/books?hl=en&lr=&id=LBhvAwAAQBAJ&oi=fnd&pg=PR11&dq=Darrigol+Quantum+Enigma&ots=BoTThBIS8u&sig=M-KnddLN5kYd04yO0k3XcVoG6tc&redir_esc=y#v=onepage&q=Darrigol%20Quantum%20Enigma&f=false
-
-**** Boltzmann
-WA Boltzmann, Wissenschaftliche Abhandlungen
-https://phaidra.univie.ac.at/detail/o:63651
-
-WA3 = Boltzmann, Wissenschaftliche Abhandlungen III
-
-"Gastheorie" Bücher:
-https://de.wikipedia.org/wiki/Ludwig_Boltzmann -> Lehrbücher
-
-"Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen" #weitere-studien
-Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften in Wien, mathematisch-naturwissenschaftliche Classe, 66, 1872, pp. 275–370.
-vorgelegt in der Sitzung am 10. October 1872
-https://de.wikisource.org/wiki/Sitzungsberichte_der_Kaiserlichen_Akademie_der_Wissenschaften_in_Wien_–_mathematisch-naturwissenschaftliche_Classe/Inhalt#Bd._066,_1872
-https://www.zobodat.at/pdf/SBAWW_66_0115-0118.pdf
-https://galileo-unbound.blog/wp-content/uploads/2020/05/boltzmann-1872.pdf
-(aus: Wissenschaftliche Abhandlungen I, p316)
-auch in Calibre
-
-"The Development of Boltzmann’s Statistical Ideas"
-In The Boltzmann Equation: Theory and Applica- tions, pp. 53-106. E.G.D. Cohen and Walter Thirring, eds. Vienna: Springer-Verlag, 1973
-nicht alle Themen der Paper erscheinen in den "Gastheorie" Büchern.
-
-Standford Eintrag (via wikipedia-de Boltzmann):
-https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
-
-Boltzmann Biographien (aus HPFQM)
-David Lindley, Boltzmann’s Atom (The Free Press, New York, 2001); John T. Blackmore, Ernst Mach, His Work, Life, and Influence (Univ. of California Press, Berkeley, 1972); E. Broda, The Intellectual Triangle: Mach-Boltzmann-Planck-Einstein CERN 81-10, July 1981; and The Interaction of Boltzmann with Mach, Ostwald, and Planck, and His Influence on Nernst and Einstein, 16th Internation Congress on the History of Science, Bucharest, 1981; and Bernard Pullman, The Atom in the History of Human Thought (Oxford University Press, 2001).
-“He may have been wounded by many things a more robust person would have hardly noticed.... I believe he was a powerful teacher just because of his uncommon human- ity.” Boltzmann’s demise was most likely due to his painfully deteriorating health and failing eyesight [Blackmore in HPFQM].
-
-Blackmore on archive.org: https://archive.org/details/ernstmachhiswork0000blac/mode/2up
-
-vs Zermelo wg. recurrence objection, in HQM p19:
-Zustand sollte eigentlich immer wieder kehren, Boltzmann redet dagegen:
-WAIII p567 "Entgegnung auf die wärmetheoretischen Betrachtungen des Hrn. E. Zermelo."
-(Wied. Ann. 57, S. 773-784. 1896.)
-
-auch Cohen: https://arxiv.org/abs/cond-mat/9608054
-heute erklärt mit https://en.wikipedia.org/wiki/Fluctuation–dissipation_theorem (es gibt kein abgeschlossenes System)
-
-Biographie -- Ludwig Boltzmann: The Man Who Trusted Atoms Carlo Cercignani
-https://archive.org/details/ludwigboltzmannm0000cerc/page/n1/mode/2up
-
-**** Erst Mach
-EC Banks, The Realistic Empiricism of Mach, James, and Russell: Neutral Monism Reconceived (zitiert in Rovelli, Helgoland, Fussnote 86)
-
-"Boltzmann's concessions to Mach's philosophy of science"
-JT Blackmore - Ludwig Boltzmann, Gesamtausgabe, 1982 - Vieweg Braunschweig (Editor: Sexl)
-Siehe auch Blackmore oben
-
-**** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
-Hinweis in Histrory of Quantum Physics vol1 part1 p24
-**** HDQT Rechenberg: the historical development of quantum theory
-https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
-
-vol1 part1
-https://archive.org/details/quantumtheoryofp0001meThe Historical Development of Quantum Theory, Vol. 1
-
-vol 1 part2
-https://archive.org/details/quantumtheoryofp0001mehr_g3o9
-
-vol3
-https://archive.org/details/formulationofmat0003mehr
-
-**** Eisenberg: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles
-https://www.amazon.com/Quantum-Physics-Molecules-Solids-Particles/dp/047187373X
-the first three chapters allegedly explain Plancks History of radiation and Einstein.
-**** A. Pais: Subtle is the lord
-Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
-
-**** Sen: Einstein's Fridge
-Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Es ist ziemlich sicher "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
-
-Auch Leibnitz kannte die vis viva (kinetische Energie)
-
-**** HPFQM Historical and Physical Foundations of Quantum Mechanics -- Robert Golub, Steven K Lamoreaux -- 2023 -- Oxford University Press
-
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
@@ -1260,6 +1098,339 @@ Genauso wie Newton nicht mehr die Doktrin der Bibel erklären musste in der Prin
 "ist, mit, und" sind ein und dieselbe Funktion die von Infix auf Prefix rechnet und html-boxes macht.
 Formel fasst alles nochmal zusammen.
 
+* Die Physiker (Papers,  Bücher, History)
+** Bohm
+Time in the Quantum Theory and the Uncertainty Relation for Time and Energy
+Quantum measurements of time (L Maccone, K Sacha https://arxiv.org/pdf/1810.12869)
+Time in quantum mechanics (Book G Muga, RS Mayato, I Egusquiza)
+The Message of Quantum Science: Ch14 Quantum Mechanics of Time
+http://ndl.ethernet.edu.et/bitstream/123456789/75463/1/497.pdf
+
+Hossenfelder, Quantum Confusions, Cleared Up (or so I hope)
+Bohmian Mechanics violates Measurement Independence because (a) the paths of the Bohmian particles must depend on what is usually called the measurement setting, and (b) the paths non-locally influence each other via the velocity equation. That is, the non-locality is the origin of the violation of Measure- ment Independence. Non-locality can easily induce violations of Measurement Independence.
+
+** Boltzmann
+WA Boltzmann, Wissenschaftliche Abhandlungen
+https://phaidra.univie.ac.at/detail/o:63651
+
+WA3 = Boltzmann, Wissenschaftliche Abhandlungen III
+
+"Gastheorie" Bücher:
+https://de.wikipedia.org/wiki/Ludwig_Boltzmann -> Lehrbücher
+
+"Weitere Studien über das Wärmegleichgewicht unter Gasmolekülen" #weitere-studien
+Sitzungsberichte der Kaiserlichen Akademie der Wissenschaften in Wien, mathematisch-naturwissenschaftliche Classe, 66, 1872, pp. 275–370.
+vorgelegt in der Sitzung am 10. October 1872
+https://de.wikisource.org/wiki/Sitzungsberichte_der_Kaiserlichen_Akademie_der_Wissenschaften_in_Wien_–_mathematisch-naturwissenschaftliche_Classe/Inhalt#Bd._066,_1872
+https://www.zobodat.at/pdf/SBAWW_66_0115-0118.pdf
+https://galileo-unbound.blog/wp-content/uploads/2020/05/boltzmann-1872.pdf
+(aus: Wissenschaftliche Abhandlungen I, p316)
+auch in Calibre
+
+"The Development of Boltzmann’s Statistical Ideas"
+In The Boltzmann Equation: Theory and Applica- tions, pp. 53-106. E.G.D. Cohen and Walter Thirring, eds. Vienna: Springer-Verlag, 1973
+nicht alle Themen der Paper erscheinen in den "Gastheorie" Büchern.
+
+Standford Eintrag (via wikipedia-de Boltzmann):
+https://plato.stanford.edu/archives/spr2015/entries/statphys-Boltzmann/
+
+Boltzmann Biographien (aus HPFQM)
+David Lindley, Boltzmann’s Atom (The Free Press, New York, 2001); John T. Blackmore, Ernst Mach, His Work, Life, and Influence (Univ. of California Press, Berkeley, 1972); E. Broda, The Intellectual Triangle: Mach-Boltzmann-Planck-Einstein CERN 81-10, July 1981; and The Interaction of Boltzmann with Mach, Ostwald, and Planck, and His Influence on Nernst and Einstein, 16th Internation Congress on the History of Science, Bucharest, 1981; and Bernard Pullman, The Atom in the History of Human Thought (Oxford University Press, 2001).
+“He may have been wounded by many things a more robust person would have hardly noticed.... I believe he was a powerful teacher just because of his uncommon human- ity.” Boltzmann’s demise was most likely due to his painfully deteriorating health and failing eyesight [Blackmore in HPFQM].
+
+Blackmore on archive.org: https://archive.org/details/ernstmachhiswork0000blac/mode/2up
+
+vs Zermelo wg. recurrence objection, in HQM p19:
+Zustand sollte eigentlich immer wieder kehren, Boltzmann redet dagegen:
+WAIII p567 "Entgegnung auf die wärmetheoretischen Betrachtungen des Hrn. E. Zermelo."
+(Wied. Ann. 57, S. 773-784. 1896.)
+
+auch Cohen: https://arxiv.org/abs/cond-mat/9608054
+heute erklärt mit https://en.wikipedia.org/wiki/Fluctuation–dissipation_theorem (es gibt kein abgeschlossenes System)
+
+Biographie -- Ludwig Boltzmann: The Man Who Trusted Atoms Carlo Cercignani
+https://archive.org/details/ludwigboltzmannm0000cerc/page/n1/mode/2up
+
+** Born
+There are very short, non-technical chapters about Max Born in both Ioan James' "Remarkable Physicists: From Galileo to Yukawa" (Cambridge University Press) and Abraham Pais' "The Genius of Science: A Portrait Gallery of 20th Century Physicists" (Oxford University Press)
+
+Born-Einstein https://vdoc.pub/download/the-born-einstein-letters-4tuq5gc2bs30
+Autobiographie: Der Luxus des Gewissens: Erlebnisse und Einsichten im Atomzeitalter
+
+*** Geometrische Optik
+Eugene Hecht: Optics
+Born, Wolf: Priciples of Optics https://en.wikipedia.org/wiki/Principles_of_Optics
+Peter Gabriel Bergmann: Basic Theories of Physics, 1st vol (2nd vol is in Calibre), siehe auch oben
+
+** de Broglie
+Doktorarbeit, Thesis
+nicht so gut:
+https://fondationlouisdebroglie.org/LDB-oeuvres/De_Broglie_Kracklauer.pdf
+besser: in Calibre von reserchgate.
+
+nicht greifbar:
+Untersuchungen zur Quantentheorie. Louis de Broglie
+Übersetzt Von Dr. Walther Becker. Pp. ii + 88. (Leipzig: Akademische Verlagsgesellschaft m.b.H., 1927.)
+
+Sievers Doktorarbeit, Kommentar zur Thesis (über deutschen Wikipedia Eintrag für de Broglie)
+https://arxiv.org/pdf/physics/9807012v2.pdf
+
+Google Books Preview:
+The Wave-Particle Dualism: A Tribute to Louis de Broglie on his 90th Birthday (First article)
+
+Nobel lecture
+https://www.nobelprize.org/uploads/2016/04/broglie-lecture.pdf
+
+Paper: Royome noir at lumiere
+in Calibre
+
+Paper: Ondes et quanta
+Materiewellen mit genauer Sinus Herleitung
+https://www.davis-inc.com/physics/rendus-f.pdf (Orig)
+https://www.davis-inc.com/physics/broglie/broglie.shtml (engl)
+graphic of Schwingunf in Phase
+https://www.davis-inc.com/physics/wavegrph.html
+
+Louis de Broglie’s “double solution” a promising but unfinished theory: https://fondationlouisdebroglie.org/AFLB-421/2DF411.pdf
+Interpretation of quantum mechanics by the double solution theory: https://fondationlouisdebroglie.org/AFLB-classiques/aflb124p001.pdf
+https://fondationlouisdebroglie.org/AFLB-classiques/tableclassiques.htm
+
+Quantum mechanics : historical contingency and the Copenhagen hegemony
+https://archive.org/details/quantummechanics0000cush
+
+Hidden Thermodynamics
+https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics_book.pdf
+https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/de_broglie_-_hidden_thermodynamics.pdf
+
+** Dirac
+The fundamental equations of quantum mechanics
+https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.1925.0150
+
+The Lagrangian in Quantum Mechanics
+https://www.hep.anl.gov/czachos/soysoy/Dirac33.pdf
+
+Lectures on Quantum Mechanics
+https://archive.org/details/lecturesonquantu0000dira_h7c5/page/n3/mode/2up?view=theater
+Constraint Hamiltionian Mechanics
+https://en.wikipedia.org/wiki/Dirac_bracket
+https://arxiv.org/abs/physics/0608067
+Bergmann Theoriezyklus: https://archive.org/details/basictheoriesofp00berg
+
+Original Hamilton Papers: https://en.wikipedia.org/wiki/Hamilton's_principle
+Erläuterung zu Hamilton in Whittaker, Analytical Dynamics, 2nded. (1917), Chapter 11 (Hinweis in Schrödinger 2. Mitteilung Fussnote ganz vorn): https://archive.org/details/cu31924001080294 (Hinweis auf Hamiltons fundamentale Optik Papers Trans.R.IrishAcad. XV(1828)p69, XVI(1830)pp4&93, XVII(1837)p1)
+Auch von Whittaker: History of Ether https://archive.org/details/historyoftheorie00whitrich
+
+** Einstein
+CPAE, Searchable Einstein papers:
+https://einsteinpapers.press.princeton.edu
+
+SRT: https://de.wikibooks.org/wiki/A._Einstein:_Kommentare_und_Erläuterungen:_Zur_Elektrodynamik_bewegter_Körper
+https://einsteinpapers.press.princeton.edu/vol2-doc/312
+
+Photon-Heuristic:
+https://einsteinpapers.press.princeton.edu/vol2-doc/186
+http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1905_17_132-148.pdf
+(via https://en.wikipedia.org/wiki/Albert_Einstein#Publications)
+
+1906d: Theorie der Lichterzeugung und absorbtion https://einsteinpapers.press.princeton.edu/vol2-doc/386
+
+1909b, Gegenwärtigen Stand Strahlung, p187 https://einsteinpapers.press.princeton.edu/vol2-doc/580
+
+1907a Die Plancksche Theorie der Strahlung
+https://einsteinpapers.press.princeton.edu/vol2-doc/415
+
+1910c (?oder d?): Theorie d Opaleszenz  https://einsteinpapers.press.princeton.edu/vol3-doc/325
+
+Norton,  Einstein’s Miraculous Argument of 1905
+https://sites.pitt.edu/~jdnorton/papers/Miraculous_Berlin_final.pdf
+
+Darrigol, the Quantum Enigma in: The Cambridge Companion to Einstein, Volume 1
+https://books.google.at/books?hl=en&lr=&id=LBhvAwAAQBAJ&oi=fnd&pg=PR11&dq=Darrigol+Quantum+Enigma&ots=BoTThBIS8u&sig=M-KnddLN5kYd04yO0k3XcVoG6tc&redir_esc=y#v=onepage&q=Darrigol%20Quantum%20Enigma&f=false
+
+A. Pais: Subtle is the lord
+Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
+
+** Feynman
+Space-Time Approach to Non-Relativistic Quantum Mechanics
+https://authors.library.caltech.edu/47756/1/FEYrmp48.pdf
+** Heisenberg
+Understanding Heisenberg’s ‘magical’ paper of July 1925: a new look at the calculational details
+Ian J. R. Aitchison
+David A. MacManus
+Thomas M. Snyder
+February 1, 2008
+https://arxiv.org/pdf/quant-ph/0404009.pdf
+
+Uber quantentheoretische Umdeutung
+kinematischer und mechaniseher Beziehungen.
+Heisenberg
+http://www.quantum-cognition.de/texts/1925%20paper.pdf
+Wiki Eintrag mit Link zu Buch
+https://en.wikipedia.org/wiki/Über_quantentheoretische_Umdeutung_kinematischer_und_mechanischer_Beziehungen
+"The historical development of Quantum Theory" (3), Helmut Rechenberg
+
+Matritzenmechnik im Buch von Born + Jordan
+https://archive.org/details/elementarequante0000mbor
+
+** Hertz
+Hüttemann: Hertz and the concept of a Symbol
+https://philpapers.org/archive/HTTHHA.pdf
+https://philosophie.phil-fak.uni-koeln.de/personen/universitaetsprofessorinnen/prof-dr-andreas-huettemann
+
+seine Mechnik in Calibre
+
+** Mach
+EC Banks, The Realistic Empiricism of Mach, James, and Russell: Neutral Monism Reconceived (zitiert in Rovelli, Helgoland, Fussnote 86)
+
+"Boltzmann's concessions to Mach's philosophy of science"
+JT Blackmore - Ludwig Boltzmann, Gesamtausgabe, 1982 - Vieweg Braunschweig (Editor: Sexl)
+Siehe auch Blackmore oben
+
+** Newton
+Principia
+https://cudl.lib.cam.ac.uk/view/MS-ROYALSOCIETY-00069/59
+
+** Pauli
+Biographie:
+Pais, Abraham (2000). The Genius of Science
+https://archive.org/details/geniusofsciencea00pais/mode/1up
+
+ Charles P. Enz Kar! v. Meyenn Wolfgang Pauli Das Gewissen der Physik (in Calibre)
+darin das Pauli Prinzip
+Pauli, W. Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. Zeitschrift für Physik 1925, 31, 765–783.
+Vorgänger:
+Pauli, W. Über den Einfluß der Geschwindigkeitsabhängigkeit der Elektronenmasse auf den Zeemaneffekt. Zeitschrift für Physik 1925, 31, 373–385. (nicht im Internet gefunden)
+
+** Planck
+„... ich dachte mir nicht viel dabei ...“
+Plancks ungerader Weg zur Strahlungsformel
+Domenico Giulini und Norbert Straumann
+https://onlinelibrary.wiley.com/doi/pdf/10.1002/phbl.20000561214
+
+Vorlesungen über die Theorie der Wärmestrahlung
+https://archive.org/details/bub_gb_k21KAAAAMAAJ/page/n11/mode/2up
+Kommentar in Fussnote 7 von
+Michał Kokowski: Ladislas Natanson and Alfred Landé versus Planck’s law, the Boltzmann-Planck-Natanson statistics and the Bose statistics:"Planck (1906) considered the number of  possible different configurations of  ΔN quanta of  energy in ΔA oscillators; Debye (1910) – ΔN energy quanta in ΔA natural vibrations; while Laue (1914) – ΔN energy quanta in independent beams of  rays." (Planck 1906 ist eben seine Vorlesung Wärmestrahlung)
+"As Natanson pointed out in his letter sent on November 14, 1925,
+Landé’s derivation of Planck’s distribution is analogous to the method
+presented by Natanson in 1911 and based on Boltzmann’s approach: 
+using the occupancy numbers  of   random  variables  of   a  configuration 
+of a statistical system composed of N atoms endowed with energy
+elements / energy units"
+
+So wie ich das sehe, hat Planck damals (1906 in seine Vorlesungen) schon das verwendet was jetzt als Bose-Statistik angesehen wird. Diese (von Schrödinger als bequem bezeichnete) Rechenmethode hat auch Boltzmann schon verwendet.  Aber in den ursprünglichen Abhandlungen haben Bose-Einstein wohl irgendwie kompliziert mit irgendwelchen "Abhängigkeiten" zwischen den Photonen bzw. Boson-Atomen rumgerechnet sodass Schrödinger ein einfacheres Bild gesucht hat (bin mir nicht ganz sicher, weil die Einstein Originale nicht gelesen.)
+
+** Schrödinger
+zweite Mitteilung: http://www.fisicafundamental.net/relicario/doc/Schrodinger1926a.pdf
+S501 "die Frequenz innerhalb eines infinitesimales Bereichs variiren lassen und durch passende Verteilung der Amplituden und Phasen die Erregung auf einen Bereich beschränken, der auch in longitudinaler Richtung verhältnismässig klein ist"
+
+Uber &as Verh&Ztnis der He4sertberg-BomJordanschem Quamtenrnechamik #u der mehem
+https://uni-tuebingen.de/fileadmin/Uni_Tuebingen/Fakultaeten/MathePhysik/Institute/IAP/Forschung/MOettel/Geburt_QM/schrodinger_AnnPhys_384_734_1926.pdf
+
+ R Lopes Coelho and John Stachel: On Schrödinger’s equation, Hertz’s mechanics and Van Vleck’s determinant
+historische Betrachtung zur Herleitung (in Calibre). darin: "Sherlock Holmes, The dog that did not bark." -> Feldquantisierung ->
+
+ Zur Einsteinschen Gastheorie
+ (in Calibre) -> Hinweis auf Planck #Wärmestrahlung
+
+Hertz’s mechanics and Einstein’s theory of gravitation
+https://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/schrodinger_-_hertzs_mechanics.pdf
+
+Jaume Masoliver, Ana Ros: From Classical to Quantum Mechanics through Optics https://arxiv.org/pdf/0909.3258
+Genaue Beschreibung der Herleitung der SchrGl.
+aus: #Lesser Known Einstein p236
+Bessere historische Herleitung in: Historical and Physical Principles of QM (darin leider wenig Literaturzitate)
+
+Schrödinger, Statistical Thermodynamics:
+https://archive.org/details/statisticaltherm0000erwi/page/n5/mode/2up?view=theater
+
+** Willy Wien
+deutsches Wikipedia
+http://myweb.rz.uni-augsburg.de/~eckern/adp/history/historic-papers/1896_294_662-669.pdf
+** Aharanov, Two state Vector Fomalism, TSVF
+*** Some notes on counterfactuals in quantum mechanics (Elitzur)
+a counterfactual event is not merely an event which did not occur but rather an occurrence accompanied by an unoccurrence through the self-cancellation of particles and counter-particles.
+*** The Weak Reality that Makes Quantum Phenomena more Natural
+https://arxiv.org/abs/1811.04704
+*** Versuch den Begriff der negativen Größen in die Weltweisheit einzuführen (Kant)
+http://www.zeno.org/Philosophie/M/Kant,+Immanuel/Versuch+den+Begriff+der+negativen+Größen+in+die+Weltweisheit+einzuführen
+
+** Carroll, Sean
+all AMA's in a google doc
+https://docs.google.com/spreadsheets/d/1i2tmn7L-nlqOz0i-O1MVoOg6kafe9gC45VkaXs0LxMA/edit?gid=1378547435#gid=1378547435
+linked in March 2023
+https://www.preposterousuniverse.com/podcast/2023/03/06/ama-march-2023/
+
+** David Deutsch
+David Wallace, Quantum Probability and Decision Theory https://philsci-archive.pitt.edu/885/3/decarx.pdf
+** Quantenfeldtheorie, Field Theory
+Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
+Robert D. Klauber: Student Friendly Quantum Field Theory
+
+** Geometrothermodynamics
+Fundamentals of Geometrothermodynamics 2011 https://arxiv.org/abs/1111.5056
+Geometrothermodynamics, from ordinary systems to black holes
+https://iris.uniroma1.it/bitstream/11573/918203/1/PhD%20Thesis%20final.pdf
+
+in Google Scholar, search "Ruppeiner Geometry", choose reveiw articles only.
+
+** Geschichte Physik, History Physics
+*** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
+Hinweis in Histrory of Quantum Physics vol1 part1 p24
+*** HDQT Rechenberg: the historical development of quantum theory
+https://archive.org/details/quantumtheoryofp0001mehr/mode/1up?view=theater
+
+vol1 part1
+https://archive.org/details/quantumtheoryofp0001meThe Historical Development of Quantum Theory, Vol. 1
+
+vol 1 part2
+https://archive.org/details/quantumtheoryofp0001mehr_g3o9
+darin: Debye 1910 "Planck law from from EM-modes" ->  p558 ; führt auf Schrödinger's Feldquantisierung 1926.
+
+vol3
+https://archive.org/details/formulationofmat0003mehr
+
+*** Eisenberg: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles
+https://www.amazon.com/Quantum-Physics-Molecules-Solids-Particles/dp/047187373X
+the first three chapters allegedly explain Plancks History of radiation and Einstein.
+*** Sen: Einstein's Fridge
+Auf Seite 49 spricht er von einem nur als Pamphlet publizierten Paper von Helmholtz, das Energie einführt. Es ist ziemlich sicher "Über die Erhaltung der Kraft" von 1847? https://www.deutschestextarchiv.de/book/view/helmholtz_erhaltung_1847 (aus: https://de.wikipedia.org/wiki/Hermann_von_Helmholtz)
+
+Auch Leibnitz kannte die vis viva (kinetische Energie)
+
+*** HPFQM Historical and Physical Foundations of Quantum Mechanics
+Robert Golub, Steven K Lamoreaux -- 2023 -- Oxford University Press
+in Calibre
+*** Others
+Dugas, A History of Mechanics: https://ia903006.us.archive.org/6/items/ahistoryofmechanics_201907/A%20History%20of%20Mechanics.pdf
+
+E. T. WHITTAKER,A HISTORY OF THE THEORIES OF AETHER AND ELECTRICITY: https://en.wikisource.org/wiki/A_History_of_the_Theories_of_Aether_and_Electricity
+
+Darrigol, History of Optics
+https://books.google.at/books?id=ImM62wvWE_cC&dq=darrigol+history+of+optics&lr=&source=gbs_navlinks_s
+
+Szabo, Geschichte der Mechanischen Prinzipien
+auch refs in: https://de.wikipedia.org/wiki/Nikolaus_von_Oresme https://de.wikipedia.org/wiki/Impetustheorie
+
+Marc Levi: The Mathematical Mechanic: Using Physical Reasoning to Solve Problems
+
+Richard Brock: Stories from Physics
+https://spark.iop.org/sites/default/files/media/documents/IOP%20Stories%20from%20Physics%20forces-motion%5Bweb%5D_0.pdf
+
+Rechenberg: the historical development of quantum theory HDQT (links in photon.org)
+
+van der Waerden: Sources of Quantum Mechanics (1966)
+(alles vor Schrödinger, bis Dirac im Jan 26)
+https://archive.org/details/sourcesofquantum0000unse/mode/1up?view=theater
+
+D'Abro: The Rise of the New Physics (1951), drei Bände, Boltzmann in Band1
+https://archive.org/details/riseofnewphysics0002dabr/mode/1up?view=theater
+Eine Art eigene Nacherzählung der Physikalischen Aussagen der Papers, wenige Formeln.
+
+Max Jammer, mehrere Bücher, Concepts of Mass in Classicaland Modern Physics, Simultaneity
+
+Golub and Lamoreaux, “The Historical and Physical Foundations of Quantum Mechanics”
+
 * CLJ-Tiles Brilliant manual
 brilliant.org/sabine
 ** brings einem Computer bei
@@ -1274,29 +1445,6 @@ However, for transcribing normal books, like historical development, the full co
 
 ** The Scribe
 more like medieval copist than an original bok writer.
-
-* GEB
-43:
-Such strings, producible by the rules, are called theorems. The term "theorem" has, of course, a common usage in mathematics which is quite different from this one. It means some statement in ordinary language which has been proven to be true by a rigorous argument, such as Zeno's Theorem about the "unexistence" of motion, c Euclid's Theorem about the infinitude of primes. But in formal system theorems need not be thought of as statements- they are merely strings c symbols. And instead of being proven, theorems are merely produced, as in a machine, according to certain typographical rules. To emphasize this important distinction in meanings for the word "theorem", I will adopt the following convention in this book: when "theorem" is capitalized, its meaning will be the everyday one-a Theorem is a statement in ordinary language which somebody once proved to be true by some sort of logic argument. When uncapitalized, "theorem" will have its technical meaning: a string producible in some formal system.
-
-58:
-The perception of an isomorphism between two known structures is a significant advance in knowledge-and I claim that it is such perceptions of isomorphism which create meanings in the minds of people. A final word on the perception of isomorphisms: since they come in many shapes and sizes, figuratively speaking, it is not always totally clear when you really have found an isomorphism. Thus, "isomorphism" is a word with all the usual vagueness of words-which is a defect but an advantage as well.
-
-This symbol-word correspondence has a name: interpretation.
-Secondly, on a higher level, there is the correspondence between true statements
-and theorems. But-note carefully-this higher-level correspondence could not be perceived without the prior choice of an interpretation for the symbols. Thus it would be more accurate to describe it as a correspondence between true statements and interpreted theorems.
-
-67:
-[Euclid's Theorem about the infinitude of primes]
-In mathematics the goal always to give an ironclad proof for some unobvious statement [i.e. Theorem, capital T]. The structure can best be exposed by finding a new vocabulary-a stylized vocabulary, consisting of symbols-suitable only for expressing statements about numbers. Then we can look at the proof as it exists in its translated version. It will be a set of statements which are related, line by line, in some detectable way. But the statements, since they're represented by means a small and stylized set of symbols, take on the aspect of patterns. In other words, though when read aloud, they seem to be statements about numb and their properties, still when looked at on paper, they seem to be abstract patterns-and the line-by-line structure of the proof may start to look like slow transformation of patterns according to some few typographical rules.
-
-68:
-We use the word "all" in a few ways which are defined by the thought processes of reasoning. That is, there are rules which our usage of "all" obeys. We may be unconscious of them, and tend to claim we operate on the basis of the meaning of the word; but that, after all, is only a circumlocution for saying that we are guided by rules which we never make explicit. We have used words all our lives in certain patterns, and instead of calling the patterns "rules", we attribute the courses of our thought processes to the "meanings" of words.
-
-A very important question will be whether the rules for symbol manipulation which we have then formulated are really of equal power (as far as number theory is concerned) to our usual mental reasoning abilities-or, more generally, whether it is theoretically possible to attain the level of our thinking abilities, by using some formal system.
-
-Kommentar:
-gödl liest eine andere bedeutung in die symbole von russel. einstein liest eine andere bedeutung in optische daten. eine neue bedeutung von gleichzeitigkeit. kann man vielleicht eine noch andere bedeutung in bell-experiment daten reinlesen?
 
 * KarlMay
 ** Bücher
