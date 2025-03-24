@@ -5,6 +5,9 @@
               [emmy.numerical.minimize :as mn]
               [scicloj.kindly.v4.kind :as kind]))
 
+;; clean up before reload
+(run! #(ns-unmap *ns* %) (keys (ns-interns *ns*)))
+
 (defn test-path
   "See p. 20"
   [t]

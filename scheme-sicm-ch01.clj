@@ -7,6 +7,9 @@
                        Lagrangian->energy s->r Gamma-bar Euler-Lagrange-operator]]
             [emmy.mechanics.lagrange :as eml]))
 
+;; clean up before reload
+(run! #(ns-unmap *ns* %) (keys (ns-interns *ns*)))
+
 (defn walk [inner outer form]
   (cond
     (list? form) (outer (apply list (map inner form)))
