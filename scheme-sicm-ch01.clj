@@ -5,14 +5,7 @@
              :exclude [F->C Lagrangian-action find-path Lagrange-equations p->r r->p
                        Lagrangian->state-derivative Lagrange-equations-first-order
                        Lagrangian->energy s->r Gamma-bar Euler-Lagrange-operator]]
-            [emmy.mechanics.lagrange :as eml]
-            [clojure.walk :as w]))
-
-;; command to run this file:
-;;$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M sicm_ch1.clj
-
-;; command to run a cider nrepl for development
-;;$ clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} cider/cider-nrepl {:mvn/version "0.50.2"} }}' -M -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
+            [emmy.mechanics.lagrange :as eml]))
 
 (defn walk [inner outer form]
   (cond
@@ -26,7 +19,7 @@
   (postwalk (fn [x] (if (contains? smap x) (smap x) x)) form))
 (defmacro let-scheme [b & e]
   (concat (list 'let (into [] (apply concat b))) e))
-(defmacro define-1 [h & b]
+(defmacro define [h & b]
   (let [body (postwalk-replace {'let 'let-scheme} b)]
     (if (coll? h)
       (if (coll? (first h))
@@ -35,12 +28,7 @@
         (concat (list 'defn (first h) (into [] (rest h)))
                 body))
       (concat (list 'def h) body))))
-(defmacro define [h & b]
-  (if (and (coll? h) (= (first h) 'tex-inspect))
-    (list 'do
-          (concat ['define-1 (second h)] b)
-          h)
-    (concat ['define-1 h] b)))
+
 (defmacro lambda [h b]
   (list 'fn (into [] h) b))
 (def show-expression simplify)

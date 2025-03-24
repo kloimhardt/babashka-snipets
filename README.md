@@ -83,7 +83,16 @@ Then, on the appearing `user=>` prompt:
 clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta22\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M mariastefan.clj
 ```
 
-## sicm_ch1.clj: a "define"-Macro for Scheme emulation
+## scheme-sicm-ch01.clj: a "define"-Macro for Scheme emulation
+run the file containing scheme code:
+```
+java -jar noj-2-beta11.1-uber.jar scheme-sicm-ch01.clj
+```
+or its sibling (containing pure Clojure code)
+
+```
+java -jar noj-2-beta11.1-uber.jar emmy-sicm-ch01.clj
+```
 
 Start nRepl with bells and whistles for Emacs editing:
 ```
@@ -93,7 +102,6 @@ Or just a bare nRepl
 ```
 clj -Sdeps '{:deps {org.mentat/emmy {:mvn/version "0.32.0"} nrepl/nrepl {:mvn/version "1.3.0"}}}' -m nrepl.cmdline
 ```
-
 ## Run Jupyter
 ```
 source python_venv/bin/activate
