@@ -1015,6 +1015,39 @@ geht von der kraftfreien Hamiltonmechanik aus. -> Schüler von Hertz.
 **** Feynman
 Mit seinen Diagrammen war ihm nicht klar, dass es total unvernünftig ist, Bilder in Raum und Zeit zu malen von Dingen, die in Raum und Zeit nicht vorkommen.
 
+** Pauli
+*** Gewissen der Physik
+p5
+was Pauli über den klassischen Feldbegriff sagt, denn es stimmt genau mit dem überein, was er 36 Jahre vorher in seiner dritten publizierten Arbeit geschrieben hatte [Pauli (1919c)] und in seinem Brief (111,2) an Eddington wiederholte: Das elektrische Feld ist nur durch Messung mittels einer Probeladung definiert, also hat der Feldbegriff im Innern der Elemen- tarteilchen keinen Sinn [siehe dazu auch Enz (1973a)].
+
+p8
+Es war der unerschütterliche Glaube an die fundamentale Bedeutung der Symme- trie-Gesetze in der Physik und der daraus resultierenden Erhaltungssätze (siehe X,3), welcher Pauli bewog, ein Teilchen zu postulieren. Damit geriet er allerdings in Opposition zu Bohr, der davon überzeugt war, daß im Bereich der Atomkerne Energie- und Impulssatz nur noch statistische Gültigkeit hätten (siehe dazu X,7).
+waren anschauliche Modelle keine zuverlässige Basis, um darauf die Quan- tenmechanik aufzubauen. Darin waren Bohr und Heisenberg mit Pauli einig. So war man Anfang 1925 in Kopenhagen zu einer allgemeinen Übereinkunft gelangt, kon- krete Bilder durch mathematische Symbole zu ersetzen.
+eine Verletzung der Rechts-Links- Symmetrie - der Parität - des Neutrinos auf (siehe X,7 und 8). Und nach dem was über die Symmetrie-Gesetze gesagt wurde, versteht man Paulis Überraschung, zu- geben zu müssen, daß "Gott doch nur ein Linkshänder"9 sei.
+
+p9
+Theorie nur mit der Abzählmethode der symmetrischen Zustände gleicher Teilchen, das heißt der Bose-Einstein-Statistik, verträglich ist, nicht aber mit derjenigen der antisymme- trischen Zustände des Ausschließungsprinzips, d. h. der Fermi-Dirac-Statistik. Dies war in der Tat der erste Hinweis auf eine Relation zwischen dem Wert des Spins und der Statistik gleicher Teilchen, welche Pauli 1940 in voller Allgemeinheit be- wies [Pauli (1940b)].
+
+p18
+"Der Vorgang des Verstehens der Natur sowie auch die Beglückung, die der Mensch beim Verstehen, d.h. beim Bewußtwerden einer neuen Erkenntnis empfindet, scheint demnach auf einer Entsprechung, einem Zur-Deckung- Kommen von präexistenten inneren Bildern der menschlichen Psyche mit äußeren Objekten und ihrem Verhalten zu beruhen."
+
+p19
+Die in Frage stehenden komplementären (im Bohrsehen oder taoistischen Sinne) Gegensatzpaare sind für mich: Bewußtsein-Unbe- wußtes, Denken-Fühlen, Vernunft-Instinkt, Logos-Eros.
+
+p46
+Besonders scharf betonten Sie sogleich, daß Sie für die vierte Quantenzahl des Elektrons keine Deutung geben können.
+Ein halbes Jahr zuvor hatten Sie einen Brief in den "Naturwissenschaften" publiziert über die damals noch recht unbekannte Hyper-Feinstruktur der Spectra.
+Sie sind also der Erfinder des Kern-Impulses oder, wie wir in der heutigen Terminologie sagen: des "Kern-Spins".
+andere Ihrer Leistungen zu sprechen, wie z.B. Ihre Formel für die Wechselwirkung zwischen Strahlungsfeld und freien Elektronen.
+
+** Spezifische Wärme
+Materie besteht aus Protonen, Neutronen und Elektronen. Aber das wussten wir noch nicht.
+
+Plank: Diese Paktierung muss irgendwas mit dem Austausch zwischen Strahlung und Materie zu tun haben, irgendwie dazwischen. An sich schwingt Materie wie Newton und Licht ist sowieso eine Welle.
+Im Übrigen hab ich diese Oszillatoren deswegen genommen, weil jede Materie gleich strahlt, wie Kirchhoff zeigte.
+
+E: und hier lag Planck falsch. Materie schwingt an sich nur diskret, egal woher die Energie kommt.
+
 ** Resources
 *** clj Files
 **** #stefan.clj
@@ -1295,7 +1328,11 @@ Biographie:
 Pais, Abraham (2000). The Genius of Science
 https://archive.org/details/geniusofsciencea00pais/mode/1up
 
+Pauli Briefe
+https://archive.org/details/wissenschaftlich0001paul/mode/1up?view=theater
+
  Charles P. Enz Kar! v. Meyenn Wolfgang Pauli Das Gewissen der Physik (in Calibre)
+
 darin das Pauli Prinzip
 Pauli, W. Über den Zusammenhang des Abschlusses der Elektronengruppen im Atom mit der Komplexstruktur der Spektren. Zeitschrift für Physik 1925, 31, 765–783.
 Vorgänger:
