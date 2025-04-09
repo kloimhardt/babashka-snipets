@@ -1,0 +1,29 @@
+<html>
+    <script type="importmap">
+     {
+         "imports": {
+             "squint-cljs": "https://unpkg.com/squint-cljs@0.8.143/index.js",
+             "squint-cljs/core.js": "https://unpkg.com/squint-cljs@0.8.143/core.js",
+             "squint-cljs/html.js": "https://squint-cljs.github.io/squint/src/squint/html.js"
+         }
+     }
+    </script>
+
+    <script type="module">
+     import { compileString } from 'squint-cljs';
+     import * as squint_core from 'squint-cljs/core.js';
+     import * as squint_html from 'squint-cljs/html.js';
+
+     const wset = (k, v) => window[k]=v;
+     const cmpStr = s => compileString(s,{"elide-imports": true,"elide-exports": true});
+
+     const c1 = cmpStr('(wset "erg" (doall (map (fn [x] (inc x)) [1 2 3]))) (pr-str #html [:h1 "a"])');
+
+     console.log(c1);
+     window.res = eval(c1);
+     window.evalSquint = s => eval(cmpStr(s))
+     // erg, res, evalSquint() available in console, all this is async
+    </script>
+
+    <h1>hu</h1>
+</html>
