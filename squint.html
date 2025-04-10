@@ -9,6 +9,8 @@
      }
     </script>
 
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+
     <script type="module">
      import { compileString } from 'squint-cljs';
      import * as squint_core from 'squint-cljs/core.js';
@@ -21,9 +23,97 @@
 
      console.log(c1);
      window.res = eval(c1);
+     console.log(window.res);
      window.evalSquint = s => eval(cmpStr(s))
      // erg, res, evalSquint() available in console, all this is async
     </script>
 
-    <h1>hu</h1>
+    <h1>Squint Example</h1>
+    <h2>open browser console</h2>
+    <h3>see also blog/docs/html/emmysquint.html</h3>
+
+<script>
+Blockly.defineBlocksWithJsonArray([
+     {
+         "type": "num",
+         "message0": "%1",
+         "args0": [
+             {
+                 "type": "field_input",
+                 "name": "nummer",
+                 "text": ""
+             }
+         ],
+         "output": null,
+         "colour": "#A65C81"
+     },
+     {
+         "type": "funs-h-2-inp",
+         "message0": "%1 %2",
+         "args0": [
+             {
+                 "type": "field_input",
+                 "name": "kopf",
+                 "text": ""
+             },
+             {
+                 "type": "input_value",
+                 "name": "args-2"
+             }
+         ],
+         "inputsInline": true,
+         "output": null,
+         "colour": 270
+     },
+     {
+         "type": "funs-h-3-inp",
+         "message0": "%1 %2 %3",
+         "args0": [
+             {
+                 "type": "field_input",
+                 "name": "kopf",
+                 "text": ""
+             },
+             {
+                 "type": "input_value",
+                 "name": "args-2"
+             },
+             {
+                 "type": "input_value",
+                 "name": "args-3"
+             }
+         ],
+         "inputsInline": true,
+         "output": null,
+         "colour": 140
+     }
+     ]);
+
+var toolbox = {
+    "kind": "categoryToolbox",
+    "contents": [
+      {
+        "kind": "category",
+        "name": ">",
+        "contents": [
+          {"kind": "block", "type": "num"},
+          {"kind": "block", "type": "funs-h-2-inp"},
+          {"kind": "block", "type": "funs-h-3-inp"},
+        ]
+      }]}
+</script>
+
+<div id="blocklyDiv1" style="height: 100%"></div>
+
+<script>
+ var workspace1 = Blockly.inject('blocklyDiv1', {
+     "toolbox": toolbox,
+     "sounds": false});
+
+ var xs = "<xml><block id=\"funs-h-2-inpid1\" type=\"funs-h-2-inp\"><field name=\"kopf\">a</field><value name=\"args-2\"><block id=\"num2-funs-h-2-inpid1\" type=\"num\"><field name=\"nummer\">1</field></block></value></block></xml>"
+
+ const xmlDom = Blockly.utils.xml.textToDom(xs)
+ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace1)
+
+</script>
 </html>

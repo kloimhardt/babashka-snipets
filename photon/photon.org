@@ -1062,6 +1062,9 @@ https://2.maria.cloud/gist/39e81f931737ea7032991c796f93c020
 **** lambert.clj
 Buch von Lambert
 
+**** squint.html
+playground für  den squint cljs->js transpiler
+
 *** Ideen, Wikipedia
 **** Aberration (Astronomie)
 https://de.wikipedia.org/wiki/Aberration_(Astronomie)
