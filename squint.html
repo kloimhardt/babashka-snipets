@@ -33,6 +33,8 @@
     <h3>see also blog/docs/html/emmysquint.html</h3>
 
     <script>
+     //taken from
+     //https://github.com/kloimhardt/kloimhardt.github.io/blob/master/sicmblocks_fun.js
      Blockly.defineBlocksWithJsonArray([
          {
              "type": "list-h-2",
@@ -111,7 +113,24 @@
              "colour": 140,
              "tooltip": "",
              "helpUrl": ""
-         }
+         },
+         {
+             "type": "infi-h-3-inp",
+             "message0": "%1 %2 %3",
+             "args0": [
+                 {"type": "input_value",
+                  "name": "args-2"},
+                 {"type": "field_input",
+                  "name": "kopf",
+                  "text": ""
+                 },
+                 {"type": "input_value",
+                  "name": "args-3"}],
+             "inputsInline": true,
+             "output": null,
+             "colour": 140,
+             "tooltip": "",
+             "helpUrl": ""}
      ]);
 
      var toolbox = {
@@ -139,7 +158,9 @@
 
      var xs2 = "<xml><block id=\"list-h-2-10-10\" type=\"list-h-2\" x=\"10\" y=\"10\"><value name=\"args-1\"><block id=\"funs-h-2-inp1-list-h-2-10-10\" type=\"funs-h-2-inp\"><field name=\"kopf\">D</field><value name=\"args-2\"><block id=\"funs-h-2-inp2-funs-h-2-inp1-list-h-2-10-10\" type=\"funs-h-2-inp\"><field name=\"kopf\">s_log_base</field><value name=\"args-2\"><block id=\"num2-funs-h-2-inp2-funs-h-2-inp1-list-h-2-10-10\" type=\"num\"><field name=\"nummer\">base</field></block></value></block></value></block></value><value name=\"args-2\"><block id=\"num2-list-h-2-10-10\" type=\"num\"><field name=\"nummer\">x</field></block></value></block></xml>"
 
-     const xmlDom = Blockly.utils.xml.textToDom(xs2)
+     var xs3="<xml><block id=\"funs-h-3-inp-10-10\" inline=\"false\" type=\"funs-h-3-inp\" x=\"10\" y=\"10\"><field name=\"kopf\">def</field><value name=\"args-2\"><block id=\"funs-h-3-inp2-funs-h-3-inp-10-10\" type=\"funs-h-3-inp\"><field name=\"kopf\">logarithm</field><value name=\"args-2\"><block id=\"num2-funs-h-3-inp2-funs-h-3-inp-10-10\" type=\"num\"><field name=\"nummer\">base</field></block></value><value name=\"args-3\"><block id=\"num3-funs-h-3-inp2-funs-h-3-inp-10-10\" type=\"num\"><field name=\"nummer\">x</field></block></value></block></value><value name=\"args-3\"><block id=\"infi-h-3-inp3-funs-h-3-inp-10-10\" type=\"infi-h-3-inp\"><field name=\"kopf\">/</field><value name=\"args-2\"><block id=\"funs-h-2-inp2-infi-h-3-inp3-funs-h-3-inp-10-10\" type=\"funs-h-2-inp\"><field name=\"kopf\">log</field><value name=\"args-2\"><block id=\"num2-funs-h-2-inp2-infi-h-3-inp3-funs-h-3-inp-10-10\" type=\"num\"><field name=\"nummer\">x</field></block></value></block></value><value name=\"args-3\"><block id=\"funs-h-2-inp3-infi-h-3-inp3-funs-h-3-inp-10-10\" type=\"funs-h-2-inp\"><field name=\"kopf\">log</field><value name=\"args-2\"><block id=\"num2-funs-h-2-inp3-infi-h-3-inp3-funs-h-3-inp-10-10\" type=\"num\"><field name=\"nummer\">base</field></block></value></block></value></block></value></block></xml>"
+
+     const xmlDom = Blockly.utils.xml.textToDom(xs3)
      Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace1)
 
     </script>
