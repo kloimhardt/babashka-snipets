@@ -1,5 +1,6 @@
 (ns ngenblocks
-  (:require  [hiccup2.core :as h]))
+  (:require  [hiccup2.core :as h]
+             [cheshire.core :as json] ))
 
 (defn html [e]
   (str (h/html e)))
@@ -299,28 +300,19 @@ Blockly.defineBlocksWithJsonArray([
              'colour': 140,
              'tooltip': '',
              'helpUrl': ''}
-     ]);
+     ]);"
 
-var toolbox = {
-    'kind': 'categoryToolbox',
-    'contents': [
-      {
-        'kind': 'category',
-        'name': '>',
-        'contents': [
-          {'kind': 'block', 'type': 'num'},
-          {'kind': 'block', 'type': 'funs-h-2-inp'},
-          {'kind': 'block', 'type': 'funs-h-3-inp'},
-        ]
-      }]}
+   " var toolbox = " (:toolbox content) ";"
+
+   "
 </script>
 
-<div id='blocklyDiv3' style='height: 90%'></div>
+<div id='blocklyDiv3' style='height: 20%'></div>
 
 <script>
 var workspace3 = Blockly.inject('blocklyDiv3', {'toolbox': toolbox, 'sounds': false});"
 
-"var xs = '" (:xml content) "';"
+"var xs = '" (:code-xml content) "';"
 
 "
 const xmlDom = Blockly.utils.xml.textToDom(xs)
@@ -329,6 +321,20 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
 </script>
 </html>"])
 
-(def xml (rpg [[0 0]] '(a 5)))
+(def code '(a 7))
 
-(spit "h.html" (apply str (page {:xml xml})))
+(def toolbox
+  {:kind "categoryToolbox"
+   :contents
+   [{:kind "category"
+    :name ">"
+    :contents
+    [{:kind "block" :type "num"}
+     {:kind "block" :type "funs-h-2-inp"}
+     {:kind "block" :type "funs-h-3-inp"}]}]})
+
+(def content
+  {:toolbox  (json/generate-string toolbox)
+   :code-xml (rpg [[0 0]] code)})
+
+(spit "h.html" (apply str (page content)))
