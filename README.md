@@ -108,3 +108,15 @@ source python_venv/bin/activate
 jupyter lab
 ```
 (works only Java@21 not 23)
+
+## Run Blockly Rendering with Babashka
+
+```
+bb notebooks/ngenblocks.clj
+```
+
+or
+
+```
+bb -f ngenblocks.clj --nrepl-server
+```

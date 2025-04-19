@@ -361,15 +361,6 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
                  ["field_input" "kopf"]
                  ["input_value" "args-3"]]))])
 
-(def blocks-old
-  [{:type         "list-h-2"
-    :message0     " %1 \u007C %2"
-    :args0        [{:type "input_value" :name "args-1"}
-                   {:type "input_value" :name "args-2"}]
-    :inputsInline true
-    :output       nil
-    :colour       70}])
-
 (def toolbox
   {:kind "categoryToolbox"
    :contents
@@ -380,7 +371,7 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
       {:kind "block" :type "funs-h-2-inp"}
       {:kind "block" :type "funs-h-3-inp"}]}]})
 
-(def code '(a 4))
+(def code '(a 5))
 
 (def content
   {:blocks (json/generate-string blocks)
