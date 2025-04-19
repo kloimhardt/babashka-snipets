@@ -204,7 +204,10 @@
   <script src='https://unpkg.com/blockly/blockly_compressed.js'></script>
 
 <script>
-Blockly.defineBlocksWithJsonArray([
+var blocks = " (:blocks content) ";"
+
+   "
+var blocks_old = [
 {
              'type': 'list-h-2',
              'message0': ' %1 \u007C %2',
@@ -300,7 +303,9 @@ Blockly.defineBlocksWithJsonArray([
              'colour': 140,
              'tooltip': '',
              'helpUrl': ''}
-     ]);"
+     ];
+
+   Blockly.defineBlocksWithJsonArray(blocks); "
 
    " var toolbox = " (:toolbox content) ";"
 
@@ -321,20 +326,65 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
 </script>
 </html>"])
 
-(def code '(a 7))
+
+(defn block [type message color args]
+  {:type         type
+   :message0     message
+   :args0        args
+   :inputsInline true
+   :output       nil
+   :colour       color})
+
+(defn args [type-name]
+  (mapv (fn [[type name]] {:type type :name name}) type-name))
+
+(defn input-value [n m]
+  (mapv (fn [i] ["input_value" (str "args-" i)]) (range n (inc m))))
+
+(def blocks
+  [(block "list-h-2" "%1 \u007C %2" 70
+          (args (input-value 1 2)))
+
+   (block "num" "%1" "#A65C81"
+          (args [["field_input" "nummer"]]))
+
+   (block "funs-h-2-inp" "%1 %2" 270
+          (args [["field_input" "kopf"]
+                 ["input_value" "args-2"]]))
+
+   (block "funs-h-3-inp" "%1 %2 %3" 140
+          (args (concat [["field_input" "kopf"]]
+                        (input-value 2 3))))
+
+   (block "infi-h-3-inp" "%1 %2 %3" 140
+          (args [["input_value" "args-2"]
+                 ["field_input" "kopf"]
+                 ["input_value" "args-3"]]))])
+
+(def blocks-old
+  [{:type         "list-h-2"
+    :message0     " %1 \u007C %2"
+    :args0        [{:type "input_value" :name "args-1"}
+                   {:type "input_value" :name "args-2"}]
+    :inputsInline true
+    :output       nil
+    :colour       70}])
 
 (def toolbox
   {:kind "categoryToolbox"
    :contents
    [{:kind "category"
-    :name ">"
-    :contents
-    [{:kind "block" :type "num"}
-     {:kind "block" :type "funs-h-2-inp"}
-     {:kind "block" :type "funs-h-3-inp"}]}]})
+     :name ">"
+     :contents
+     [{:kind "block" :type "num"}
+      {:kind "block" :type "funs-h-2-inp"}
+      {:kind "block" :type "funs-h-3-inp"}]}]})
+
+(def code '(a 4))
 
 (def content
-  {:toolbox  (json/generate-string toolbox)
+  {:blocks (json/generate-string blocks)
+   :toolbox (json/generate-string toolbox)
    :code-xml (rpg [[0 0]] code)})
 
 (spit "h.html" (apply str (page content)))
