@@ -282,6 +282,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
 (spit (str (subs filename 0 (- (count filename) 4)) ".html")
       (html (pagen (content code-vec))))
 
+  ;; 20.4. 14:15 - 14:55 :40
   ;; 20.4. 13:15 - 14:15 1:00
   ;; 20.4. 12:05 - 12:50 :45
   ;; 20.4. 10:40 - 12:05 1:15
