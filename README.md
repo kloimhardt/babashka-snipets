@@ -109,14 +109,25 @@ jupyter lab
 ```
 (works only Java@21 not 23)
 
-## Run Blockly Rendering with Babashka
+## Run Blockly Rendering with Babashka (or Cljs)
 
 ```
 babashka-snipets/clj-twotiles$ bb genblocks.clj code.clj
 ```
 
+```
+bb --nrepl-server
+```
 or
 
 ```
-bb --nrepl-server
+clj -M --main cljs.main --repl-opts "{:launch-browser false}" --compile tilestest.genblocks --repl
+```
+
+and open `http://localhost:9000` in your favourite web browser.
+
+In the termianl, call the following functions:
+
+```
+(tilestest.genblocks/rpg [[0 0]] '(a [1]))
 ```
