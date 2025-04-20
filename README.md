@@ -112,7 +112,7 @@ jupyter lab
 ## Run Blockly Rendering with Babashka
 
 ```
-babashka-snipets/clj-twotiles$ bb genblocks.clj
+babashka-snipets/clj-twotiles$ bb genblocks.clj code.clj
 ```
 
 or

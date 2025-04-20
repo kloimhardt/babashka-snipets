@@ -208,7 +208,8 @@
  var xs" n " = '" code-xml "';
  const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
-")]]))
+")]
+     [:textarea {:style {:width "100%"}} code-xml]]))
 
 (defn hmap-indexed [hicc]
   (into [:div] (map-indexed (fn [i xml] (hiccdiv i xml)) hicc)))
@@ -273,13 +274,14 @@ Blockly.defineBlocksWithJsonArray(blocks);
      :toolbox  (json/generate-string toolbox)
      :code-xml (map (fn [code] (rpg [[0 0]] code)) code-vec)})
 
-  (def code-vec
-    ['(a 10)
-     '(c 13)])
+(def filename
+  (or (first *command-line-args*) "code.clj"))
 
-;;  (spit "h.html" (apply str (pagex (content code-vec))))
+(def code-vec (eval (read-string (slurp filename))))
 
-  (spit "h.html" (html (pagen (content code-vec))))
+(spit (str (subs filename 0 (- (count filename) 4)) ".html")
+      (html (pagen (content code-vec))))
 
-  ;; 20.4. 12:05 - 12:50
-  ;; 20.4. 10:40 - 12:05 1h15
+  ;; 20.4. 13:15 - 14:15 1:00
+  ;; 20.4. 12:05 - 12:50 :45
+  ;; 20.4. 10:40 - 12:05 1:15
