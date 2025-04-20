@@ -23,7 +23,7 @@
 
 ;; is really a vector
 (defmethod gen :args [{:keys [argsvec inline?]} givenid]
-  (let [xml-block-type (str "args-" (count argsvec))
+  (let [xml-block-type      (str "args-" (count argsvec))
         {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
     (into [:block bm]
           (map-indexed (fn [idx v]
@@ -31,7 +31,7 @@
                           (gen v (str (+ idx 1) "-" id))]) argsvec))))
 
 (defmethod gen :list [{:keys [argsvec inline?]} givenid]
-  (let [xml-block-type (str "list-h-" (count argsvec))
+  (let [xml-block-type      (str "list-h-" (count argsvec))
         {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
     (into [:block bm]
           (map-indexed (fn [idx v]
@@ -40,7 +40,7 @@
 
 
 (defmethod gen :fun [{:keys [kopf argsvec subtype inline?]} givenid]
-  (let [xml-block-type (str subtype "-" (inc (count argsvec)) "-inp")
+  (let [xml-block-type      (str subtype "-" (inc (count argsvec)) "-inp")
         {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
     (into [:block bm
            [:field {:name "kopf"} kopf]]
@@ -53,7 +53,7 @@
     (concat (map first a) (map second a))))
 
 (defmethod gen :map [{:keys [argsvec subtype inline?]} givenid]
-  (let [xml-block-type (str subtype "-" (* (count argsvec) 2) "-inp")
+  (let [xml-block-type      (str subtype "-" (* (count argsvec) 2) "-inp")
         {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
     (into [:block bm]
           (rearrange ;;(rearrange [1 2 3 4]) => (1 3 2 4)
@@ -126,13 +126,13 @@
           appl (fn [fuct] (apply fuct erst (map exp (into [] (rest v)))))]
       (cond
         (and (= (count v) 3) (#{"/" "+" "*" "-"} erst)) (appl fun-infi)
-        (#{"def" "defn" "do"} erst) (assoc (appl fun) :inline? false)
-        :else (appl fun)))
+        (#{"def" "defn" "do"} erst)                     (assoc (appl fun) :inline? false)
+        :else                                           (appl fun)))
     (cond
-      (map? v) v
-      (nil? v) (num "nil")
+      (map? v)    v
+      (nil? v)    (num "nil")
       (string? v) (text v)
-      :else (num v))))
+      :else       (num v))))
 
 (defn infix-sensible? [lst]
   (when (and (list? lst) (= (count lst) 3))
@@ -148,15 +148,15 @@
           appl (fn [fuct] (apply fuct erst (map parse (rest l))))]
       (cond
         (or (list? (first l)) (= ":tiles/slot" erst)) (apply lst (map parse l))
-        (= ":tiles/vert" erst) (assoc (parse (second l)) :inline? false)
-        (= ":tiles/keep" erst) (parse (second l))
-        (= ":tiles/num" erst) (num (second l))
-        (= "clojure.core/deref" erst) (tiles-deref (second l))
-        (= "quote" erst) (num (str "'" (second l)))
+        (= ":tiles/vert" erst)                        (assoc (parse (second l)) :inline? false)
+        (= ":tiles/keep" erst)                        (parse (second l))
+        (= ":tiles/num" erst)                         (num (second l))
+        (= "clojure.core/deref" erst)                 (tiles-deref (second l))
+        (= "quote" erst)                              (num (str "'" (second l)))
         ;;(infix-sensible? l) (appl fun-infi) ;;detect infix automatically for simple expressions
-        (= ":tiles/infix" erst) (assoc (parse (second l)) :subtype "infi-h")
-        (#{"def" "defn" "do"} erst) (assoc (appl fun) :inline? false)
-        :else (appl fun)))
+        (= ":tiles/infix" erst)                       (assoc (parse (second l)) :subtype "infi-h")
+        (#{"def" "defn" "do"} erst)                   (assoc (appl fun) :inline? false)
+        :else                                         (appl fun)))
     (vector? l)
     (if (empty? l)
       (num "[ ]")
@@ -172,10 +172,10 @@
     (and (set? l) (empty? l))
     (num "#{ }")
     (= :tiles/slot l) slot
-    (nil? l) (num "nil")
-    (string? l) (text l)
-    (keyword? l) (kw l)
-    :else (num l)))
+    (nil? l)          (num "nil")
+    (string? l)       (text l)
+    (keyword? l)      (kw l)
+    :else             (num l)))
 
 (defn shift-coords [nofblocks & coords]
   (->> (range 0 nofblocks)
@@ -199,97 +199,87 @@
 
 (defn hiccdiv [n code-xml]
   (->
-   [:div
-    [:div {:id (str "blocklyDiv" n) :style {:height "20%"}}]
-    [:script (h/raw "
+    [:div
+     [:div {:id (str "blocklyDiv" n) :style {:height "20%"}}]
+     [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
-                    "', {'toolbox': toolbox, 'sounds': false});
+                     "', {'toolbox': toolbox, 'sounds': false});
 
  var xs" n " = '" code-xml "';
  const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
 ")]]))
 
-
 (defn hmap-indexed [hicc]
   (into [:div] (map-indexed (fn [i xml] (hiccdiv i xml)) hicc)))
 
-(defn page [content]
-  [
-"
-<html>
+(defn pagen [content]
+  [:html
+   [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
+   [:script {:src "blockly_compressed.js"}]
+   [:script (h/raw "
+var blocks = " (:blocks content) ";
+Blockly.defineBlocksWithJsonArray(blocks);
+")]
+   [:script (h/raw "var toolbox = " (:toolbox content) ";")]
+   (hmap-indexed (:code-xml content))])
 
-  <script src='blockly_compressed.js'></script>
-  <script src='https://unpkg.com/blockly/blockly_compressed.js'></script>
+  (defn block [type message color args]
+    {:type         type
+     :message0     message
+     :args0        args
+     :inputsInline true
+     :output       nil
+     :colour       color})
 
-<script>
-var blocks = " (:blocks content) ";"
+  (defn args [type-name]
+    (mapv (fn [[type name]] {:type type :name name}) type-name))
 
-   "
-   Blockly.defineBlocksWithJsonArray(blocks); "
+  (defn input-value [n m]
+    (mapv (fn [i] ["input_value" (str "args-" i)]) (range n (inc m))))
 
-   " var toolbox = " (:toolbox content) ";
-</script>
-"
+  (def blocks
+    [(block "list-h-2" "%1 \u007C %2" 70
+            (args (input-value 1 2)))
 
-   (html (hmap-indexed (:code-xml content)))
+     (block "num" "%1" "#A65C81"
+            (args [["field_input" "nummer"]]))
 
-   "
-</html>"])
+     (block "funs-h-2-inp" "%1 %2" 270
+            (args [["field_input" "kopf"]
+                   ["input_value" "args-2"]]))
 
-(defn block [type message color args]
-  {:type         type
-   :message0     message
-   :args0        args
-   :inputsInline true
-   :output       nil
-   :colour       color})
+     (block "funs-h-3-inp" "%1 %2 %3" 140
+            (args (concat [["field_input" "kopf"]]
+                          (input-value 2 3))))
 
-(defn args [type-name]
-  (mapv (fn [[type name]] {:type type :name name}) type-name))
+     (block "infi-h-3-inp" "%1 %2 %3" 140
+            (args [["input_value" "args-2"]
+                   ["field_input" "kopf"]
+                   ["input_value" "args-3"]]))])
 
-(defn input-value [n m]
-  (mapv (fn [i] ["input_value" (str "args-" i)]) (range n (inc m))))
-
-(def blocks
-  [(block "list-h-2" "%1 \u007C %2" 70
-          (args (input-value 1 2)))
-
-   (block "num" "%1" "#A65C81"
-          (args [["field_input" "nummer"]]))
-
-   (block "funs-h-2-inp" "%1 %2" 270
-          (args [["field_input" "kopf"]
-                 ["input_value" "args-2"]]))
-
-   (block "funs-h-3-inp" "%1 %2 %3" 140
-          (args (concat [["field_input" "kopf"]]
-                        (input-value 2 3))))
-
-   (block "infi-h-3-inp" "%1 %2 %3" 140
-          (args [["input_value" "args-2"]
-                 ["field_input" "kopf"]
-                 ["input_value" "args-3"]]))])
-
-(def toolbox
-  {:kind "categoryToolbox"
-   :contents
-   [{:kind "category"
-     :name ">"
+  (def toolbox
+    {:kind "categoryToolbox"
      :contents
-     [{:kind "block" :type "num"}
-      {:kind "block" :type "funs-h-2-inp"}
-      {:kind "block" :type "funs-h-3-inp"}]}]})
+     [{:kind "category"
+       :name ">"
+       :contents
+       [{:kind "block" :type "num"}
+        {:kind "block" :type "funs-h-2-inp"}
+        {:kind "block" :type "funs-h-3-inp"}]}]})
 
-(def code-vec
-  ['(a 7)
-   '(b 9)])
+  (defn content [code-vec]
+    {:blocks   (json/generate-string blocks)
+     :toolbox  (json/generate-string toolbox)
+     :code-xml (map (fn [code] (rpg [[0 0]] code)) code-vec)})
 
-(def content
-  {:blocks (json/generate-string blocks)
-   :toolbox (json/generate-string toolbox)
-   :code-xml (map (fn [code] (rpg [[0 0]] code)) code-vec)})
+  (def code-vec
+    ['(a 10)
+     '(c 13)])
 
-(spit "h.html" (apply str (page content)))
+;;  (spit "h.html" (apply str (pagex (content code-vec))))
 
-;; 20.4. 10:40 - 12:05 1h15
+  (spit "h.html" (html (pagen (content code-vec))))
+
+  ;; 20.4. 12:05 - 12:50
+  ;; 20.4. 10:40 - 12:05 1h15
