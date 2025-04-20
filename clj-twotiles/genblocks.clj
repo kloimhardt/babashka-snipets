@@ -197,135 +197,45 @@
 (def pg (p-gen exp))
 (def rpg (p-gen parse))
 
+(defn hiccdiv [n code-xml]
+  (->
+   [:div
+    [:div {:id (str "blocklyDiv" n) :style {:height "20%"}}]
+    [:script (h/raw "
+ var workspace" n " = Blockly.inject('blocklyDiv" n
+                    "', {'toolbox': toolbox, 'sounds': false});
+
+ var xs" n " = '" code-xml "';
+ const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
+ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
+")]]))
+
+
+(defn hmap-indexed [hicc]
+  (into [:div] (map-indexed (fn [i xml] (hiccdiv i xml)) hicc)))
+
 (defn page [content]
   [
 "
 <html>
+
+  <script src='blockly_compressed.js'></script>
   <script src='https://unpkg.com/blockly/blockly_compressed.js'></script>
 
 <script>
 var blocks = " (:blocks content) ";"
 
    "
-var blocks_old = [
-{
-             'type': 'list-h-2',
-             'message0': ' %1 \u007C %2',
-             'args0': [
-                 {
-                     'type': 'input_value',
-                     'name': 'args-1',
-                 },
-                 {
-                     'type': 'input_value',
-                     'name': 'args-2'
-                 }
-             ],
-             'inputsInline': true,
-             'output': null,
-             'colour': 70,
-             'tooltip': '',
-             'helpUrl': ''
-         },
-         {
-             'type': 'num',
-             'message0': '%1',
-             'args0': [
-                 {
-                     'type': 'field_input',
-                     'name': 'nummer',
-                     'text': '0.0'
-                 }
-             ],
-             'output': null,
-             'colour': '#A65C81',
-             'tooltip': '',
-             'helpUrl': ''
-         },
-         {
-             'type': 'funs-h-2-inp',
-             'message0': '%1 %2',
-             'args0': [
-                 {
-                     'type': 'field_input',
-                     'name': 'kopf',
-                     'text': ''
-                 },
-                 {
-                     'type': 'input_value',
-                     'name': 'args-2'
-                 }
-             ],
-             'inputsInline': true,
-             'output': null,
-             'colour': 270,
-             'tooltip': '',
-             'helpUrl': ''
-         },
-         {
-             'type': 'funs-h-3-inp',
-             'message0': '%1 %2 %3',
-             'args0': [
-                 {
-                     'type': 'field_input',
-                     'name': 'kopf',
-                     'text': ''
-                 },
-                 {
-                     'type': 'input_value',
-                     'name': 'args-2'
-                 },
-                 {
-                     'type': 'input_value',
-                     'name': 'args-3'
-                 }
-             ],
-             'inputsInline': true,
-             'output': null,
-             'colour': 140,
-             'tooltip': '',
-             'helpUrl': ''
-         },
-    {
-             'type': 'infi-h-3-inp',
-             'message0': '%1 %2 %3',
-             'args0': [
-                 {'type': 'input_value',
-                  'name': 'args-2'},
-                 {'type': 'field_input',
-                  'name': 'kopf',
-                  'text': ''
-                 },
-                 {'type': 'input_value',
-                  'name': 'args-3'}],
-             'inputsInline': true,
-             'output': null,
-             'colour': 140,
-             'tooltip': '',
-             'helpUrl': ''}
-     ];
-
    Blockly.defineBlocksWithJsonArray(blocks); "
 
-   " var toolbox = " (:toolbox content) ";"
+   " var toolbox = " (:toolbox content) ";
+</script>
+"
+
+   (html (hmap-indexed (:code-xml content)))
 
    "
-</script>
-
-<div id='blocklyDiv3' style='height: 20%'></div>
-
-<script>
-var workspace3 = Blockly.inject('blocklyDiv3', {'toolbox': toolbox, 'sounds': false});"
-
-"var xs = '" (:code-xml content) "';"
-
-"
-const xmlDom = Blockly.utils.xml.textToDom(xs)
-Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
-
-</script>
 </html>"])
-
 
 (defn block [type message color args]
   {:type         type
@@ -371,11 +281,15 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom,workspace3)
       {:kind "block" :type "funs-h-2-inp"}
       {:kind "block" :type "funs-h-3-inp"}]}]})
 
-(def code '(a 5))
+(def code-vec
+  ['(a 7)
+   '(b 9)])
 
 (def content
   {:blocks (json/generate-string blocks)
    :toolbox (json/generate-string toolbox)
-   :code-xml (rpg [[0 0]] code)})
+   :code-xml (map (fn [code] (rpg [[0 0]] code)) code-vec)})
 
 (spit "h.html" (apply str (page content)))
+
+;; 20.4. 10:40 - 12:05 1h15

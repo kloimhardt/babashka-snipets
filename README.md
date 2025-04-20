@@ -112,11 +112,11 @@ jupyter lab
 ## Run Blockly Rendering with Babashka
 
 ```
-bb notebooks/ngenblocks.clj
+babashka-snipets/clj-twotiles$ bb genblocks.clj
 ```
 
 or
 
 ```
-bb -f ngenblocks.clj --nrepl-server
+bb --nrepl-server
 ```
