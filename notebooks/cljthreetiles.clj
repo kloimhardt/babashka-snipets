@@ -6,6 +6,10 @@
             [clojure.string :as s]))
 
 ^:kindly/hide-code
+(def md
+  (comp kindly/hide-code kind/md))
+
+^:kindly/hide-code
 (do
 
   (defmulti gen (fn [m _] (:type m)))
@@ -233,6 +237,8 @@
 
   :tiles-html-definition)
 
+(md "# Definition of `clj-tiles` graphical blocks")
+
 (kind/html "<script src=\"https://unpkg.com/blockly/blockly_compressed.js\"></script>")
 
 (defn hblock [type message color args]
@@ -317,6 +323,8 @@
       {:kind "block" :type "funs-h-2-inp"}
       {:kind "block" :type "funs-h-3-inp"}]}]})
 
+(md "# Blocks in the Clay workspace")
+
 (kind/html
   (str "<script>"
        "var toolbox = " (json/generate-string toolbox) ";"
@@ -333,3 +341,65 @@
   (tiles-html (list :tiles/vert code)
               {:height "150px"
                :xml    true}))
+
+(md "# Write Blocks into the file `mytiles.html` ")
+
+^:kindly/hide-code
+(do
+  (defn hmap-indexed [hicc]
+    (into [:div] (map-indexed (fn [i xml] (hiccdiv i {:xml true} xml)) hicc)))
+
+  (defn pagen [content]
+    [:html
+     [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
+     [:script (h/raw "
+var blocks = " (:blocks content) ";
+Blockly.defineBlocksWithJsonArray(blocks);
+")]
+     [:script (h/raw "var toolbox = " (:toolbox content) ";")]
+     (hmap-indexed (:code-xml content))])
+
+  :pagen-definition)
+
+(defn content [code-vec]
+  {:blocks   (json/generate-string tiles-blocks)
+   :toolbox  (json/generate-string toolbox)
+   :code-xml (map (fn [code] (str (h/html (rpg [[0 0]] code)))) code-vec)})
+
+(def code-vec
+  ['(:tiles/vert (fun a))
+   '((this-returns-a-function "three=") 3)
+   ["a"]
+   '(def (myfunction x base)
+      (return (log x base)))
+   '(define myfunction
+      (parameters x
+                  base)
+      (return (log x base)))
+   '(->> (pow x 4) (for [x [1 2 3]]))
+   [1 2 3 4 5 6]
+   [1 2 3 4 5]
+   [1 2 3 4]
+   [1 2 3]
+   [1 2]
+   [1]
+   '(f 1 2 3 4 5 6)
+   '(f 1 2 3 4 5)
+   '(f 1 2 3 4)
+   '(f 1 2 3)
+   '(f 1 2)
+   '(f 1)
+   ])
+
+(defonce write-html
+  (str "only once"
+       (spit "mytiles.html"
+             (str (h/html (h/raw "<!DOCTYPE html>")
+                          (pagen (content code-vec)))))))
+
+;; 21.4. 12:00 - 21:00 9:00
+;; 20.4. 15:20 - 17:50 2:30
+;; 20.4. 14:15 - 14:55 :40
+;; 20.4. 13:15 - 14:15 1:00
+;; 20.4. 12:05 - 12:50 :45
+;; 20.4. 10:40 - 12:05 1:15
