@@ -3,9 +3,6 @@
   (:require  [hiccup2.core :as h]
              [cheshire.core :as json] ))
 
-(defn html [e]
-  (str (h/html e)))
-
 (defmulti gen (fn [m _] (:type m)))
 
 (defmethod gen :slot [] nil)
@@ -85,7 +82,7 @@
        (map-indexed (fn [idx blk] (addcoords (gen blk (gen-str (coords idx)))
                                              (coords idx))))
        (into [:xml])
-       html
+       ;;html
        ))
 
 (def slot {:type :slot})
@@ -192,26 +189,25 @@
                           (addcoords (gen (parser-fn blk) (gen-str (shifted idx)))
                                      (shifted idx))))
            (into [:xml])
-           html
+           ;;html
            ))))
 
 (def pg (p-gen exp))
 (def rpg (p-gen parse))
 
 (defn hiccdiv [n code-xml]
-  (->
-    [:div
-     [:span (h/raw "\n")]
-     [:div {:id (str "blocklyDiv" n) :style {:height "20%"}}]
-     [:script (h/raw "
+  [:div
+   [:span (h/raw "\n")]
+   [:div {:id (str "blocklyDiv" n) :style {:height "100px"}}]
+   [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
-                     "', {'toolbox': toolbox, 'sounds': false});
+                   "', {'toolbox': toolbox, 'sounds': false});
 
  var xs" n " = '" code-xml "';
  const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
 ")]
-     [:textarea {:style {:width "100%"}} code-xml]]))
+   [:textarea {:style {:width "100%"}} code-xml]])
 
 (defn hmap-indexed [hicc]
   (into [:div] (map-indexed (fn [i xml] (hiccdiv i xml)) hicc)))
@@ -313,7 +309,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
   (defn content [code-vec]
     {:blocks   (json/generate-string blocks)
      :toolbox  (json/generate-string toolbox)
-     :code-xml (map (fn [code] (rpg [[0 0]] code)) code-vec)})
+     :code-xml (map (fn [code] (str (h/html (rpg [[0 0]] code)))) code-vec)})
 
 (def filename
   (or (first *command-line-args*) "code.clj"))
@@ -321,7 +317,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
 (def code-vec (eval (read-string (slurp filename))))
 
 (spit (str (subs filename 0 (- (count filename) 4)) ".html")
-      (html (pagen (content code-vec))))
+      (str (h/html (h/raw "<!DOCTYPE html>") (pagen (content code-vec)))))
 
 (comment
   (rpg [[0 0]] '(a 1))
