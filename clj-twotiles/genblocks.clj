@@ -1,4 +1,5 @@
 (ns genblocks
+  ;; aus: cljtiles/genblocks
   (:require  [hiccup2.core :as h]
              [cheshire.core :as json] ))
 
@@ -200,6 +201,7 @@
 (defn hiccdiv [n code-xml]
   (->
     [:div
+     [:span (h/raw "\n")]
      [:div {:id (str "blocklyDiv" n) :style {:height "20%"}}]
      [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
@@ -322,12 +324,15 @@ Blockly.defineBlocksWithJsonArray(blocks);
       (html (pagen (content code-vec))))
 
 (comment
-(rpg [[0 0]] '(a 1))
-(rpg [[0 0]] '(a [1]))
-(parse [1])
-(apply args (map parse [1]))
-(map parse [1])
-(rpg [[0 0]] [1])
+  (rpg [[0 0]] '(a 1))
+  (rpg [[0 0]] '(a [1]))
+  (rpg [[0 0]] '(a [1]) '(b 2))
+  (parse [1])
+  (apply args (map parse [1]))
+  (map parse [1])
+  (rpg [[0 0]] [1])
+
+  :TODO context-menu for copy block, demo infix, slot
   )
 
 ;; 20.4. 15:20 -17:50 2:30
