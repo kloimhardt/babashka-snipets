@@ -5,28 +5,6 @@
             [scicloj.kindly.v4.kind :as kind]
             [clojure.string :as s]))
 
-(kind/html "<h1>8</h1>")
-
-(kind/html "
-<script src=\"https://unpkg.com/blockly/blockly_compressed.js\"></script>
-")
-
-(kind/html "
-<script>
-var toolbox = {\"kind\":\"categoryToolbox\",\"contents\":[{\"kind\":\"category\",\"name\":\">\",\"contents\":[]}]};
-</script>
-")
-
-(kind/html "
-<div id=\"blocklyDiv17\" style=\"width: 100%; height: 400px;\"></div>
-")
-
-(kind/html "
-<script>
-var workspace17 = Blockly.inject(document.getElementById('blocklyDiv17'), {'toolbox': toolbox, 'sounds': false});
-</script>
-")
-
 ^:kindly/hide-code
 (do
 
@@ -221,10 +199,41 @@ var workspace17 = Blockly.inject(document.getElementById('blocklyDiv17'), {'tool
 
   (def pg (p-gen exp))
   (def rpg (p-gen parse))
-  :end-do)
+  :rpg-definition)
 
 ^:kindly/hide-code
-(defn tiles [code] (rpg [[0 0]] code))
+(do
+  (defn hiccdiv [n opts code-xml]
+    ;; TODO: toolbox is hardcoded
+    [:div
+     [:span (h/raw "\n")]
+     [:div {:id (str "blocklyDiv" n)
+            :style {:height (or (:height opts) "100px")}}]
+     [:script (h/raw "
+ var workspace" n " = Blockly.inject('blocklyDiv" n
+                     "', {'toolbox': toolbox, 'sounds': false});
+
+ var xs" n " = '" code-xml "';
+ const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
+ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
+")]
+     (when (:xml opts)
+       [:textarea {:style {:width "100%"}} code-xml])])
+
+  (defn tiles-html
+    ([code] (tiles-html code nil))
+    ([code opts]
+     (->> code
+          (rpg [[0 0]])
+          h/html
+          str
+          (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
+          h/html
+          str)))
+
+  :tiles-html-definition)
+
+(kind/html "<script src=\"https://unpkg.com/blockly/blockly_compressed.js\"></script>")
 
 (defn hblock [type message color args]
   {:type         type
@@ -240,7 +249,7 @@ var workspace17 = Blockly.inject(document.getElementById('blocklyDiv17'), {'tool
 (defn input-values [prfx n m]
   (mapv (fn [i] ["input_value" (str prfx i)]) (range n (inc m))))
 
-(def blocks
+(def tiles-blocks
   ;; aus cljtiles/public/sicmblocks_fun.js
   [(hblock "num" "%1" "#A65C81"
            (hargs [["field_input" "nummer"]]))
@@ -296,14 +305,13 @@ var workspace17 = Blockly.inject(document.getElementById('blocklyDiv17'), {'tool
    (hblock "infi-h-3-inp" "%1 %2 %3" 140
            (hargs [["input_value" "args-2"]
                    ["field_input" "kopf"]
-                   ["input_value" "args-3"]]))
-   ])
+                   ["input_value" "args-3"]]))])
 
 (def toolbox
   {:kind "categoryToolbox"
    :contents
    [{:kind "category"
-     :name ">"
+     :name "⋮"
      :contents
      [{:kind "block" :type "num"}
       {:kind "block" :type "funs-h-2-inp"}
@@ -311,39 +319,17 @@ var workspace17 = Blockly.inject(document.getElementById('blocklyDiv17'), {'tool
 
 (kind/html
   (str "<script>"
-       "var blocks  = " (json/generate-string blocks) ";"
        "var toolbox = " (json/generate-string toolbox) ";"
-       "Blockly.defineBlocksWithJsonArray(blocks);"
+       "var tiles_blocks  = " (json/generate-string tiles-blocks) ";"
+       "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
        "</script>"))
 
-(def hraw (comp str h/raw))
+(-> '(+ 1 2) tiles-html kind/html)
 
-(defn hiccdiv [n opts code-xml]
-  [:div
-   [:span (h/raw "\n")]
-   [:div {:id (str "blocklyDiv" n) :style {:height "100px"}}]
-   [:script (h/raw "
- var workspace" n " = Blockly.inject('blocklyDiv" n
-                   "', {'toolbox': toolbox, 'sounds': false});
+(def code '(->> (pow x 4)
+                (for [x [1 2 3]])))
 
- var xs" n " = '" code-xml "';
- const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
- Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
-")]
-   (when (:xml opts)
-     [:textarea {:style {:width "100%"}} code-xml])])
-
-
-(defn tiles
-  ([code] (tiles code nil))
-  ([code opts]
-   (->> code
-        (rpg [[0 0]])
-        h/html
-        str
-        (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
-        h/html
-        str)))
-
-(kind/html (tiles '(b 3)))
-(kind/html (tiles '(b 3) {:xml true}))
+(kind/html
+  (tiles-html (list :tiles/vert code)
+              {:height "150px"
+               :xml    true}))
