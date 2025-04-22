@@ -1,209 +1,18 @@
 (ns cljthreetiles
-  (:require [hiccup2.core :as h]
-            [cheshire.core :as json]
+  (:require [cheshire.core :as json]
+            [clojure.string :as s]
+            [cljtwotiles :refer [twotiles-xml]]
+            [hiccup2.core :as h]
             [scicloj.kindly.v4.api :as kindly]
-            [scicloj.kindly.v4.kind :as kind]
-            [clojure.string :as s]))
+            [scicloj.kindly.v4.kind :as kind]))
+
+;;(remove-ns 'cljtwotiles)
+
+(run! #(ns-unmap *ns* %) (keys (ns-interns *ns*)))
 
 ^:kindly/hide-code
 (def md
   (comp kindly/hide-code kind/md))
-
-^:kindly/hide-code
-(do
-
-  (defmulti gen (fn [m _] (:type m)))
-
-  (defmethod gen :slot [] nil)
-
-  (defn blockmap [type givenid & [inline?]]
-    (cond-> {:type type :id (str type givenid)}
-      (some? inline?) (assoc :inline (str inline?))))
-
-  (defmethod gen :num [{:keys [nummer]} givenid]
-    [:block (blockmap "num" givenid)
-     [:field {:name "nummer"} nummer]])
-
-  (defmethod gen :text [{:keys [dertext]} givenid]
-    [:block (blockmap "text" givenid)
-     [:field {:name "dertext"} dertext]])
-
-  ;; is really a vector
-  (defmethod gen :args [{:keys [argsvec inline?]} givenid]
-    (let [xml-block-type      (str "args-" (count argsvec))
-          {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
-      (into [:block bm]
-            (map-indexed (fn [idx v]
-                           [:value {:name (str "arg_" (+ idx 1))}
-                            (gen v (str (+ idx 1) "-" id))]) argsvec))))
-
-  (defmethod gen :list [{:keys [argsvec inline?]} givenid]
-    (let [xml-block-type      (str "list-h-" (count argsvec))
-          {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
-      (into [:block bm]
-            (map-indexed (fn [idx v]
-                           [:value {:name (str "args-" (+ idx 1))}
-                            (gen v (str (+ idx 1) "-" id))]) argsvec))))
-
-
-  (defmethod gen :fun [{:keys [kopf argsvec subtype inline?]} givenid]
-    (let [xml-block-type      (str subtype "-" (inc (count argsvec)) "-inp")
-          {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
-      (into [:block bm
-             [:field {:name "kopf"} kopf]]
-            (map-indexed (fn [idx v]
-                           [:value {:name (str "args-" (+ idx 2))}
-                            (gen v (str (+ idx 2) "-" id))]) argsvec))))
-
-  (defn rearrange [m]
-    (let [a (partition 2 m)]
-      (concat (map first a) (map second a))))
-
-  (defmethod gen :map [{:keys [argsvec subtype inline?]} givenid]
-    (let [xml-block-type      (str subtype "-" (* (count argsvec) 2) "-inp")
-          {:keys [id] :as bm} (blockmap xml-block-type givenid inline?)]
-      (into [:block bm]
-            (rearrange ;;(rearrange [1 2 3 4]) => (1 3 2 4)
-              ;;the Blockly ui does this rearrangemnt to the XML and
-              ;;the end->code/parse depends on it
-              ;;namely that in the XML all the :field are given first and
-              ;;then the :value
-              (apply concat
-                     (map-indexed (fn [idx v]
-                                    (let [i (inc (* idx 2))]
-                                      [[:field {:name (str "key-" i)}
-                                        (str (first v))]
-                                       [:value {:name (str "val-" (inc i))}
-                                        (gen (second v) (str (inc i) "-" id))]]))
-                                  argsvec))))))
-
-
-  (defn addcoords [block [x y]]
-    (update block 1 #(-> %
-                         (assoc :x x)
-                         (assoc :y y))))
-
-  (defn gen-str [[x y]]
-    (str "-" x "-" y))
-
-  (defn page [coords & blocks]
-    (->> blocks
-         (map-indexed (fn [idx blk] (addcoords (gen blk (gen-str (coords idx)))
-                                               (coords idx))))
-         (into [:xml])
-         ;;html
-         ))
-
-  (def slot {:type :slot})
-
-  (defn num [nummer]
-    {:type :num :nummer nummer})
-
-  (defn kw [k]
-    {:type :num :nummer (str k)})
-
-  (defn text [txt]
-    {:type :text :dertext txt})
-
-  (defn tiles-deref [e]
-    {:type :num :nummer (str "@" e)})
-
-  (defn fun [name & argsvec]
-    {:type :fun :subtype "funs-h" :kopf name :argsvec argsvec})
-
-  (defn fun-infi [name & argsvec]
-    (assoc (apply fun name argsvec) :subtype "infi-h"))
-
-  (defn args [& argsvec]
-    {:type :args :argsvec argsvec})
-
-  (defn lst [& argsvec]
-    {:type :list :argsvec argsvec})
-
-  (defn t-map [& argsvec]
-    (if (> (count argsvec) 1)
-      {:type :map :subtype "map-h" :argsvec argsvec}
-      (text "clj-tiles error: one-entry map not allowed")))
-
-  (defn chapter [& pages] (into [] pages))
-
-  (defn exp [v]
-    (if (vector? v)
-      (let [erst (first v)
-            appl (fn [fuct] (apply fuct erst (map exp (into [] (rest v)))))]
-        (cond
-          (and (= (count v) 3) (#{"/" "+" "*" "-"} erst)) (appl fun-infi)
-          (#{"def" "defn" "do"} erst)                     (assoc (appl fun) :inline? false)
-          :else                                           (appl fun)))
-      (cond
-        (map? v)    v
-        (nil? v)    (num "nil")
-        (string? v) (text v)
-        :else       (num v))))
-
-  (defn infix-sensible? [lst]
-    (when (and (list? lst) (= (count lst) 3))
-      (let [[f s t] lst]
-        (and  (#{"/" "+" "*" "-"} (str f))
-              (or (symbol? s) (number? s) (infix-sensible? s))
-              (or (symbol? t) (number? t) (infix-sensible? t))))))
-
-  (defn parse [l]
-    (cond
-      (list? l)
-      (let [erst (str (first l))
-            appl (fn [fuct] (apply fuct erst (map parse (rest l))))]
-        (cond
-          (or (list? (first l)) (= ":tiles/slot" erst)) (apply lst (map parse l))
-          (= ":tiles/vert" erst)                        (assoc (parse (second l)) :inline? false)
-          (= ":tiles/keep" erst)                        (parse (second l))
-          (= ":tiles/num" erst)                         (num (second l))
-          (= "clojure.core/deref" erst)                 (tiles-deref (second l))
-          (= "quote" erst)                              (num (str "'" (second l)))
-          ;;(infix-sensible? l) (appl fun-infi) ;;detect infix automatically for simple expressions
-          (= ":tiles/infix" erst)                       (assoc (parse (second l)) :subtype "infi-h")
-          (#{"def" "defn" "do"} erst)                   (assoc (appl fun) :inline? false)
-          :else                                         (appl fun)))
-      (vector? l)
-      (if (empty? l)
-        (num "[ ]")
-        (apply args (map parse l)))
-      (map? l)
-      (cond
-        (empty? l)
-        (num "{ }")
-        (:tiles/numslot l)
-        slot
-        :else
-        (apply t-map (map (fn [[k v]] [k (parse v)]) l)))
-      (and (set? l) (empty? l))
-      (num "#{ }")
-      (= :tiles/slot l) slot
-      (nil? l)          (num "nil")
-      (string? l)       (text l)
-      (keyword? l)      (kw l)
-      :else             (num l)))
-
-  (defn shift-coords [nofblocks & coords]
-    (->> (range 0 nofblocks)
-         (mapv (fn [x] [0 (* 50 x)]))
-         (concat coords)
-         (mapv (fn [[x y]] [(+ x 10) (+ y 10)]))))
-
-  (defn p-gen [parser-fn]
-    (fn [coords & blocks]
-      (let [shifted (apply shift-coords (count blocks) coords)]
-        (->> blocks
-             (map-indexed (fn [idx blk]
-                            (addcoords (gen (parser-fn blk) (gen-str (shifted idx)))
-                                       (shifted idx))))
-             (into [:xml])
-             ;;html
-             ))))
-
-  (def pg (p-gen exp))
-  (def rpg (p-gen parse))
-  :rpg-definition)
 
 ^:kindly/hide-code
 (do
@@ -224,13 +33,12 @@
      (when (:xml opts)
        [:textarea {:style {:width "100%"}} code-xml])])
 
+
   (defn tiles-html
     ([code] (tiles-html code nil))
     ([code opts]
      (->> code
-          (rpg [[0 0]])
-          h/html
-          str
+          twotiles-xml
           (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
           h/html
           str)))
@@ -334,6 +142,27 @@
 
 (-> '(+ 1 2) tiles-html kind/html)
 
+(kind/html
+  (str
+    #_"<script src=\"https://cdn.jsdelivr.net/npm/scittle@0.6.22/dist/scittle.js\" type=\"application/javascript\"></script>"
+    "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"))
+
+(kind/scittle
+  '(defn my-alert []
+    (js/alert (twotiles-xml '(+ 1 1))))
+  )
+
+(kind/scittle
+  ;; ; export function to use from JavaScript:
+  '(set! (.-my_alert js/window) my-alert))
+
+(kind/html
+  (str 
+       "<button onclick=\"my_alert()\">
+       Click me!
+       </button>"
+       ))
+
 (def code '(->> (pow x 4)
                 (for [x [1 2 3]])))
 
@@ -364,7 +193,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
 (defn content [code-vec]
   {:blocks   (json/generate-string tiles-blocks)
    :toolbox  (json/generate-string toolbox)
-   :code-xml (map (fn [code] (str (h/html (rpg [[0 0]] code)))) code-vec)})
+   :code-xml (map twotiles-xml code-vec)})
 
 (def code-vec
   ['(:tiles/vert (fun a))
@@ -391,7 +220,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
    '(f 1)
    ])
 
-(defonce write-html
+(def write-html
   (str "only once"
        (spit "mytiles.html"
              (str (h/html (h/raw "<!DOCTYPE html>")
