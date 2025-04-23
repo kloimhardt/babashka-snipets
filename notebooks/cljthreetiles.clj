@@ -139,18 +139,18 @@
        "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
        "</script>"))
 
-(kind/hiccup [:div {:id "cljtwotiles" :style {:display "none"}}
-              (str
-                (slurp "notebooks/cljtwotiles.clj")
-                '(set! (.-twotiles_xml js/window)
-                       (fn [s] (twotiles-xml (read-string s)))))])
+(kind/hiccup [:script {:type "application/x-scittle"}
+;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>" only seems to work async, so I resort to this
+              (slurp "notebooks/cljtwotiles.clj")])
 
 (kind/scittle
-  '(+ 1 1))
+  '(set! (.-twotiles_xml js/window)
+         (fn [s] (twotiles-xml (read-string s)))))
 
 (kind/html
   "<script>
-scittle.core.eval_string(document.getElementById('cljtwotiles').textContent)
+scittle.core.disable_auto_eval();
+scittle.core.eval_script_tags();
 </script>")
 
 (-> '(+ 1 2) tiles-html kind/html)
