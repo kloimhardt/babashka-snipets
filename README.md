@@ -111,17 +111,12 @@ jupyter lab
 
 ## Run Blockly Rendering with Babashka (or Cljs)
 
-```
-babashka-snipets/clj-twotiles$ bb genblocks.clj code.clj
-```
+in Clay, first load `notebooks/cljtwotiles.clj` and then load `notebooks/cljthreetiles.clj` (which depends on the former to be evaluated). In that way, the clj-tiles blocks are rendered on screen in Clay. Also the stanalone file `mytiles.html` is generated, also containing the blocks, which are calculated in Clojure proper. The Clay graphics are calculated using Scittle (this is why in Clay one cannot see the XML strings, whreas in mytiles.html the XML can be seen).
+
+Alternatively, one can test XML generation using ClojureScript
 
 ```
-bb --nrepl-server
-```
-or
-
-```
-clj -M --main cljs.main --repl-opts "{:launch-browser false}" --compile tilestest.genblocks --repl
+babashka-snipets$  clj -M --main cljs.main --repl-opts "{:launch-browser false}" --compile tilestest.genblocks --repl
 ```
 
 and open `http://localhost:9000` in your favourite web browser.
