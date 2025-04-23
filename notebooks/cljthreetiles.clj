@@ -16,7 +16,7 @@
 
 ^:kindly/hide-code
 (do
-  (defn hiccdiv2 [n opts code-str]
+  (defn hiccdiv [n opts code]
     ;; TODO: toolbox is hardcoded
     [:div
      [:span (h/raw "\n")]
@@ -24,37 +24,21 @@
             :style {:height (or (:height opts) "100px")}}]
      [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
-                     "', {'toolbox': toolbox, 'sounds': false});
-
- var xs" n " = twotiles_xml('" code-str "');
- const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
+                     "', {'toolbox': toolbox, 'sounds': false});"
+                     (if (not= (subs (str code) 0 5) "<xml>")
+                       (str "var xs" n " = twotiles_xml('" code "');")
+                       (str "var xs" n " = '" code "';"))
+ "const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
 ")]
      (when (:xml opts)
-       [:textarea {:style {:width "100%"}} "xml"])])
-
-  (defn hiccdiv [n opts code-xml]
-    ;; TODO: toolbox is hardcoded
-    [:div
-     [:span (h/raw "\n")]
-     [:div {:id (str "blocklyDiv" n)
-            :style {:height (or (:height opts) "100px")}}]
-     [:script (h/raw "
- var workspace" n " = Blockly.inject('blocklyDiv" n
-                     "', {'toolbox': toolbox, 'sounds': false});
-
- var xs" n " = '" code-xml "';
- const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
- Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
-")]
-     (when (:xml opts)
-       [:textarea {:style {:width "100%"}} code-xml])])
+       [:textarea {:style {:width "100%"}} (str code)])])
 
   (defn tiles-html
     ([code] (tiles-html code nil))
     ([code opts]
      (->> code
-          (hiccdiv2 (s/replace (str (random-uuid)) "-" "") opts)
+          (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
           h/html
           str)))
 
@@ -226,7 +210,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 12)
+   '(f 15)
    ])
 
 (def write-html
@@ -235,7 +219,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
              (str (h/html (h/raw "<!DOCTYPE html>")
                           (pagen (content code-vec)))))))
 
-;; 23.4. 10:30 - 
+;; 23.4. 10:30 - 14:15 3:45
 ;; 22.4. 18:00 - 22:00 4:00
 ;; 21.4. 12:00 - 21:00 9:00
 ;; 20.4. 15:20 - 17:50 2:30
