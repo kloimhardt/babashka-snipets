@@ -1,5 +1,5 @@
 (ns cljtwotiles)
-:endi
+
 (defmulti gen (fn [m _] (:type m)))
 
 (defmethod gen :slot [] nil)

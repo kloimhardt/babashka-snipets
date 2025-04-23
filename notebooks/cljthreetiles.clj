@@ -16,6 +16,23 @@
 
 ^:kindly/hide-code
 (do
+  (defn hiccdiv2 [n opts code-str]
+    ;; TODO: toolbox is hardcoded
+    [:div
+     [:span (h/raw "\n")]
+     [:div {:id    (str "blocklyDiv" n)
+            :style {:height (or (:height opts) "100px")}}]
+     [:script (h/raw "
+ var workspace" n " = Blockly.inject('blocklyDiv" n
+                     "', {'toolbox': toolbox, 'sounds': false});
+
+ var xs" n " = twotiles_xml('" code-str "');
+ const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
+ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
+")]
+     (when (:xml opts)
+       [:textarea {:style {:width "100%"}} "xml"])])
+
   (defn hiccdiv [n opts code-xml]
     ;; TODO: toolbox is hardcoded
     [:div
@@ -33,13 +50,11 @@
      (when (:xml opts)
        [:textarea {:style {:width "100%"}} code-xml])])
 
-
   (defn tiles-html
     ([code] (tiles-html code nil))
     ([code opts]
      (->> code
-          twotiles-xml
-          (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
+          (hiccdiv2 (s/replace (str (random-uuid)) "-" "") opts)
           h/html
           str)))
 
@@ -140,6 +155,17 @@
        "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
        "</script>"))
 
+(kind/hiccup [:div {:id "cljtwotiles"}
+              (str
+                (slurp "notebooks/cljtwotiles.clj")
+                '(set! (.-twotiles_xml js/window)
+                       (fn [s] (twotiles-xml (read-string s)))))])
+
+(kind/html
+  "<script>
+scittle.core.eval_string(document.getElementById('cljtwotiles').textContent)
+</script>")
+
 (-> '(+ 1 2) tiles-html kind/html)
 
 (kind/html
@@ -156,14 +182,18 @@
   ;; ; export function to use from JavaScript:
   '(set! (.-my_alert js/window) my-alert))
 
+(kind/scittle
+  ;; ; export function to use from JavaScript:
+  '(.log js/console "scittle was here"))
+
 (kind/html
-  (str 
-       "<button onclick=\"my_alert()\">
+  (str
+    "<button onclick=\"my_alert()\">
        Click me!
        </button>"
        ))
 
-(def code '(->> (pow x 4)
+(def code '(plus (pow x 4)
                 (for [x [1 2 3]])))
 
 (kind/html
