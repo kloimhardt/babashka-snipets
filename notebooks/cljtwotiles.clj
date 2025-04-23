@@ -202,9 +202,9 @@
     (coll? form)      (outer (into (empty form) (map inner form)))
     :else             (outer form)))
 
-(defn postwalk
+(defn my-postwalk
   [f form]
-  (my-walk (partial postwalk f) f form))
+  (my-walk (partial my-postwalk f) f form))
 
 (defn my-html-map [d]
   (clojure.string/trimr
@@ -218,13 +218,13 @@
     (if (map? (second d))
       (str "<" (name (first d)) " " (my-html-map (second d)) ">"
            (apply str (rest (rest d)))
-           "</" (name (first  d)) ">")
+           "<" "/" (name (first  d)) ">")
       (str "<" (name (first d)) ">"
            (apply str (rest d))
-           "</" (name (first  d)) ">"))
+           "<" "/" (name (first  d)) ">"))
     :else d))
 
-(defn my-html [d] (postwalk my-html-vec d))
+(defn my-html [d] (my-postwalk my-html-vec d))
 
 (defn twotiles-xml [code]
   (my-html (rpg [[0 0]] code)))

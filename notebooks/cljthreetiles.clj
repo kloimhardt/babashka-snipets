@@ -155,11 +155,14 @@
        "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
        "</script>"))
 
-(kind/hiccup [:div {:id "cljtwotiles"}
+(kind/hiccup [:div {:id "cljtwotiles" :style {:display "none"}}
               (str
                 (slurp "notebooks/cljtwotiles.clj")
                 '(set! (.-twotiles_xml js/window)
                        (fn [s] (twotiles-xml (read-string s)))))])
+
+(kind/scittle
+  '(+ 1 1))
 
 (kind/html
   "<script>
@@ -168,32 +171,7 @@ scittle.core.eval_string(document.getElementById('cljtwotiles').textContent)
 
 (-> '(+ 1 2) tiles-html kind/html)
 
-(kind/html
-  (str
-    #_"<script src=\"https://cdn.jsdelivr.net/npm/scittle@0.6.22/dist/scittle.js\" type=\"application/javascript\"></script>"
-    "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"))
-
-(kind/scittle
-  '(defn my-alert []
-    (js/alert (twotiles-xml '(+ 1 1))))
-  )
-
-(kind/scittle
-  ;; ; export function to use from JavaScript:
-  '(set! (.-my_alert js/window) my-alert))
-
-(kind/scittle
-  ;; ; export function to use from JavaScript:
-  '(.log js/console "scittle was here"))
-
-(kind/html
-  (str
-    "<button onclick=\"my_alert()\">
-       Click me!
-       </button>"
-       ))
-
-(def code '(plus (pow x 4)
+(def code '(->> (pow x 4)
                 (for [x [1 2 3]])))
 
 (kind/html
@@ -225,8 +203,9 @@ Blockly.defineBlocksWithJsonArray(blocks);
    :toolbox  (json/generate-string toolbox)
    :code-xml (map twotiles-xml code-vec)})
 
+
 (def code-vec
-  ['(:tiles/vert (fun a))
+  [[1]
    '((this-returns-a-function "three=") 3)
    ["a"]
    '(def (myfunction x base)
@@ -247,7 +226,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 1)
+   '(f 12)
    ])
 
 (def write-html
@@ -256,6 +235,8 @@ Blockly.defineBlocksWithJsonArray(blocks);
              (str (h/html (h/raw "<!DOCTYPE html>")
                           (pagen (content code-vec)))))))
 
+;; 23.4. 10:30 - 
+;; 22.4. 18:00 - 22:00 4:00
 ;; 21.4. 12:00 - 21:00 9:00
 ;; 20.4. 15:20 - 17:50 2:30
 ;; 20.4. 14:15 - 14:55 :40
