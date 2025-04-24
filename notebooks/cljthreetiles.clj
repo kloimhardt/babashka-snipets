@@ -139,19 +139,31 @@
        "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
        "</script>"))
 
-(kind/hiccup [:script {:type "application/x-scittle"}
-;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>" only seems to work async, so I resort to this
-              (slurp "notebooks/cljtwotiles.clj")])
+(defn clj-to-jstring [& codevec]
+  (->> (str "[" (apply str codevec) "]")
+       (read-string)
+       (apply pr-str)
+       (pr-str)))
 
-(kind/scittle
-  '(set! (.-twotiles_xml js/window)
-         (fn [s] (twotiles-xml (read-string s)))))
+(spit "docs/cljtwotiles.js"
+      (str "var cljtwotiles = "
+           (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
+                           '(set! (.-twotiles_xml js/window)
+                                 (fn [s] (twotiles-xml (read-string s)))))
+           ";"))
 
-(kind/html
-  "<script>
-scittle.core.disable_auto_eval();
-scittle.core.eval_script_tags();
-</script>")
+(comment
+  ;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"
+  ;; only seems to work async despite
+  ;; scittle.core.disable_auto_eval();scittle.core.eval_script_tags();
+  ;; so I resort to this
+  :end)
+
+(kind/hiccup [:script {:src "cljtwotiles.js"}])
+
+(kind/scittle "")
+
+(kind/hiccup [:script "scittle.core.eval_string(cljtwotiles);"])
 
 (-> '(+ 1 2) tiles-html kind/html)
 
@@ -219,6 +231,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
              (str (h/html (h/raw "<!DOCTYPE html>")
                           (pagen (content code-vec)))))))
 
+;; 24.4. 18:30 - 20:45 2:15
 ;; 23.4. 10:30 - 14:15 3:45
 ;; 22.4. 18:00 - 22:00 4:00
 ;; 21.4. 12:00 - 21:00 9:00
