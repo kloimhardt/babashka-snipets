@@ -26,7 +26,7 @@
  var workspace" n " = Blockly.inject('blocklyDiv" n
                      "', {'toolbox': toolbox, 'sounds': false});"
                      (if (not= (subs (str code) 0 5) "<xml>")
-                       (str "var xs" n " = twotiles_xml('" code "');")
+                       (str "var xs" n " = cljtwotiles.xml('" code "');")
                        (str "var xs" n " = '" code "';"))
  "const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
@@ -145,12 +145,16 @@
        (apply pr-str)
        (pr-str)))
 
-(spit "docs/cljtwotiles.js"
-      (str "var cljtwotiles = "
-           (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
-                           '(set! (.-twotiles_xml js/window)
-                                 (fn [s] (twotiles-xml (read-string s)))))
-           ";"))
+(let [code    (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
+                              '(.setxml js/cljtwotiles (fn [s] (twotiles-xml (read-string s)))))
+      message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(cljtwotiles.code)')"]
+  (spit "docs/cljtwotiles.js"
+        (str
+          "var cljtwotiles =
+{'code': " code ",
+ 'xml': " message ",
+ 'setxml': (v) => cljtwotiles['xml'] = v};
+ ")))
 
 (comment
   ;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"
@@ -163,7 +167,7 @@
 
 (kind/scittle "")
 
-(kind/hiccup [:script "scittle.core.eval_string(cljtwotiles);"])
+(kind/hiccup [:script "scittle.core.eval_string(cljtwotiles.code);"])
 
 (-> '(+ 1 2) tiles-html kind/html)
 
