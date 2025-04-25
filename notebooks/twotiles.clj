@@ -1,4 +1,4 @@
-(ns cljtwotiles)
+(ns twotiles)
 
 (defmulti gen (fn [m _] (:type m)))
 

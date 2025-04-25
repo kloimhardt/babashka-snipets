@@ -1,12 +1,10 @@
 (ns cljthreetiles
   (:require [cheshire.core :as json]
             [clojure.string :as s]
-            [cljtwotiles :as c2t]
+            [twotiles :as tt]
             [hiccup2.core :as h]
             [scicloj.kindly.v4.api :as kindly]
             [scicloj.kindly.v4.kind :as kind]))
-
-;;(remove-ns 'cljtwotiles)
 
 (run! #(ns-unmap *ns* %) (keys (ns-interns *ns*)))
 
@@ -24,9 +22,9 @@
             :style {:height (or (:height opts) "100px")}}]
      [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
-                     "', {'toolbox': cljtwotiles.toolbox, 'sounds': false});"
+                     "', {'toolbox': twotiles.toolbox, 'sounds': false});"
                      (if (not= (subs (str code) 0 5) "<xml>")
-                       (str "var xs" n " = cljtwotiles.xml('" code "');")
+                       (str "var xs" n " = twotiles.xml('" code "');")
                        (str "var xs" n " = '" code "';"))
  "const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
@@ -141,32 +139,32 @@
        (pr-str)))
 
 (def jstr
-  (let [code    (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
-                                '(.setxml js/cljtwotiles (fn [s] (twotiles-xml (read-string s)))))
-        message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(cljtwotiles.code)')"]
+  (let [code    (clj-to-jstring (slurp "notebooks/twotiles.clj")
+                                '(.setxml js/twotiles (fn [s] (twotiles-xml (read-string s)))))
+        message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(twotiles.code)')"]
     (str
-      "var cljtwotiles =
+      "var twotiles =
 {'code': " code ",
  'toolbox': " (json/generate-string toolbox) ",
  'blocks' : " (json/generate-string tiles-blocks) ",
  'xml': " message ",
- 'setxml': (v) => cljtwotiles['xml'] = v};
+ 'setxml': (v) => twotiles['xml'] = v};
  ")))
 
-(spit "docs/cljtwotiles.js" jstr)
+(spit "docs/twotiles.js" jstr)
 
 (comment
-  ;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"
+  ;; "<script src=\"twotiles.clj\" type=\"application/x-scittle\"></script>"
   ;; only seems to work async despite
   ;; scittle.core.disable_auto_eval();scittle.core.eval_script_tags();
   ;; so I resort to this
   :end)
 
-(kind/hiccup [:script {:src "cljtwotiles.js"}])
+(kind/hiccup [:script {:src "twotiles.js"}])
 (kind/scittle "")
-(kind/hiccup [:script "scittle.core.eval_string(cljtwotiles.code);"])
+(kind/hiccup [:script "scittle.core.eval_string(twotiles.code);"])
 (kind/hiccup [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}])
-(kind/hiccup [:script "Blockly.defineBlocksWithJsonArray(cljtwotiles.blocks);"])
+(kind/hiccup [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"])
 
 (-> '(+ 1 2) tiles-html kind/html)
 
@@ -185,11 +183,11 @@
 
 (defn pagen [code-vec]
   [:html
-   [:script {:src "docs/cljtwotiles.js"}]
+   [:script {:src "docs/twotiles.js"}]
    [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
-   [:script "Blockly.defineBlocksWithJsonArray(cljtwotiles.blocks);"]
+   [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"]
    [:script (h/raw "var dummy = " (json/generate-string {:dummy "⋮"}) ";")] ;;to get the dots right
-   (hmap-indexed (map c2t/twotiles-xml code-vec))])
+   (hmap-indexed (map tt/twotiles-xml code-vec))])
 
 (def code-vec
   [[1]
@@ -213,7 +211,7 @@
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 1)
+   '(f 14)
    ])
 
 (spit "mytiles.html"
