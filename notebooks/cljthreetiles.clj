@@ -14,8 +14,7 @@
 
 ^:kindly/hide-code
 (do
-  (defn hiccdiv [n opts code]
-    ;; TODO: toolbox is hardcoded
+  (defn hiccdiv [parser opts n code]
     [:div
      [:span (h/raw "\n")]
      [:div {:id    (str "blocklyDiv" n)
@@ -23,28 +22,26 @@
      [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
                      "', {'toolbox': twotiles.toolbox, 'sounds': false});"
-                     (if (not= (subs (str code) 0 5) "<xml>")
-                       (str "var xs" n " = twotiles.xml('" code "');")
+                     (if parser
+                       (str "var xs" n " = " parser "('" code "');")
                        (str "var xs" n " = '" code "';"))
- "const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
+                     "const xmlDom" n " = Blockly.utils.xml.textToDom(xs" n ")
  Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom" n ",workspace" n ")
 ")]
      (when (:xml opts)
        [:textarea {:style {:width "100%"}} (str code)])])
 
   (defn tiles-html
-    ([code] (tiles-html code nil))
-    ([code opts]
+    ([parser code] (tiles-html parser nil code))
+    ([parser opts code]
      (->> code
-          (hiccdiv (s/replace (str (random-uuid)) "-" "") opts)
+          (hiccdiv parser opts (s/replace (str (random-uuid)) "-" ""))
           h/html
           str)))
 
   :tiles-html-definition)
 
 (md "# Definition of `clj-tiles` graphical blocks")
-
-
 
 (defn hblock [type message color args]
   {:type         type
@@ -130,28 +127,13 @@
 
 (md "# Blocks in the Clay workspace")
 
+(def js-twotiles
+  {:parse_clj (str (slurp "notebooks/twotiles.clj")
+                   '(fn [s] (twotiles-xml (read-string s))))
+   :toolbox   toolbox
+   :blocks    tiles-blocks})
 
-
-(defn clj-to-jstring [& codevec]
-  (->> (str "[" (apply str codevec) "]")
-       (read-string)
-       (apply pr-str)
-       (pr-str)))
-
-(def jstr
-  (let [code    (clj-to-jstring (slurp "notebooks/twotiles.clj")
-                                '(.setxml js/twotiles (fn [s] (twotiles-xml (read-string s)))))
-        message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(twotiles.code)')"]
-    (str
-      "var twotiles =
-{'code': " code ",
- 'toolbox': " (json/generate-string toolbox) ",
- 'blocks' : " (json/generate-string tiles-blocks) ",
- 'xml': " message ",
- 'setxml': (v) => twotiles['xml'] = v};
- ")))
-
-(spit "docs/twotiles.js" jstr)
+(spit "docs/twotiles.js" (str "var twotiles = " (json/generate-string js-twotiles)))
 
 (comment
   ;; "<script src=\"twotiles.clj\" type=\"application/x-scittle\"></script>"
@@ -162,24 +144,25 @@
 
 (kind/hiccup [:script {:src "twotiles.js"}])
 (kind/scittle "")
-(kind/hiccup [:script "scittle.core.eval_string(twotiles.code);"])
+(kind/hiccup [:script "var parse_clj = scittle.core.eval_string(twotiles.parse_clj);"])
 (kind/hiccup [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}])
 (kind/hiccup [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"])
 
-(-> '(+ 1 2) tiles-html kind/html)
+(->> '(+ 1 2) (tiles-html "parse_clj") kind/html)
 
 (def code '(->> (pow x 4)
                 (for [x [1 2 3]])))
 
 (kind/html
-  (tiles-html (list :tiles/vert code)
+  (tiles-html "parse_clj"
               {:height "150px"
-               :xml    true}))
+               :xml    true}
+              (list :tiles/vert code)))
 
 (md "# Without Scittle: write Blocks as XML into the file `mytiles.html`")
 
 (defn hmap-indexed [hicc]
-  (into [:div] (map-indexed (fn [i xml] (hiccdiv i {:xml true} xml)) hicc)))
+  (into [:div] (map-indexed (fn [i xml] (hiccdiv nil {:xml true} i xml)) hicc)))
 
 (defn pagen [code-vec]
   [:html
@@ -211,7 +194,7 @@
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 14)
+   '(f 1)
    ])
 
 (spit "mytiles.html"
