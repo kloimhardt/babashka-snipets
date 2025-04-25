@@ -227,4 +227,6 @@
 (defn my-html [d] (my-postwalk my-html-vec d))
 
 (defn twotiles-xml [code]
-  (my-html (rpg [[0 0]] code)))
+  (my-html (rpg [[0 0]] (read-string code))))
+
+twotiles-xml

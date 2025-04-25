@@ -128,8 +128,7 @@
 (md "# Blocks in the Clay workspace")
 
 (def js-twotiles
-  {:parse_clj (str (slurp "notebooks/twotiles.clj")
-                   '(fn [s] (twotiles-xml (read-string s))))
+  {:parse_clj (slurp "notebooks/twotiles.clj")
    :toolbox   toolbox
    :blocks    tiles-blocks})
 
@@ -170,7 +169,7 @@
    [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
    [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"]
    [:script (h/raw "var dummy = " (json/generate-string {:dummy "⋮"}) ";")] ;;to get the dots right
-   (hmap-indexed (map tt/twotiles-xml code-vec))])
+   (hmap-indexed (map #(tt/twotiles-xml (pr-str %)) code-vec))])
 
 (def code-vec
   [[1]
@@ -194,7 +193,7 @@
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 1)
+   '(f 11)
    ])
 
 (spit "mytiles.html"
