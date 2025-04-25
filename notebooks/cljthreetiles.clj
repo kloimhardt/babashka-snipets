@@ -1,7 +1,7 @@
 (ns cljthreetiles
   (:require [cheshire.core :as json]
             [clojure.string :as s]
-            [cljtwotiles :refer [twotiles-xml]]
+            [cljtwotiles :as c2t]
             [hiccup2.core :as h]
             [scicloj.kindly.v4.api :as kindly]
             [scicloj.kindly.v4.kind :as kind]))
@@ -140,18 +140,20 @@
        (apply pr-str)
        (pr-str)))
 
-(let [code    (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
-                              '(.setxml js/cljtwotiles (fn [s] (twotiles-xml (read-string s)))))
-      message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(cljtwotiles.code)')"]
-  (spit "docs/cljtwotiles.js"
-        (str
-          "var cljtwotiles =
+(def jstr
+  (let [code    (clj-to-jstring (slurp "notebooks/cljtwotiles.clj")
+                                '(.setxml js/cljtwotiles (fn [s] (twotiles-xml (read-string s)))))
+        message "(x) => console.log('xml-conversion of ' + x + ' needs an initial call to scittle.core.eval_string(cljtwotiles.code)')"]
+    (str
+      "var cljtwotiles =
 {'code': " code ",
  'toolbox': " (json/generate-string toolbox) ",
  'blocks' : " (json/generate-string tiles-blocks) ",
  'xml': " message ",
  'setxml': (v) => cljtwotiles['xml'] = v};
  ")))
+
+(spit "docs/cljtwotiles.js" jstr)
 
 (comment
   ;; "<script src=\"cljtwotiles.clj\" type=\"application/x-scittle\"></script>"
@@ -176,30 +178,18 @@
               {:height "150px"
                :xml    true}))
 
-(md "# Write Blocks into the file `mytiles.html` ")
+(md "# Without Scittle: write Blocks as XML into the file `mytiles.html`")
 
-^:kindly/hide-code
-(do
-  (defn hmap-indexed [hicc]
-    (into [:div] (map-indexed (fn [i xml] (hiccdiv i {:xml true} xml)) hicc)))
+(defn hmap-indexed [hicc]
+  (into [:div] (map-indexed (fn [i xml] (hiccdiv i {:xml true} xml)) hicc)))
 
-  (defn pagen [content]
-    [:html
-     [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
-     [:script (h/raw "
-var blocks = " (:blocks content) ";
-Blockly.defineBlocksWithJsonArray(blocks);
-")]
-     [:script (h/raw "var toolbox = " (:toolbox content) ";")]
-     (hmap-indexed (:code-xml content))])
-
-  :pagen-definition)
-
-(defn content [code-vec]
-  {:blocks   (json/generate-string tiles-blocks)
-   :toolbox  (json/generate-string toolbox)
-   :code-xml (map twotiles-xml code-vec)})
-
+(defn pagen [code-vec]
+  [:html
+   [:script {:src "docs/cljtwotiles.js"}]
+   [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
+   [:script "Blockly.defineBlocksWithJsonArray(cljtwotiles.blocks);"]
+   [:script (h/raw "var dummy = " (json/generate-string {:dummy "⋮"}) ";")] ;;to get the dots right
+   (hmap-indexed (map c2t/twotiles-xml code-vec))])
 
 (def code-vec
   [[1]
@@ -226,12 +216,11 @@ Blockly.defineBlocksWithJsonArray(blocks);
    '(f 1)
    ])
 
-(def write-html
-  (str "only once"
-       (spit "mytiles.html"
-             (str (h/html (h/raw "<!DOCTYPE html>")
-                          (pagen (content code-vec)))))))
+(spit "mytiles.html"
+      (str (h/html (h/raw "<!DOCTYPE html>")
+                   (pagen code-vec))))
 
+;; 25.4. 11:30 - 14:15 2:45
 ;; 24.4. 18:30 - 20:45 2:15
 ;; 23.4. 10:30 - 14:15 3:45
 ;; 22.4. 18:00 - 22:00 4:00
