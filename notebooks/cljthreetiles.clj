@@ -24,7 +24,7 @@
             :style {:height (or (:height opts) "100px")}}]
      [:script (h/raw "
  var workspace" n " = Blockly.inject('blocklyDiv" n
-                     "', {'toolbox': toolbox, 'sounds': false});"
+                     "', {'toolbox': cljtwotiles.toolbox, 'sounds': false});"
                      (if (not= (subs (str code) 0 5) "<xml>")
                        (str "var xs" n " = cljtwotiles.xml('" code "');")
                        (str "var xs" n " = '" code "';"))
@@ -46,7 +46,7 @@
 
 (md "# Definition of `clj-tiles` graphical blocks")
 
-(kind/html "<script src=\"https://unpkg.com/blockly/blockly_compressed.js\"></script>")
+
 
 (defn hblock [type message color args]
   {:type         type
@@ -132,12 +132,7 @@
 
 (md "# Blocks in the Clay workspace")
 
-(kind/html
-  (str "<script>"
-       "var toolbox = " (json/generate-string toolbox) ";"
-       "var tiles_blocks  = " (json/generate-string tiles-blocks) ";"
-       "Blockly.defineBlocksWithJsonArray(tiles_blocks);"
-       "</script>"))
+
 
 (defn clj-to-jstring [& codevec]
   (->> (str "[" (apply str codevec) "]")
@@ -152,6 +147,8 @@
         (str
           "var cljtwotiles =
 {'code': " code ",
+ 'toolbox': " (json/generate-string toolbox) ",
+ 'blocks' : " (json/generate-string tiles-blocks) ",
  'xml': " message ",
  'setxml': (v) => cljtwotiles['xml'] = v};
  ")))
@@ -164,10 +161,10 @@
   :end)
 
 (kind/hiccup [:script {:src "cljtwotiles.js"}])
-
 (kind/scittle "")
-
 (kind/hiccup [:script "scittle.core.eval_string(cljtwotiles.code);"])
+(kind/hiccup [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}])
+(kind/hiccup [:script "Blockly.defineBlocksWithJsonArray(cljtwotiles.blocks);"])
 
 (-> '(+ 1 2) tiles-html kind/html)
 
@@ -226,7 +223,7 @@ Blockly.defineBlocksWithJsonArray(blocks);
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 15)
+   '(f 1)
    ])
 
 (def write-html
