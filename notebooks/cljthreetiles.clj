@@ -132,7 +132,7 @@
    :toolbox   toolbox
    :blocks    tiles-blocks})
 
-(spit "docs/twotiles.js" (str "var twotiles = " (json/generate-string js-twotiles)))
+(spit "docs/twotiles_core.js" (str "var twotiles = " (json/generate-string js-twotiles)))
 
 (comment
   ;; "<script src=\"twotiles.clj\" type=\"application/x-scittle\"></script>"
@@ -141,19 +141,20 @@
   ;; so I resort to this
   :end)
 
-(kind/hiccup [:script {:src "twotiles.js"}])
+(kind/hiccup [:script {:src "twotiles_core.js"}])
 (kind/scittle "")
-(kind/hiccup [:script "var parse_clj = scittle.core.eval_string(twotiles.parse_clj);"])
+(kind/hiccup [:script "var parse = scittle.core.eval_string(twotiles.parse_clj);"])
 (kind/hiccup [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}])
+(kind/hiccup [:script {:src "https://unpkg.com/blockly/msg/en.js"}])
 (kind/hiccup [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"])
 
-(->> '(+ 1 2) (tiles-html "parse_clj") kind/html)
+(->> '(+ 1 2) (tiles-html "parse") kind/html)
 
 (def code '(->> (pow x 4)
                 (for [x [1 2 3]])))
 
 (kind/html
-  (tiles-html "parse_clj"
+  (tiles-html "parse"
               {:height "150px"
                :xml    true}
               (list :tiles/vert code)))
@@ -165,8 +166,9 @@
 
 (defn pagen [code-vec]
   [:html
-   [:script {:src "docs/twotiles.js"}]
+   [:script {:src "docs/twotiles_core.js"}]
    [:script {:src "https://unpkg.com/blockly/blockly_compressed.js"}]
+   [:script {:src "https://unpkg.com/blockly/msg/en.js"}]
    [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"]
    [:script (h/raw "var dummy = " (json/generate-string {:dummy "⋮"}) ";")] ;;to get the dots right
    (hmap-indexed (map #(tt/twotiles-xml (pr-str %)) code-vec))])
@@ -193,7 +195,7 @@
    '(f 1 2 3 4)
    '(f 1 2 3)
    '(f 1 2)
-   '(f 11)
+   '(f 1)
    ])
 
 (spit "mytiles.html"
@@ -210,3 +212,14 @@
 ;; 20.4. 13:15 - 14:15 1:00
 ;; 20.4. 12:05 - 12:50 :45
 ;; 20.4. 10:40 - 12:05 1:15
+
+(def code '(b 3))
+
+(kind/hiccup
+  [:div
+   [:script (str "var xml199 = parse('" code "')")]
+   [:div {:id "blocklyDiv199", :style {:height "100px"}}]
+   [:script "var workspace199 = Blockly.inject('blocklyDiv199',
+{'toolbox': twotiles.toolbox, 'sounds': false})"]
+   [:script "const xmlDom199 = Blockly.utils.xml.textToDom(xml199)"]
+   [:script "Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDom199,workspace199)"]])
