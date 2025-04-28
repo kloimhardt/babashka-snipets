@@ -171,10 +171,19 @@
    [:script {:src "https://unpkg.com/blockly/msg/en.js"}]
    [:script "Blockly.defineBlocksWithJsonArray(twotiles.blocks);"]
    [:script (h/raw "var dummy = " (json/generate-string {:dummy "⋮"}) ";")] ;;to get the dots right
-   (hmap-indexed (map #(tt/twotiles-xml (pr-str %)) code-vec))])
+   (hmap-indexed (map #(tt/parse-clj (pr-str %)) code-vec))])
 
 (def code-vec
-  [[1]
+  ['(call (diff (log_base 8.0)) x)
+   '(diff (call (log_base 8.0) x) x)
+   '(call (log_base 8.0) 64.0)
+   '(def (log_base b)
+      (return (partial logarithm b)))
+   '(logarithm 8.0 64.0)
+   '(def (logarithm b x)
+      (return (:tiles/infix (/ (log x) (log b)))))
+   '(diff (log x) x)
+   '(log 64.0)
    '((this-returns-a-function "three=") 3)
    ["a"]
    '(def (myfunction x base)
