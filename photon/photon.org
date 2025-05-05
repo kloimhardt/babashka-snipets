@@ -1149,6 +1149,8 @@ Bohmian Mechanics violates Measurement Independence because (a) the paths of the
 WA Boltzmann, Wissenschaftliche Abhandlungen
 https://phaidra.univie.ac.at/detail/o:63651
 
+In WA2 (1875-1891) S167ff rechnet er "Komplexionen" wie nachher Planck. 1877 "Über die Beziehung zwischen dem zweiten Hauptsatzes und Wahrscheinlichkeitsrechnung"
+
 WA3 = Boltzmann, Wissenschaftliche Abhandlungen III
 
 "Gastheorie" Bücher:
@@ -1321,6 +1323,26 @@ EC Banks, The Realistic Empiricism of Mach, James, and Russell: Neutral Monism R
 "Boltzmann's concessions to Mach's philosophy of science"
 JT Blackmore - Ludwig Boltzmann, Gesamtausgabe, 1982 - Vieweg Braunschweig (Editor: Sexl)
 Siehe auch Blackmore oben
+
+** Meitner
+Auger-Meitner Effekt
+Uber die Beta-Strahl-Spektra und ihren Zusammenhang mit der Gamma-Strahlung. auf Archiv
+https://tinyurl.com/hvnjshhn
+
+Paper: A renaming proposal: “The Auger–Meitner effect”
+
+Biographie
+The Woman Who Split the Atom, Marissa Moss 2022, teilw. Comic
+Lise Meitner: Had the Right Vision About Nuclear Fission, Mike Venezia 2009 Comic?
+
+Lise Meitner, Pionierin des Atomzeitalters. Rennert, David Traxler, Tanja 2018
+Lise Meitner - Lebensweg und Erfolg, Oliver H. Herde, 2011
+Lise Meitner, Anne Hardy Lore Sexl 2002
+Lise Meitner and the Dawn of the Nuclear Age, Rife, Patricia 1999
+Lise Meitner: Ein Leben fuer die Wissenschaft Rife, Patricia, 1990
+Lise Meitner: A Life in Physics  Ruth Lewin Lewin Sime 1997
+Lise, Atomphysikerin. Die Lebensgeschichte der Lise Meitner, Kerner Charlotte 1986
+https://lise.univie.ac.at/physikerinnen/historisch/lise-meitner.htm
 
 ** Newton
 Principia

@@ -126,3 +126,9 @@ In the termianl, call the following functions:
 ```
 (tilestest.genblocks/rpg [[0 0]] '(a [1]))
 ```
+
+To render with Quarto
+
+```
+(python_venv) ~/klmtemp/babashka-snipets$ quarto render quartoblockly.qmd --to html
+```

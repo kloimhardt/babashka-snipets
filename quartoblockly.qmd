@@ -1,0 +1,96 @@
+---
+title: "Introducing Twotiles in Quarto"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+<script src="https://cdn.jsdelivr.net/npm/scittle@0.6.22/dist/scittle.js" type="application/javascript"></script>
+<script src="https://unpkg.com/blockly/blockly.min.js"></script>
+<script src="https://unpkg.com/blockly/msg/en.js"></script>
+<script src="https://kloimhardt.github.io/twotiles/twotiles_core.js"></script>
+
+<script>
+var parse = scittle.core.eval_string(twotiles.parse_clj);
+Blockly.defineBlocksWithJsonArray(twotiles.blocks);
+</script>
+
+<script>
+var brender = (code,divid) =>
+Blockly.Xml.clearWorkspaceAndLoadFromXml(Blockly.utils.xml.textToDom(parse(code)),
+Blockly.inject(divid,
+{"toolbox": twotiles.toolbox,
+"sounds": false,
+"scrollbars": false,
+"trashcan": false}));
+</script>
+
+
+```{python}
+from sympy import symbols,diff,log
+from functools import partial
+x=symbols("x")
+b=symbols("b")
+y=symbols("y")
+
+def call(f, x):
+    return f(x)
+```
+
+## Symbolic computation in Python: SymPy
+
+<div id="blocklyDiv1" style="height: 100px;"></div>
+<script>brender("(log 64)", "blocklyDiv1")</script>
+```{python}
+log(64.0)
+```
+
+<div id="blocklyDiv1.1" style="height: 100px;"></div>
+<script>brender("(call log 64)", "blocklyDiv1.1")</script>
+```{python}
+call(log, 64.0)
+```
+
+<div id="blocklyDiv2" style="height: 100px;"></div>
+<script>brender("(diff (log x) x)", "blocklyDiv2")</script>
+```{python}
+diff(log(x),x)
+```
+
+<div id="blocklyDiv3" style="height: 150px;"></div>
+<script>brender("(def (logarithm b x) (return (:tiles/infix (/ (log x) (log b)))))", "blocklyDiv3")</script>
+```{python}
+def logarithm(b, x):
+    return log(x) / log(b)
+```
+
+<div id="blocklyDiv4" style="height: 100px;"></div>
+<script>brender("(logarithm 8.0 64.0)", "blocklyDiv4")</script>
+```{python}
+logarithm(8.0, 64.0)
+```
+
+<div id="blocklyDiv5" style="height: 150px;"></div>
+<script>brender("(def (log_base b) (return (partial logarithm b)))", "blocklyDiv5")</script>
+```{python}
+def log_base(b):
+    return partial(logarithm, b)
+```
+
+<div id="blocklyDiv6" style="height: 100px;"></div>
+<script>brender("(call (log_base 8.0) 64.0)", "blocklyDiv6")</script>
+```{python}
+call(log_base(8.0),64.0)
+```
+
+<div id="blocklyDiv7" style="height: 100px;"></div>
+<script>brender("(diff (call (log_base 8.0) x) x)", "blocklyDiv7")</script>
+```{python}
+diff(call(log_base(8.0),x),x)
+```
+## Emmy
+
+<div id="blocklyDiv8" style="height: 100px;"></div>
+<script>brender("(call (diff (log_base 8.0)) x)", "blocklyDiv8")</script>
+
