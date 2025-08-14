@@ -1048,6 +1048,12 @@ Im Übrigen hab ich diese Oszillatoren deswegen genommen, weil jede Materie glei
 
 E: und hier lag Planck falsch. Materie schwingt an sich nur diskret, egal woher die Energie kommt.
 
+** Huygens
+in Darrigol p66: Owing to the lack of periodicity of Huygens’s “waves,” some physicists and historians refuse to call his optics a “wave theory.” I disagree, because in common parlance and even in some domains of modern physics (e.g. solitons) waves need not be periodic.
+
+Huygens hat mehr an Billiardbälle gedacht und elastische Stösse, weil er meinte so wie Schall kanns nicht gehen. Hygens did not have any notion of wavelength. He did not comment on the various explanations for color. He did not discuss diffraction (Beugung). Darum zählt man ihn zur geometrischen Optik.
+Darrigol p77Huygens believed that time was not ripe for speculating on the nature of colors. p70 Huygens never discussed diffraction, even though he owned a copy of Grimaldi’s relevant treatise
+
 ** Resources
 *** clj Files
 **** #stefan.clj
@@ -1255,8 +1261,12 @@ https://arxiv.org/abs/physics/0608067
 Bergmann Theoriezyklus: https://archive.org/details/basictheoriesofp00berg
 
 Original Hamilton Papers: https://en.wikipedia.org/wiki/Hamilton's_principle
+https://www.emis.de/classics/Hamilton/index.html
+In Dugas "History of Mechanics" werden besprochen: 1833, called "On a general meth.pd of expressing the paths of light, and of the planets, by the coeffi- cients ofa characteristic function." "Third Supplement to an Essay on the Theory of Systems of Rays."
 Erläuterung zu Hamilton in Whittaker, Analytical Dynamics, 2nded. (1917), Chapter 11 (Hinweis in Schrödinger 2. Mitteilung Fussnote ganz vorn): https://archive.org/details/cu31924001080294 (Hinweis auf Hamiltons fundamentale Optik Papers Trans.R.IrishAcad. XV(1828)p69, XVI(1830)pp4&93, XVII(1837)p1)
 Auch von Whittaker: History of Ether https://archive.org/details/historyoftheorie00whitrich
+Auch in Darrigol "History of Optics"
+Auch in HDQT Vol5part2page506
 
 ** Einstein
 CPAE, Searchable Einstein papers:
@@ -1425,10 +1435,6 @@ https://www.preposterousuniverse.com/podcast/2023/03/06/ama-march-2023/
 
 ** David Deutsch
 David Wallace, Quantum Probability and Decision Theory https://philsci-archive.pitt.edu/885/3/decarx.pdf
-** Quantenfeldtheorie, Field Theory
-Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
-Robert D. Klauber: Student Friendly Quantum Field Theory
-
 ** Geometrothermodynamics
 Fundamentals of Geometrothermodynamics 2011 https://arxiv.org/abs/1111.5056
 Geometrothermodynamics, from ordinary systems to black holes
@@ -1451,6 +1457,8 @@ darin: Debye 1910 "Planck law from from EM-modes" ->  p558 ; führt auf Schrödi
 
 vol3
 https://archive.org/details/formulationofmat0003mehr
+vol5p2
+https://archive.org/details/erwinschrodinger0005mehr_m7d6
 
 *** Eisenberg: Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles
 https://www.amazon.com/Quantum-Physics-Molecules-Solids-Particles/dp/047187373X
@@ -1463,6 +1471,8 @@ Auch Leibnitz kannte die vis viva (kinetische Energie)
 *** HPFQM Historical and Physical Foundations of Quantum Mechanics
 Robert Golub, Steven K Lamoreaux -- 2023 -- Oxford University Press
 in Calibre
+*** Kuhn, Black Body
+https://archive.org/details/blackbodytheoryq0000kuhn/page/n7/mode/2up?view=theater
 *** Others
 Dugas, A History of Mechanics: https://ia903006.us.archive.org/6/items/ahistoryofmechanics_201907/A%20History%20of%20Mechanics.pdf
 
@@ -1470,6 +1480,8 @@ E. T. WHITTAKER,A HISTORY OF THE THEORIES OF AETHER AND ELECTRICITY: https://en.
 
 Darrigol, History of Optics
 https://books.google.at/books?id=ImM62wvWE_cC&dq=darrigol+history+of+optics&lr=&source=gbs_navlinks_s
+Buchwald Rise of Wave Theory of Light (in Calibre)
+Huygens original https://www.gutenberg.org/cache/epub/14725/pg14725-images.html
 
 Szabo, Geschichte der Mechanischen Prinzipien
 auch refs in: https://de.wikipedia.org/wiki/Nikolaus_von_Oresme https://de.wikipedia.org/wiki/Impetustheorie
@@ -1478,8 +1490,6 @@ Marc Levi: The Mathematical Mechanic: Using Physical Reasoning to Solve Problems
 
 Richard Brock: Stories from Physics
 https://spark.iop.org/sites/default/files/media/documents/IOP%20Stories%20from%20Physics%20forces-motion%5Bweb%5D_0.pdf
-
-Rechenberg: the historical development of quantum theory HDQT (links in photon.org)
 
 van der Waerden: Sources of Quantum Mechanics (1966)
 (alles vor Schrödinger, bis Dirac im Jan 26)
@@ -1492,6 +1502,16 @@ Eine Art eigene Nacherzählung der Physikalischen Aussagen der Papers, wenige Fo
 Max Jammer, mehrere Bücher, Concepts of Mass in Classicaland Modern Physics, Simultaneity
 
 Golub and Lamoreaux, “The Historical and Physical Foundations of Quantum Mechanics”
+
+** Semi Pop Sci a la SeanCarrol/Susskind
+"Surprises in theoretical physics" by Rudolf Peierls
+Scott Aaronson's "Quantum Computing since Democritus"
+David Albert's Quantum Mechanics and Experience
+Bruce Schumm's Deep Down Things
+
+Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
+Robert D. Klauber: Student Friendly Quantum Field Theory
+Zee: Quantum Field Theory, as Simply as Possible
 
 * CLJ-Tiles Brilliant manual
 brilliant.org/sabine
