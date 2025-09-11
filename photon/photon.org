@@ -1301,6 +1301,10 @@ Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
 ** Feynman
 Space-Time Approach to Non-Relativistic Quantum Mechanics
 https://authors.library.caltech.edu/47756/1/FEYrmp48.pdf
+
+Quantum Mechanics and Path Integrals Emended Edition (Dover -- Richard P Feynman, Albert R Hibbs, and Daniel F Styer (in Calibre)
+"a particularly illuminating application of the path integral is the derivationof the frequency ω and wave number k⃗ of the de Broglie wave representing a particle with energy E and momentum p⃗. See Feynman and Hibbs, page 45." (Zee, QFT fast as possible p111)
+
 ** Heisenberg
 Understanding Heisenberg’s ‘magical’ paper of July 1925: a new look at the calculational details
 Ian J. R. Aitchison
@@ -1393,6 +1397,13 @@ elements / energy units"
 So wie ich das sehe, hat Planck damals (1906 in seine Vorlesungen) schon das verwendet was jetzt als Bose-Statistik angesehen wird. Diese (von Schrödinger als bequem bezeichnete) Rechenmethode hat auch Boltzmann schon verwendet.  Aber in den ursprünglichen Abhandlungen haben Bose-Einstein wohl irgendwie kompliziert mit irgendwelchen "Abhängigkeiten" zwischen den Photonen bzw. Boson-Atomen rumgerechnet sodass Schrödinger ein einfacheres Bild gesucht hat (bin mir nicht ganz sicher, weil die Einstein Originale nicht gelesen.)
 
 ** Schrödinger
+erste Mitteilung:
+https://people.isy.liu.se/jalar/kurser/QF/references/Schrodinger1926a.pdf
+S372: Es ist nicht ausgemacht, dass dieselbe [neue Fassung] in ihren Ergebnissen ein blosser Abklatsch der üblichen Quantentheorie sein wird. Z.B. führt das relativistische Keplerproblem, wenn man es genau nach der eingangs gegebenen Vorschrift durchrechnet, merkwürigerweise auf halbzahige Teilquanten (Radial- und Azimutquant)
+
+S374: ... die Bohrsche Frequenzbedingung selbst scheinbar den Charakter einer Näherungsformel erhält. Das ist aber nur scheinbar und wird völlig vermieden, wenn man die relativistische Theorie entwickelt, durch welche überhaupt erst ein tieferes Verständnis vermittelt wird. Die grosse additive Konstante C hängt natürlich aufs innigste zusammen mit der Bahnenergie mc^2 des Elektrons.
+Auch das nochmalige und unabhängige Auftreten der Konstante h in der Frequenzbedingung wird durch die relativistische Theorie aufgeklärt bzw. vermieden. Aber leider begegnet ihre einwandfreie Durchführung vorläufig noch gewissen, oben berührten Schierigkeiten
+
 zweite Mitteilung: http://www.fisicafundamental.net/relicario/doc/Schrodinger1926a.pdf
 S501 "die Frequenz innerhalb eines infinitesimales Bereichs variiren lassen und durch passende Verteilung der Amplituden und Phasen die Erregung auf einen Bereich beschränken, der auch in longitudinaler Richtung verhältnismässig klein ist"
 
@@ -1503,6 +1514,8 @@ Max Jammer, mehrere Bücher, Concepts of Mass in Classicaland Modern Physics, Si
 
 Golub and Lamoreaux, “The Historical and Physical Foundations of Quantum Mechanics”
 
+Yourgrau's Variational Principles in Dynamics and Quantum Theory
+
 ** Semi Pop Sci a la SeanCarrol/Susskind
 "Surprises in theoretical physics" by Rudolf Peierls
 Scott Aaronson's "Quantum Computing since Democritus"
@@ -1511,7 +1524,7 @@ Bruce Schumm's Deep Down Things
 
 Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
 Robert D. Klauber: Student Friendly Quantum Field Theory
-Zee: Quantum Field Theory, as Simply as Possible
+Zee: Quantum Field Theory, as Simply as Possible (in Calibre)
 
 * CLJ-Tiles Brilliant manual
 brilliant.org/sabine

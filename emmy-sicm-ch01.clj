@@ -1,3 +1,6 @@
+;; this file is outdated
+;; the new version is https://github.com/ClojureCivitas/clojurecivitas.github.io/blob/main/src/mentat_collective/emmy/sicm_ch01.clj
+
 (ns emmy-sicm-ch01
     (:refer-clojure :exclude [+ - * / zero? compare divide numerator denominator infinite? abs ref partial =])
     (:require [emmy.env :refer :all :exclude [r->p]]
