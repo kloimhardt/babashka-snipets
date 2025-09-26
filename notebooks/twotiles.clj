@@ -226,7 +226,10 @@
 
 (defn my-html [d] (my-postwalk my-html-vec d))
 
-(defn parse-clj [code]
-  (my-html (rpg [[0 0]] (read-string code))))
+(defn twotiles-xml [code]
+  (-> (rpg [[0 0]] (read-string code))
+      (update-in [1 1] dissoc :x :y)
+      my-html))
 
-parse-clj
+;;do not add anything after this twotiles-xml
+twotiles-xml

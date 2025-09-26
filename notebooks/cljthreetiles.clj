@@ -41,6 +41,8 @@
 
   :tiles-html-definition)
 
+(md "# Also open the generated `./mytiles.html` and `./docs/twotiles_core.clj`")
+
 (md "# Definition of `clj-tiles` graphical blocks")
 
 (defn hblock [type message color args]
@@ -130,7 +132,8 @@
 (def js-twotiles
   {:parse_clj (slurp "notebooks/twotiles.clj")
    :toolbox   toolbox
-   :blocks    tiles-blocks})
+   :blocks    tiles-blocks
+   :version   "1.0.1"})
 
 (spit "docs/twotiles_core.js" (str "var twotiles = " (json/generate-string js-twotiles)))
 
