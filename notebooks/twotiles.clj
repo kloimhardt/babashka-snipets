@@ -5,7 +5,7 @@
 (defmethod gen :slot [] nil)
 
 (defn blockmap [type givenid & [inline?]]
-  (cond-> {:type type :id (str type givenid)}
+  (cond-> {:type type :id (str type givenid) :editable false}
     (some? inline?) (assoc :inline (str inline?))))
 
 (defmethod gen :num [{:keys [nummer]} givenid]

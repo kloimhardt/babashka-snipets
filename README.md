@@ -110,8 +110,9 @@ jupyter lab
 (works only Java@21 not 23)
 
 ## Run Blockly Rendering with Babashka (or Cljs)
+Start Clay with `java -jar noj-2-beta18-uber.jar`
 
-in Clay, first load `notebooks/cljtwotiles.clj` and then load `notebooks/cljthreetiles.clj` (which depends on the former to be evaluated). In that way, the clj-tiles blocks are rendered on screen in Clay. Also the stanalone file `mytiles.html` is generated, also containing the blocks, which are calculated in Clojure proper. The Clay graphics are calculated using Scittle (this is why in Clay one cannot see the XML strings, whreas in mytiles.html the XML can be seen).
+First load `notebooks/wotiles.clj` (by editing it, Clay then loads) and then load `notebooks/cljthreetiles.clj` (which depends on the former to be evaluated). In that way, the clj-tiles blocks are rendered on screen in Clay. Also the stanalone file `mytiles.html` is generated, also containing the blocks, which are calculated in Clojure proper. The Clay graphics are calculated using Scittle (this is why in Clay one cannot see the XML strings, whreas in mytiles.html the XML can be seen).
 
 Alternatively, one can test XML generation using ClojureScript
 
