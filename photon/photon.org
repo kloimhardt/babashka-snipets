@@ -1453,6 +1453,23 @@ https://iris.uniroma1.it/bitstream/11573/918203/1/PhD%20Thesis%20final.pdf
 
 in Google Scholar, search "Ruppeiner Geometry", choose reveiw articles only.
 
+** Relativistic Hamilton Mechanics
+
+Foundations of Mechanics by Ralph Abraham and Jerrold E. Marsden (2002)
+
+Valter Moretti, 2023, Analytical Mechanics: Classical, Lagrangian and Hamiltonian Mechanics, Stability Theory, Special Relativity
+
+Oliver Johns, 2016, Analytical Mechanics for Relativity and Quantum Mechanics
+Entwickelt wohl die relativistische Mechanik nach Lanzcos
+
+Greiner 2 auch relativistisch nach Lanczos und Bearbeitung nach Struckmeier
+
+Geometric Formulation of Classical and Quantum Mechanics (2010) Giovanni Giachetta [hat viel QM und fiber bundels]
+
+Relativistic Classical Mechanics and Electrodynamics by Martin Land and Lawrence P. Horwitz. -- Classical Relativistic Many-Body Dynamics  2011 M.A. Trump (Autor), W.C. Schieve (Autor)
+[Stückelberg Interpretation 8n dimensionen in phase space,]
+[beide in Calibre, kommen mir dubios vor]
+
 ** Geschichte Physik, History Physics
 *** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
 Hinweis in Histrory of Quantum Physics vol1 part1 p24
@@ -1540,6 +1557,99 @@ However, for transcribing normal books, like historical development, the full co
 
 ** The Scribe
 more like medieval copist than an original bok writer.
+
+* Variational Principles of Mechanics
+** Warum L = T - V
+Euler und Lagrange haben Integral(T*dt, p1, p2) berechnet. Und zwar für konservative Systeme E = T + V = const. Die Integralgrenzen sind Raumpunkte, keine Zeitpunkte. D.h. T(s), t(s) und auch p1(s1) und p2(s2) sind alle von einem Parameter s abängig, der für die Ausführung der Integration nötig ist. Im Speziellen ist die Zeit t(s) abhängig von diesem Parameter, das dt ist also nicht unabhängig von s.
+Wenn man das s explizit einführt kann die Zeit t eliminiert werden. Dann, kommt man auf die Form Integral(sqrt(E-V)*ds, s1, s2) das von Jacobi gefunden wurde.
+Dieses Jacobi Integral entspricht formal dem Fermat Integral(n*ds, s1, s2). Die Zeit spielt keine Rolle in diesen beiden Integralen.
+Hamilton hat die Zeit wieder als unabhängigen Parameter eingeführt, dann schaut das Euler/Lagrange Integral so aus: Integral(T-V * dt, t1, t2). Es ist mathematisch äquivalent. Es ziegt sich, dass damit ach nicht-konservative Systeme gerechnet werden können.
+
+Aus der Einleitung Seite 20, die nicht ganz klar ist ohne Kommentar in []
+----------------
+For this purpose we let the particle move along the tentative path in accordance with the energy principle [Erhaltung der Enegrie E = T+ V]. The sum of the kinetic and potential energies is kept constant and always equal to that value E which the actual motion has revealed at time t1. This restriction assigns a definite velocity to
+any point of our path and thus determines the motion. We can choose our path [in space] freely, but once this is done the conservation of energy determines the motion [in time] uniquely.
+
+In particular, we can calculate the time at which the particle will pass an arbitrarily given point of our fictitious path and hence the time-integral of the vis viva i.e., of double the kinetic energy, extended over the entire motion from P1 to P2.
+[Integral(T*dt, p1, p2) wird konkret Integral(T(s)*t(s)*ds, s1=0, s2)], was Action, eine Funktion f(s) genannt wird.]
+
+This time integral is called “action.” It has a definite
+value for our tentative path and likewise for any other tentative path, these paths being always drawn between the same two end-points P1, P2 and
+always traversed with the same given energy constant E. [The various paths each take a different respective time.]
+
+In Hamilton’s procedure we again start with the given initial point P1
+and the given end-point P2.
+In Hamiltions method [Integral(T-V * dt, t1, t2)] we require now is that our tentative motion shall start at the observed time t1 of the actual motion and end at the observed time t2. [in between we vary the motion in time freely; time during motion is -- contrary to Euler/Lagrange -- at our disposal].
+(This condition [start at t1, end at t2]] is not satisfied in the procedure of Euler-Lagrange, because there the energy theorem restricts the motion, and the time taken to go from P1 to P2 in the
+tentative motion will generally differ from the time taken in the actual motion.)
+---------------
+
+Aus Chapter V, Section 6, Summary
+-----------
+[For conservative systems], the [explicit] elimination of the time [by substitution] as an ignorable coordinate gives a new principle which determines only the path of the mechanical system, not the motion in time. This is Jacobi's principle which is analogous to Fermat’s principle in optics.
+The same [i.e. Jacobi's] principle can be formulated as the “principle of least action.” In the latter [Euler/Lagrange], the time-integral of double the kinetic energy is minimized with the auxiliary condition that both actual and varied motions shall satisfy the energy theorem during the motion. If this principle is treated by the λ-method, the resulting equations are the Lagrangian equations of motion.
+----------
+
+** Warum Hamiltion besser als Lagrange
+
+Chapter VII, Section 1
+--------------
+The position coordinates of Lagrangian mechanics are the quantities qi. The Lagrangian equations of motion remain invariant with respect to arbitrary point transformations of these coordinates. [qi = f(q1, ..., qn)]
+
+The Hamiltonian equations are superior to the Lagrangian equations in their transformation properties is that the number of variables is doubled [q and p]. If at first sight this increase seems more of a loss than a gain, the procedure of coordinate transformations turns the liability into an asset. It is of great advantage that we can widen the realm of possible transformations by having a larger number of variables at our disposal.
+
+Instead of a point transformation which connects the [old] qi and [the new coordinates] Qi without involving the pi, we widen the functional relation between the coordinates
+by letting the momenta participate in the transformation of the position coordinates.
+
+In Lagrangian mechanics the significant function is the Lagrangian function L [which depends only on q and its derivative q^dot], and this function is the difference between the kinetic energy and the potential energy. If we try to simplify the potential energy the kinetic energy may get too complicated, and vice versa. It is rather difficult to simplify simultaneously the potential and the kinetic energy. In Hamiltonian mechanics the situation is much more favourable because the significant function, the Hamiltonian H, does not contain any derivatives, but only the variables [q and p] themselves. Hence, it is comparable with the potential energy of the Lagrangian problem.
+
+The kinetic energy [...] does not participate in the transformation problem. It does determine the general class of transformations [for q and p] which can be employed, but staying within that class we can focus our attention entirely on the Hamiltonian function H.
+
+in Lagrangian mechanics we do not possess any systematic method for the simplification of the Lagrangian function. We may hit on ignorable variables by lucky guesses, but there is no systematic way of producing them. In Hamiltonian mechanics a definite method can be devised for the systematic production of ignorable variables and the simplification of the Hamiltonian function. This method [...] reduces the entire integration problem to the finding of one fundamental function [called S], the generating function of a certain transformation.
+
+We do not think of the qi and pi as functions of the time t. We forget completely about
+the equations of motion and consider the qi, pi merely as variables, They are
+the coordinates of a point of the phase space and nothing else. The specific problem of motion is entirely eliminated. However, it is important that our transformation shall preserve the canonical equations.
+--------------
+
+** holonomic, non-holonomic kinematical consditions
+Kinematical conditions, auxilary conditions,  Zwangsbedingungen
+holonomic: f(q1, ..., qn) = 0 <=> D1f*dq1 + ... + Dnf * dqn = 0
+non-holonomic: A1*dq1 + ... + An*dqn = 0
+
+Such kinematical conditions, which can be given only as relations between the differentials of the coordinates and not as finite relations between the coordinates themselves, were called by Hertz “non-holonomic”
+
+** monogenic, polygenic forces
+polygenic: friction
+
+This book adopts the name “monogenic” (which means “single-generated”) as a distinguishing name for this category of forces, while forces which are not derivable from a scalar function—such as friction—can be called “polygenic”.
+
+holonomic kinematical conditions are mechanically equivalent to monogenic forces
+
+** Scleronomic and rheonomic
+rheonomic: f(q1, ..., qn, t) = 0
+
+Boltzmann used the terms “rheonomic” and “scleronomic” as distinguishing names for kinematical conditions which do or do not involve the time t.
+
+in a scleronomic system the “total energy” of the system remains constant during the motion
+
+Rheonomic systems are within the scope of the analytical approach.
+[But concerning] kinetic energy, it will not come out as a purely quadratic form of the generalized velocities; we obtain additional new terms which are linear in the
+velocities, and others which are independent of the velocities.
+
+holonomic auxiliary conditions are mechanically equivalent to monogenic forces. We can add that scleronomic holonomic conditions are equivalent to conservative monogenic forces.
+
+** ingnorable = kinosthenic
+certain variable q_k does not appear in the Lagrangian function, although q^dot_k is
+present.
+absent coordinates, kinosthenic, speed coordinates, cyclic variables, ignorable variables
+
+** Hamilton's principle
+Hamilton's principle holds for arbitrary mechanical systems which are characterized by monogenic forces and holonomic auxiliary conditions. The conservative nature of these forces and auxiliary conditions—i.e. their independence of the time—is not required.
+
+Hamilton’s principle and d’Alembert’s principle are mathematically equivalent and their scopes are the same as long as the impressed forces which act on the mechanical system are monogenic.
+
+For polygenic forces the transformation of d’Alembert’s principle into a minimum—or strictly speaking stationary value—principle is not possible.
 
 * KarlMay
 ** Bücher
