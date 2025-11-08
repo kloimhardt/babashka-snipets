@@ -1446,6 +1446,12 @@ https://www.preposterousuniverse.com/podcast/2023/03/06/ama-march-2023/
 
 ** David Deutsch
 David Wallace, Quantum Probability and Decision Theory https://philsci-archive.pitt.edu/885/3/decarx.pdf
+** Quantum Phase from the Twin Paradox
+G. N. Ord
+https://iopscience.iop.org/article/10.1088/1742-6596/361/1/012007/pdf
+
+https://www.researchgate.net/profile/Garnet-Ord/publication/342783525_Can_Minkowski_Spacetime_Resolve_Quantum_Superposition/links/5f05e86c299bf188160a6825/Can-Minkowski-Spacetime-Resolve-Quantum-Superposition.pdf
+
 ** Geometrothermodynamics
 Fundamentals of Geometrothermodynamics 2011 https://arxiv.org/abs/1111.5056
 Geometrothermodynamics, from ordinary systems to black holes
@@ -1462,13 +1468,16 @@ Valter Moretti, 2023, Analytical Mechanics: Classical, Lagrangian and Hamiltonia
 Oliver Johns, 2016, Analytical Mechanics for Relativity and Quantum Mechanics
 Entwickelt wohl die relativistische Mechanik nach Lanzcos
 
-Greiner 2 auch relativistisch nach Lanczos und Bearbeitung nach Struckmeier
+Greiner 2 und Greiner+Struckmeier
 
 Geometric Formulation of Classical and Quantum Mechanics (2010) Giovanni Giachetta [hat viel QM und fiber bundels]
 
 Relativistic Classical Mechanics and Electrodynamics by Martin Land and Lawrence P. Horwitz. -- Classical Relativistic Many-Body Dynamics  2011 M.A. Trump (Autor), W.C. Schieve (Autor)
 [Stückelberg Interpretation 8n dimensionen in phase space,]
 [beide in Calibre, kommen mir dubios vor]
+
+Cline hat kurzen Abschnitt über Greiner und Struckmeier
+https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Variational_Principles_in_Classical_Mechanics_(Cline)
 
 ** Geschichte Physik, History Physics
 *** Hans Kangro: Vorgeschichte des Planckschen Strahlungsgesetzes
@@ -1543,7 +1552,7 @@ Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
 Robert D. Klauber: Student Friendly Quantum Field Theory
 Zee: Quantum Field Theory, as Simply as Possible (in Calibre)
 
-* CLJ-Tiles Brilliant manual
+* CLJ-Tiles Brilliant manual Clay
 brilliant.org/sabine
 ** brings einem Computer bei
 geht auch mit Mathematica
@@ -1556,7 +1565,13 @@ Full org files are good for succinct code like SICM.
 However, for transcribing normal books, like historical development, the full code is not useful as puzzle, need a highlight like in the driven pendulum example.
 
 ** The Scribe
-more like medieval copist than an original bok writer.
+more like medieval copist than an original book writer.
+
+** Clay and Quarto
+schreibe:
+*** fdg intro (lagrange notation) and chapter 1 in clay in scittle-kitchen and sidebar ;
+*** show also in python/quarto video;
+*** then greiner und struckmeier to clay/scittle
 
 * Variational Principles of Mechanics
 ** Warum L = T - V
@@ -1654,7 +1669,11 @@ For polygenic forces the transformation of d’Alembert’s principle into a min
 * KarlMay
 ** Bücher
 Eric Vuillard, die Tagesordnung: Aufstieg Hitlers
+
 john chadwick decipherment of linear B, ist wie adventure puzzle game, dechffrierung der story.
+
+phillip kerr das wittgenstein programm: philosophischer Krimi
+Hörspiel ARD: https://hoerspiele.dra.de/detailansicht/1395057
 
 ** Gedanken
 *** Leser Motivation
@@ -1670,6 +1689,9 @@ literatur u wissenschaft deutschlfk + literaturhaus berlin
 
 *** Jeder Absatz soll ein fettgedrucktes Wort haben
 Man sollte ein Buch Querlesen können: fettgedruckte Wörter zeigen die Idee
+
+*** other
+Fantasy vs SciFi: Fantasy element are familiar (dragon, sorcery). SciFi must be narrated slowly, elements are new.
 
 ** Ardistan
 „Könnte dir auch der Mir von Ardistan nicht das Gefühl der Bangigkeit erwecken?«
