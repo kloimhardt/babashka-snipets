@@ -7,8 +7,20 @@ http://localhost:8000/
 
 the inkJS story interpreter is from https://github.com/y-lohse/inkjs/tree/master/templates/browser_with_server
 
+The main package is on npm
+https://www.npmjs.com/package/inkjs?activeTab=code
+There is also an inkjs-compiler.js
+/inkjs/bin/inkjs-compiler.js
+but that only works with node. https://browserify.org/ might do the trick, but I did not try.
+
+The interpreter is for the browser on unpkg
+<script src="https://unpkg.com/inkjs@2.3.2/dist/ink.js"></script>
+
 I added a special :b feature to main.js for bold text
 <img> can be added directly
 
 some more info
 https://deepwiki.com/inkle/ink/7.2-web-integration
+
+Picture from
+https://www.ulyssesguide.com/4-calypso
