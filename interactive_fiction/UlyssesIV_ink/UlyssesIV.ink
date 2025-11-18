@@ -22,7 +22,8 @@ Normal: External dialog and silent reading<em></em>
         -> kidneysWereInHis 
 
 = kidneysWereInHis
-<strong>Kidneys were in his mind as he moved about the kitchen softly, righting her breakfast things on the humpy tray.</strong>
+<img src="ecclesdoor.jpg" width=200 hight=800></img>
+:b Kidneys were in his mind as he moved about the kitchen softly, righting her breakfast things on the humpy tray.
   + Look around
         -> gelidLightAndAir 
 

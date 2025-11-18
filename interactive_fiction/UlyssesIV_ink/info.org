@@ -1,0 +1,14 @@
+Open UlyssesIV.ink with Inky application. Save it to json file.
+
+start
+python3 -m http.server
+open
+http://localhost:8000/
+
+the inkJS story interpreter is from https://github.com/y-lohse/inkjs/tree/master/templates/browser_with_server
+
+I added a special :b feature to main.js for bold text
+<img> can be added directly
+
+some more info
+https://deepwiki.com/inkle/ink/7.2-web-integration
