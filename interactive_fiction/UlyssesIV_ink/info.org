@@ -21,6 +21,7 @@ I added a special :b feature to main.js for bold text
 
 some more info
 https://deepwiki.com/inkle/ink/7.2-web-integration
+https://github.com/inkle/ink
 
 Picture from
 https://www.ulyssesguide.com/4-calypso

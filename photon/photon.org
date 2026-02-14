@@ -1551,6 +1551,9 @@ Bruce Schumm's Deep Down Things
 Jakob Schwichtenberg: No-Nonsense Quantum Field Theory
 Robert D. Klauber: Student Friendly Quantum Field Theory
 Zee: Quantum Field Theory, as Simply as Possible (in Calibre)
+ Darin empfohlen: Mark Srednicki: QFT
+
+Textbuch Rebhahn gibt zu dass noch nicht jeder Mathematische Zweig genau ausgetüftelt ist in der QFT: p364, Verweis aufp344 Gl.10.124
 
 * CLJ-Tiles Brilliant manual Clay
 brilliant.org/sabine
