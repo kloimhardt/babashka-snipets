@@ -421,29 +421,17 @@
 
 ;; We can get and save the geodesic equation residuals by:
 
-^:kindly/hide-code
-(kind/hidden
-  (define-coordinates t e/R1-rect))
+(define-coordinates t e/R1-rect)
 
 ^:kindly/hide-code
 (kind/scittle
   '(define-coordinates t e/R1-rect))
 
-;; :::{#cartan}
 (define Cartan
   (Christoffel->Cartan
     (metric->Christoffel-2
       the-metric
       (coordinate-system->basis R2-rect))))
-;; :::
-
-^:kindly/hide-code
-(kind/scittle
-  '(define Cartan
-     (Christoffel->Cartan
-       (metric->Christoffel-2
-         the-metric
-         (coordinate-system->basis R2-rect)))))
 
 (define geodesic-equation-residuals
   (((((covariant-derivative Cartan gamma) d:dt)
@@ -456,7 +444,7 @@
 
 ;;The Christoffel coefficients are computed from the metric:
 
-;; {{<contents cartan>}}
+;; Cartan above
 
 ;; The two messy residual results that we did not show are related by the metric.
 ;; If we change the representation of the geodesic equations by "lowering" them
