@@ -13,7 +13,7 @@
   (:require [scicloj.kindly.v4.api :as kindly]
             [scicloj.kindly.v4.kind :as kind]
             [mentat-collective.emmy.scheme :refer [define-1 let-scheme] :as scheme]
-            #_[civitas.repl :as repl]))
+            [civitas.repl :as repl]))
 
 ;; Elementary introduction to Emmy, taken from the first pages of the MIT open-access book
 ;; [Functional Differential Geometry (FDG)](https://mitpress.mit.edu/9780262019347/functional-differential-geometry/).
@@ -327,4 +327,4 @@
 ;; this idea, applied to the education of young children, can be found in Papert
 ;; [13].
 
-;; sdkljhsdfg
+(repl/scittle-sidebar)

@@ -136,15 +136,11 @@ To render with Quarto
 (python_venv) ~/klmtemp/babashka-snipets$ quarto render quartoblockly.qmd --to html
 ```
 
-## fdg prologue
+## Emmy FDG
 ```
-clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2.0.12\"} org.mentat/emmy {:mvn/version \"0.32.0\"}} :paths [\".\"]}"
-```
-
-```
-(do
-    (require '[scicloj.clay.v2.api :as clay])
-    (clay/make! {:source-path "mentat_collective/emmy/fdg_prologue.clj" :live-reload true})
-    )
+cp mentat_collective/emmy/scheme.cljc ./temp/.
 ```
 
+```
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2.0.12\"} org.mentat/emmy {:mvn/version \"0.32.0\"}} :paths [\".\"]}" -M -e "(do (require '[scicloj.clay.v2.api :as clay]) (clay/make! {:live-reload true :base-source-path \"mentat_collective\" :base-target-path \"temp\"}))"
+```
