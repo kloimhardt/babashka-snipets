@@ -80,7 +80,7 @@ Then, on the appearing `user=>` prompt:
 ```
 
 ```
-clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2-beta22\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M mariastefan.clj
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2.0.12\"} org.mentat/emmy {:mvn/version \"0.32.0\"}}}" -M mariastefan.clj
 ```
 
 ## scheme-sicm-ch01.clj: a "define"-Macro for Scheme emulation
@@ -134,4 +134,13 @@ To render with Quarto
 
 ```
 (python_venv) ~/klmtemp/babashka-snipets$ quarto render quartoblockly.qmd --to html
+```
+
+## Emmy FDG
+```
+cp mentat_collective/emmy/scheme.cljc ./temp/.
+```
+
+```
+clj -Sdeps "{:deps {org.scicloj/clay {:mvn/version \"2.0.12\"} org.mentat/emmy {:mvn/version \"0.32.0\"}} :paths [\".\"]}" -M -e "(do (require '[scicloj.clay.v2.api :as clay]) (clay/make! {:live-reload true :base-source-path \"mentat_collective\" :base-target-path \"temp\"}))"
 ```
