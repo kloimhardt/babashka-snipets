@@ -1,0 +1,15 @@
+* Beispiel: Cloak of Darkness
+
+dgdebug cod.dg stdlib.dg
+
+
+* weitere Beispiele in directory ./examples
+** ex101.dg ist Inform Doks Beispiel 101
+dialog versions taken from
+https://intfiction.org/t/inform-examples-tailored-for-dialog/44025
+inform versions from
+https://ganelson.github.io/inform-website/book/examples_numerical.html
+
+** Craverly Heights
+./examples/craverly_heights.dg
+https://www.linusakesson.net/dialog/craverly/craverly_side_by_side.html

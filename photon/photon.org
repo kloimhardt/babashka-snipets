@@ -1201,6 +1201,9 @@ There are very short, non-technical chapters about Max Born in both Ioan James' 
 Born-Einstein https://vdoc.pub/download/the-born-einstein-letters-4tuq5gc2bs30
 Autobiographie: Der Luxus des Gewissens: Erlebnisse und Einsichten im Atomzeitalter
 
+Natural Philosophy Of Cause And Chance
+https://archive.org/details/naturalphilosoph032159mbp (auch Calibre)
+
 *** Geometrische Optik
 Eugene Hecht: Optics
 Born, Wolf: Priciples of Optics https://en.wikipedia.org/wiki/Principles_of_Optics
@@ -1289,6 +1292,9 @@ https://einsteinpapers.press.princeton.edu/vol2-doc/415
 
 1910c (?oder d?): Theorie d Opaleszenz  https://einsteinpapers.press.princeton.edu/vol3-doc/325
 
+Äther und Relativitätstheorei (in Calibre)
+Über den Äther (in Calibre)
+
 Norton,  Einstein’s Miraculous Argument of 1905
 https://sites.pitt.edu/~jdnorton/papers/Miraculous_Berlin_final.pdf
 
@@ -1297,6 +1303,47 @@ https://books.google.at/books?hl=en&lr=&id=LBhvAwAAQBAJ&oi=fnd&pg=PR11&dq=Darrig
 
 A. Pais: Subtle is the lord
 Scheint die Standardbio zu sein, wohl viel zu Planck black body auch.
+
+Alberto A Martinez
+Kinematics: The Lost Origins of Einstein's Relativity
+https://martinezwritings.com/m/Kinematics.html
+Abstract: T62.00002 : How Einstein Was Influenced by the Philosopher Arthur Schopenhauer
+(University of Texas at Austin)
+Vortrag 7.3.24, Abstract via google scholar:
+In Einstein's Autobiographical Notes, in multiple letters, and in essays, he admitted that he had been influenced by Arthur Schopenhauer, a crabby and disgruntled but fascinating German philosopher who had died in 1860. Few writers have analyzed Schopenhauer's influence on Einstein, despite some exceptions such as Don Howard. I will discuss how Schopenhauer affected Einstein's views on free will, determinism, human relationships, spacetime, and in using science as an escape from personal problems. Naturally, I will draw comparisons to Einstein's views on Hume, Kant, and Spinoza. I will also discuss how Einstein discussed Schopenhauer with others, including his son Eduard.
+
+Don Howard, A Peek behind the veil of maya, in: The Cosmos of Science
+enthält Referenzen zu
+Friedrich Herneck 1969, ...
+Cassierer: Determinismus und Indeterminismus in der modernen Physik
+https://archive.org/details/zurmodernenphysi0000cass/page/n7/mode/1up
+
+** Lorentz
+
+Versuch einer Theorie der electrischen und optischen Erscheinungen in bewegten Körpern
+https://de.wikisource.org/wiki/Versuch_einer_Theorie_der_electrischen_und_optischen_Erscheinungen_in_bewegten_Körpern
+
+Elektromagnetische Erscheinungen in einem System, das sich mit beliebiger, die des Lichtes nicht erreichender Geschwindigkeit bewegt.
+https://de.wikisource.org/wiki/Elektromagnetische_Erscheinungen
+
+Electromagnetic phenomena in a system moving with any velocity smaller than that of light
+H.A. Lorentz, Proc. K. Ak. Amsterdam 6, 809 (1904), Collected Papers, Vol.5, p172
+(in google scholar)
+
+Paper zu Lorentz
+Lorentz, Poincaré, Einstein, and the Genesis of the Theory of Special Relativity
+https://arxiv.org/pdf/2510.17838
+mit Hinweis auf wichtige historische Zusammenfassung von Lorentz von Gans:
+Gans, Richard. “H. A. Lorentz. Elektromagnetische Vorgänge in einem Systeme, das sich mit einer willkürlichen Geschwindigkeit (kleiner als die des Lichtes) bewegt.” Beiblätter zu den Annalen der Physik 29, no. 4 (1905): 168–170.
+
+Über die Priorität
+https://en.wikipedia.org/wiki/Relativity_priority_dispute
+
+** Poincare
+
+Sur la Dynamique de l'Electron
+C.R. Ac.Sci. Paris 140, 1504 (1905), Oevres, Vol. 9, p489
+Rend. Circ. Mat. Palermo 21, 129 (1906); Oevres, Vol 9, p494
 
 ** Feynman
 Space-Time Approach to Non-Relativistic Quantum Mechanics
@@ -1453,11 +1500,55 @@ https://iopscience.iop.org/article/10.1088/1742-6596/361/1/012007/pdf
 https://www.researchgate.net/profile/Garnet-Ord/publication/342783525_Can_Minkowski_Spacetime_Resolve_Quantum_Superposition/links/5f05e86c299bf188160a6825/Can-Minkowski-Spacetime-Resolve-Quantum-Superposition.pdf
 
 ** Geometrothermodynamics
+Is there a textbook on Thermodynamics based on Differential Geometry (I think also called Geometrothermodynamics)? I ask because Sean Carroll in his Dec 2020 podcast [1] says "if you really want to understand thermodynamics ... all of those partial derivatives and maximal relations are just super simple in the language of differential geometry".
+[1] https://www.preposterousuniverse.com/podcast/2020/12/09/ama-december-2020/ (timestamp 2:51:11 in the audio, also in the transcription)
+
+
+-> as google AI: "how differential forms specifically simplify Maxwell's relations"
+
+Simplest way:
+https://statisticalphysics.leima.is/thermodynamics/summary.html
+
+Beginners Guide to Differential Forms in Thermodynamics
+https://www.fuw.edu.pl/~pzdybel/DiffF.pdf
+
+Differential forms for plasma physics, 13.1.2020 (jounal paper)
+R. S. MacKay
+"differential forms are only the antisymmetric covariant tensors"
+
+*** Bücher:
+Differential Forms with Applications to the Physical Sciences, Harley Flanders, 1963, 89
+https://www.math.u-szeged.hu/~stacho/mm/flanders.pdf
+
+Global Analysis: Differential Forms in Analysis, Geometry, and Physics, Ilka Agricola, Thomas Friedrich, 2002
+Aus Amazon: Bott and Tu’s “Differential Forms in Algebraic Topology,” Frankel’s “The Geometry of Physics, 3rd Ed.,” Abraham, Marsden and Ratiu’s “Manifolds, Tensor Analysis, and Applications,” and Choquet-Bruhat, DeWitt-Morette, and Dillard-Bleick’s “Analysis, Manifolds and Physics, Revised Ed.”
+
+*** https://en.wikipedia.org/wiki/Geometrothermodynamics
+
 Fundamentals of Geometrothermodynamics 2011 https://arxiv.org/abs/1111.5056
 Geometrothermodynamics, from ordinary systems to black holes
 https://iris.uniroma1.it/bitstream/11573/918203/1/PhD%20Thesis%20final.pdf
 
 in Google Scholar, search "Ruppeiner Geometry", choose reveiw articles only.
+
+
+Viorel Badescu
+Modeling Thermodynamic Distance, Curvature and Fluctuations: A Geometric Approach (Understanding Complex Systems), May 27, 2016, ISBN: 9783319337883
+-> harte Nuss
+
+Classical and Geometrical Theory of Chemical and Phase Thermodynamics
+Frank Weinhold ISBN: 978-0-470-43505-2 February 2009
+-> scheint einfacher
+
+Geometrothermodynamics
+Hernando Quevedo
+Research Article| January 23 2007
+" We show that Weinhold’s metric, which was introduced ad hoc, is not contained within this invariant set. "
+
+Fundamentals of Geometrothermodynamics
+Hernando Quevedo, Maria N. Quevedo
+21 Nov 2011
+https://arxiv.org/abs/1111.5056
 
 ** Relativistic Hamilton Mechanics
 
@@ -1715,7 +1806,7 @@ nunc et in hora mortis nostrae.
 
 Amen.
 
-** Das Gasthaus in dem der Gast von einem Kellner nicht zu unterscheiden ist
+** Das Gasthaus in dem der Gast vom Kellner nicht zu unterscheiden ist
 Beschrieben wird die Gösser Bierinsel
 
 ** Zwerge
@@ -1932,4 +2023,42 @@ Besonders schön sind Koranrezitationen (tajwid) von Frauen, find ich, z.B von v
 Ich hab hier nochmal selbst aus meiner deutschen Koranvorlage etwas poetisiert, aber ich bin bereit der Erzählung glauben zu schenken, dass Menschen zu weinen beginnen, wenn ein stimmbegabter Imam das arabische Original vorsingt (und der Boden im Gebetsraum nicht steinkalt ist). Der Leser denke zum Vergleich an den Gemeinschaftsgesang des „grosser Gott wir loben dich“ in der heimischen Stadtpfarrkirche. Say no more.
 
 Ja, der Koran hat Relevantes hinzuzufügen. Und so höre ich aus dem Gebetsruf eines jeden Muezzin den Aufruf, doch wieder in den Stephansdom zu gehen, eine Kerze anzuzünden, und wieder zu lernen wenns drauf ankommt ein guter Katholik zu sein. Und wer weiss, vielleicht gibt’s mal die Möglichkeit als Katholik, für ein zwei Stunden als vollkommen gläubiger Katholik, in einer Moschee für die Gaben zu danken. Ja, eine Moschee wäre tatsächlich der beste Platz leise zu beten als durch und durch, im besten Sinne der Aufklärung, aufrichtiger Katholik.
+
+
+
+** Sound of Saalsperk
+
+Your name is Emanuelle Kurt, but you changed to Immanuel at the age of 22 as you consider this to be closer to Hebrew origins.
+
+As your servant is not in today, you are going to eat at Wulff's Canteen. The inn is next to the university where you inhabit the Lehrstool for the Philosophy of Music. The univerity, named after Archbishop Markus Sittikus, has been founded in 1622. It will cease to exist in 1810 when the free state of Saalsperk joins the Eastern Empire.
+Saalsperk lies where the Saalach river leaves the alps and meanders across the state-borders to open out into the Eastern river.
+From your window looking south and southwest, you can see the villages of Obersaalsberg and Untersberg located atop two hills carrying the same names.
+You prefer to walk rather than take the horse carridge.
+
+*** Limerik
+Gaci:
+Es hatte Herr Kant das Begehren
+Seinen Darm elegant zu entleeren
+Ein Pfeiferl geraucht
+Einmal kurz angetaucht
+Der Darminhalt konnt sich nicht wehren
+
+Ich:
+nach dem pfeiferl trank er noch tee
+zu vertreiben jedes übrige wehweh
+doch dann noch im morgenmantel 
+fuhr er auf wie die tarantel
+hatt er doch vergessen auf das toupe
+
+und dann zurück in seiner schreibunterkunft
+hat er erst so richtig aufgetrumpft
+denn dort schrieb er nieder
+auf jahr und tag immer wieder
+seine Kritik der reinen Vernunft
+
+doch um neun wurds schon spät
+da legt er nieder das schreibgerät
+denn bei solchem Talent
+wartete schon jeder Student
+auf seine Lesung an der Universität
 

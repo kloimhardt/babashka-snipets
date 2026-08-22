@@ -1,0 +1,1635 @@
+(story title)	Craverly Heights
+(story author)	Ryan Veeder
+
+(additional banner text)
+	Ported to Dialog by Linus Åkesson, with kind permission of the author.
+
+(story release 2)
+
+(story ifid)
+	%% This is for the Dialog port:
+	2226EE17-566D-4A5A-8DD1-D55370F8B91E
+
+(sid)
+	(#sunglasses is #wornby #player)
+
+(menacingly or meaningfully)
+	(if) (sid) (then) menacingly (else) meaningfully (endif)
+
+(room *(onstage room $))
+
+(room *(backstage room $))
+
+(onstage)
+	(current room $Room)
+	(onstage room $Room)
+
+(backstage)
+	(current room $Room)
+	(backstage room $Room)
+
+#breakroom
+(backstage room *)
+(name *)		Break Room
+
+#s-hallway
+(backstage room *)
+(name *)		South Hallway
+
+#intersection
+(backstage room *)
+(name *)		Hallway Intersection
+
+#n-hallway
+(backstage room *)
+(name *)		North Hallway
+
+#e-hallway
+(backstage room *)
+(name *)		East Hallway
+
+#w-hallway
+(backstage room *)
+(name *)		West Hallway
+
+#hospital
+(onstage room *)
+(name *)		Roland Memorial Hospital
+
+#pizza
+(onstage room *)
+(name *)		Gina's Pizzeria
+
+#manor
+(onstage room *)
+(name *)		Craverly Manor
+
+(singleton *(backstage room $))
+
+(proper *(onstage room $))
+
+(from #n-hallway go #west to #hospital)
+(from #hospital go #east to #n-hallway)
+(from #e-hallway go #north to #pizza)
+(from #pizza go #south to #e-hallway)
+(from #s-hallway go #east to #breakroom)
+(from #breakroom go #west to #s-hallway)
+(from #w-hallway go #south to #manor)
+(from #manor go #north to #w-hallway)
+(from #n-hallway go #south to #intersection)
+(from #intersection go #north to #n-hallway)
+(from #w-hallway go #east to #intersection)
+(from #intersection go #west to #w-hallway)
+(from #s-hallway go #north to #intersection)
+(from #intersection go #south to #s-hallway)
+(from #e-hallway go #west to #intersection)
+(from #intersection go #east to #e-hallway)
+
+(perform [look #under $Obj])
+	(if) (backstage) (then)
+		There's nothing under (the $Obj).
+	(else)
+		You are unable to find anything beneath (the $Obj).
+	(endif)
+
+(perform [wait])
+	(onstage)
+	You glance around (menacingly or meaningfully).
+
+(feel #player)
+	(if) (backstage) (then)
+		You feel fine.
+	(else)
+		You press a finger against your skin. You are as real as anything else.
+	(endif)
+
+(feel (animate $Person))
+	(if) (backstage) (then)
+		You touch (the $Person), who tries to shoo you away.
+	(else)
+		You put your hand against (the $Person) (no space) 's face. (The $Person) looks meaningfully back at you.
+	(endif)
+
+(feel $Obj)
+	(if) (backstage) (then)
+		(The $Obj) feels normal.
+	(else)
+		You pause to consider the texture of (the $Obj).
+	(endif)
+
+(perform [wake up])
+	(if) (backstage) (then)
+		This is too stupid to be a dream.
+	(else)
+		“Maybe this is all a dream,” you say, gazing into the distance, but no answer comes.
+	(endif)
+
+(perform [think])
+	(if) (backstage) (then)
+		You pause to consider what choices have led to this situation.
+	(elseif) (sid) (then)
+		You pause to think. But of course you, Sidney Langridge, can think only of yourself.
+	(else)
+		“I need to think,” you say, pressing your fingers against your temples. “The answer is staring me right in the face, I just know it.” You squint deeply, the weight of all Craverly Heights's problems upon your shoulders.
+	(endif)
+
+(perform [curse])
+	(if) (backstage) (then)
+		If that's what it takes to get you to calm down.
+	(else)
+		You better control yourself: This is daytime TV.
+	(endif)
+
+(perform [sing])
+	(if) (backstage) (then)
+		Not one of your talents.
+	(else)
+		They don't pay you enough.
+	(endif)
+
+(perform [sleep])
+	(if) (backstage) (then)
+		There's a lot left to do today.
+	(else)
+		Not on the job.
+	(endif)
+
+(rewrite [say hello/hi to | $Words] into [greet | $Words])
+
+(scenery $Obj)
+	~(item $Obj)
+	~(animate $Obj)
+	~(current player $Obj)
+
+(instead of [push (scenery $Obj)])
+	(try [take $Obj])
+
+(prevent [take (scenery $Obj)])
+	~($Obj = #bulletin)
+	(if) (onstage) (then)
+		Moving that is someone else's job.
+	(else)
+		That belongs where it is.
+	(endif)
+
+(perform [listen to (backstage room $)])
+	It's pretty quiet.
+
+(instead of [give $A to $B])
+	(try [show $A to $B])
+
+#camera
+(name *)	camera
+(dict *)	cameras
+((onstage room $) attracts *)
+(descr *)
+	You just accidentally glanced at a camera, but they can edit that out.
+
+(prevent $Action)
+	~($Action = [examine *])
+	(* is one of $Action)
+	You're not supposed to acknowledge it.
+
+#pizza
+
+(look *)
+	The tender light of the morning—or the very early evening—casts itself softly against the downy linen of spotless white tablecloths and the Italian flag hanging from the wall. The exit is south.
+
+(perform [listen to *])
+	All you hear is the heavy silence of an oven that has not been turned on, the anticipatory hush of a pizza cutter that lies motionless inside of an unopened drawer. You hear nothing.
+
+#tablecloth
+(name *)	white tablecloth
+(supporter *)
+(* is #in #pizza)
+(dict *)	tablecloths tables table
+(descr *)
+	Like an expectant canvas is each tablecloth, ready to receive the masterpiece that is every one of Gina's pizzas.
+
+#flag
+(name *)	Italian flag
+(an *)
+(* is #in #pizza)
+(dict *)	tricolor tricolore
+(descr *)
+	The tricolor stands straight and proud and wide and true for all to see, a symbol of the deep respect and affection that Gina feels toward her heritage.
+
+(after [look])
+	(current room #pizza)
+	~(#gina is #in #pizza)
+	(par)
+	(select)
+		“It looks like Gina's not here yet,” you announce to the empty room. “I wonder where she is.”
+		(par)
+		The room is silent.
+	(or)
+		You glance around (menacingly or meaningfully). Gina is nowhere to be seen.
+	(stopping)
+
+#gina
+
+(name *)	Gina
+(proper *)
+(female *)
+(dict *)	woman lane lady
+
+(appearance *)
+	(if) (* is alive) (then)
+		Gina is here, resolutely straightening things out in anticipation of the day's business.
+	(else)
+		Gina lies on the floor, dead.
+	(endif)
+
+(descr *)
+	(if) (* is alive) (then)
+		Gina is clearly in the midst of a valiant attempt to radiate her usual cheer, but her mien is marred by the looming knowledge of her beloved daughter's ill condition. Her pink blouse is wrinkled, belying the distraction that bedevils even the most meticulous of worried mothers.
+	(else)
+		Gina had so much love to give this world—but now she's dead. Never again will man or woman taste the delicious pizzas that Gina had to offer. This entepreneur has tossed her last crust.
+	(endif)
+
+(perform [talk to *])
+	(if) (sid) (then)
+		(select)
+			“Hello, Gina,” you say, your teeth flashing impishly from between your wily lips.
+			(par)
+			Gina's face is a stoic cliff, carved from stone. “Sid. You're supposed to be in a federal prison.”
+			(par)
+			Your cackling is like an incoming thunderstorm. “People seem to think so! But I figure, wherever I am is where I'm supposed to be.” You smirk.
+		(or)
+			“What are you still doing here?” asks Gina.
+			(par)
+			“Wouldn't you like to know?” is your menacing reply.
+		(stopping)
+	(elseif) (prog 0) (then)
+		(select)
+			“Pauline's insurance has run out,” you say. Gina's expression descends into concern.
+			(par)
+			“She needs a procedure, or she'll die,” you continue. “Is there any way you can pay for it?”
+			(par)
+			“This pizzeria is barely paying for its own bills,” says Gina. “All the money I could have spent to save Pauline's life, I spent on my dream of becoming a restauranteur.”
+			(par)
+			“We all have to live with our mistakes,” you say, “but Pauline may not have long to live with yours.”
+			(par)
+			Gina tries to hide her face.
+		(or)
+			“What about Pauline's father?” you ask. “Could he pay for the procedure?”
+			(par)
+			“Doc, Pauline's father isn't in Antibes.” Your jaw slackens at the sound of Gina's revelation. “The fact is, I don't know who Pauline's father is.”
+			(par)
+			Your expression is one of shock.
+		(stopping)
+	(elseif) (prog 1) (then)
+		“Please let me know if there's any news from the hospital,” Gina says, trying her best not to break down into an avalanche of motherly tears.
+	(else)
+		“What are you still doing here?” Gina cries. “Pauline needs to know about her real father! And so does...her father.”
+	(endif)
+
+(perform [kiss *])
+	(if) (sid) (then)
+		Gina rebuffs your amorous advance. “Sidney, I wouldn't kiss you with my dead husband's mouth.”
+	(else)
+		(select)
+			“What are you doing?” Gina asks as you approach her.
+			(par)
+			“Let me show you,” you say, as you put your arms around her body and tenderly meet her lips against yours. Gina yields passionately to your embrace.
+			(par)
+			But then the moment is over. “This can never happen again,” Gina whispers.
+		(or)
+			You kiss Gina again. Again you feel the warmth of bodily contact that you have been craving for so long. Again Gina says that this can never happen again.
+		(stopping)
+	(endif)
+
+(after [point #handgun at *])
+	(par)
+	(if) (sid) (then)
+		(if) (the suspect is *) (then)
+			(if) ~(#satchel has parent $) (then)
+				“I want those jewels, Gina!” you say, threatening the matronly entepreneur with the shining steel of your lethal accessory. “Or do you want your blood all over these nice white tablecloths?”
+				(par)
+				“Don't shoot, Sid! Here!” She reveals a satchel, which she throws across the dining room and into your hand. “Please, don't shoot me.”
+				(par)
+				“Of course not. I wouldn't hurt you, as long as you played nice.” You shake the satchel full of jewels with a satisfied air. “And you sure did play real nice,” you say, smugly.
+				(now) (#satchel is #heldby #player)
+			(else)
+				“There are no more jewels, Sid,” Gina cries. “They're all in that bag.”
+				(par)
+				“I was just making sure,” you say.
+			(endif)
+		(else)
+			Gina reels in shock at the sight of the gun that is pointed her way. She cringes audibly. You cackle ominously.
+		(endif)
+	(else)
+		Gina stares down the barrel of your pistol with a face twisted by incredible shock.
+		(par)
+		“Doc!” she gasps. “Put the gun down! You're not thinking straight!”
+		(par)
+		“Or am I?” you retort.
+	(endif)
+
+(perform [shoot *])
+	(select)
+		(now) (* is dead)
+		Your gun screams as if in anger as it ejects its bullet straight into Gina's mortal coil. If she had any last words, it is too late for them now.
+		(par)
+		She falls to the floor with a horrible slump, as dead as her Italian role model, Julius Caesar.
+		(if) (#leopold is dead) (#pauline is dead) (then)
+			(bloodbath ending)
+		(endif)
+	(or)
+		You fire another bullet into Gina's dead body. “I don't know why I did that,” you announce.
+	(stopping)
+
+(perform [show #handgun to *])
+	(if) (sid) (then)
+		“Is that the gun you used to shoot the mayor?” Gina asks.
+		(par)
+		“Nah, this gun is innocent,” you say, quickly adding: “And so am I!”
+	(else)
+		Gina regards your gun with a skeptic's pair of eyes. “Why would a doctor need a gun?” she asks.
+		(par)
+		“We doctors need a lot of things,” you answer meaningfully.
+	(endif)
+
+(perform [show #magnifier to *])
+	“Are you on the trail of a mystery?” Gina asks.
+	(par)
+	“In my own way, I suppose, I am,” you say, (menacingly or meaningfully).
+
+(perform [show #photo to *])
+	(if) (sid) (then)
+		(if) (#satchel has parent $) (then)
+			“That dog's death was as meaningless as your life,” Gina eloquently states.
+		(elseif) ~(the suspect is #leopold) (then)
+			(ginaspeech)
+			(now) (the suspect is *)
+		(else)
+			“Where did you get that photo of my daughter's beloved golden retriever Wendell?” Gina asks indignantly and accusingly. You lick your lips menacingly.
+			(par)
+			“So it's a crime to have a photo of a dog now?” you ask. “What is this world coming to?”
+			(par)
+			Gina glares at you.
+		(endif)
+	(else)
+		Gina regards the photo sadly. “Oh, Wendell, you big lug. Why'd you have to leave us?” she asks.
+		(par)
+		“You don't have any clues to the mystery of his death?” you ask.
+		(par)
+		Gina regards you angrily. “Are you accusing me of something?” she asks.
+		(par)
+		“Of course not,” you answer.
+	(endif)
+
+(perform [talk to * about #jewels])
+	(if) (#satchel has parent $) (then)
+		“You got your jewels. Now, go,” Gina pouts, her pride hurt by your actions as much as her heart is hurt by her daughter's illness.
+	(else)
+		(ginaspeech)
+		(now) (the suspect is *)
+	(endif)
+
+(ginaspeech)
+	(select)
+		“You can cut the act, Gina. I know that you know that me and Janine killed Wendell the dog because he knew where we buried the jewels—the jewels that you dug up in the train yard while I was in prison,” you say, holding up the photo of Wendell as if it were Exhibit A in a courtroom of crime.
+		(par)
+		“Maybe that's all true, or maybe not,” Gina says, “but I'm not handing over those jewels.”
+		(par)
+		You grimace.
+	(or)
+		“The jewels are mine, Sid!” Gina says haughtily, her pink blouse rippling with satisfaction.
+	(stopping)
+
+#hospital
+
+(#player is #in *)
+
+(current player #player)
+
+(descr #player)
+	(if) (backstage) (then)
+		You have no idea what you're doing.
+	(elseif) (sid) (then)
+		You are Sidney Langridge, feared and hated in the town of Craverly Heights and beyond. Only in appearance are you identical to Doctor Langridge, for in words and deeds you are the polar opposite of your do-gooder twin.
+	(else)
+		You are Doctor Langridge, mentor to some, friend to many, and healer to all of the citizens of Craverly Heights. Everyone in town knows your name. It is Doctor Langridge.
+	(endif)
+
+(look *)
+	The whirring and chirping of medical instruments is all around—a worrying commotion
+	(if) ~(sid) (then)
+		, to some, but to your ears it is as regular as a heartbeat, as usual as business. While you walk these sterile halls, you are in your element: the element of health
+	(endif)
+	. The exit is east.
+
+(perform [listen to *])
+	The whirring and chirping of medical instruments is all around. A worrying commotion
+	(if) ~(sid) (then)
+		, to some. But to your ears it is as regular as a heartbeat. As usual as business
+	(endif).
+
+#bed
+(name *)	bed
+(dict *)	hospital
+(* is #in #hospital)
+(descr *)
+	For all its convenience-enhancing technological features, this bed is still a detestable prison in the doe-eyes of its tenant, the invalid Pauline.
+
+#pauline
+
+(name *)	Pauline
+(proper *)
+(female *)
+(* is #in #hospital)
+(dict *)	girl woman janine
+
+(appearance *)
+	(if) (* is alive) (then)
+		Pauline, pale and frail, looks up at you
+		(if) (sid) (then) confusedly (else) pleadingly (endif)
+		from her supine position aboard her hospital bed.
+	(else)
+		Pauline's dead body lies motionless in her hospital bed.
+	(endif)
+
+(descr *)
+	(if) (* is alive) (then)
+		You gaze down (menacingly or meaningfully) at Pauline, at her once-soft features cast into sharp relief by the mysterious illness that wracks her youthful form.
+	(else)
+		No longer do Pauline's tender lips draw breath; no longer do her eyes plead for release from the life of infirmity that had entrapped her.
+	(endif)
+
+(after [examine *])
+	(select)
+		(if) (* is alive) (then)
+			(par)
+			(paulinespeak)
+		(endif)
+	(or)
+	(stopping)
+
+(perform [talk to *])
+	(paulinespeak)
+
+(paulinespeak)
+	(if) (sid) (then)
+		(select)
+			“Sidney!” Pauline's eyes widen as they detect your identity. “You shouldn't be here! What if the doctor, your twin, sees you?”
+			(par)
+			“You leave the nerd to me, sugarbabe. I've been dealing with that clamshell since the day we were both born.”
+		(or)
+			“You came back for me, Sidney,” Pauline says, her chest working double-time to force the words out of her lungs.
+			(par)
+			“I sure did, sugarbabe.”
+		(stopping)
+	(elseif) (prog 0) (then)
+		(select)
+			“Oh, Doctor Langridge,” Pauline rasps, “Tell me some good news.”
+			(par)
+			“I wish I could,” you say, “but the truth is that your condition is getting worse. And the even worse news is that your insurance won't pay for your procedure.”
+			(par)
+			Pauline's lip quivers.
+		(or)
+			“Can't anything be done, Doctor Langridge?” Pauline asks pitifully.
+			(par)
+			“I'll talk to your mother,” you say, though your countenance does not indicate confidence.
+		(stopping)
+	(elseif) (prog 1) (then)
+		“Please let me know if you find out about those test results,” Pauline pleads.
+	(else)
+		Pauline looks up at you, beautiful tears welling in her still more beautiful eyes. “Please, Doctor Langridge! Talk to my father! He might be able to help!”
+	(endif)
+
+(perform [kiss *])
+	(if) (sid) (then)
+		(select)
+			You plant a long, meaningful kiss on Pauline's quivering lips. “It's been so long,” she sighs.
+		(or)
+			You kiss Pauline again, for fun. Nobody tells Sidney Langridge not to kiss sick people.
+		(stopping)
+	(else)
+		(select)
+			You lean down until your face almost meets Pauline's. “The Hippocratic Oath warns a doctor not to give into his or her feelings for a patient,” you say, “but an oath can only be kept for so long.” Pauline rises weakly to kiss you passionately. The moment is perfect, but it does not last forever.
+			(par)
+			“No one can know about this,” you say. Pauline nods weakly.
+		(or)
+			You kiss Pauline again. She responds with enthusiasm despite her bedridden condition.
+		(stopping)
+	(endif)
+
+(after [point #handgun at *])
+	(par)
+	“What are you doing?” Pauline shrieks.
+	(par)
+	“You'll see soon enough,” you say, (menacingly or meaningfully).
+
+(perform [shoot *])
+	(select)
+		(now) (* is dead)
+		You fire into Pauline's chest. The crack of the gunshot is drowned out by her desperate scream—but, an instant later, her screaming ends. She's dead.
+		(if) (#leopold is dead) (#gina is dead) (then)
+			(bloodbath ending)
+		(endif)
+	(or)
+		You fire another bullet into Pauline's dead body. “Now she's dead for sure,” you announce.
+	(stopping)
+
+(perform [show #handgun to *])
+	(if) (sid) (then)
+		“Nice gun,” Pauline says.
+		(par)
+		“Thanks,” you say, menacingly.
+	(else)
+		“Why would a doctor need a gun?” Pauline asks, her eyes clouded with innocence.
+		(par)
+		“That's a good question, Pauline. But I can't tell you,” you say. And then you add: “Yet.”
+	(endif)
+
+(perform [show #magnifier to *])
+	As Pauline looks through the magnifying glass, an expression of befuddlement overtakes her face. “Everything is distorted and strange,” she says.
+	(par)
+	“That's
+	(if) (sid) (then)
+		because magnifying glasses are for sucks
+	(else)
+		in the nature of a lens,” you respond. “They can reveal to us the world's secret truths, or they can show us a bizarre parody of our lives, as if reflected in a funhouse mirror. We must always be mindful of this, when we gaze through a glass
+	(endif)
+	,” you say.
+
+(global variable (the suspect is #pauline))
+
+(perform [show #photo to *])
+	(if) (sid) (then)
+		(select)
+			Salty, unhappy tears well up in Pauline's eyes as she regards the image of her beloved dog. “I miss him so much,” she says.
+			(par)
+			“But you remember why we killed him, don't you?” you ask.
+			(par)
+			“Of course. Wendell kept trying to dig up the place where we buried the jewels.”
+			(par)
+			“Yeah, well, right after I got out of prison I went back to that place, where we buried the jewels. But someone got there first. Someone dug them up.”
+			(par)
+			Pauline gasps. “But who else knew about the jewels?”
+			(par)
+			“Only one person,” you menacingly say.
+		(or)
+			“Have you talked to the one other person who knew about the jewels yet?” Pauline asks.
+		(stopping)
+	(else)
+		(select)
+			At the sight of her beloved departed dog, Pauline's expression sinks still further into the mire of melancholy.
+			(par)
+			“Oh, Wendell,” she mourns, on the verge of weeping. “If only you were here, I wouldn't feel nearly so awful. If I ever find out who took you from me...”
+			(par)
+			“But Wendell's death was ruled an accident,” you say.
+			(par)
+			Pauline fixes you with as steely a glare as she can muster in her depleted state. “You don't believe that, do you?” she asks.
+			(par)
+			“No,” you say.
+		(or)
+			You offer the photo to Pauline again, but she refuses to look at it.
+		(stopping)
+	(endif)
+
+#manor
+
+(look *)
+	A gargantuan portrait of the hawk-eyed and hawk-nosed Leopold Craverly stares down at you from its perch on the mahogany-panelled wall. The exit is north.
+
+(perform [listen to *])
+	The manor is eerily quiet. The other Craverlies have left; only Leopold lives here now.
+
+#portrait
+(name *)	gargantuan portrait
+(* is #in #manor)
+(dict *)	painting picture
+(descr *)
+	The portrait may resemble Craverly even more than does Craverly himself. Art imitates life, yes: but life is messy, and inaccurate; art is perfect, and reflects the real world as it really is.
+
+#mahoganywall
+(name *)	mahogany-panelled wall
+(* is #in #manor)
+(dict *)	walls mahogany wood panel panels
+(descr *)
+	These stoic walls have enclosed the Craverly clan for generations, ever since Aloysius Craverly built Craverly Manor and founded Craverly Heights in the early nineteenth century.
+
+#leopold
+
+(name *)	Leopold Craverly
+(proper *)
+(male *)
+(* is #in #manor)
+(dict *)	man leo
+
+(appearance *)
+	(if) (* is alive) (then)
+		Standing beneath the portrait is Leopold Craverly himself, identical to his own image in every way. He eyes you sternly from his perch atop his snake-headed cane.
+	(else)
+		Leopold lies dead on the floor, his stiffening hand still clutching at the place in his chest where you shot him through the heart.
+	(endif)
+
+(descr *)
+	(if) (* is alive) (then)
+		Though his hair is silver-white, and his eyes have been furrowed by a lifetime of avarice and cynicism, Leopold still has many years left in his life, and many goals left to achieve in those years, no matter what or who stands in his way.
+	(else)
+		Leopold thought he would live long enough to see all of his dreams come true. Now you know that his belief was false.
+	(endif)
+
+(after [examine *])
+	(select)
+		(if) (* is alive) (then)
+			(par)
+			(leospeak)
+		(endif)
+	(or)
+	(stopping)
+
+#cane
+(name *)	snake-headed cane
+(item *)
+(* is #heldby #leopold)
+(dict *)	snake head
+(descr *)
+	A mystery: Does Leopold carry this sinister cane because of a physical infirmity, or is its purpose merely to inspire apprehension and respect in those who behold it? Even you,
+	(if) (sid) (then)
+		a master criminal
+	(else)
+		the finest doctor in Craverly Heights
+	(endif)
+	, cannot be sure.
+
+(perform [talk to #leopold])
+	(leospeak)
+
+(leospeak)
+	(if) (sid) (then)
+		(select)
+			“Hello, there, Leo!” you say.
+			(par)
+			“Out of prison again,” Leopold begins, and you say “Naturally!” as he says “I see.” You both stop talking, and Leopold coughs, waiting for you to talk to him again.
+		(or)
+			“Hello, there, Leo!” you say.
+			(par)
+			“Out of prison again,” Leopold says, and then he is quiet for a moment.
+			(par)
+			“Naturally!” you say, too late, and Leopold shakes his head. “Sorry. Let's try it one more time.”
+			(par)
+			You shuffle your feet.
+		(or)
+			“Hello, there, Leo!” you say.
+			(par)
+			“Out of prison again,” Leopold says, and you say “Naturally!”
+			(par)
+			Leopold nods.
+		(stopping)
+	(else)
+		(select)
+			“What's new over at Roland Memorial, Langridge?” Leopold asks.
+			(par)
+			“It's Gina's daughter, Pauline. They can't afford the only procedure that will keep her alive. But, Mister Craverly, I know you are not an uncharitable man.”
+			(par)
+			Leopold lets loose a torrent of guffaws. “I think that sentence needs one more negative, Langridge! Of what concern to me is the situation of a girl I wouldn't recognize on the street?”
+			(par)
+			Your response to this question is a glare like a polished silver dagger.
+		(or)
+			“I beg you to reconsider Janine's plight, Mister Craverly,” you say.
+			(par)
+			“I think you mean (italic) Pauline. (unstyle) And I beg you to leave off the subject, Langridge!” answers Leopold in a mocking tone.
+		(stopping)
+	(endif)
+
+(perform [kiss #leopold])
+	(if) (sid) (then)
+		Leopold pushes you away. “Forget it, Sid. I'm not one of those young people who melts in half when a criminal comes on to him.”
+	(else)
+		(select)
+			You rush boldly up to Leopold and, before he can react, you softly grab his head and press your lips against his lips. The meeting of your bodies is an explosive event, but it is not accompanied by a meeting of hearts.
+			(par)
+			“Oh, Langridge,” Leopold mutters, still embraced by your arms, “I left my chances for love behind a long time ago. Don't turn out like me—don't hold out hope for something that can never be.”
+			(par)
+			With an expression of tremendous emotion, you step away from him.
+		(or)
+			Leopold allows you to kiss him once more, but you come no closer to melting the diamond cage that surrounds his paralytic soul.
+		(stopping)
+	(endif)
+
+(after [point #handgun at #leopold])
+	(par)
+	(if) (sid) (the suspect is #leopold) (then)
+		(if) ~(#satchel has parent $) (then)
+			“I want those jewels, old man!” you say, menacing the silver-haired millionaire with the gleaming barrel of your murderous weapon. “Are you going to play along, or are you going to die?”
+			(par)
+			“All right, all right! Here!” Leopold draws a satchel out of his pocket and tosses it to you. “They're all there. Just leave me be!”
+			(par)
+			You feel the heft of the satchel in your hand and smile a smug smile.
+			(now) (#satchel is #heldby #player)
+		(else)
+			“I've already given you the jewels, Sidney,” Leopold chides.
+			(par)
+			“That's right, you did,' you respond. “And don't you forget it!”
+		(endif)
+	(else)
+		Leopold regards the handgun with a cool indifference. “Put that thing down,
+		(if) (sid) (then) Sidney (else) Langridge (endif).
+		You're liable to hurt yourself.”
+	(endif)
+
+(perform [shoot #leopold])
+	(select)
+		(if) (sid) (then)
+			(now) (sid shot leo)
+		(endif)
+		(now) (#leopold is dead)
+		“Come now, (if) (sid) (then) Sidney (else) Langridge (endif), calm yourself!” the old man cries, but it is too late for him. You fire the gun into his heart, the heart that could never bring itself to feel love. It will never feel anything again (sidenote).
+		(par)
+		Craverly falls to the floor, dead.
+		(if) (#pauline is dead) (#gina is dead) (then)
+			(bloodbath ending)
+		(endif)
+	(or)
+		You fire another bullet into Leopold Craverly's dead body. “That one was for Wendell,” you say.
+	(stopping)
+
+(sidenote)
+	(if)
+		(the suspect is #leopold)
+		(sid)
+		~(#satchel has parent $)
+	(then)
+		, and you will never find the jewels
+	(endif)
+
+(perform [show #handgun to #leopold])
+	“A cute toy,” Craverly says, clearly unimpressed by the instrument of death you present to him. “Be careful with it; you might break a window!” He guffaws enthusiastically at his own flimsy joke.
+
+(perform [show #magnifier to #leopold])
+	Leopold scoffs at your proffered magnifying glass. “I'm afraid I don't have time for your
+	(if) (sid) (then)
+		Nancy Drew nincompoopery, Sidney
+	(else)
+		Hardy Boys shenanigans, Langridge
+	(endif).”
+
+(perform [show #photo to #leopold])
+	(if) (sid) (then)
+		(if) (#satchel has parent $) (then)
+			Leopold sneers. “You wouldn't stay in prison, but at least that dog will stay in the ground.”
+		(elseif) ~(the suspect is #gina) (then)
+			(select)
+				“You remember Wendell, right?”
+				(par)
+				“Of course,” Craverly sneers, “That's Gina's dog. I seem to recall it perished under mysterious circumstances?”
+				(par)
+				“Cut the bull, Leo. We both know that I made Janine hit Wendell with her car after you saw him digging down at the train yard where we buried the jewels. I mean, Pauline.”
+				(par)
+				Craverly chortles. “And now you think I have the jewels? Well, even if I do, they're staying with me.”
+			(or)
+				Craverly laughs again. “I won't give you the jewels, no matter how many times you show me that photograph.”
+			(stopping)
+			(now) (the suspect is #leopold)
+		(else)
+			“Why are you showing me this dog?” Craverly asks, his question as pointed as the tip of his
+			snake-headed cane.
+			(par)
+			“This dog is dead,” you say, “and I'm going to get the jewels it found.”
+			(par)
+			“Does this concern me in any way?” asks Craverly, his question as tentative as his grasp of the concept of empathy.
+			(par)
+			“Not for now, it doesn't,” you reply, menacingly.
+		(endif)
+	(else)
+		“What's that there?” Craverly asks.
+		(par)
+		“It's Wendell,” you say. “Pauline's dog.”
+		(par)
+		“Ah, I see, I see. And how has he been doing?”
+		(par)
+		“He died three years ago,” you answer meaningfully, “Under mysterious circumstances.”
+		(par)
+		Craverly stares meaningfully back at you.
+	(endif)
+
+(perform [talk to #leopold about #jewels])
+	(sid)
+	~(the suspect is #gina)
+	(select)
+		“All right, Leo. We both know that I made Janine hit Wendell with her car after he you saw him digging down at the train yard where we buried the jewels. I mean, Pauline.”
+		(par)
+		Craverly chortles. “You think I have the jewels? Well, even if I do, they're staying with me.”
+	(or)
+		Craverly laughs again. “I won't give you the jewels, no matter how many times you ask me about them.”
+	(stopping)
+	(now) (the suspect is #leopold)
+
+#n-hallway
+
+(look *)
+	(select)
+		Pauline's
+	(or)
+		Pauline's
+	(or)
+		Janine's
+	(or)
+		Pauline's
+	(then at random)
+	hospital room is west from here. The hallway continues south.
+
+#shelves
+(name *)	rack of shelves
+(supporter *)
+(* is #in #n-hallway)
+(dict *)	shelf
+
+(appearance *)
+	There's a rack of shelves standing against this end of the hall.
+
+(prevent [take *])
+	That belongs where it is.
+
+(descr *)
+	($ is #on *)
+	(list objects #on *)
+
+~(appearance $ #on *)
+
+#magnifier
+
+(name *)	magnifying glass
+(item *)
+(* is #on #shelves)
+(descr *)
+	(if) (backstage) (then)
+		A cheap, beat-up magnifying glass.
+	(elseif) (sid) (then)
+		As a criminal mastermind, you have no need for magnifying glasses. What concerns you is the big picture.
+	(else)
+		Every doctor needs a magnifying glass, the better with which to see the minuscule problems that plague humanity in such enormous ways.
+	(endif)
+
+~(prevent [look #in *])
+
+(perform [look #in *])
+	(if) (backstage) (then)
+		The glass fails to reveal any new information.
+	(else)
+		(current room $Room)
+		(collect $Obj)
+			*($Obj has parent $Room)
+			%% Helper predicate defined earlier:
+			(scenery $Obj)
+		(into $List)
+		(randomly select $Foo from $List)
+		(if) ($Foo = #camera) (then)
+			You lean in for a closer look at nothing in particular.
+		(else)
+			You lean in for a closer look at (the $Foo).
+		(endif)
+	(endif)
+
+#photo
+
+(name *)	framed photo
+(item *)
+(* is #on #shelves)
+(dict *)	dog photo picture photograph wendell
+(descr *)
+	(if) (backstage) (then)
+		In the frame is a photo of a dog.
+	(elseif) (sid) (then)
+		In this picture frame is a photo of Wendell the dog, Pauline's dog, which she loved. But you know that Pauline has a secret, a secret concerning Wendell.
+	(else)
+		A photo of Pauline's beloved golden retriever, Wendell. A faithful companion to his owner, and beloved of all citizens of Craverly Heights, Wendell was cut down before his time—under mysterious circumstances.
+	(endif)
+
+#jewels
+(topic *)
+(name *)	jewels
+(plural *)
+(dict *)	jewel gem gems
+
+#sunglasses
+
+(name *)	pair of sunglasses
+(* is #on #shelves)
+(wearable *)
+(dict *)	glasses shades glass shade
+(descr *)
+	(if) (backstage) (then)
+		Grossly out-of-fashion, and as flimsy.
+	(elseif) (sid) (then)
+		Your sunglasses are what set you apart from your twin—that, and the fact that you flunked out of medical school.
+	(else)
+		With a pang of familial familiarity, these flat-topped shades remind you vividly of the sunglasses that your twin Sid used to wear.
+	(endif)
+
+(prevent [wear/remove *])
+	(onstage)
+	This is not a suitable venue for you to be altering your appearance so drastically and cavalierly.
+
+#handgun
+
+(name *)	handgun
+(item *)
+(* is #on #shelves)
+(dict *)	gun pistol firearm trigger
+(descr *)
+	(if) (backstage) (then)
+		Nickel-plated. Shiny.
+	(elseif) (sid) (then)
+		The familiar weight of your gun in your hand is like a soft peck on the cheek from your mother—you assume. Mom always liked your twin better.
+	(else)
+		How ironic that a healer and caregiver such as yourself should carry in your hands such a monstrous implement of destruction. Or is it? Maybe it is not ironic at all. Maybe it makes perfect sense for you to carry this gun: you, who so often hold the powers of life and death in your hands.
+	(endif)
+
+(perform [feel *])
+	(if) (backstage) (then)
+		It feels a lot like plastic.
+	(else)
+		The steel of the gun feels cold. Cold like a broken promise.
+	(endif)
+
+(understand [aim/point | $Words] as [point $Obj at $Target])
+	*(split $Words by [at] into $Left and $Right)
+	*(understand $Left as single object $Obj preferably held)
+	*(understand $Right as single object $Target)
+
+(understand [aim/point at | $Words] as [point $Obj at $Target])
+	*(split $Words by [with] into $Left and $Right)
+	*(understand $Left as single object $Target)
+	*(understand $Right as single object $Obj preferably held)
+
+(understand [aim/point | $Words] as [point $Obj])
+	*(understand $Words as single object $Obj preferably held)
+
+(perform [point $Obj])
+	You point (the $Obj) (if) (onstage) (then) squarely (endif) at nothing in particular.
+
+(perform [point #handgun at #player])
+	(if) (backstage) (then)
+		You point the gun at yourself. Kind of scary. Not really.
+	(else)
+		You raise the gun to your temple.
+		(current room $Room)
+		(if) (#pauline is in room $Room) (then)
+			Pauline gasps.
+		(elseif) (#gina is in room $Room) (then)
+			Gina gasps.
+		(elseif) (#leopold is in room $Room) (then)
+			Leopold squints at you.
+		(endif)
+	(endif)
+
+(perform [point $Obj at $Target])
+	You point (the $Obj) (if) (onstage) (then) squarely (endif) at (the $Target).
+
+(global variable (current target is $))
+
+(global variable (current action is $))
+
+(before $Action)
+	~(command $Action) %% Ignore out-of-world actions.
+	(now) (current action is $Action)
+
+(on every tick)
+	(if) (current action is [point #handgun at $Target]) (then)
+		(now) (current target is $Target)
+	(else)
+		(now) ~(current target is $)
+	(endif)
+	%% The game will remember what you're pointing at
+	%% for one turn, and then (unless you get on with
+	%% it and shoot the thing) it won't care anymore.
+
+(understand [shoot/fire] as [shoot])
+
+(perform [shoot])
+	(if) (#handgun is #heldby #player) (then)
+		(try [shoot #handgun])
+	(else)
+		You don't have anything with which to shoot.
+	(endif)
+
+(understand [shoot/fire | $Words] as [shoot $Obj])
+	*(understand $Words as single object $Obj)
+
+(prevent [shoot $])
+	~(#handgun is #heldby #player)
+	You don't have anything with which to shoot.
+
+(perform [shoot #handgun])
+	(if) (current target is $Obj) (then)
+		(try [shoot $Obj])
+	(elseif) (backstage) (then)
+		You pull the trigger. Nothing. It doesn't even click.
+	(else)
+		With an expression of utter animalism on your face, you raise your gun and fire a shot into the air.
+	(endif)
+
+(perform [shoot $Obj])
+	~(animate $Obj)
+	~(current player $Obj)
+	(if) (backstage) (then)
+		The gun has no effect on (the $Obj). The trigger doesn't even click.
+	(elseif) (sid) (then)
+		You stop yourself. “This (name $Obj) isn't worth my bullets,” you say, menacingly. “Bullets are expensive.”
+		(par)
+		You squint menacingly at (the $Obj).
+	(else)
+		You stop yourself. “This (name $Obj) isn't worth my bullets,” you say, thoughtfully. “It's done nothing wrong. Some things in this world are still innocent. But some aren't. But even if they are, is it my duty to mete out justice?” You look down meaningfully at the gun.
+	(endif)
+
+(perform [shoot #player])
+	(if) (backstage) (then)
+		On days like this, it's not the last thought that occurs to you.
+	(elseif) (sid) (then)
+		With the pistol aimed at your temple, you almost pull the deadly trigger that could free the world from the scourge of the existence of the dastardly Sidney Langridge, but you pull the gun away from your head, suddenly.
+		(par)
+		“Sorry to disappoint,” you announce, “But Sid Langridge is gonna be around for a while longer. I've got things to do.”
+		(par)
+		You sneer menacingly.
+	(else)
+		“I've had it,” you announce. “I can't go on. All the secrets. All the lies. I'm finished. This is the end for your beloved Doctor Langridge. And little do you know: the secret of Wendell's death dies with me!”
+		(par)
+		BLAM
+		(par)
+		PRESS ANY KEY TO CONTINUE
+		(par)
+		(get key $)
+		✤✤✤
+		(par)
+		“Why. Why did you do that.”
+		(par)
+		“It's like I said! I can't go on. I quit. Craverly Heights is a sinking ship, and this rat is jumping off.”
+		(par)
+		“First of all, that remark is offensive to rats. Second, you can't quit. Your contract has you in this studio for the next three years.”
+		(par)
+		“Well, what are you going to do? Doctor Langridge is dead.”
+		(par)
+		“Oh, that's not a problem...”
+		(game over { We're bringing back your evil twin. })
+	(endif)
+
+(bloodbath ending)
+	(line)
+	PRESS ANY KEY TO CONTINUE
+	(par)
+	(get key $)
+	✤✤✤
+	(par)
+	“So what happens now?”
+	(par)
+	“First of all, none of that happened.”
+	(par)
+	“You mean like, we're gonna say it was a dream?”
+	(par)
+	“No, I mean we're going to scrap all of it and start from scratch. Nobody had a dream, nobody got shot, nothing. We're going to air a rerun. Then we're going to hire a new writer, and we're going to do a (italic) real (unstyle) episode, with a plot. And (italic) you (unstyle) are forbidden from improvising. Never again.”
+	(game over { Tune in next week! })
+
+@($Person is alive)	~($Person is dead)
+
+(before $Action)
+	~($Action = [examine | $])
+	~($Action = [shoot | $])
+	*($Obj is one of $Action)
+	($Obj is dead)
+	%% An undocumented global variable from the library:
+	(last command was $WordList)
+	“I wish... I wish I could
+	(exhaust) {
+		*($Word is one of $WordList)
+		(if)
+			($Word is one of [
+				pauline
+				janine
+				leopold
+				wendell
+				gina
+				craverly])
+		(then)
+			(uppercase)
+		(endif)
+		$Word
+	}, but it's too late,” you announce, your voice weighed by the burden of monstrous regret brought on by the enormity of the fact that you have brought from the realm of the unspeakable into the realm of the true: “(no space)
+	(if) (male $Obj) (then) He's (else) She's (endif) dead.”
+	%% Advance time, then stop this and any lined-up actions:
+	(tick) (stop)
+
+#e-hallway
+
+(look *)
+	Gina's Pizzeria is north from here. The hallway continues west.
+
+#s-hallway
+
+(look *)
+	The break room is east from here. The hallway continues north.
+
+#w-hallway
+
+(look *)
+	Craverly Manor is south from here. The hallway continues east.
+
+#intersection
+
+(look *)
+	Nobody's around.
+	(par)
+	The hallway runs north, south, east, and west from here.
+
+#bulletin
+(name *)	non-diegetic bulletin
+(* is #in #intersection)
+(appearance *)
+	A non-diegetic bulletin is posted on the wall.
+(descr *)
+	The bulletin reads:
+	(italic)
+	Hey! You, with the keyboard!
+	Let me know what you think of this game on Twitter
+	\(\@rcveeder\) or via email \(rcveeder\@me.com\).
+	(par)
+	Here's a tip: To finish the game, you're going to have to use the verb SHOW, as in “>show THING to PERSON”. You might also have to “>point THING at PERSON” at some point.
+	(par)
+	Thanks for playing.
+	(unstyle)
+
+(prevent $Action)
+	~($Action = [examine *])
+	(* is one of $Action)
+	You're not supposed to pay too much attention to that.
+
+#breakroom
+
+(look *)
+	An antique vending machine takes up most of the tiny room. The exit is west.
+
+#vmachine
+(name *)	antique vending machine
+(an *)
+(* is #in #breakroom)
+(dict *)	note notes sticky
+(descr *)
+	There's one sticky note on the machine that says “OUT OF ORDER”, and there's another sticky note that says “THIS MACHINE OWES ME \$7000”.
+
+(prevent [take *])
+	You can't lug this vending machine around. It's the real thing.
+
+#table
+(name *)	table
+(supporter *)
+(* is #in #breakroom)
+(descr *)
+	It's a piece of junk.
+	(par)
+	(list objects #on *)
+
+~(appearance $ #on *)
+
+(appearance *)
+	(list objects #on *)
+	(fail)
+
+#script
+
+(* is #on #table)
+(item *)
+(dict *)
+	script sheet sheets paper papers test results result couple set
+
+(perform [examine *])
+	(backstage)
+	Two pages. The first page reads:
+	(div @fixed) {
+		(div @center) {
+			CRAVERLY HEIGHTS (line)
+			EPISODE \# 6001
+		}
+		If it's so easy, why don't you write it yourself?
+	}
+	The second page is blank.
+
+(style class @fixed)
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-family: Courier, monospace;
+	text-align: left;
+
+(style class @center)
+	text-align: center;
+	margin-bottom: 1em;
+
+(perform [show * to #lane])
+	Lane has already seen the script. She rolls her eyes. “I know, right?”
+
+(global variable (prog 0))
+
+(name *)
+	(if) (backstage) (then)
+		script
+	(elseif) (prog 0) (then)
+		couple sheets of paper
+	(else)
+		set of test results
+	(endif)
+
+(perform [show * to #pauline])
+	(if) (sid) (then)
+		“What's that?” Pauline asks.
+		(par)
+		You shake the papers triumphantly. “This is my certificate of release! From prison! They give you a certificate that says you aren't supposed to be incarcerated anymore, in case a cop tries to toss you back in the slammer.”
+		(par)
+		“I didn't know that,” says Pauline.
+	(elseif) (prog 0) (then)
+		You place the papers gingerly in Pauline's delicate hands.
+		(par)
+		“Are these...the test results?” Pauline asks.
+		(par)
+		“Yes, Janine,” you say. Of course they are.
+		(par)
+		“What do they say?”
+		(par)
+		You bite your lip thoughtfully. “I still need to analyze them,” you say. “I'll let you know once I'm finished.”
+		(now) (prog 1)
+	(elseif) (prog 1) (then)
+		“Have you finished analyzing the test results?” Pauline asks. You frown.
+		(par)
+		“I'm afraid not. Soon, though.” You hope.
+		(par)
+		“Maybe my mother can help,” says Pauline.
+		(par)
+		“Very good idea, Janine. I'll see what she has to say.” You cough. “I mean, Pauline.”
+	(else)
+		(select)
+			“I've finished analyzing your results,” you say, passing the papers to Pauline. She inspects them closely.
+			(par)
+			“As you can see, the tests don't apply to you specifically. They also have something to do with the identity of your father.”
+			(par)
+			Pauline looks up from the paper, her eyes wide with amazement.
+			(par)
+			“Now, I need those back, for reasons I think you can guess.” You pull the test results out of her hands.
+		(or)
+			Pauline frowns. “I've seen the results, Doctor Langridge,” she says, “But have you shown them to...my father?”
+			(par)
+			“I just wanted to make sure that's what you wanted,” you reply.
+			(par)
+			“It is,” says Pauline.
+		(stopping)
+	(endif)
+
+(perform [show * to #gina])
+	(if) (sid) (then)
+		“This is the deed to my new condo,” you tell Gina. She cranes her head to get a better look at the mysterious papers while maintaining a safe distance from your crime-ridden form.
+		(par)
+		“I hope it's far away from here,” she says.
+		(par)
+		“Nice try,” you say, “But I'll never tell the likes of you where it is!”
+	(elseif) (prog 0) (then)
+		Gina is utterly boggled by the papers you present to her. “I have no idea what this is,” she says. “Did you get this back at the hospital?”
+		(par)
+		“Yes, Gina,” you say. Of course you did.
+		(par)
+		“Then maybe they'll hold some interest to Pauline. If she has the strength to read them,” Gina adds bitterly.
+	(elseif) (prog 1) (then)
+		(if) (#leopold is dead) (then)
+			“I wanted to show you these test results,” you say, thrusting the papers in to Gina's motherly hands. She looks them over with an expression that changes from skeptical, to interested, to astonished.
+			(par)
+			“Doc! This means...”
+			(par)
+			You lean in closer.
+			(par)
+			“This means...” Gina stammers, “Pauline's father is Leopold Craverly!”
+			(par)
+			Your eyes widen. “But I just (if) (sid shot leo) (then) (no space) —I mean, Sidney, my twin, just (endif) murdered him!”
+			(par)
+			PRESS ANY KEY TO CONTINUE
+			(par)
+			(dead craverly ending)
+		(else)
+			“I wanted to show you these test results,” you say, thrusting the papers in to Gina's motherly hands. She looks them over with an expression that changes from skeptical, to interested, to astonished.
+			(par)
+			“Doc! This means...”
+			(par)
+			You lean in closer.
+			(par)
+			“This means...” Gina stammers, “Pauline's father is...”
+			(par)
+			Your eyes widen. Of course!
+			(now) (prog 2)
+		(endif)
+	(else)
+		“I don't need these!” exclaims Gina. “Pauline needs to find out who her real father is! And so does...her father.”
+	(endif)
+
+(dead craverly ending)
+	(get key $)
+	✤✤✤
+	(par)
+	“And why did you do that?”
+	(par)
+	“I don't know! We had no script!”
+	(par)
+	“So you murdered your costar? I thought the first rule of improv was 'Don't randomly kill your fellow characters'.”
+	(par)
+	“Actually, the first rule of improv is, you're supposed to say 'Yes, and'.”
+	(par)
+	“Oh, I see. Let me try it out: Yes, and, you're fired.”
+	(game over { Tune in next week. })
+
+(perform [show * to #leopold])
+	(if) (sid) (then)
+		“What's that you've got there?” Leopold asks.
+		(par)
+		You smirk with unconscionable smugness. “It's a script. I'm gonna be a star,” you say.
+		(par)
+		“I imagine you must think so. But you're no star, Sidney. You're a black hole.”
+		(par)
+		You grimace at the disquieting veracity of Leopold's words.
+	(elseif) (prog 0) (then)
+		“What's this?” Leopold says, eyeing the papers with inexplicable contempt. “Some document you found at the hospital?”
+		(par)
+		“Yes,” you say.
+		(par)
+		“Then I can safely assume that it does not concern me!” Craverly punctuates his statement with a triumphant guffaw.
+	(elseif) (prog 1) (then)
+		“What's this?” Leopold asks, eyeing the papers with inexplicable contempt.
+		(par)
+		“These are test results,” you say. “Pauline's test results.”
+		(par)
+		“Ah! I will attempt an impersonation of someone who cares, then: What do they say?”
+		(par)
+		You glare at the old man, at his hateful face. “I haven't figured that out. Yet.”
+		(par)
+		“Of course! I expect nothing more from the greatest doctor in Craverly Heights.” Leopold guffaws.
+	(else)
+		“What's this?” Leopold asks, eyeing the papers with inexplicable trepidation.
+		(par)
+		“These are test results. Pauline's test results,” you say, extremely meaningfully. “They constitute conclusive proof that you are Pauline's father.”
+		(par)
+		The weight of this revelation nearly knocks Leopold onto the floor. He grasps his cane all the tighter, and mutters:
+		(par)
+		“Nineteen years ago... The train tunnel collapse!”
+		(par)
+		“The underground gases that seeped into the tunnel caused amnesia in all of the passengers,” you explain. “Nobody on the train could remember what happened before the rescue team arrived. But now we know about one thing that definitely did happen. You and Gina conceived a child, a child that desperately needs a medical procedure she can't afford.”
+		(par)
+		“I'll pay every cent!” Leopold is on the verge of tears. “I have a daughter! The Craverly line will go on!”
+		(par)
+		PRESS ANY KEY TO CONTINUE
+		(par)
+		(finish the episode)
+	(endif)
+
+(finish the episode)
+	(get key $)
+	✤✤✤
+	(par)
+	“And fade to black. See? Everything worked out fine.”
+	(par)
+	(if) (#gina is dead) (#pauline is dead) (then)
+		“But Pauline and Gina are dead.”
+		(par)
+		“Nah, we can edit that out. What the heck were you trying to accomplish there?”
+		(par)
+		An answer does not spring to mind.
+		(par)
+	(elseif) (#gina is dead) (then)
+		“But Gina is dead.”
+		(par)
+		“Nah, we can edit that out. What the heck were you trying to accomplish there?”
+		(par)
+		An answer does not spring to mind.
+		(par)
+	(elseif) (#pauline is dead) (then)
+		“But Pauline is dead.”
+		(par)
+		“Nah, we can edit that out. What the heck were you trying to accomplish there?”
+		(par)
+		An answer does not spring to mind.
+		(par)
+	(endif)
+	“So Pauline's gonna be okay?”
+	(par)
+	“Of course! We were never gonna kill her off. She has to stay in that bed until Lisa has her baby, but we'll figure that out.”
+	(par)
+	The director leans back and sighs. “Now, you guys did a good job out there today. I don't want to diminish the enormity of your accomplishment. But before we get working on \#6002, we gotta get one thing done.”
+	(game over { We gotta hire a flippin' writer. })
+
+#lane
+
+(name *)	Lane
+(proper *)
+(female *)
+(* is #in #breakroom)
+(appearance *)
+	Lane is sitting around with a blank look on her face.
+
+(descr *)
+	Lane is wearing a pink blouse.
+
+#blouse
+(name *)	pink blouse
+(* is #wornby #lane)
+(descr *)
+	(if) (backstage) (then)
+		The blouse looks just fine on Lane.
+	(else)
+		Gina's favorite blouse brings out the rosiness of her complexion, even as dulled as it has become by the tragedies that life has delivered to her.
+	(endif)
+
+(perform [talk to #lane])
+	(now) (#lane is nowhere)
+	(now) (#blouse is #wornby #gina)
+	(now) (#gina is #in #pizza)
+	“Hey, Lane,” you say. “Shouldn't you be down at the Pizzeria?”
+	(par)
+	Lane's eyes widen. “Oh, shoot, sorry! Sorry!”
+	(par)
+	She continues to apologize as she rushes out into the hall.
+
+(perform [kiss #lane])
+	Lane pushes you away. “Save it for later, all right?”
+
+(after [point #handgun at #lane])
+	She rolls her eyes.
+
+(perform [shoot #lane])
+	With the gun pointed right at Lane, you pull the trigger. Nothing happens.
+	(par)
+	She sighs. “Cut that out.”
+
+(perform [show #handgun to #lane])
+	Lane shrugs. “I've seen cooler.”
+
+(perform [show #photo to #lane])
+	Lane squints at the photo of the dog. “I'm pretty sure this came with the frame.”
+
+(perform [show #magnifier to #lane])
+	Lane shakes her head. “It's a piece of junk.”
+
+#satchel
+
+(name *)	satchel
+(dict *)	pouch sack bag
+(item *)
+(descr *)
+	(if) (backstage) (then)
+		This is not real suede.
+	(elseif) (sid) (then)
+		It's a small suede pouch, as luxurious as the prize it contains.
+	(else)
+		(fail)
+	(endif)
+
+(instead of [open/search *])
+	(try [look #in *])
+
+(instead of [look #in *])
+	(if) (backstage) (then)
+		Yeah, it's empty.
+	(elseif) (sid) (then)
+		Yes, they're all in here. The jewels that caused you so much trouble, trouble that caused you to commit so many crimes, crimes that caused you to spend so long in prison.
+	(else)
+		What should be in here? It could be anything. But it ought to be something good.
+	(endif)
+
+(perform [show * to #leopold])
+	(if) (sid) (then)
+		(if) (the suspect is #leopold) (then)
+			“Don't rub it in, Sidney,” Leopold grouses.
+		(else)
+			“What's that you've got there?” asks Leopold, clearly curious about the contents of the mysterious pouch that you've produced.
+			(par)
+			“These are the jewels,” you explain, “the jewels that I spent so long in prison for. I stole them on your orders! But you betrayed me. But now they're mine!”
+			(par)
+			“And what are you going to do with them?” asks Leopold, the shadows of confusion darting across his weathered brow.
+			(par)
+			“I'm going to buy Craverly Manor, and you're going to be my butler.”
+			(par)
+			PRESS ANY KEY TO CONTINUE
+			(par)
+			(get key $)
+			✤✤✤
+			(par)
+			“That doesn't make a lot of sense.”
+			(par)
+			“Well, maybe Leopold could turn out to be in debt?”
+			(par)
+			“Sure, I guess. But I would have liked it better if we spread out the whole saga of Sidney returning, Sidney getting the jewels, and Sidney demanding to buy the manor over the course of twelve or twenty episodes.”
+			(par)
+			“Oh. Do you want us to shoot it again?”
+			(par)
+			“There's no time. We'll just edit this one until it works. You go home and get something to eat.”
+			(par)
+			“Yeah, we're all going down to the Gas Leak. You wanna join us?”
+			(par)
+			“No thanks...”
+			(game over { (space) ...I'm gonna be busy looking for a writer. })
+		(endif)
+	(else)
+		“Where did you get that?” Leopold cries, shocked and aghast.
+		(par)
+		You raise your eyebrows. “You mean, where did I get this... bag of marbles?”
+		(par)
+		Leopold regains his composure. “Ah, yes. Never mind.”
+	(endif)
+
+(perform [show * to #pauline])
+	(if) (sid) (then)
+		“The jewels!” Pauline gasps, her breathlessness as much a factor of her surprise as a consequence of her illness. “Then you were able to convince...”
+		(par)
+		“(if) (the suspect is #gina) (then) Your mother (else) Mister Craverly (endif), yes. The jewels are mine—ours, now.”
+		(par)
+		“Sidney, we can sell the jewels for the money for the medical treatment that will save my life!” Pauline's eyes are huge and wet beneath the hospital lights as they plaintively gaze upward into your own.
+		(par)
+		“Sugarbabe, those were my thoughts exactly.”
+		(par)
+		PRESS ANY KEY TO CONTINUE
+		(par)
+		(get key $)
+		✤✤✤
+		(par)
+		“Why is Sidney nice all of a sudden?”
+		(par)
+		“Well, I thought about just abandoning Janine, but I realized I had a chance to push things in a bold new direction.”
+		(par)
+		“It's Pauline. And that's not gonna work. People love Sidney the evil twin; they're not going to respond well to Sidney the altruist. Besides, Pauline has to stay sick until Lisa has her baby.”
+		(par)
+		“Oh. Do we need to shoot the whole thing again?”
+		(par)
+		“There's no time. We'll figure something out.”
+		(game over { Right after we hire a writer. })
+	(else)
+		“What's in that bag, Doctor Langridge?” asks sweet, innocent Janine.
+		(par)
+		You consider the question with all the weight it merits.
+		(par)
+		“I have here some medicine. But it won't help you. It's a special medicine, for a different patient. I shouldn't tell you too much about it. Never mind.”
+	(endif)
+
+(perform [show * to #gina])
+	(if) (sid) (then)
+		(if) (the suspect is #gina) (then)
+			“Get that out of my face, Sid,” Gina grouses.
+		(else)
+			Gina cocks her head at the appearance of the suede pouch. “Hey, scumbag! What's in the bag? Is it scum?”
+			(par)
+			“It's a pile of jewels. They're worth a lot of money. And I'm giving them to you.” Gina's jaw drops, but you continue. “Then you're going to sell them, and then you're going to use the money to open a new Gina's Pizzeria location. And you're going to make me part owner. And we're going to be rich.”
+			(par)
+			Gina can't think of anything to say.
+			(par)
+			PRESS ANY KEY TO CONTINUE
+			(par)
+			(get key $)
+			✤✤✤
+			(par)
+			“We definitely can't afford a second restaurant set, though.”
+			(par)
+			“We can work around that. Or, do you want us to shoot it again?”
+			(par)
+			“No, there's no time. We're already editing this one. You can go home.”
+			(par)
+			“So, does that mean...”
+			(par)
+			“Oh, right. No, you're not fired.”
+			(game over { We're definitely hiring a writer, though. })
+		(endif)
+	(else)
+		“Gina, what do you think is in this bag?” you ask.
+		(par)
+		“I don't know, Doc. Is it doll hands?”
+		(par)
+		“Yes, and,” you say, “if you see any other doll parts, make sure you let me know.”
+	(endif)
+
+(narrate taking $)
+	Taken.
+
+(narrate dropping $)
+	Dropped.
+
+(narrate leaving $ $)
+	%% Don't narrate movement between rooms.
+
+(prevent [talk to $Obj])
+	~(animate $Obj)
+	~(current player $Obj)
+	You can only do that to something animate.
+
+(descr $Obj)
+	You see nothing special about (the $Obj).
+
+(instead of [read $Obj])
+	(try [examine $Obj])
+
+(perform [inventory])
+	(if) ($ is $ #player) (then)
+		You are carrying: (line)
+		(exhaust) {
+			*($Obj is $Relation #player)
+			(line) (space 2) (a $Obj)
+			(if) ($Relation = #wornby) (then)
+				\(being worn\)
+			(endif)
+		}
+	(else)
+		You are carrying nothing.
+	(endif)
+

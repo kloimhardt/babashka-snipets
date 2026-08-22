@@ -1,0 +1,29 @@
+#player
+(current player *)
+(* is #in #room)
+
+#room
+(name *)		study
+(room *)
+(look *)		This is a very nondescript room, dominated by a wooden table.
+			  (notice #table) %% Binds the word “it” to the table.
+(descr *) hui
+
+#table
+(name *)		table
+(colour *) red
+(material *) wood
+(supporter *)
+(* is #in #room)
+
+#chair
+(name *)		chair
+(dict #chair)		white plain
+(look *) haio
+(colour *) white
+(material *) plastic
+(on-seat *)
+(appearance *)		You notice a conspicuous chair here.
+(* is #in #room)
+
+(descr $O) The (name $O) is painted (colour $O) and made of (material $O)
