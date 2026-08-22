@@ -1,7 +1,7 @@
 #player
 (current player *)
 (* is #in #study)
-(descr *) You are Professor Kurt. Emanuelle Kurt, at least according to your documents. You changed to Immanuel at the age of 22 as you consider this to be closer to Hebrew origins.
+(descr *) You are Professor Kurt. Emanuelle Kurt, at least according to your documents. You changed the first name to Immanuel at the age of 22 as you consider this to be closer to Hebrew origins.
 
 #door
 (door *)
@@ -51,7 +51,7 @@
 (appearance *)		You notice a conspicuous chair here.
 (* is #in #kitchen)
 
-(descr $O) The (name $O) is painted (colour $O) and made of (material $O)
+%% (descr $O) The (name $O) is painted (colour $O) and made of (material $O)
 
 #anteroom
 (name *) anteroom
@@ -81,10 +81,15 @@
 (from * go #west to #housestreet)
 (from * go #north to #canteen)
 
+#canteenfacade
+(name *) canteen
+(descr *) The inn is next to the university where you inhabit the Lehrstool for the Philosophy of Music.
+(* is #in #canteenstreet)
+
 #canteen
 (name *) canteen
 (room *)
-(look *) The inn is next to the university where you inhabit the Lehrstool for the Philosophy of Music.
+(look *) TBD
 (from * go #south to #canteenstreet)
 
 #unistreet
@@ -94,8 +99,13 @@
 (from * go #west to #canteenstreet)
 (from * go #north to #uni)
 
+#unifacade
+(name *) university
+(descr *) The univerity, named after Archbishop Markus Sittikus, has been founded in 1622. It will cease to exist in 1810 when the free state of Saalsberg joins the Eastern Empire.
+(* is #in #unistreet)
+
 #uni
 (name *) university
 (room *)
-(look *) The univerity, named after Archbishop Markus Sittikus, has been founded in 1622. It will cease to exist in 1810 when the free state of Saalsberg joins the Eastern Empire.
+(look *) TBD
 (from * go #south to #unistreet)
