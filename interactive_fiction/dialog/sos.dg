@@ -1,20 +1,40 @@
 #player
 (current player *)
-(* is #in #room)
+(* is #in #study)
+(descr *) You are Professor Kurt. Emanuelle Kurt, at least according to your documents. You changed to Immanuel at the age of 22 as you consider this to be closer to Hebrew origins.
 
-#room
+#study
 (name *)		study
 (room *)
-(look *)		This is a very nondescript room, dominated by a wooden table.
+(look *)		This is a very nondescript room, dominated by a wooden writing table.
+(* is #in #house)
+(from * go #south to #kitchen)
+
+#window
+(name *) window
+(descr *) From your window looking south and southwest, you can see the villages of Obersaalsberg and Untersberg located atop two hills carrying the same names. Saalsberg lies where the Saalach river leaves the alps and meanders across the state-borders to open out into the Eastern river.
+(* is #in #study)
+
+
+#kitchen
+(name *) kitchen
+(room *)
+(look *)
+        As your servant is not in today, you are going to eat at Wulff's Canteen.
 			  (notice #table) %% Binds the word “it” to the table.
-(descr *) hui
+
+(* is #in #house)
+(from * go #north to #study)
+(from * go #south to #anteroom)
 
 #table
 (name *)		table
 (colour *) red
 (material *) wood
 (supporter *)
-(* is #in #room)
+
+(appearance *)		You notice a conspicuous table here.
+(* is #in #kitchen)
 
 #chair
 (name *)		chair
@@ -24,6 +44,53 @@
 (material *) plastic
 (on-seat *)
 (appearance *)		You notice a conspicuous chair here.
-(* is #in #room)
+(* is #in #kitchen)
 
 (descr $O) The (name $O) is painted (colour $O) and made of (material $O)
+
+#anteroom
+(name *) anteroom
+(room *)
+(look *) TBD
+(* is #in #house)
+(from * go #north to #kitchen)
+(from * go #south to #housestreet)
+
+#house
+(name *) house
+(room *)
+(look *) TBD
+
+#housestreet
+(name *) Main Street
+(room *)
+(look *) you stand in fromt of your house. You prefer to walk rather than take the horse carridge.
+(from * go #north to #anteroom)
+(from * go #east to #canteenstreet)
+
+#canteenstreet
+(name *) Main Street
+(room *)
+(look *) you stand in fromt of the canteen
+(from * go #east to #unistreet)
+(from * go #west to #housestreet)
+(from * go #north to #canteen)
+
+#canteen
+(name *) canteen
+(room *)
+(descr *) The inn is next to the university where you inhabit the Lehrstool for the Philosophy of Music.
+(from * go #south to #canteenstreet)
+
+#unistreet
+(name *) Main Street
+(room *)
+(look *) you stand in front of the university
+(from * go #west to #canteenstreet)
+(from * go #nort to #uni)
+
+#uni
+(name *) univerity
+(room *)
+(descr *) The univerity, named after Archbishop Markus Sittikus, has been founded in 1622. It will cease to exist in 1810 when the free state of Saalsberg joins the Eastern Empire.
+

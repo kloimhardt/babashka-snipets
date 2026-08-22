@@ -1,4 +1,5 @@
 %% ex 156, Age of Steam
+%% The following source is very short and simple, yet it already feels surprisingly interesting in play, because something is going on which the player does not control but must observe. The single scene both starts and finishes.
 
 (intro)
 	(now) (scenetime 0)
