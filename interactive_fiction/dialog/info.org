@@ -4,7 +4,7 @@ dgdebug cod.dg stdlib.dg
 cat sos.scr | dgdebug sos.dg stdlib.dg
 
 * weitere Beispiele in directory ./examples
-** ex101.dg ist Inform Doks Beispiel 101
+** ex101.dg (- ex338.dg)  ist Inform Doks Beispiel 101 (- 338)
 dialog versions taken from
 https://intfiction.org/t/inform-examples-tailored-for-dialog/44025
 inform versions from
@@ -13,3 +13,50 @@ https://ganelson.github.io/inform-website/book/examples_numerical.html
 ** Craverly Heights
 ./examples/craverly_heights.dg
 https://www.linusakesson.net/dialog/craverly/craverly_side_by_side.html
+
+** Flipping the map
+./examples/flipping_the_map.dg
+descr: https://intfiction.org/t/lets-learn-dialog-flipping-the-map/78683
+Inform7 https://intfiction.org/t/trinity-esque-direction-flips/78673
+
+* Dialog Engine
+** Dialog manual
+https://dialog-if.github.io/manual/dialog/1c03-dev/index.html
+
+** Wiki
+https://www.ifwiki.org/Dialog
+
+** Test für Impossible Stairs
+https://github.com/Dialog-IF/dialog/blob/main/test/impossible/Makefile
+Auther Mathbrush https://www.ifwiki.org/Mathbrush
+https://intfiction.org/t/impossible-stairs-postmortem-and-using-dialog/57172
+
+* Let's learn Dialog
+https://intfiction.org/t/lets-learn-dialog/78444/14
+https://github.com/tzbits/learn-dialog
+
+speziell Prison
+https://github.com/tzbits/learn-dialog/blob/main/prison.dg
+descr: https://intfiction.org/t/lets-learn-dialog-flipping-the-map/78683/10
+
+Finite Switchable
+https://intfiction.org/t/adjacent-to-let-s-learn-dialog-finite-switchable-game/78518
+https://intfiction.org/t/lets-learn-dialog-finite-switchable-game/78500
+
+* IFWiki Examples Dialog
+https://intfiction.org/t/elevator-and-stairs-example-code/59887
+https://www.ifwiki.org/Category:Examples_of_Dialog_code
+https://www.ifwiki.org/Elevator_and_stairs_(Dialog_example)
+
+* Daniel Stelzer
+** Repos
+https://bitbucket.org/dstelzer/workspace/projects/IF
+https://bitbucket.org/dstelzer/workspace/repositories/
+
+** speziell: Scott Adams
+https://intfiction.org/t/experiment-scott-adams-to-dialog-translator/73119
+https://bitbucket.org/dstelzer/scott-adams-dialog-translator/src/main/
+
+* Howard M. Lewis Ship (hlship)
+Clojurian
+https://github.com/hlship/sanddancer-dialog
