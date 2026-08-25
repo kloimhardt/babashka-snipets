@@ -1,7 +1,8 @@
 * Beispiel: Cloak of Darkness
 
 dgdebug cod.dg stdlib.dg
-cat sos.scr | dgdebug sos.dg stdlib.dg
+cat sos.scr - | dgdebug sos.dg stdlib.dg
+(das minus - gibt Kontrolle zum keyboard stdin)
 
 * weitere Beispiele in directory ./examples
 ** ex101.dg (- ex338.dg)  ist Inform Doks Beispiel 101 (- 338)
@@ -13,11 +14,17 @@ https://ganelson.github.io/inform-website/book/examples_numerical.html
 ** Craverly Heights
 ./examples/craverly_heights.dg
 https://www.linusakesson.net/dialog/craverly/craverly_side_by_side.html
+Walkthrough + Map
+https://solutionarchive.com/game/id%2C10452/Craverly+Heights.html
 
 ** Flipping the map
 ./examples/flipping_the_map.dg
 descr: https://intfiction.org/t/lets-learn-dialog-flipping-the-map/78683
 Inform7 https://intfiction.org/t/trinity-esque-direction-flips/78673
+
+** Attracts
+./examples/joybooth.dg
+see let's learn Dialog
 
 * Dialog Engine
 ** Dialog manual
@@ -60,3 +67,33 @@ https://bitbucket.org/dstelzer/scott-adams-dialog-translator/src/main/
 * Howard M. Lewis Ship (hlship)
 Clojurian
 https://github.com/hlship/sanddancer-dialog
+
+* Questions
+** How to implement an action scene
+** How to display the exits automatically
+
+* Sound of Saalsberg
+** General
+New in town, Reinhold impressed by "Music of the Spheres" on his way to the city of Jena, gives you his house.
+Deine Hausfrauenfähigkeiten waren nie gut.
+
+** study
+
+(you have long hair, Mozart of course notices without noticing that the others do not notice).
+
+** kitchen
+salt on table from the mines since the kelts rowed up the river.
+Die Niere brennt an, musst sie salzen damit dus essen kannst.
+Schnitzel with noodles only eat the southerners, despite the city is Rome of the North.
+Flowers bloom in the vase; take one of many -> verwelkt gleich, aber wurst.
+
+** vorraum
+would not want to leave without wig, nor without eating.
+
+** Turm
+Mozart braucht seine Geige um bei der Vorlesung spielen zu können.
+
+** Wulf
+I know, he is a gifted genious, so is ist sister Konstanze. But he is a crocodile, out of this world.
+Wrote a school for violin myself, but since his mother died, I do not have time anymore, must run canteen.
+

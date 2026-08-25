@@ -1,42 +1,97 @@
 #player
 (current player *)
 (* is #in #study)
-(descr *) You are Professor Kurt. Emanuelle Kurt, at least according to your documents. You changed the first name to Immanuel at the age of 22 as you consider this to be closer to Hebrew origins.
+(descr *) You are Professor Kurt. You changed the first name to Immanuel at the age of 22. %% You consider Immanuel to be closer to Hebrew origins.
+
+#documents
+(name *) documents
+(* is #in #drawer)
+(descr *) The passport says "Emanuelle Kurt, born 1760". I am 29 going on 30, you think. Still you are the youngest professor amongst all colleagues here, in the eastern empire and the northern states.
+(instead of [take *])
+  (try [wear #wig])
+
+#study
+(name *)		study
+(room *)
+(look *)		This is a very nondescript room, dominated by a wooden writing table.
+
+#writingtable
+(name *) Writing table
+(supporter *)
+(* is #in #study)
+(descr *) The writing table has a drawer
+
+#drawer
+(name *) Drawer
+(* is #in #study)
+(openable *)
+(container *)
+(perform [open *])
+  (try [open *])
+  You open the drawer, seeing documents and a wig.
+  (line)
+	(now) (Reinhold scene is running)
+
+(on every tick in #study)
+	(Reinhold scene is running)
+  (select)
+	"Immanuel, you are needed at the tower!"
+	shouts Reinhold at the top of his lungs.
+  (or)
+  "It is urgent", Reinhold shouts.
+  (now) ~(Reinhold scene is running)
+  (stopping)
+
+#wig
+(name *) Wig
+(wearable *)
+(* is #in #drawer)
 
 #door
 (door *)
 (openable *)
 (name *)		small door
 (descr *)		It's a perfectly ordinary, but small, door.
+(from #study go #south through * to #kitchen)
 
-#study
-(name *)		study
-(room *)
-(look *)		This is a very nondescript room, dominated by a wooden writing table.
-(* is #in #house)
-(from * go #south through #door to #kitchen)
+#obersaalsberg
+(name *) Obersaalsberg
+(descr *) menace
+(#study attracts *)
+(#kitchen attracts *)
+(#housestreet attracts *)
+(#unistreet attracts *)
+(#canteenstreet attracts *)
+
+#untersberg
+(name *) Untersberg
+(descr *) friendly
+(#study attracts *)
+(#kitchen attracts *)
+(#housestreet attracts *)
+(#unistreet attracts *)
+(#canteenstreet attracts *)
 
 #window
 (name *) window
-(descr *) From your window looking south and southwest, you can see the villages of Obersaalsberg and Untersberg located atop two hills carrying the same names. Saalsberg lies where the Saalach river leaves the alps and meanders across the state-borders to open out into the Eastern river.
-(* is #in #study)
-
+(descr *) From your window looking south and southwest, you can see snowcapped mountains. Atop you see the village of (name #obersaalsberg), but that hill is really only alive at (name #untersberg).
+(#study attracts *)
+(#kitchen attracts *)
 
 #kitchen
 (name *) kitchen
 (room *)
 (look *)
-        As your servant is not in today, you are going to eat at Wulff's Canteen.
+        As Reinhold is not in today, you are going to eat your favourite things at Wulff's Canteen.
 			  (notice #table) %% Binds the word “it” to the table.
 
-(* is #in #house)
 (from * go #north to #study)
 (from * go #south to #anteroom)
 
 #table
 (name *)		table
-(colour *) red
-(material *) wood
+%% (colour *) red
+%% (material *) wood
 (supporter *)
 (appearance *)		You notice a conspicuous table here.
 (* is #in #kitchen)
@@ -45,8 +100,8 @@
 (name *)		chair
 (dict *)		white plain
 (look *) haio
-(colour *) white
-(material *) plastic
+%% (colour *) white
+%% (material *) plastic
 (on-seat *)
 (appearance *)		You notice a conspicuous chair here.
 (* is #in #kitchen)
@@ -57,14 +112,8 @@
 (name *) anteroom
 (room *)
 (look *) TBD
-(* is #in #house)
 (from * go #north to #kitchen)
 (from * go #south to #housestreet)
-
-#house
-(name *) house
-(room *)
-(look *) TBD
 
 #housestreet
 (name *) Main Street
@@ -77,7 +126,7 @@
 (name *) Main Street
 (room *)
 (look *) you stand in fromt of the canteen
-(from * go #east to #unistreet)
+(from * go #east to #runstreet)
 (from * go #west to #housestreet)
 (from * go #north to #canteen)
 
@@ -89,8 +138,15 @@
 #canteen
 (name *) canteen
 (room *)
-(look *) TBD
+(look *) No chicken sold!
 (from * go #south to #canteenstreet)
+
+#runstreet
+(name *) Main Street
+(room *)
+(look *) Runstreet runs to north and south
+(from * go #east to #unistreet)
+(from * go #west to #canteenstreet)
 
 #unistreet
 (name *) Main Street
@@ -98,6 +154,11 @@
 (look *) you stand in front of the university
 (from * go #west to #canteenstreet)
 (from * go #north to #uni)
+
+#grill
+(name *) Stand
+(appearance *)		The stand is selling grilled chicken
+(* is #in #unistreet)
 
 #unifacade
 (name *) university
@@ -109,3 +170,15 @@
 (room *)
 (look *) TBD
 (from * go #south to #unistreet)
+(from * go #up to #tower)
+
+#tower
+(name *) tower
+(room *)
+(look *) You can see a window. "I am the son of Leopold Wulf. The name is Arthur but everyone calls me Wulferl." He is clothed according to the latest fashion, clothing that would eat up all your salary.
+(from * go #down to #uni)
+
+#towerwindow
+(name *) window
+(descr *) Saalsberg lies where the Saalach river leaves the alps and meanders across the state-borders to open out into the Eastern river.
+(* is #in #tower)
