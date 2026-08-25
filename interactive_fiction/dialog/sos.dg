@@ -14,6 +14,19 @@
 (name *)		study
 (room *)
 (look *)		This is a very nondescript room, dominated by a wooden writing table.
+(from * go #north to #kitchen)
+
+#chair
+(name *)		chair
+(dict *)		white plain
+(look *) haio
+%% (colour *) white
+%% (material *) plastic
+(on-seat *)
+(appearance *)		You notice a conspicuous chair here.
+(* is #in #study)
+
+%% (descr $O) The (name $O) is painted (colour $O) and made of (material $O)
 
 #writingtable
 (name *) Writing table
@@ -45,6 +58,7 @@
 #wig
 (name *) Wig
 (wearable *)
+(descr *) It is the wig you brought from the northern fringe of the northern empire, your hometown of Kingsburg.
 (* is #in #drawer)
 
 #door
@@ -52,7 +66,7 @@
 (openable *)
 (name *)		small door
 (descr *)		It's a perfectly ordinary, but small, door.
-(from #study go #south through * to #kitchen)
+(from #study go #south through * to #anteroom)
 
 #obersaalsberg
 (name *) Obersaalsberg
@@ -81,32 +95,48 @@
 #kitchen
 (name *) kitchen
 (room *)
-(look *)
-        As Reinhold is not in today, you are going to eat your favourite things at Wulff's Canteen.
-			  (notice #table) %% Binds the word “it” to the table.
+(look *) A small recess with a shelf and a stove.
+(from * go #south to #study)
 
-(from * go #north to #study)
-(from * go #south to #anteroom)
-
-#table
-(name *)		table
-%% (colour *) red
-%% (material *) wood
+#shelf
+(name *) shelf
 (supporter *)
-(appearance *)		You notice a conspicuous table here.
+(descr*) There are flowers, a salt-cellar and a plate.
 (* is #in #kitchen)
 
-#chair
-(name *)		chair
-(dict *)		white plain
-(look *) haio
-%% (colour *) white
-%% (material *) plastic
-(on-seat *)
-(appearance *)		You notice a conspicuous chair here.
+#plate
+(name *) plate
+(item *)
+(supporter *)
+(* is #on #shelf)
+
+#salt-cellar
+(name *) salt-cellar
+(dict *) salt cellar saliera
+(item *)
+(descr *) It is not as famous as Cellini's Saliera but it is filled and works.
+(* is #on #shelf)
+
+#flowers
+(name *) flowers
+(descr *) The watered flowers bloom on the shelf.
+(* is #on #shelf)
+
+#stove
+%% switchable, cannot switch off (18th century)
+(name *) stove
+(supporter *)
 (* is #in #kitchen)
 
-%% (descr $O) The (name $O) is painted (colour $O) and made of (material $O)
+#pan
+(name *) pan
+(container *)
+(* is #on #stove)
+
+#kidney
+(name *) kidney
+(item *)
+(* is #in #pan)
 
 #anteroom
 (name *) anteroom
@@ -175,7 +205,7 @@
 #tower
 (name *) tower
 (room *)
-(look *) You can see a window. "I am the son of Leopold Wulf. The name is Arthur but everyone calls me Wulferl." He is clothed according to the latest fashion, clothing that would eat up all your salary.
+(look *) You can see a window. "I am the son of Leopold Wulf. The name is Arthur but everyone calls me Wulferl. I need my violin to perform in your lecture." He is clothed according to the latest fashion, clothing that would eat up all your salary.
 (from * go #down to #uni)
 
 #towerwindow
