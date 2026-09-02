@@ -73,9 +73,13 @@ https://github.com/hlship/sanddancer-dialog
 ** How to display the exits automatically
 
 * Sound of Saalsberg
+Vorbild: out Viktor Sobol https://ifdb.org/viewgame?id=f99kibzl2391pe02
+Take, The North-North Passage, Lime Ergot, Portrait with Wolf, The Spectators, The Little Four.
+
 ** General
 New in town, Reinhold impressed by "Music of the Spheres" on his way to the city of Jena, gives you his house.
 Deine Hausfrauenfähigkeiten waren nie gut.
+Jahr: 1769, Wulferl 14; Kurts 29
 
 ** study
 
@@ -93,9 +97,24 @@ bloom watered Flowers; take one of many -> verwelkt gleich, aber wurst.
 would not want to leave without wig, nor without eating.
 
 ** Turm
-Mozart braucht seine Geige um bei der Vorlesung spielen zu können.
+Wulferl braucht seine Geige um bei der Vorlesung spielen zu können.
 
 ** Wulf
 I know, he is a gifted genious, so is ist sister Konstanze. But he is a crocodile, out of this world.
 Wrote a school for violin myself, but since his mother died, I do not have time anymore, must run canteen.
 
+** Lecture Hall
+Wulferl mesmerizes Maria Theresia Paradis / Theresia Arcadia
+https://anthroblog.anthroweb.info/2013/vom-mesmerismus-zum-spiritismus/
+
+* Other games
+** Plundered hearts
+> jump
+In these clothes? You jest.
+   Rebounding, the ladder twists you around to face the Helena Louise.
+
+You are wearing a cotton frock, very pretty, if a tad outmoded for today’s fashions.
+
+** Gruescript
+https://martinshannon.itch.io/when-the-tv-decides-to-murder-your-girlfriend-the-game
+https://pseudavid.itch.io/tricks-of-light-in-the-forest

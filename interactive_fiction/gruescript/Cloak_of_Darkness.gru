@@ -1,0 +1,110 @@
+# '#' means this line (or the rest of this line) is a comment
+# (if you want to output '#' during your game, use "&num;")
+game Cloak of Darkness # Game title
+id CLOD # game ID (used to identify cookies; should be unique on your site)
+author Roger Firth, adapted to Gruescript by Robin Johnson
+version 0.0.1
+person 2 # 2nd person, i.e. "You are in..."
+examine off # if 'on', the verb 'examine' will be implemented by clicking nouns
+status { $Room } | { $cloaked } # '|' divides left and right ends of status bar
+
+# a portable item
+thing cloak pitch-black opera cloak
+carried # starts in inventory
+tags portable wearable worn # all special engine-recognised tags
+
+# setting "cloaked" will set the status bar
+var cloaked Cloaked
+rule
+assign cloaked Cloaked
+!has cloak worn
+assign cloaked Uncloaked
+
+# a room
+room foyer You're in the foyer of the Opera House. # internal name and description
+tags start # the player starts here
+south bar # directions to other rooms
+west cloakroom
+north foyer
+
+# block an exit
+verb go north 
+at foyer
+say But you've only just arrived!
+
+room bar You're in the bar.
+north foyer
+
+# set the state of the bar BEFORE entering it
+verb go south
+at foyer
+run check_bar
+continue # fails, so default movement behaviour will always happen
+
+proc check_bar
+carried cloak
+tag bar dark # 'dark' is a special tag
+
+proc check_bar
+thingat cloak bar
+tag bar dark
+
+# both 'carried cloak' and 'thingat cloak bar' must have failed
+proc check_bar
+untag bar dark
+
+rule
+at bar
+has bar dark
+add mess 1
+!eq $mess 2: You should probably go back out to the foyer &ndash; you wouldn't want to accidentally disturb anything in the dark. # message printed if assertion fails
+
+room cloakroom You're in a small cloakroom.
+east foyer
+
+# non-portable item
+thing hook brass hook
+loc cloakroom # the room it starts in
+
+# setverb blocks determine when to activate verbs for things
+setverb hang hook # when to activate 'hang' verb for the hook
+has $held wearable
+# note: we're placing the 'hang' verb on the hook, rather than the cloak.
+# in a parser game you would type "hang cloak" (or "hang cloak on hook")
+# so we might have put the verb on the cloak instead. But it's more intuitive
+# to see the verb button next to the hook: you hold the cloak, then look round
+# the room, a bit like a graphical point-n-click. we'll change 'display' and
+# 'prompt' for the verb, so that the player sees "hang cloak"
+
+verb hang
+display hang {$held} # how it's displayed in the button
+prompt hang {$held} on {$this} # how it's displayed at the mock command prompt
+tag $held hooked # add an (author-defined) tag
+say You hang {the $held} on {the $this}.
+put $held $this.loc # 'held' and 'this' are special contextual variables
+
+tagdesc hooked on hook # will be displayed with the object
+
+# taking anything that is 'hooked' removes that tag
+verb take
+has $this hooked # if an assertion 'fails', control will move to the native verb 'take'
+untag $this hooked
+continue # always 'fails', 'take' will pick up the action
+
+thing dust dust (on the floor)
+tags mass_noun # i.e. 'some dust', not 'a dust'
+loc bar
+
+rule
+at bar
+!has bar dark
+lt $mess 3 # if the value of the variable 'mess' is less than 3
+say A message is scrawled in the dust! It reads&colon;
+die You win # end the game
+
+rule
+at bar
+!has bar dark # rules are processed in order of declaration
+say A message is scrawled in the dust!
+say What a pity, it's too scuffed to read.
+die You lose

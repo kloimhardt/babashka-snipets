@@ -1,0 +1,18 @@
+* squint_compiler.clj
+https://github.com/squint-cljs/squint/blob/main/examples/babashka/index.clj
+
+to run with babashka: bb squint_compiler.clj
+
+Vorbild für sos.clj
+
+* The_Party_Line.html
+https://versificator.itch.io/gruescript
+-> Examples -> ThePartyLine -> Download Game
+
+* .gru files
+Die .gru files sind die Games in Gruescript
+mit dem Babashka Befehl
+
+$ bb sos.cljs
+
+wird aus The_Party_Line.html der header rausgenommen (die Versificator engine) und ein .gru file drangehängt und ein web-server gestartet.

@@ -114,7 +114,7 @@
 (name *) salt-cellar
 (dict *) salt cellar saliera
 (item *)
-(descr *) It is not as famous as Cellini's Saliera but it is filled and works.
+(descr *) It is not as famous as Cellini's Saliera, the pride of the university's collection. But it is filled and works.
 (* is #on #shelf)
 
 #flowers
